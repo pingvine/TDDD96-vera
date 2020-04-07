@@ -1,6 +1,7 @@
 .mat-raised-button{
   margin:5px;
   max-height: 36px;
+  min-width: fit-content;
 }
 
 .mat-toolbar {
