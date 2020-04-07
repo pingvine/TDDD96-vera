@@ -1,16 +1,15 @@
 <mat-toolbar color="primary">
   <div
-    layout="column"
     class="mat-toolbar-row">
 
-    <span> VERA 2020 </span>
+      <button mat-icon-button routerLink="/oversikt">
+        <mat-icon svgIcon="logo">
+        </mat-icon></button>
+          <button mat-raised-button color="accent" routerLink="/oversikt" > Enhetsversikt </button>
+      <button mat-raised-button color="accent" routerLink="/patient"> Patientöversikt </button>
+      <button mat-raised-button color="accent" routerLink="/sammanstallning"> Sammanställning </button>
+    </div>
 
-    <button mat-raised-button color="accent" routerLink="/oversikt"> Enhetsversikt </button>
-    <button mat-raised-button color="accent" routerLink="/patient"> Patientöversikt </button>
-    <button mat-raised-button color="accent" routerLink="/sammanstallning"> Sammanstallning </button>
-
-
-  </div>
 
 
 </mat-toolbar>

@@ -7,8 +7,11 @@ import {MatButtonModule} from '@angular/material/button';
 import { PatientComponent } from './patient/patient.component';
 import { OversiktComponent } from './oversikt/oversikt.component';
 import { SammanstallningComponent } from './sammanstallning/sammanstallning.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { HeaderComponent } from './header/header.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
+    MatIconModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

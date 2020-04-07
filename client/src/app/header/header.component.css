@@ -1,0 +1,18 @@
+.mat-raised-button{
+  margin:5px;
+  max-height: 36px;
+}
+
+.mat-toolbar {
+  height: 50px;
+  width: 100%;
+}
+
+.mat-icon {
+  width: fit-content;
+}
+
+.mat-icon-button {
+  width: 110px;
+  height: 36px;
+}
