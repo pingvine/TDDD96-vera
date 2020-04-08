@@ -6,6 +6,9 @@ var cors = require('cors');
 
 var testRouter = require('./routes/test');
 var indexRouter = require('./routes/index');
+let oversiktRouter = require('./routes/oversikt');
+let patientRouter = require('./routes/patient');
+let sammanstallningRouter = require('./routes/sammanstallning');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/coronavirus', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -25,5 +28,8 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/test', testRouter);
+app.use('/oversikt', oversiktRouter);
+app.use('/patient', patientRouter);
+app.use('/sammanstallning', sammanstallningRouter);
 
 module.exports = app;
