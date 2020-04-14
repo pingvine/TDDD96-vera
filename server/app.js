@@ -38,9 +38,9 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/test', testRouter);
-app.use('/oversikt', oversiktRouter);
+app.use('/overview', oversiktRouter);
 app.use('/patient', patientRouter);
-app.use('/sammanstallning', sammanstallningRouter);
+app.use('/summary', sammanstallningRouter);
 
 
 module.exports = app;
