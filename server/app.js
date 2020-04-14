@@ -18,9 +18,19 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Connected to MongoDB!');
 });
+let corsOptions = {
+  origin:  function (origin, callback) {
+    if (origin === 'http://localhost:4200' || !origin) {
+      callback(null, true)
+    } else {
+      callback('Hejdå')
+    }
+  }
+}
 
 var app = express();
 
+app.use(cors(corsOptions))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -31,5 +41,6 @@ app.use('/test', testRouter);
 app.use('/oversikt', oversiktRouter);
 app.use('/patient', patientRouter);
 app.use('/sammanstallning', sammanstallningRouter);
+
 
 module.exports = app;
