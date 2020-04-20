@@ -4,8 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OverviewTableComponent } from './overview-table/overview-table.component';
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,7 @@ import { NgxDatatableModule } from "@swimlane/ngx-datatable";
     BrowserModule,
     AppRoutingModule,
     NgxDatatableModule,
-    
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
