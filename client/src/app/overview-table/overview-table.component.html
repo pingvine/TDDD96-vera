@@ -1,0 +1,42 @@
+<div>
+    <ngx-datatable 
+    #myTable
+    class="material expanded"
+    [rows]="rows"
+    [groupRowsBy]="'team'"
+    [columnMode]="'force'"
+    [scrollbarH]="true"
+    
+    [headerHeight]="40"
+    [footerHeight]="40"
+
+    [rowHeight]="40"
+    [groupExpansionDefault]="true"
+    > 
+    <!-- Row Header Template -->
+    <ngx-datatable-group-header [rowHeight]="40" #myGroupHeader (toggle)="onDetailToggle($event)">
+        <ng-template let-group="group" let-expanded="expanded" ngx-datatable-group-header-template>
+          <div style="padding-left:5px;">
+            <a
+              href="#"
+              onclick="return false"
+              [class.datatable-icon-right]="!expanded"
+              [class.datatable-icon-down]="expanded"
+              title="Expand/Collapse Group"
+              (click)="toggleExpandGroup(group)"
+            >
+              <b>Team: {{ group.value[0].team }}</b>
+            </a>
+          </div>
+        </ng-template>
+      </ngx-datatable-group-header>
+
+       <!-- Row Column Template -->
+      <ngx-datatable-column name="Name" prop="name" sortable="true"></ngx-datatable-column>
+      <ngx-datatable-column name="Gender" prop="gender"></ngx-datatable-column>
+      <ngx-datatable-column name="Age" prop="age"></ngx-datatable-column>
+      <ngx-datatable-column name="Responsible party" prop="respons"></ngx-datatable-column>
+      
+      <ngx-datatable-footer><b>asdasd</b>  </ngx-datatable-footer>
+    </ngx-datatable>
+</div>
