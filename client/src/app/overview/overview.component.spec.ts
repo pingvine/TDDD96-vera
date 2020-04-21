@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OverviewComponent } from './overview.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('OverwatchComponent', () => {
   let component: OverviewComponent;
@@ -8,6 +9,7 @@ describe('OverwatchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [ OverviewComponent ]
     })
     .compileComponents();
