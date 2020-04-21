@@ -6,9 +6,9 @@ var cors = require('cors');
 
 var testRouter = require('./routes/test');
 var indexRouter = require('./routes/index');
-let oversiktRouter = require('./routes/oversikt');
-let patientRouter = require('./routes/patient');
-let sammanstallningRouter = require('./routes/sammanstallning');
+var overviewRouter = require('./routes/overview');
+var patientRouter = require('./routes/patient');
+var summaryRouter = require('./routes/summary');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/coronavirus', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -18,7 +18,8 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Connected to MongoDB!');
 });
-let corsOptions = {
+// Only accept trusted connections
+var corsOptions = {
   origin:  function (origin, callback) {
     if (origin === 'http://localhost:4200' || !origin) {
       callback(null, true)
@@ -38,9 +39,9 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/test', testRouter);
-app.use('/overview', oversiktRouter);
+app.use('/overview', overviewRouter);
 app.use('/patient', patientRouter);
-app.use('/summary', sammanstallningRouter);
+app.use('/summary', summaryRouter);
 
 
 module.exports = app;

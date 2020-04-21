@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OversiktComponent } from './oversikt.component';
+import { Summarycomponent } from './summary.component';
 
-describe('OverwatchComponent', () => {
-  let component: OversiktComponent;
-  let fixture: ComponentFixture<OversiktComponent>;
+describe('SammanstallningComponent', () => {
+  let component: Summarycomponent;
+  let fixture: ComponentFixture<Summarycomponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OversiktComponent ]
+      declarations: [ Summarycomponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OversiktComponent);
+    fixture = TestBed.createComponent(Summarycomponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

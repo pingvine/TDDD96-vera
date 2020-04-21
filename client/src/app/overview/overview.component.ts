@@ -4,11 +4,11 @@ import {DummyGet} from '../models/get.dummy.model';
 
 @Component({
   selector: 'app-overview',
-  templateUrl: './oversikt.component.html',
-  styleUrls: ['./oversikt.component.css'],
+  templateUrl: './overview.component.html',
+  styleUrls: ['./overview.component.css'],
   providers: [FetchDataService]
 })
-export class OversiktComponent implements OnInit {
+export class OverviewComponent implements OnInit {
   url = 'http://localhost:4201/oversikt';
   response: DummyGet[];
   responseOk = false;

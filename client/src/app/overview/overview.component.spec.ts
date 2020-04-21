@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SammanstallningComponent } from './sammanstallning.component';
+import { OverviewComponent } from './overview.component';
 
-describe('SammanstallningComponent', () => {
-  let component: SammanstallningComponent;
-  let fixture: ComponentFixture<SammanstallningComponent>;
+describe('OverwatchComponent', () => {
+  let component: OverviewComponent;
+  let fixture: ComponentFixture<OverviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SammanstallningComponent ]
+      declarations: [ OverviewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SammanstallningComponent);
+    fixture = TestBed.createComponent(OverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

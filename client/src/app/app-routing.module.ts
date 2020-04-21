@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PatientComponent } from './patient/patient.component';
-import {OversiktComponent} from './overview/oversikt.component';
-import {SammanstallningComponent} from './summary/sammanstallning.component';
+import {OverviewComponent} from './overview/overview.component';
+import {SummaryComponent} from './summary/summary.component';
 import {TeamComponent} from './team/team.component';
 import {LogComponent} from './log/log.component';
 import {SettingsComponent} from './settings/settings.component';
@@ -25,14 +25,14 @@ const routes: Routes = [
     component: TeamComponent
   },
   { path: 'summary',
-    component: SammanstallningComponent
+    component: SummaryComponent
   },
   { path: 'patient',
     component: PatientComponent
   },
   {
     path: 'overview',
-    component: OversiktComponent,
+    component: OverviewComponent,
     data: {}
   },
   { path: '',

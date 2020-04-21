@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { PatientComponent } from './patient/patient.component';
-import { OversiktComponent } from './overview/oversikt.component';
-import { SammanstallningComponent } from './summary/sammanstallning.component';
+import { OverviewComponent } from './overview/overview.component';
+import { SummaryComponent } from './summary/summary.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -22,8 +22,8 @@ import { StartComponent } from './start/start.component';
   declarations: [
     AppComponent,
     PatientComponent,
-    OversiktComponent,
-    SammanstallningComponent,
+    OverviewComponent,
+    SummaryComponent,
     HeaderComponent,
     SettingsComponent,
     TeamComponent,

@@ -3,11 +3,11 @@ import {FetchDataService} from '../fetch-data.service';
 
 @Component({
   selector: 'app-sammanstallning',
-  templateUrl: './sammanstallning.component.html',
-  styleUrls: ['./sammanstallning.component.css'],
+  templateUrl: './summary.component.html',
+  styleUrls: ['./summary.component.css'],
   providers: [FetchDataService]
 })
-export class SammanstallningComponent implements OnInit {
+export class SummaryComponent implements OnInit {
   url = 'http://localhost:4201/sammanstallning';
   response = [];
   constructor(private service: FetchDataService) { }
