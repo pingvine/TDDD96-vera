@@ -9,7 +9,7 @@ import {DummyGet} from '../models/get.dummy.model';
   providers: [FetchDataService]
 })
 export class OverviewComponent implements OnInit {
-  url = 'http://localhost:4201/oversikt';
+  url = 'http://localhost:4201/overview';
   response: DummyGet[];
   responseOk = false;
   constructor(private service: FetchDataService) { }

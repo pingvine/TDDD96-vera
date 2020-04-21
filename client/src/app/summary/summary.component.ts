@@ -8,7 +8,7 @@ import {FetchDataService} from '../fetch-data.service';
   providers: [FetchDataService]
 })
 export class SummaryComponent implements OnInit {
-  url = 'http://localhost:4201/sammanstallning';
+  url = 'http://localhost:4201/summary';
   response = [];
   constructor(private service: FetchDataService) { }
 

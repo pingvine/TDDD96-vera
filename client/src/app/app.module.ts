@@ -11,9 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SettingsComponent } from './settings/settings.component';
 import { TeamComponent } from './team/team.component';
-import { LogComponent } from './log/log.component';
 import { NewPatientComponent } from './new-patient/new-patient.component';
-import { StartComponent } from './start/start.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +21,8 @@ import { StartComponent } from './start/start.component';
     SummaryComponent,
     SettingsComponent,
     TeamComponent,
-    LogComponent,
     NewPatientComponent,
-    StartComponent,
+
   ],
   imports: [
     BrowserModule,
