@@ -1,0 +1,75 @@
+
+::ng-deep .row{
+    background-color: lightgray;
+    font-size: 14px;
+}
+
+::ng-deep .prio-blue{
+    background-color: blue;   
+    span{
+        visibility: hidden;
+    }   
+}
+
+::ng-deep .prio-green{
+    background-color: green;
+    span{
+        visibility: hidden;
+    }
+}
+
+::ng-deep .prio-yellow{
+    background-color: yellow;
+    span{
+        visibility: hidden;
+    }
+}
+
+::ng-deep .prio-orange{
+    background-color: orange;
+    span{
+        visibility: hidden;
+    }
+}
+
+::ng-deep .prio-red{
+    background-color: red;
+    span{
+        visibility: hidden;
+    }
+}
+
+
+b {
+    font-size: 18px;
+}
+
+.group-header{
+    background-color: lightslategray;
+    b{
+        font-size: med;
+    }
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+::ng-deep .datatable-body-cell-label{
+    line-height: 0;
+    margin-left: 5px;
+}
+
+::ng-deep .datatable-column-wrapper:nth-child(2n){
+    background-color: red;
+}
+
+::ng-deep .ngx-datatable .datatable-body {
+    height: 500px !important; 
+    overflow-y: scroll;
+}
+
+::ng-deep .datatable {
+	text-align: left;
+	width:75%;
+	margin:0 auto;
+	height: 1000px;
+}

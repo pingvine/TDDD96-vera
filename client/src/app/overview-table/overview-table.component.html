@@ -1,22 +1,30 @@
+<input
+      type="text"
+      style="padding:8px;margin:15px auto;width:30%;"
+      placeholder="Sök efter namn eller personnummer"
+      (keyup)="updateFilter($event)"
+    /> 
+
 <div>
+       
     <ngx-datatable 
     #myTable
-    class="material expanded"
+    class="bootstrap expandable fullscreen"
     [rows]="rows"
     [groupRowsBy]="'team'"
     [columnMode]="'force'"
     [scrollbarH]="true"
     
+    [rowClass]="getRowClass"
     [headerHeight]="40"
-    [footerHeight]="40"
-
-    [rowHeight]="40"
+    [footerHeight]="0"
+    [rowHeight]="30"
     [groupExpansionDefault]="true"
     > 
     <!-- Row Header Template -->
-    <ngx-datatable-group-header [rowHeight]="40" #myGroupHeader (toggle)="onDetailToggle($event)">
+    <ngx-datatable-group-header [rowHeight]="50" #myGroupHeader  (toggle)="onDetailToggle($event)"  >
         <ng-template let-group="group" let-expanded="expanded" ngx-datatable-group-header-template>
-          <div style="padding-left:5px;">
+          <div class="group-header" style="padding-left:5px; ">
             <a
               href="#"
               onclick="return false"
@@ -27,16 +35,35 @@
             >
               <b>Team: {{ group.value[0].team }}</b>
             </a>
+            <span>       </span>
+            
           </div>
         </ng-template>
       </ngx-datatable-group-header>
 
        <!-- Row Column Template -->
-      <ngx-datatable-column name="Name" prop="name" sortable="true"></ngx-datatable-column>
-      <ngx-datatable-column name="Gender" prop="gender"></ngx-datatable-column>
-      <ngx-datatable-column name="Age" prop="age"></ngx-datatable-column>
-      <ngx-datatable-column name="Responsible party" prop="respons"></ngx-datatable-column>
-      
-      <ngx-datatable-footer><b>asdasd</b>  </ngx-datatable-footer>
+
+       <!-- Age and prio -->
+      <ngx-datatable-column name="" prop="prio" [cellClass]="getCellClass" sortable="true" [frozenLeft]="false" [width]="35"></ngx-datatable-column>
+      <ngx-datatable-column name="Personnummer" [width]="175" [frozenLeft]="" sortable="true">
+        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+          <div> <strong [innerHTML]="row['social']"> </strong> ( <i [innerHTML]="row['age']"></i> )</div>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- Info -->
+      <ngx-datatable-column name="Ankomst" prop="arrival" sortable="true" [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Checkup" prop="time" sortable="true" [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Sökorsak" prop="search" [width]="100"></ngx-datatable-column>
+      <ngx-datatable-column name="Aktivitet" prop="activity" (click)="activityClicked($event)" [width]="75"></ngx-datatable-column>
+      <!--<ngx-datatable-column name="Name" prop="name" sortable="true" [width]="75"></ngx-datatable-column>-->
+      <ngx-datatable-column name="Name" prop="name" [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Gender" prop="gender" headerClass="" [width]="100"> </ngx-datatable-column>
+      <!-- Personel in charge -->
+      <ngx-datatable-column name="Anvs.Dr." prop="dr" [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Ansv.SSK." prop="nurse" [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Ansv.USK." prop="nurse2" [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Team" prop="team" [width]="100"></ngx-datatable-column>
+      <ngx-datatable-column name="Comment" [width]="100"></ngx-datatable-column>    
+      <ngx-datatable-column name="Comment" [width]="300"></ngx-datatable-column>    
     </ngx-datatable>
 </div>
