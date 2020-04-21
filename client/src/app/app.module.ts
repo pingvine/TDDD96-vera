@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { PatientComponent } from './patient/patient.component';
 import { OverviewComponent } from './overview/overview.component';
 import { SummaryComponent } from './summary/summary.component';
@@ -28,6 +30,7 @@ import { StartComponent } from './start/start.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     HttpClientModule,
   ],
   providers: [],
