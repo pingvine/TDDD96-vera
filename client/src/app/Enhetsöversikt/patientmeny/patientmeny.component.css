@@ -1,0 +1,13 @@
+.mat-card {
+  border-radius: 25px;
+  background-color: transparent;
+
+}
+
+.mat-raised-button {
+  border-radius: 15px;
+}
+
+.mat-grid-tile {
+  border: solid 2px black;
+}
