@@ -1,11 +1,11 @@
 <div class="container">
   <h1>Vera 20</h1>
 </div>
-<mat-sidenav-container hasBackdrop="false" style="height: 200px">
-  <mat-sidenav #drawer mode="over" position="end">
+<mat-sidenav-container hasBackdrop="false" style="height: fit-content">
+  <mat-sidenav #drawer opened mode="over" position="end">
     <app-patientmeny></app-patientmeny>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content style="height: 500px">
 
   <!--    TODO här ska enhetsöversikten huvudsida in-->
     <button mat-raised-button (click)="drawer.toggle()">

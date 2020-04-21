@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PatientmenyComponent } from './Enhetsöversikt/patientmeny/patientmeny.component';
+import { PatientOverheadComponent } from './Enhetsöversikt/patient-overhead/patient-overhead.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatCardModule} from '@angular/material/card';
@@ -14,7 +14,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
-    PatientmenyComponent,
+    PatientOverheadComponent,
   ],
   imports: [
     BrowserModule,

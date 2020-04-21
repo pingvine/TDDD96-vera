@@ -1,0 +1,65 @@
+<mat-card class="mat-card-background">
+  <mat-icon style="float: right">clear</mat-icon>
+  <mat-card-title>
+
+    <mat-grid-list cols="4" rowHeight="48px">
+
+      <mat-grid-tile rowspan="2">
+        <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        {{name}} {{personalId}}
+      </mat-grid-tile>
+
+      <mat-grid-tile rowspan="2">
+        <mat-icon
+          [style.color]="priority">
+          accessibility
+        </mat-icon>
+      </mat-grid-tile>
+
+      <mat-grid-tile rowspan="2">
+        <mat-icon>notification_important</mat-icon>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <p> {{sex}} {{age}} år {{team}}</p>
+      </mat-grid-tile>
+
+      <mat-grid-tile colspan="4">
+        <button mat-raised-button color="accent">Patientvy</button>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </mat-card-title>
+
+  <mat-card-content>
+    <div>
+    <mat-card>
+      <mat-card-title>Triage</mat-card-title>
+      <mat-card-content>
+        Triage stuff
+      </mat-card-content>
+    </mat-card>
+    </div>
+
+    <div>
+      <mat-card>
+        <mat-card-title>Händelser</mat-card-title>
+        <mat-card-content>
+          Händelser
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div>
+      <mat-card>
+        <mat-card-title>Dokumentation</mat-card-title>
+        <mat-card-content>Dokumentationer</mat-card-content>
+      </mat-card>
+    </div>
+  </mat-card-content>
+</mat-card>
