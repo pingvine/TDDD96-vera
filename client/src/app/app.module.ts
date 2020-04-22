@@ -12,6 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
 import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
+import { AppHeaderComponent } from './app-header/app-header.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,7 @@ import { NewPatientViewComponent } from './new-patient/new-patient-view.componen
     SettingsViewComponent,
     TeamViewComponent,
     NewPatientViewComponent,
+    AppHeaderComponent,
 
   ],
   imports: [
@@ -29,6 +35,10 @@ import { NewPatientViewComponent } from './new-patient/new-patient-view.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

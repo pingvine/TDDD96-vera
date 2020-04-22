@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  views = ['Enhetsöversikt', 'Patientöversikt', 'Teamöversikt', 'Sammanställning'];
 
   title = 'VERA 20';
 

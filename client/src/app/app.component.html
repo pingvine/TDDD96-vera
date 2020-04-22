@@ -1,5 +1,25 @@
-<div class="container">
-  <h1>{{title}}</h1>
-</div>
+<div class="mat-app-background">
+  <button mat-button (click)="sidenav.toggle()" class="mat-app-menu-button">
+    <mat-icon class="mat-app-menu">menu</mat-icon>
+  </button>
+  <app-header></app-header>
 
-<router-outlet></router-outlet>
+</div>
+<mat-sidenav-container hasBackdrop="false">
+  <mat-sidenav #sidenav mode="over" class="view-sidenav">
+    <ul>
+      <li *ngFor="let view of views">
+        <button mat-button>{{view}}</button>
+      </li>
+    </ul>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="container">
+      <h1>{{title}}</h1>
+    </div>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

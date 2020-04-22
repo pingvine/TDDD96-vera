@@ -1,4 +1,35 @@
 .container {
     padding: 20px;
   }
+.mat-app-background {
+  background: #303F9F;
+  height: 48px;
+  width: auto;
+  color: white;
+  display: flex;
+}
 
+.view-sidenav {
+  height: auto;
+  width: auto;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.mat-app-menu {
+  font-size: 56px;
+}
+
+.mat-app-menu-button {
+  width: 72px;
+  position: absolute;
+  top: -10px;
+  left: -16px;
+  background: #303F9F;
+  padding-bottom: 48px;
+  padding-right: 48px;
+  border: none;
+  outline: none;
+}

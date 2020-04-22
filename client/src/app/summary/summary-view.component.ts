@@ -8,6 +8,7 @@ import {RequestService} from '../request.service';
   providers: [RequestService]
 })
 export class SummaryViewComponent implements OnInit {
+  name = 'Sammanställning';
   url = 'http://localhost:4201/summary';
   response = [];
   constructor(private service: RequestService) { }
