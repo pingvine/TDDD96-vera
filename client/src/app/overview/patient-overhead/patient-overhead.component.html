@@ -1,0 +1,42 @@
+<mat-card class="mat-card-background">
+  
+  <mat-card-title style="text-align: end; ">
+    <button mat-icon-button (click)="toggleMenu()"><mat-icon>clear</mat-icon></button>
+  </mat-card-title>
+
+  <mat-card-content style="text-align: left">
+    <div style="">
+      <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+      <span style="padding-right: 64px; padding-left: 16px">{{name}}</span>
+
+      <button mat-icon-button class="header_buttons"><mat-icon [style.color]="priority" style="font-size: xx-large">accessibility</mat-icon></button>
+      <button mat-icon-button class="header_buttons"><mat-icon>notification_important</mat-icon></button>
+      <span style="padding-left: 56px">{{personalId }}</span>
+      <p style="padding-left: 56px; font-size: medium"> {{sex}} {{age}} år {{team}}</p>
+    </div>
+    <button mat-raised-button color="accent">Patientvy</button>
+  </mat-card-content>
+
+  <mat-card>
+    <mat-card-title>Triage</mat-card-title>
+      <mat-card-content>
+        <app-triage-small></app-triage-small>
+       </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Händelser</mat-card-title>
+    <mat-card-content>
+      <app-history></app-history>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title>Dokumentation</mat-card-title>
+    <mat-card-content>
+      <app-documentations></app-documentations>
+    </mat-card-content>
+  </mat-card>
+
+
+</mat-card>

@@ -12,6 +12,9 @@ export class PatientOverheadComponent implements OnInit {
   personalId: string;
   team: string;
   sex: string;
+
+
+
   constructor() {
     this.name = 'Josef Atoui';
     this.age = 22;
@@ -19,6 +22,10 @@ export class PatientOverheadComponent implements OnInit {
     this.priority = 'red';
     this.team = 'Team A';
     this.sex = 'Man';
+  }
+
+  toggleMenu() {
+
   }
 
   ngOnInit(): void {
