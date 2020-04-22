@@ -1,42 +1,156 @@
 <mat-card class="mat-card-background">
 
-  <mat-card-title style="text-align: end; ">
-    <button mat-icon-button (click)="toggleMenu()"><mat-icon>clear</mat-icon></button>
-  </mat-card-title>
+  <mat-card-content>
 
-  <mat-card-content style="text-align: left">
-    <div style="">
-      <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
-      <span style="padding-right: 64px; padding-left: 16px">{{name}}</span>
+    <mat-grid-list cols="6" rowHeight="1:.5">
+      <mat-grid-tile rowspan="2">
+        <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+      </mat-grid-tile>
 
-      <button mat-icon-button class="header_buttons"><mat-icon [style.color]="priority" style="font-size: xx-large">accessibility</mat-icon></button>
-      <button mat-icon-button class="header_buttons"><mat-icon>notification_important</mat-icon></button>
-      <span style="padding-left: 56px">{{personalId }}</span>
-      <p style="padding-left: 56px; font-size: medium"> {{sex}} {{age}} år {{team}}</p>
-    </div>
-    <button mat-raised-button color="accent">Patientvy</button>
-  </mat-card-content>
+      <mat-grid-tile rowspan="2" colspan="2">
+        <mat-grid-list cols="1" rowHeight="50%">
+
+
+          <mat-grid-tile><span>{{name}}</span></mat-grid-tile>
+          <mat-grid-tile><p>{{personalId }}</p></mat-grid-tile>
+
+        </mat-grid-list>
+      </mat-grid-tile>
+
+      <mat-grid-tile rowspan="2">
+          <mat-icon [style.color]="priority">accessibility</mat-icon>
+      </mat-grid-tile>
+
+      <mat-grid-tile rowspan="2">
+        <button mat-icon-button>
+          <mat-icon>notification_important</mat-icon>
+        </button>
+      </mat-grid-tile>
+
+      <mat-grid-tile rowspan="2">
+        <button mat-icon-button (click)="toggleMenu()"><mat-icon>clear</mat-icon></button>
+      </mat-grid-tile>
+
+      <mat-grid-tile></mat-grid-tile>
+
+      <mat-grid-tile colspan="2">
+        <p>{{sex}} {{age}} år Team {{team}}</p>
+      </mat-grid-tile>
+
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+      <mat-grid-tile></mat-grid-tile>
+
+      <mat-grid-tile colspan="6">
+        <button mat-raised-button class="visit-redirect-button" color="accent">Patientvy</button>
+      </mat-grid-tile>
+
+    </mat-grid-list>
 
   <mat-card>
     <mat-card-title>Triage</mat-card-title>
       <mat-card-content>
-        <app-triage-small></app-triage-small>
-       </mat-card-content>
+
+          <mat-grid-list cols="3" rowHeight="1:0.5">
+            <mat-grid-tile rowspan="6">
+              <mat-icon style="font-size: xx-large">accessibility</mat-icon>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>SpO2 på luft</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>AF</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Puls</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>BF</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>RLS</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Temperatur</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Smärta</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Vikt</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2">
+              <mat-form-field style="width: 100%">
+                <mat-label>Central kapillär återfyllnad</mat-label>
+                <input matInput type="number">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <button mat-icon-button><mat-icon>arrow_left</mat-icon></button>
+              <button mat-raised-button color="accent">Ny Prio</button>
+              <button mat-icon-button style><mat-icon>arrow_right</mat-icon></button>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <button mat-raised-button color="accent">Uppdatera</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+      </mat-card-content>
   </mat-card>
 
   <mat-card>
     <mat-card-title>Händelser</mat-card-title>
     <mat-card-content>
-      <app-history></app-history>
+      <mat-list>
+        <mat-list-item *ngFor="let action of actions">
+          <mat-card style="background-color: #C5CAE9">
+            <p>{{action.date}} | {{action.info}}</p>
+          </mat-card>
+        </mat-list-item>
+
+      </mat-list>
     </mat-card-content>
   </mat-card>
 
   <mat-card>
     <mat-card-title>Dokumentation</mat-card-title>
     <mat-card-content>
-      <app-documentations></app-documentations>
     </mat-card-content>
   </mat-card>
 
-
+  </mat-card-content>
 </mat-card>

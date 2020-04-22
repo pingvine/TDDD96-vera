@@ -2,11 +2,11 @@
   {{response[0].Title}} {{response[0].Page}}
 </p>
 
-<mat-sidenav-container hasBackdrop="false" >
-  <mat-sidenav #drawer opened mode="over" position="end">
+<mat-sidenav-container class="overview-content" hasBackdrop="false" >
+  <mat-sidenav #drawer opened mode="over" position="end" style="width: fit-content">
     <app-visitselector></app-visitselector>
   </mat-sidenav>
-  <mat-sidenav-content style="height: 800px">
+  <mat-sidenav-content>
     <button mat-raised-button (click)="drawer.toggle()">
       Toggle menu
     </button>

@@ -1,30 +1,35 @@
+.mat-grid-tile {
+}
+.mat-form-field {
+  max-width: 100%;
+}
+.mat-grid-list {
+  width: 400px;
+  padding-bottom: 16px;
+}
 .mat-card {
   margin-bottom: 16px;
   border-radius: 8px;
   background-color: #F2F2F2;
 }
-.mat-card-background {
-  width: 600px;
-  background-color: transparent;
-}
-.mat-card-content {
-  font-size: x-large;
-}
-.mat-icon {
-  font-size: xx-large;
-}
-.header_buttons {
-  padding-left: 64px;
-  padding-right: 64px;
-}
-.mat-raised-button {
-  border-radius: 15px;
-  width: 400px;
-  font-size: x-large;
-  margin-left: 100px;
-  margin-right: 100px;
-}
 .mat-card-title {
   text-align: center;
+  font-size: medium;
+}
+.mat-icon {
   font-size: x-large;
+}
+.mat-card-content {
+  font-size: small;
+}
+.mat-card-background {
+  min-width: fit-content;
+  background-color: transparent;
+}
+.mat-raised-button {
+  min-width: fit-content;
+  border-radius: 8px;
+}
+.visit-redirect-button {
+  width: 75%;
 }

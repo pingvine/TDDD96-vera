@@ -10,9 +10,6 @@ import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { VisitSelectorTriageComponent } from './overview/visit-selector/visit-selector-triage/visit-selector-triage.component';
-import { VisitSelectorHistoryComponent } from './overview/visit-selector/visit-selector-history/visit-selector-history.component';
-import { VisitSelectorDocumentationsComponent } from './overview/visit-selector/visit-selector-documentations/visit-selector-documentations.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
@@ -29,9 +26,6 @@ import { NewPatientViewComponent } from './new-patient/new-patient-view.componen
   declarations: [
     AppComponent,
     VisitSelectorComponent,
-    VisitSelectorTriageComponent,
-    VisitSelectorHistoryComponent,
-    VisitSelectorDocumentationsComponent,
     PatientViewComponent,
     OverviewViewComponent,
     SummaryViewComponent,
@@ -52,6 +46,7 @@ import { NewPatientViewComponent } from './new-patient/new-patient-view.componen
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
