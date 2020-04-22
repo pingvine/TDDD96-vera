@@ -1,4 +1,11 @@
-
+a {
+    color: black;
+    text-decoration: none;
+    a:visited { text-decoration: none; color:red; }
+    a:hover { text-decoration: none; color:blue; }
+    a:focus { text-decoration: none; color:yellow; }
+    a:hover, a:active { text-decoration: none; color:black }
+}
 
 
 ::ng-deep .prio-blue{
@@ -9,26 +16,59 @@
     }   
 }
 
-.box{
-
-    float: left;
-    position: relative;
-    top:-15;
-    width: 20px;
-    height: 20px;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border: 1px solid rgba(0, 0, 0, .2);
-}
 
 .red{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: red;
-    border-radius: 5px;
+    
+    background-color:red ;
+    color: transparent;
+    text-shadow: red;
+    border-radius: 8px;
+    font-size: 22px;
     
 }
+
+.orange{
+    
+    background-color:orange ;
+    color: transparent;
+    text-shadow: orange;
+    border-radius: 8px;
+    font-size: 22px;
+    
+}
+.yellow{
+    
+    background-color:yellow ;
+    color: transparent;
+    text-shadow: yellow;
+    border-radius: 8px;
+    font-size: 22px;
+    
+}
+.green{
+    
+    background-color:green ;
+    color: transparent;
+    text-shadow: green;
+    border-radius: 8px;
+    font-size: 22px;
+    
+}
+.blue{
+    
+    background-color:blue ;
+    color: transparent;
+    text-shadow: blue;
+    border-radius: 8px;
+    font-size: 22px;
+    
+}
+
+
+
+
+
+
 
 ::ng-deep .prio-green{
     background-color: green;
@@ -67,14 +107,15 @@ b {
     font-size: 18px;
 }
 
-::ng-deep .row{
-    background-color: lightgray;
-    height: 90%;
-    border-radius: 5px;
-    font-size: 14px;
-    margin: 1px 1px;
+::ng-deep .datatable-body-row{
     &:hover{
         background-color: white;
+    }
+}
+
+::ng-deep .datatable-row-group{ 
+    .datatable-row-left{
+        visibility: hidden;
     }
 }
 
@@ -91,10 +132,23 @@ b {
 
 ::ng-deep .datatable-body-cell-label{
     line-height: 0;
-    margin-left: 5px;
+    margin-left: 5px;margin: 1px 1px;
 }
 
-::ng-deep .datatable-column-wrapper:nth-child(2n){
+::ng-deep .datatable-body-cell{
+    margin: 0 0 3px 3px;
+    &:nth-child(1n){
+        background-color: #eeeeee;
+    }
+    &:nth-child(3n){
+        background-color: #cccccc;
+    }
+    
+}
+
+
+
+::ng-deep .datatable-column-wrapper{
     background-color: red;
 }
 
@@ -106,21 +160,27 @@ b {
 }
 
 ::ng-deep .datatable-row-center {
-    border-radius: 5px;
-    margin-top:1px;
-    margin-bottom:1px;
-    
+    background-color: white;
+    &:hover{
+        background-color: white;
+    }
 }
 
 ::ng-deep .ngx-datatable {
     .datatable-header {
       .datatable-header-cell {
-        background-color: lightgray;
+        
         margin: 0 0 3px 3px;
         border-radius: 5px;
         border-color: black;
         border-width: 1px;
         justify-content: center;
+        &:nth-child(1n){
+            background-color: #eeeeee;
+        }
+        &:nth-child(3n){
+            background-color: #cccccc;
+        }
       }
     }
   }

@@ -128,18 +128,7 @@ export class OverviewTableComponent implements OnInit {
 
   constructor() { }
 
-
-  getGroupRowHeight(group, rowHeight) {
-    let style = {};
-
-    style = {
-      height: group.length * 40 + 'px',
-      width: '100%'
-    };
-
-    return style;
-  }
-
+  
   toggleExpandGroup(group) {
     console.log('Toggled Expand Group!', group);
     this.table.groupHeader.toggleExpandGroup(group);

@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon'; 
 import { HttpClientModule } from '@angular/common/http'
 import { CommonModule } from '@angular/common';  
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     MatIconModule, 
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    MatCardModule,
 
   ],
   providers: [],

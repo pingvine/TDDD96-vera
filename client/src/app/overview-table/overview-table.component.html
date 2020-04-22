@@ -14,7 +14,6 @@
     [groupRowsBy]="'team'"
     [columnMode]="'force'"
     [scrollbarH]="true"
-    [rowClass]="getRowClass"
     [headerHeight]="40"
     [footerHeight]="0"
     [rowHeight]="30"
@@ -34,14 +33,13 @@
             <a
               href="#"
               onclick="return false"
-              [class.datatable-icon-right]="!expanded"
-              [class.datatable-icon-down]="expanded"
+              
               title="Expand/Collapse Group"
               (click)="toggleExpandGroup(group)"
             >
               <b>Team: {{ group.value[0].team }}</b> 
             </a>
-            <span>       </span>
+            
             
           </div>
         </ng-template>
@@ -50,7 +48,16 @@
        <!-- Row Column Template -->
 
        <!-- Age and prio -->
-      <ngx-datatable-column  name=""  prop="prio" [cellClass]="getCellClass" sortable="true" [frozenLeft]="false" [width]="30"></ngx-datatable-column>
+      <ngx-datatable-column  name="" sortable="true" [frozenLeft]="false" [width]="20">
+        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+          <span [ngClass]="{'blue':row['prio']=='blue',
+                            'green':row['prio']=='green',
+                            'yellow':row['prio']=='yellow',
+                            'orange':row['prio']=='orange',
+                            'red':row['prio']=='red'}"> ▮  </span> 
+        </ng-template>
+      </ngx-datatable-column>
+      
       <ngx-datatable-column (click)="doubleclick($event)" name="Personnummer(år)" [width]="175" [frozenLeft]="" [sortable]="false"> 
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
            <span> <strong [innerHTML]="row['social']"> </strong> ( <i [innerHTML]="row['age']"></i> ) <span *ngIf="row['gender'] === 'male'">&#9794;</span> <span *ngIf="row['gender'] === 'female'">&#9792;</span>   </span> 
