@@ -16,6 +16,15 @@ import { DocumentationsComponent } from './overview/patient-overhead/documentati
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 
+import { PatientViewComponent } from './patient/patient-view.component';
+import { OverviewViewComponent } from './overview/overview-view.component';
+import { SummaryViewComponent } from './summary/summary-view.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { SettingsViewComponent } from './settings/settings-view.component';
+import { TeamViewComponent } from './team/team-view.component';
+import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +32,12 @@ import {MatInputModule} from '@angular/material/input';
     TriageSmallComponent,
     HistoryComponent,
     DocumentationsComponent,
+    PatientViewComponent,
+    OverviewViewComponent,
+    SummaryViewComponent,
+    SettingsViewComponent,
+    TeamViewComponent,
+    NewPatientViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +51,7 @@ import {MatInputModule} from '@angular/material/input';
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
