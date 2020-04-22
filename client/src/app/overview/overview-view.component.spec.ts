@@ -1,22 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PatientComponent } from './patient.component';
+import { OverviewViewComponent } from './overview-view.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-describe('PatientComponent', () => {
-  let component: PatientComponent;
-  let fixture: ComponentFixture<PatientComponent>;
+describe('OverviewViewComponent', () => {
+  let component: OverviewViewComponent;
+  let fixture: ComponentFixture<OverviewViewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [ PatientComponent ]
+      declarations: [ OverviewViewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PatientComponent);
+    fixture = TestBed.createComponent(OverviewViewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

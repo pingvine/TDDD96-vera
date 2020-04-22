@@ -4,24 +4,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { PatientComponent } from './patient/patient.component';
-import { OverviewComponent } from './overview/overview.component';
-import { SummaryComponent } from './summary/summary.component';
+import { PatientViewComponent } from './patient/patient-view.component';
+import { OverviewViewComponent } from './overview/overview-view.component';
+import { SummaryViewComponent } from './summary/summary-view.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { SettingsComponent } from './settings/settings.component';
-import { TeamComponent } from './team/team.component';
-import { NewPatientComponent } from './new-patient/new-patient.component';
+import { SettingsViewComponent } from './settings/settings-view.component';
+import { TeamViewComponent } from './team/team-view.component';
+import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PatientComponent,
-    OverviewComponent,
-    SummaryComponent,
-    SettingsComponent,
-    TeamComponent,
-    NewPatientComponent,
+    PatientViewComponent,
+    OverviewViewComponent,
+    SummaryViewComponent,
+    SettingsViewComponent,
+    TeamViewComponent,
+    NewPatientViewComponent,
 
   ],
   imports: [

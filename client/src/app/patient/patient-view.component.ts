@@ -1,14 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {FetchDataService} from '../fetch-data.service';
+import {RequestService} from '../request.service';
 
 @Component({
-  selector: 'app-patient',
-  templateUrl: './patient.component.html',
-  styleUrls: ['./patient.component.css']
+  selector: 'app-patient-view',
+  templateUrl: './patient-view.component.html',
+  styleUrls: ['./patient-view.component.css']
 })
-export class PatientComponent implements OnInit {
+export class PatientViewComponent implements OnInit {
   url = 'http://localhost:4201/patient';
-  constructor(private service: FetchDataService) { }
+  constructor(private service: RequestService) { }
 
   private getPatient(): void {
     this.service.getData(this.url)

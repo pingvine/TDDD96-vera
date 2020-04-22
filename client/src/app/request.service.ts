@@ -7,7 +7,7 @@ import {DummyGet} from './models/get.dummy.model';
 @Injectable({
   providedIn: 'root'
 })
-export class FetchDataService {
+export class RequestService {
   constructor(private http: HttpClient) { }
 
   // Get data from server and convert response to JavaScript List

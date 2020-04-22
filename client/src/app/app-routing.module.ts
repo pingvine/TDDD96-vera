@@ -1,31 +1,31 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PatientComponent } from './patient/patient.component';
-import {OverviewComponent} from './overview/overview.component';
-import {SummaryComponent} from './summary/summary.component';
-import {TeamComponent} from './team/team.component';
-import {SettingsComponent} from './settings/settings.component';
-import {NewPatientComponent} from './new-patient/new-patient.component';
+import { PatientViewComponent } from './patient/patient-view.component';
+import {OverviewViewComponent} from './overview/overview-view.component';
+import {SummaryViewComponent} from './summary/summary-view.component';
+import {TeamViewComponent} from './team/team-view.component';
+import {SettingsViewComponent} from './settings/settings-view.component';
+import {NewPatientViewComponent} from './new-patient/new-patient-view.component';
 
 const routes: Routes = [
   { path: 'patient/new',
-    component: NewPatientComponent,
+    component: NewPatientViewComponent,
     pathMatch: 'full'
   },
   { path: 'settings',
-    component: SettingsComponent
+    component: SettingsViewComponent
   },
   { path: 'team',
-    component: TeamComponent
+    component: TeamViewComponent
   },
   { path: 'summary',
-    component: SummaryComponent
+    component: SummaryViewComponent
   },
   { path: 'patient',
-    component: PatientComponent
+    component: PatientViewComponent
   },
   { path: 'overview',
-    component: OverviewComponent,
+    component: OverviewViewComponent,
     data: {}
   },
 ];
