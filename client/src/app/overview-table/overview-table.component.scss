@@ -1,18 +1,38 @@
 
-::ng-deep .row{
-    background-color: lightgray;
-    font-size: 14px;
-}
+
 
 ::ng-deep .prio-blue{
-    background-color: blue;   
+    background-color: blue; 
+    border-radius: 5px;  
     span{
         visibility: hidden;
     }   
 }
 
+.box{
+
+    float: left;
+    position: relative;
+    top:-15;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.red{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 5px;
+    
+}
+
 ::ng-deep .prio-green{
     background-color: green;
+    border-radius: 5px;
     span{
         visibility: hidden;
     }
@@ -20,6 +40,7 @@
 
 ::ng-deep .prio-yellow{
     background-color: yellow;
+    border-radius: 5px;
     span{
         visibility: hidden;
     }
@@ -27,6 +48,7 @@
 
 ::ng-deep .prio-orange{
     background-color: orange;
+    border-radius: 5px;
     span{
         visibility: hidden;
     }
@@ -34,6 +56,7 @@
 
 ::ng-deep .prio-red{
     background-color: red;
+    border-radius: 5px;
     span{
         visibility: hidden;
     }
@@ -44,13 +67,26 @@ b {
     font-size: 18px;
 }
 
+::ng-deep .row{
+    background-color: lightgray;
+    height: 90%;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 1px 1px;
+    &:hover{
+        background-color: white;
+    }
+}
+
 .group-header{
     background-color: lightslategray;
     b{
         font-size: med;
     }
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    margin-left: 3px;
+    border-radius: 3px;
 }
 
 ::ng-deep .datatable-body-cell-label{
@@ -63,13 +99,28 @@ b {
 }
 
 ::ng-deep .ngx-datatable .datatable-body {
-    height: 500px !important; 
+    height: 550px !important; 
+    width: 100%;
     overflow-y: scroll;
+
 }
 
-::ng-deep .datatable {
-	text-align: left;
-	width:75%;
-	margin:0 auto;
-	height: 1000px;
+::ng-deep .datatable-row-center {
+    border-radius: 5px;
+    margin-top:1px;
+    margin-bottom:1px;
+    
 }
+
+::ng-deep .ngx-datatable {
+    .datatable-header {
+      .datatable-header-cell {
+        background-color: lightgray;
+        margin: 0 0 3px 3px;
+        border-radius: 5px;
+        border-color: black;
+        border-width: 1px;
+        justify-content: center;
+      }
+    }
+  }

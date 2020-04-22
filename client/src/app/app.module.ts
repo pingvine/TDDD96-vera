@@ -1,10 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OverviewTableComponent } from './overview-table/overview-table.component';
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule, MatIconRegistry} from '@angular/material/icon'; 
+import { HttpClientModule } from '@angular/common/http'
+import { CommonModule } from '@angular/common';  
 
 @NgModule({
   declarations: [
@@ -15,9 +18,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     NgxDatatableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule, 
+    HttpClientModule,
+    CommonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(matIconRegistry:MatIconRegistry, domSanitizer:DomSanitizer){
+    matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')); // 
+  }
+  
+ }
