@@ -1,7 +1,19 @@
-<h1>
-  översikt av patienter
-</h1>
-
 <p *ngIf="responseOk">
   {{response[0].Title}} {{response[0].Page}}
 </p>
+
+<mat-sidenav-container hasBackdrop="false" >
+  <mat-sidenav #drawer opened mode="over" position="end">
+    <app-visitselector></app-visitselector>
+  </mat-sidenav>
+  <mat-sidenav-content style="height: 800px">
+    <button mat-raised-button (click)="drawer.toggle()">
+      Toggle menu
+    </button>
+
+    <h1>
+      översikt av patienter
+    </h1>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

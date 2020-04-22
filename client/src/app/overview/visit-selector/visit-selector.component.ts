@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-patientmeny',
-  templateUrl: './patient-overhead.component.html',
-  styleUrls: ['./patient-overhead.component.css']
+  selector: 'app-visitselector',
+  templateUrl: './visit-selector.component.html',
+  styleUrls: ['./visit-selector.component.css']
 })
-export class PatientOverheadComponent implements OnInit {
+export class VisitSelectorComponent implements OnInit {
   priority: string;
   name: string;
   age: number;

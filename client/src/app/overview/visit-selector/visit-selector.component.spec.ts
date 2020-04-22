@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PatientOverheadComponent } from './patient-overhead.component';
+import { VisitSelectorComponent } from './visit-selector.component';
 
 describe('PatientmenyComponent', () => {
-  let component: PatientOverheadComponent;
-  let fixture: ComponentFixture<PatientOverheadComponent>;
+  let component: VisitSelectorComponent;
+  let fixture: ComponentFixture<VisitSelectorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PatientOverheadComponent ]
+      declarations: [ VisitSelectorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PatientOverheadComponent);
+    fixture = TestBed.createComponent(VisitSelectorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

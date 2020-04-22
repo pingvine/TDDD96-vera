@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TriageSmallComponent } from './triage-small.component';
+import { VisitSelectorTriageComponent } from './visit-selector-triage.component';
 
 describe('TriageSmallComponent', () => {
-  let component: TriageSmallComponent;
-  let fixture: ComponentFixture<TriageSmallComponent>;
+  let component: VisitSelectorTriageComponent;
+  let fixture: ComponentFixture<VisitSelectorTriageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TriageSmallComponent ]
+      declarations: [ VisitSelectorTriageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TriageSmallComponent);
+    fixture = TestBed.createComponent(VisitSelectorTriageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
