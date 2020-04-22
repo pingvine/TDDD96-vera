@@ -1,0 +1,27 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { OverviewViewComponent } from './overview-view.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+
+describe('OverviewViewComponent', () => {
+  let component: OverviewViewComponent;
+  let fixture: ComponentFixture<OverviewViewComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      declarations: [ OverviewViewComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(OverviewViewComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

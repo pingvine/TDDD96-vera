@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'vera20'`, () => {
+  it(`should have as title 'VERA 20'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('coronavirus-cases');
+    expect(app.title).toEqual('VERA 20');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('vera20 app is running!');
+    expect(compiled.querySelector('h1').textContent).toEqual('VERA 20');
   });
 });
