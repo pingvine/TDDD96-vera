@@ -1,0 +1,186 @@
+a {
+    color: black;
+    text-decoration: none;
+    a:visited { text-decoration: none; color:red; }
+    a:hover { text-decoration: none; color:blue; }
+    a:focus { text-decoration: none; color:yellow; }
+    a:hover, a:active { text-decoration: none; color:black }
+}
+
+
+::ng-deep .prio-blue{
+    background-color: blue; 
+    border-radius: 5px;  
+    span{
+        visibility: hidden;
+    }   
+}
+
+
+.red{
+    
+    background-color:red ;
+    color: transparent;
+    text-shadow: red;
+    border-radius: 8px;
+    font-size: 22px;
+    
+}
+
+.orange{
+    
+    background-color:orange ;
+    color: transparent;
+    text-shadow: orange;
+    border-radius: 8px;
+    font-size: 22px;
+    
+}
+.yellow{
+    
+    background-color:yellow ;
+    color: transparent;
+    text-shadow: yellow;
+    border-radius: 8px;
+    font-size: 22px;
+    
+}
+.green{
+    
+    background-color:green ;
+    color: transparent;
+    text-shadow: green;
+    border-radius: 8px;
+    font-size: 22px;
+    
+}
+.blue{
+    
+    background-color:blue ;
+    color: transparent;
+    text-shadow: blue;
+    border-radius: 8px;
+    font-size: 22px;
+    
+}
+
+
+
+
+
+
+
+::ng-deep .prio-green{
+    background-color: green;
+    border-radius: 5px;
+    span{
+        visibility: hidden;
+    }
+}
+
+::ng-deep .prio-yellow{
+    background-color: yellow;
+    border-radius: 5px;
+    span{
+        visibility: hidden;
+    }
+}
+
+::ng-deep .prio-orange{
+    background-color: orange;
+    border-radius: 5px;
+    span{
+        visibility: hidden;
+    }
+}
+
+::ng-deep .prio-red{
+    background-color: red;
+    border-radius: 5px;
+    span{
+        visibility: hidden;
+    }
+}
+
+
+b {
+    font-size: 18px;
+}
+
+::ng-deep .datatable-body-row{
+    &:hover{
+        background-color: white;
+    }
+}
+
+::ng-deep .datatable-row-group{ 
+    .datatable-row-left{
+        visibility: hidden;
+    }
+}
+
+.group-header{
+    background-color: lightslategray;
+    b{
+        font-size: med;
+    }
+    margin-bottom: 3px;
+    margin-top: 3px;
+    margin-left: 3px;
+    border-radius: 3px;
+}
+
+::ng-deep .datatable-body-cell-label{
+    line-height: 0;
+    margin-left: 5px;margin: 1px 1px;
+}
+
+::ng-deep .datatable-body-cell{
+    margin: 0 0 3px 3px;
+    &:nth-child(1n){
+        background-color: #eeeeee;
+    }
+    &:nth-child(3n){
+        background-color: #cccccc;
+    }
+    
+}
+
+
+
+::ng-deep .datatable-column-wrapper{
+    background-color: red;
+}
+
+::ng-deep .ngx-datatable .datatable-body {
+    height: 550px !important; 
+    width: 100%;
+    overflow-y: scroll;
+
+}
+
+::ng-deep .datatable-row-center {
+    background-color: white;
+    &:hover{
+        background-color: white;
+    }
+}
+
+::ng-deep .ngx-datatable {
+    .datatable-header {
+      .datatable-header-cell {
+        
+        margin: 0 0 3px 3px;
+        border-radius: 5px;
+        border-color: black;
+        border-width: 1px;
+        justify-content: center;
+        &:nth-child(1n){
+            background-color: #eeeeee;
+        }
+        &:nth-child(3n){
+            background-color: #cccccc;
+        }
+      }
+    }
+  }
