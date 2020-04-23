@@ -11,6 +11,7 @@ import {DummyGet} from '../models/get.dummy.model';
 export class OverviewViewComponent implements OnInit {
   selectedVisitor: any;
   visitorSelectorOpened: boolean;
+  title = 'Enhetsöversikt';
   url = 'http://localhost:4200/overview';
   response: DummyGet[];
   responseOk = false;

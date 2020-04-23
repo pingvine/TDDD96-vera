@@ -22,8 +22,9 @@ import { SummaryViewComponent } from './summary/summary-view.component';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
 import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
+import { AppHeaderComponent } from './app-header/app-header.component';
+import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
-
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import {MatListModule} from '@angular/material/list';
     SettingsViewComponent,
     TeamViewComponent,
     NewPatientViewComponent,
+    AppHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,9 +55,13 @@ import {MatListModule} from '@angular/material/list';
     MatListModule,
     MatIconModule,
     HttpClientModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatBadgeModule,
+    MatListModule,
     CommonModule,
     MatCardModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -64,5 +70,4 @@ export class AppModule {
   constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
     matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')); //
   }
-
- }
+}
