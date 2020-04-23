@@ -136,10 +136,10 @@ b {
 ::ng-deep .datatable-body-cell{
     margin: 0 0;
     &:nth-child(1n){
-        background-color: #eeeeee;
+        background-color: #f2f2f2f2;
     }
     &:nth-child(3n){
-        background-color: #cccccc;
+        background-color: #e9e9e9e9;
     }
 
 }
@@ -166,6 +166,7 @@ b {
 
 ::ng-deep .ngx-datatable {
     .datatable-header {
+      user-select: none;
       .datatable-header-cell {
 
         margin: 0 0 3px 3px;
@@ -174,10 +175,10 @@ b {
         border-width: 1px;
         justify-content: center;
         &:nth-child(1n){
-            background-color: #eeeeee;
+            background-color: #f2f2f2f2;
         }
         &:nth-child(3n){
-            background-color: #cccccc;
+            background-color: #e9e9e9e9;
         }
       }
     }
