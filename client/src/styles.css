@@ -1,3 +1,5 @@
+
+
 html, body { 
     height: 100%; }
 
@@ -6,3 +8,20 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+button.mat-menu-item {
+    line-height: 24px !important;
+  }
+  a.mat-menu-item > mat-icon {
+    margin-bottom: 14px;
+  }
+  .mat-icon svg {
+    height: 24px;
+    width: 24px;
+  }
+  .mat-step-icon-content .mat-icon svg {
+    height: 100%;
+    width: 100%;
+  }
+  
