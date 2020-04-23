@@ -25,4 +25,8 @@ $client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($client-theme);
-
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material';
+@import '~@swimlane/ngx-datatable/themes/bootstrap';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+ 
