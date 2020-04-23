@@ -1,20 +1,19 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { NgStyle, CommonModule } from "@angular/common";  
+import {Component, EventEmitter, OnInit, Output, ViewChild, ViewEncapsulation} from '@angular/core';
+import { NgStyle, CommonModule } from "@angular/common";
 import { ColumnMode } from '@swimlane/ngx-datatable/public-api';
 
 @Component({
   selector: 'app-overview-table',
   templateUrl: './overview-table.component.html',
   styleUrls: ['./overview-table.component.scss']
-  
+
 })
 export class OverviewTableComponent implements OnInit {
-  @ViewChild('myTable') table:any; 
-  
+  @ViewChild('myTable') table:any;
 
-  
+  @Output() visitor = new EventEmitter<string>();
   ngOnInit(): void {
-    
+
   }
 
 
@@ -28,21 +27,21 @@ export class OverviewTableComponent implements OnInit {
 
     };
   }
-  
+
   getRowClass(row):any{
     return {'row' : true};
-    
+
   }
-  
+
   funder = [];
   calculated = [];
   pending = [];
   groups = [];
   editing = {};
-  
+
 
   temp = [
-    
+
     {prio:"yellow", social: "010101-7890", team:'B', name: 'Dany', gender: 'male', age:31, dr:"Rakeeb", nurse: "Anna", nurse2:"erik", arrival:"01:00", search:"buksm 178", activity:"button", time: "10 min", arrival_method:"ambulance"   },
     {prio:"green", social: "123456-7890", team:'C', name: 'Molly', gender: 'female', age:22, dr:"Rakeeb", nurse: "Anna", nurse2:"erik", arrival:"02:00", search:"buksm 178", activity:"button", time: "10 min", arrival_method:"ambulance"  },
     {prio:"blue", social: "123456-7890", team:'B', name: 'Chany', gender: 'male', age:34, dr:"Rakeeb", nurse: "Anna", nurse2:"erik", arrival:"03:00", search:"buksm 178", activity:"button", time: "10 min", arrival_method:"ambulance"   },
@@ -68,10 +67,10 @@ export class OverviewTableComponent implements OnInit {
 
   ];
   rows = this.temp;
-  
 
-  
-  
+
+
+
   updateFilter(event) {
     var val = event.target.value;
     const num = isNaN(val);
@@ -82,14 +81,14 @@ export class OverviewTableComponent implements OnInit {
       val = val.toLowerCase();
       temp = this.temp.filter(function (d) {
         return d.name.toLowerCase().indexOf(val) !== -1 || !val;
-      });    
+      });
     } else {
       temp = this.temp.filter(function (d) {
         return d.social.toLowerCase().indexOf(val) !== -1 || !val;
-      });  
+      });
     }
     this.rows = temp;
-    
+
   }
 
   sortRows(event){
@@ -102,8 +101,8 @@ export class OverviewTableComponent implements OnInit {
     } else{
       this.rows = this.temp;
     }
-    
-    
+
+
   }
 
   print(event){
@@ -114,21 +113,22 @@ export class OverviewTableComponent implements OnInit {
     console.log(event);
   }
 
+
   activity(event:any){
     if(event.type === "click"){
-      console.log(event.row.social);
-      return event.row.social;
+      this.visitor.emit(event.row);
+      console.log(event.row);
     }
-    
+
   }
-  
+
   activityClicked(event){
     console.log("Activity clicked");
   }
 
   constructor() { }
 
-  
+
   toggleExpandGroup(group) {
     console.log('Toggled Expand Group!', group);
     this.table.groupHeader.toggleExpandGroup(group);
@@ -138,7 +138,7 @@ export class OverviewTableComponent implements OnInit {
     console.log('Detail Toggled', event);
   }
 
-    
+
   sortProperties(obj, sortedBy, isNumericSort, reverse) {
     sortedBy = sortedBy || 1; // by default first key
     isNumericSort = isNumericSort || false; // by default text sort
