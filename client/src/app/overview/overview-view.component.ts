@@ -9,6 +9,7 @@ import {DummyGet} from '../models/get.dummy.model';
   providers: [RequestService]
 })
 export class OverviewViewComponent implements OnInit {
+  title = 'Enhetsöversikt';
   url = 'http://localhost:4200/overview';
   response: DummyGet[];
   responseOk = false;

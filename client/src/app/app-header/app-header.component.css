@@ -1,0 +1,40 @@
+.mat-app-background {
+  background: #303F9F;
+  height: 48px;
+  width: auto;
+  color: black;
+  padding-left: 5px;
+  display: flex;
+}
+
+
+
+.mat-app-menu {
+  font-size: 48px;
+  color: white;
+}
+
+
+
+.current-view {
+  color: white;
+  font-size: 32px;
+  position: absolute;
+  top: 14px;
+  left: 64px;
+}
+
+.notice-menu {
+  width: 100px;
+  height: 32px;
+  background: #009688;
+  position: absolute;
+  right: 32px;
+  border: none;
+  top: 8px;
+  display: flex;
+}
+
+.notice-icon {
+  color: white;
+}
