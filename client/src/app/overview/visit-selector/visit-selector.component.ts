@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges, OnChanges, Output, EventEmitter} from '@angular/core';
 
 export interface Message {
   date: string;
@@ -9,7 +9,9 @@ export interface Message {
   templateUrl: './visit-selector.component.html',
   styleUrls: ['./visit-selector.component.css']
 })
-export class VisitSelectorComponent implements OnInit {
+export class VisitSelectorComponent implements OnInit, OnChanges {
+  @Input() visit: any = '';
+  @Output() closeVisitorSelector = new EventEmitter<boolean>();
   priority: string;
   name: string;
   age: number;
@@ -19,16 +21,18 @@ export class VisitSelectorComponent implements OnInit {
   actions: Message[] = [
     {date: 'Idag kl. 14:35', info: 'Läk Beatrice: Ny ordination Voltaren 75mg'}
   ];
-  constructor() {
-    this.name = 'Josef Atoui';
-    this.age = 22;
-    this.personalId = '19970530-XXXX';
-    this.priority = 'red';
-    this.team = 'A';
-  }
-  toggleMenu() {
+  constructor() {}
+
+  closeSideNav() {
+    this.closeVisitorSelector.emit(true);
   }
   ngOnInit(): void {
   }
-
+  ngOnChanges(changes: SimpleChanges) {
+    this.name = this.visit.name;
+    this.age = this.visit.age;
+    this.personalId = this.visit.social;
+    this.priority = this.visit.prio;
+    this.team = this.visit.team;
+  }
 }

@@ -2,7 +2,7 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OverviewTableComponent } from './overview-table/overview-table.component';
+import { OverviewTableComponent } from './overview/overview-table/overview-table.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VisitSelectorComponent } from './overview/visit-selector/visit-selector.component';

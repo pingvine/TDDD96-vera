@@ -9,6 +9,8 @@ import {DummyGet} from '../models/get.dummy.model';
   providers: [RequestService]
 })
 export class OverviewViewComponent implements OnInit {
+  selectedVisitor: any;
+  visitorSelectorOpened: boolean;
   url = 'http://localhost:4200/overview';
   response: DummyGet[];
   responseOk = false;
@@ -21,6 +23,15 @@ export class OverviewViewComponent implements OnInit {
         this.response = response;
         this.responseOk = true;
       });
+  }
+
+  selectVisitor(visitor: any): void {
+    this.selectedVisitor = visitor;
+    this.visitorSelectorOpened = true;
+    console.log(this.selectedVisitor);
+  }
+  setVisitorSelectorState(state: boolean) {
+    this.visitorSelectorOpened = state;
   }
 
   ngOnInit(): void {
