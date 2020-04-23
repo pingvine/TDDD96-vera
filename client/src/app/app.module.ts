@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
 import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
+import {MatListModule} from '@angular/material/list';
+
 
 @NgModule({
   declarations: [
