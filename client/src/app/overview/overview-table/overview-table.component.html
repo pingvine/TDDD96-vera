@@ -1,0 +1,108 @@
+
+<mat-toolbar class="">
+  <mat-toolbar-row style="font-size: 18px">
+    <mat-form-field appearance="fill" style="height: 100%; width: 15em; font-size: 16px">
+        <mat-label>Sök</mat-label>
+        <input matInput (keyup)="updateFilter($event)"/>
+    </mat-form-field>
+    <span style="width:25px;"></span>
+    Team:
+    <div class="checkboxes">
+      <span *ngFor="let name of teams">
+        {{name.team}} <mat-checkbox [(ngModel)]="name.check" (change)="updateCheckboxFilter()"></mat-checkbox>
+      </span>
+    </div>
+    <span style="width:25px;"></span>
+    Läkare:
+    <mat-form-field appearance="fill" style="font-size: 14px"><mat-select
+        >
+      </mat-select>
+    </mat-form-field>
+    <span style="width:25px;"></span>
+    Sjuktsköterska:
+    <mat-form-field appearance="fill" style="font-size: 14px"><mat-select
+    >
+    </mat-select>
+    </mat-form-field>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<div>
+    <ngx-datatable
+    #myTable
+    class="bootstrap expandable fullscreen"
+    [rows]="rows"
+    [groupRowsBy]="'team'"
+    [columnMode]="'standard'"
+    [headerHeight]="40"
+    [footerHeight]="0"
+    [rowHeight]="30"
+    [groupExpansionDefault]="true"
+    [externalSorting]="true"
+    [sortType]="'multi'"
+
+    (sort)="sortRows($event)"
+    (select)="print($event)"
+    (tableContextmenu)="print($event)"
+    (activate)="print($event)"
+    >
+    <!-- Row Header Template -->
+    <ngx-datatable-group-header [rowHeight]="50"  #myGroupHeader  (toggle)="onDetailToggle($event)"  >
+        <ng-template let-group="group" let-expanded="expanded" let-row="row" ngx-datatable-group-header-template>
+          <div class="group-header" style="padding-left:5px; width: 100% ">
+            <a
+              href="#"
+              onclick="return false"
+
+              title="Expand/Collapse Group"
+              (click)="toggleExpandGroup(group)"
+            >
+              <b>Team: {{ group.value[0].team }}</b>
+
+
+            </a>
+
+
+          </div>
+        </ng-template>
+      </ngx-datatable-group-header>
+
+       <!-- Row Column Template -->
+
+       <!-- Age and prio -->
+      <ngx-datatable-column  name="" sortable="true" [frozenLeft]="false" [width]="30">
+        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+          <span [ngClass]="{'blue':row['prio']=='blue',
+                            'green':row['prio']=='green',
+                            'yellow':row['prio']=='yellow',
+                            'orange':row['prio']=='orange',
+                            'red':row['prio']=='red'}"> ▮  </span>
+        </ng-template>
+      </ngx-datatable-column>
+
+      <ngx-datatable-column (click)="doubleclick($event)" name="Personnummer(år)" [width]="175" [frozenLeft]="" [sortable]="false">
+        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+           <span> <strong [innerHTML]="row['social']"> </strong> ( <i [innerHTML]="row['age']"></i> ) <span *ngIf="row['gender'] === 'male'">&#9794;</span> <span *ngIf="row['gender'] === 'female'">&#9792;</span>   </span>
+        </ng-template>
+      </ngx-datatable-column>
+      <!-- Info -->
+      <ngx-datatable-column name="Ankomst" prop="arrival" [sortable]="true" [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Checkup" prop="time" [sortable]="true" [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Sökorsak" prop="search" [width]="100"></ngx-datatable-column>
+      <ngx-datatable-column name="Aktivitet" prop="activity" (click)="activityClicked($event)" [width]="75"></ngx-datatable-column>
+      <!--<ngx-datatable-column name="Name" prop="name" sortable="true" [width]="75"></ngx-datatable-column>-->
+      <ngx-datatable-column name="Name" prop="name" [sortable]="true" [width]="75"></ngx-datatable-column>
+
+      <!-- Personel in charge -->
+      <ngx-datatable-column name="Anvs.Läk." prop="dr" [sortable]="true" [width]="90"></ngx-datatable-column>
+      <ngx-datatable-column name="Ansv.Ssk." prop="nurse" [sortable]="true" [width]="90"></ngx-datatable-column>
+      <ngx-datatable-column name="Ansv.Usk." prop="nurse2" [sortable]="true" [width]="90"></ngx-datatable-column>
+
+      <ngx-datatable-column name="Team" prop="team" [width]="100" [sortable]="true"></ngx-datatable-column>
+      <ngx-datatable-column name="Comment" [width]="100" [sortable]="false"></ngx-datatable-column>
+      <ngx-datatable-column name="Comment2" [width]="300" [sortable]="false"></ngx-datatable-column>
+      <ngx-datatable-column name="Comment3" [width]="100" [sortable]="false"></ngx-datatable-column>
+      <ngx-datatable-column name="Comment24" [width]="300" [sortable]="false"></ngx-datatable-column>
+    </ngx-datatable>
+</div>

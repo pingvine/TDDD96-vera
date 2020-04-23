@@ -9,59 +9,59 @@ a {
 
 
 ::ng-deep .prio-blue{
-    background-color: blue; 
-    border-radius: 5px;  
+    background-color: blue;
+    border-radius: 5px;
     span{
         visibility: hidden;
-    }   
+    }
 }
 
 
 .red{
-    
+
     background-color:red ;
     color: transparent;
     text-shadow: red;
     border-radius: 8px;
     font-size: 22px;
-    
+
 }
 
 .orange{
-    
+
     background-color:orange ;
     color: transparent;
     text-shadow: orange;
     border-radius: 8px;
     font-size: 22px;
-    
+
 }
 .yellow{
-    
+
     background-color:yellow ;
     color: transparent;
     text-shadow: yellow;
     border-radius: 8px;
     font-size: 22px;
-    
+
 }
 .green{
-    
+
     background-color:green ;
     color: transparent;
     text-shadow: green;
     border-radius: 8px;
     font-size: 22px;
-    
+
 }
 .blue{
-    
+
     background-color:blue ;
     color: transparent;
     text-shadow: blue;
     border-radius: 8px;
     font-size: 22px;
-    
+
 }
 
 
@@ -113,7 +113,7 @@ b {
     }
 }
 
-::ng-deep .datatable-row-group{ 
+::ng-deep .datatable-row-group{
     .datatable-row-left{
         visibility: hidden;
     }
@@ -121,9 +121,6 @@ b {
 
 .group-header{
     background-color: lightslategray;
-    b{
-        font-size: med;
-    }
     margin-bottom: 3px;
     margin-top: 3px;
     margin-left: 3px;
@@ -132,18 +129,19 @@ b {
 
 ::ng-deep .datatable-body-cell-label{
     line-height: 0;
-    margin-left: 5px;margin: 1px 1px;
+    margin-left: 5px;
+    margin: 1px 1px;
 }
 
 ::ng-deep .datatable-body-cell{
-    margin: 0 0 3px 3px;
+    margin: 0 0;
     &:nth-child(1n){
         background-color: #eeeeee;
     }
     &:nth-child(3n){
         background-color: #cccccc;
     }
-    
+
 }
 
 
@@ -153,7 +151,7 @@ b {
 }
 
 ::ng-deep .ngx-datatable .datatable-body {
-    height: 550px !important; 
+    height: 700px !important;
     width: 100%;
     overflow-y: scroll;
 
@@ -169,7 +167,7 @@ b {
 ::ng-deep .ngx-datatable {
     .datatable-header {
       .datatable-header-cell {
-        
+
         margin: 0 0 3px 3px;
         border-radius: 5px;
         border-color: black;
@@ -184,3 +182,20 @@ b {
       }
     }
   }
+
+.mat-toolbar{
+  padding-right: 0 !important;
+  margin: 5px 0px 15px 5px;
+  width: 95%;
+}
+.mat-toolbar-row{
+  padding-right: 0 !important;
+  margin: 5px 0px 15px 5px;
+  width: 95%;
+}
+
+.checkboxes{
+  span{
+    padding: 5px 5px;
+  }
+}
