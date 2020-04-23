@@ -14,10 +14,6 @@
   width: auto;
 }
 
-ul {
-  list-style-type: none;
-}
-
 .mat-app-menu {
   font-size: 56px;
 }
@@ -32,4 +28,13 @@ ul {
   padding-right: 48px;
   border: none;
   outline: none;
+}
+
+.view-sidenav-list-item {
+  color: #303F9F;
+}
+
+.view-sidenav-list-item:hover {
+  color: white;
+  background: #303F9F;
 }
