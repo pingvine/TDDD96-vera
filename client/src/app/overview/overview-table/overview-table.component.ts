@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild, ViewEncapsulation, Output } from '@angular/core';
 import { NgStyle, CommonModule } from '@angular/common';
 import { ColumnMode } from '@swimlane/ngx-datatable/public-api';
 import { NgxDatatableModule, INgxDatatableConfig} from '@swimlane/ngx-datatable/public-api';
@@ -12,6 +12,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 })
 export class OverviewTableComponent implements OnInit {
   @ViewChild('myTable') table: any;
+  @Output() visitor = new EventEmitter<string>();
 
   funder = [];
   calculated = [];
@@ -100,8 +101,8 @@ export class OverviewTableComponent implements OnInit {
 
   activity(event: any) {
     if (event.type === 'click') {
+      this.visitor.emit(event.row);
       console.log(event.row.social);
-      return event.row.social;
     }
   }
 

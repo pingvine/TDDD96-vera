@@ -28,6 +28,10 @@ const routes: Routes = [
     component: OverviewViewComponent,
     data: {}
   },
+  { path: '',
+    redirectTo: 'overview',
+    pathMatch: 'full'
+  }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

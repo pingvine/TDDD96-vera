@@ -45,7 +45,7 @@
     (sort)="sortRows($event)"
     (select)="print($event)"
     (tableContextmenu)="print($event)"
-    (activate)="print($event)"
+    (activate)="activity($event)"
     >
     <!-- Row Header Template -->
     <ngx-datatable-group-header [rowHeight]="50"  #myGroupHeader  (toggle)="onDetailToggle($event)"  >
@@ -59,8 +59,6 @@
               (click)="toggleExpandGroup(group)"
             >
               <b>Team: {{ group.value[0].team }}</b>
-
-
             </a>
 
 

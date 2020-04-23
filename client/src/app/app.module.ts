@@ -5,6 +5,11 @@ import { AppComponent } from './app.component';
 import { OverviewTableComponent } from './overview/overview-table/overview-table.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VisitSelectorComponent } from './overview/visit-selector/visit-selector.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -22,10 +27,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
+import { AppHeaderComponent } from './app-header/app-header.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
+    VisitSelectorComponent,
     OverviewTableComponent,
     PatientViewComponent,
     OverviewViewComponent,
@@ -33,15 +42,29 @@ import {FormsModule} from "@angular/forms";
     SettingsViewComponent,
     TeamViewComponent,
     NewPatientViewComponent,
-
+    AppHeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxDatatableModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatIconModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    HttpClientModule,
+    MatListModule,
     MatIconModule,
     HttpClientModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatBadgeModule,
+    MatListModule,
     CommonModule,
     MatCardModule,
     MatCheckboxModule,
@@ -60,5 +83,4 @@ export class AppModule {
   constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
     matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')); //
   }
-
- }
+}
