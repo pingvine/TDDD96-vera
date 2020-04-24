@@ -1,6 +1,7 @@
 a {
     color: black;
     text-decoration: none;
+  font-size: 12px;
     a:visited { text-decoration: none; color:red; }
     a:hover { text-decoration: none; color:blue; }
     a:focus { text-decoration: none; color:yellow; }
@@ -70,37 +71,7 @@ a {
 
 
 
-::ng-deep .prio-green{
-    background-color: green;
-    border-radius: 5px;
-    span{
-        visibility: hidden;
-    }
-}
 
-::ng-deep .prio-yellow{
-    background-color: yellow;
-    border-radius: 5px;
-    span{
-        visibility: hidden;
-    }
-}
-
-::ng-deep .prio-orange{
-    background-color: orange;
-    border-radius: 5px;
-    span{
-        visibility: hidden;
-    }
-}
-
-::ng-deep .prio-red{
-    background-color: red;
-    border-radius: 5px;
-    span{
-        visibility: hidden;
-    }
-}
 
 
 b {
@@ -120,11 +91,15 @@ b {
 }
 
 .group-header{
-    background-color: lightslategray;
-    margin-bottom: 3px;
-    margin-top: 3px;
+    background-color:  #f2f2f2f2;
+    margin-bottom: 0px;
+    margin-top: 16px;
     margin-left: 3px;
-    border-radius: 3px;
+    font-size: 12px;
+    border-radius: 10px;
+  b{
+    font-size: 10px;
+  }
 }
 
 ::ng-deep .datatable-body-cell-label{
@@ -135,6 +110,7 @@ b {
 
 ::ng-deep .datatable-body-cell{
     margin: 0 0;
+    padding: 12px 18px 12px 12px !important;
     &:nth-child(1n){
         background-color: #f2f2f2f2;
     }
@@ -146,8 +122,8 @@ b {
 
 
 
-::ng-deep .datatable-column-wrapper{
-    background-color: red;
+::ng-deep .datatable-row-wrapper{
+  box-shadow: 3px 1px 15px 6px #aaaaaa;
 }
 
 ::ng-deep .ngx-datatable .datatable-body {
@@ -169,7 +145,7 @@ b {
       user-select: none;
       .datatable-header-cell {
 
-        margin: 0 0 3px 3px;
+        margin: 0 3px 0px 3px;
         border-radius: 5px;
         border-color: black;
         border-width: 1px;
