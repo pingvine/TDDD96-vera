@@ -8,75 +8,38 @@ a {
     a:hover, a:active { text-decoration: none; color:black }
 }
 
-
-::ng-deep .prio-blue{
-    background-color: blue;
-    border-radius: 5px;
-    span{
-        visibility: hidden;
-    }
-}
-
-
-.red{
-
-    background-color:red ;
-    color: transparent;
-    text-shadow: red;
+mat-grid-tile{
+  border: 0px solid #000000;
+  mat-grid-list{
+    width: 100%;
+    height: 100%;
+  }
+  button{
+    width: 100%;
+    height: 100%;
+    background-color: #009688;
+    color: white;
     border-radius: 8px;
-    font-size: 22px;
-
+  }
 }
 
-.orange{
-
-    background-color:orange ;
-    color: transparent;
-    text-shadow: orange;
-    border-radius: 8px;
-    font-size: 22px;
-
-}
-.yellow{
-
-    background-color:yellow ;
-    color: transparent;
-    text-shadow: yellow;
-    border-radius: 8px;
-    font-size: 22px;
-
-}
-.green{
-
-    background-color:green ;
-    color: transparent;
-    text-shadow: green;
-    border-radius: 8px;
-    font-size: 22px;
-
-}
-.blue{
-
-    background-color:blue ;
-    color: transparent;
-    text-shadow: blue;
-    border-radius: 8px;
-    font-size: 22px;
-
+mat-card{
+  margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
+.prio-box{
+  color: transparent;
+  border-radius: 8px;
+  font-size: 22px;
+}
 
 b {
-    font-size: 18px;
+  font-size: 18px;
 }
+
+
+::ng-deep .datatable-scroll { width: 100% !important; }
+
 
 ::ng-deep .datatable-body-row{
     &:hover{
@@ -104,13 +67,12 @@ b {
 
 ::ng-deep .datatable-body-cell-label{
     line-height: 0;
-    margin-left: 5px;
     margin: 1px 1px;
 }
 
 ::ng-deep .datatable-body-cell{
     margin: 0 0;
-    padding: 12px 18px 12px 12px !important;
+    padding: 12px 23px 12px 12px !important;
     &:nth-child(1n){
         background-color: #f2f2f2f2;
     }
