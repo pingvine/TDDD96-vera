@@ -8,7 +8,7 @@
     </mat-grid-tile>
 
     <mat-grid-tile colspan="2">
-      <button mat-button>Rensa filter</button>
+      <button mat-button (click)="print($event)">Rensa filter</button>
     </mat-grid-tile>
 
     <mat-grid-tile colspan="4">
@@ -30,7 +30,7 @@
     <mat-grid-tile colspan="2">
       <mat-form-field appearance="fill" style="width: 100%; height:100%">
         <mat-label>Läk.</mat-label>
-        <mat-select>
+        <mat-select (valueChange)="print($event)">
           <mat-option value="volvo"></mat-option>
           <mat-option value="volvo">1</mat-option>
           <mat-option value="saab">2</mat-option>

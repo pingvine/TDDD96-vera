@@ -75,7 +75,7 @@ export class OverviewTableComponent implements OnInit {
 
   }
   updateCheckboxFilter() {
-    if(this.allTeams){
+    if (this.allTeams) {
       this.allTeams = false;
     }
     let rows = [];
@@ -89,9 +89,11 @@ export class OverviewTableComponent implements OnInit {
     if (rows.length !== 0){
       this.rows = [...rows];
     } else {
-      this.rows = [...this.temp];
+      console.log(this.rows.length);
+      this.rows = this.temp;
+      console.log(this.rows.length);
     }
-    this.table.groupHeader.expandAllGroups();
+    this.table.groupHeader.collapseAllGroups();
   }
 
 
@@ -124,6 +126,8 @@ export class OverviewTableComponent implements OnInit {
 
   print(event) {
     console.log(event);
+    this.table.groupHeader.collapseAllGroups();
+
   }
 
   doubleclick(event: any) {
