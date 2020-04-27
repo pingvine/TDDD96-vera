@@ -30,6 +30,7 @@ import {FormsModule} from "@angular/forms";
 import { AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
+import { PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {MatListModule} from '@angular/material/list';
     TeamViewComponent,
     NewPatientViewComponent,
     AppHeaderComponent,
+    PatientStatusViewComponent,
   ],
   imports: [
     BrowserModule,
