@@ -8,6 +8,11 @@ a {
     a:hover, a:active { text-decoration: none; color:black }
 }
 
+mat-card{
+  margin-bottom: 10px;
+  background-color:#f2f2f2;
+}
+
 mat-grid-tile{
   border: 0px solid #000000;
   mat-grid-list{
@@ -17,14 +22,21 @@ mat-grid-tile{
   button{
     width: 100%;
     height: 100%;
-    background-color: #009688;
-    color: white;
     border-radius: 8px;
   }
 }
 
-mat-card{
-  margin-bottom: 10px;
+mat-form-field{
+  height: 100%;
+  width: 100%;
+}
+
+.checkboxes{
+  font-size: 18px;
+  span{
+    padding: 5px 5px;
+  }
+
 }
 
 .prio-box{
@@ -38,12 +50,15 @@ b {
 }
 
 
-::ng-deep .datatable-scroll { width: 100% !important; }
+::ng-deep .datatable-scroll {
+  width: 100% !important;
+
+}
 
 
 ::ng-deep .datatable-body-row{
     &:hover{
-        background-color: white;
+        background-color: black;
     }
 }
 
@@ -54,8 +69,10 @@ b {
 }
 
 .group-header{
+    box-shadow: 0px -5px 10px 1px #cccccc;
     background-color:  #f2f2f2f2;
     margin-bottom: 0px;
+    padding-left: 5px;
     margin-top: 16px;
     margin-left: 3px;
     font-size: 12px;
@@ -72,31 +89,38 @@ b {
 
 ::ng-deep .datatable-body-cell{
     margin: 0 0;
-    padding: 12px 23px 12px 12px !important;
-    &:nth-child(1n){
+    padding: 12px 12px 12px 12px !important;
+    user-select: none;
+  &:nth-child(1n){
         background-color: #f2f2f2f2;
     }
     &:nth-child(3n){
         background-color: #e9e9e9e9;
     }
-
+  &:hover{
+    user-select: all;
+  }
 }
-
 
 
 ::ng-deep .datatable-row-wrapper{
-  box-shadow: 3px 1px 15px 6px #aaaaaa;
+  //box-shadow: 0px 1px 15px 6px #aaaaaa;
+  width: 100% !important;
+  //display: inherit !important;
 }
 
 ::ng-deep .ngx-datatable .datatable-body {
-    height: 700px !important;
-    width: 100%;
-    overflow-y: scroll;
+    height: 800px !important;
+    width: 100% !important;
+    //overflow-y: scroll;
+    //overflow-x: scroll;
+    background-color: #f2f2f2;
 
 }
 
 ::ng-deep .datatable-row-center {
     background-color: white;
+
     &:hover{
         background-color: white;
     }
@@ -106,8 +130,7 @@ b {
     .datatable-header {
       user-select: none;
       .datatable-header-cell {
-
-        margin: 0 3px 0px 3px;
+        margin: 0 1.5px 0px 0px;
         border-radius: 5px;
         border-color: black;
         border-width: 1px;
@@ -133,8 +156,3 @@ b {
   width: 95%;
 }
 
-.checkboxes{
-  span{
-    padding: 5px 5px;
-  }
-}
