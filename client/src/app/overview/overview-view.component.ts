@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {RequestService} from '../request.service';
-import {DummyGet} from '../models/get.dummy.model';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { RequestService } from '../request.service';
+import { DummyGet } from '../models/get.dummy.model';
+import { ViewNameService } from '../view-name.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-overview',
@@ -8,14 +10,18 @@ import {DummyGet} from '../models/get.dummy.model';
   styleUrls: ['./overview-view.component.css'],
   providers: [RequestService]
 })
-export class OverviewViewComponent implements OnInit {
+export class OverviewViewComponent implements OnInit, OnDestroy {
   selectedVisitor: any;
   visitorSelectorOpened: boolean;
-  title = 'Enhetsöversikt';
+  view: string;
   url = 'http://localhost:4200/overview';
   response: DummyGet[];
   responseOk = false;
-  constructor(private service: RequestService) { }
+  subscription: Subscription;
+  constructor(private service: RequestService, private viewNameService: ViewNameService) {
+    this.subscription = this.viewNameService.view$.subscribe(view => this.view = view);
+    console.log(this.view);
+  }
 
   private getPatients(): void {
     this.service.getData(this.url)
@@ -35,7 +41,18 @@ export class OverviewViewComponent implements OnInit {
     this.visitorSelectorOpened = state;
   }
 
+  setView() {
+    this.viewNameService.changeView('Enhetsöversikt');
+  }
+
   ngOnInit(): void {
     this.getPatients();
+    this.setView();
   }
+
+  // To prevent memory leaks
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
 }
