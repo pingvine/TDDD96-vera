@@ -31,6 +31,9 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
+import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/patient-status-edit-view-e.component';
+import {MatRadioModule} from "@angular/material/radio";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -45,6 +48,7 @@ import { PatientStatusViewComponent } from './patient-status-view/patient-status
     NewPatientViewComponent,
     AppHeaderComponent,
     PatientStatusViewComponent,
+    PatientStatusEditViewEComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +80,8 @@ import { PatientStatusViewComponent } from './patient-status-view/patient-status
     MatOptionModule,
     MatSelectModule,
     FormsModule,
+    MatRadioModule,
+    MatExpansionModule,
 
   ],
   providers: [],
