@@ -25,9 +25,9 @@ export class DatePipePipe extends DatePipe implements PipeTransform {
     } else if (diffDays === -1) {
       format = 'Imorgon';
     } else {
-      return super.transform(copyDate, format="hh:mm");
+      return super.transform(copyDate, format = 'hh:mm');
     }
 
-    return format + ' ' + super.transform(copyDate, format="hh:mm");
+    return format + ' ' + super.transform(copyDate, format = 'hh:mm');
   }
 }
