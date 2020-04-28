@@ -1,14 +1,32 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OverviewTableComponent } from './overview-table.component';
+import {NgxDatatableModule} from '@swimlane/ngx-datatable';
+import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatFormFieldModule, MatLabel} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatInput, MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatOptionModule} from "@angular/material/core";
+import {FormsModule} from "@angular/forms";
+import {DebugElement} from "@angular/core";
+import {By} from "@angular/platform-browser";
 
-describe('OverviewTableComponent', () => {
+
+
+
+fdescribe('OverviewTableComponent', () => {
   let component: OverviewTableComponent;
   let fixture: ComponentFixture<OverviewTableComponent>;
+  let debugElement : DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OverviewTableComponent ]
+      declarations: [ OverviewTableComponent ],
+      imports: [NgxDatatableModule, FormsModule, MatCardModule, MatGridListModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatInputModule, BrowserAnimationsModule, MatOptionModule]
     })
     .compileComponents();
   }));
@@ -22,4 +40,43 @@ describe('OverviewTableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('sorting function should return correct number list', () => {
+    const list = [{key: 2}, {key: 3},  {key: 4},  {key: 5}, {key: 1}];
+    expect(component.sortProperties(list, 'key', false)).toEqual([{key: 1}, {key: 2},  {key: 3},  {key: 4}, {key: 5}]);
+    expect(component.sortProperties(list, 'key', true)).toEqual([{key: 5}, {key: 4},  {key: 3},  {key: 2}, {key: 1}]);
+  });
+
+  it('sorting function should return correct alphabetic list', () => {
+    const list = [{key: 'aab'}, {key: 'aba'},  {key: 'aaa'},  {key: 'bba'}, {key: 'bbb'}];
+    expect(component.sortProperties(list, 'key', false)).toEqual([{key: 'aaa'}, {key: 'aab'},  {key: 'aba'},  {key: 'bba'}, {key: 'bbb'}]);
+    expect(component.sortProperties(list, 'key', true)).toEqual([{key: 'bbb'}, {key: 'bba'},  {key: 'aba'},  {key: 'aab'}, {key: 'aaa'}]);
+  });
+
+  it('should show the correct table', () => {
+    expect(component.showAllTeams).toBe(false);
+    expect(fixture.debugElement.query(By.css('#group'))).toBeTruthy();
+    expect(fixture.debugElement.query(By.css('#noGroup'))).toBeNull();
+    const checkbox = fixture.debugElement.query(By.css('#all mat-checkbox label')).nativeElement;
+    checkbox.click();
+    fixture.detectChanges();
+    expect(component.showAllTeams).toBe(true);
+    expect(fixture.debugElement.query(By.css('#group'))).toBeNull();
+    expect(fixture.debugElement.query(By.css('#noGroup'))).toBeTruthy();
+  });
+
+  it('should clear all input fields when reset button pressed', () => {
+    component.showAllTeams = true;
+    component.searchFilter = 'testvalue';
+    component.drFilter = component.drList[0];
+    fixture.detectChanges();
+    component.clearFilters('all');
+    expect(component.showAllTeams).toBeFalse();
+    expect(component.searchFilter).toEqual('');
+    expect(component.drFilter).toEqual('');
+  });
+
+
+
 });
+
