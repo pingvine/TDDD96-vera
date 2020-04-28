@@ -1,10 +1,12 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 import {DatePipe} from '@angular/common';
 
 @Pipe({
   name: 'datePipe'
 })
-export class DatePipePipe extends DatePipe implements PipeTransform {
+export class DatePipePipe  implements PipeTransform {
+  private datePipe = new DatePipe('sv-se');
+
   transform(date: Date, args?: any): string {
     const now = new Date(Date.now());
     now.setHours(0);
@@ -25,9 +27,9 @@ export class DatePipePipe extends DatePipe implements PipeTransform {
     } else if (diffDays === -1) {
       format = 'Imorgon';
     } else {
-      return super.transform(copyDate, format = 'hh:mm');
+      return this.datePipe.transform(copyDate, 'hh:mm');
     }
 
-    return format + ' ' + super.transform(copyDate, format = 'hh:mm');
+    return format + ' ' + this.datePipe.transform(copyDate, 'hh:mm');
   }
 }
