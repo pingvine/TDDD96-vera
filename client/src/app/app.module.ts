@@ -32,7 +32,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
-import localeSv from '@angular/common/locales/sv'
+import localeSv from '@angular/common/locales/sv';
 
 registerLocaleData(localeSv, 'sv-se')
 
