@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { DatePipePipe } from '../date-pipe.pipe';
 
 import { EventComponent } from './event.component';
 
@@ -8,7 +9,7 @@ describe('EventComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventComponent ]
+      declarations: [ EventComponent, DatePipePipe],
     })
     .compileComponents();
   }));
