@@ -5,7 +5,7 @@ import {DatePipe} from '@angular/common';
   name: 'datePipe'
 })
 export class DatePipePipe  implements PipeTransform {
-  private datePipe = new DatePipe('sv-se');
+  private datePipe = new DatePipe('sv-se');  // Registered in app.module.ts
 
   transform(date: Date, args?: any): string {
     const now = new Date(Date.now());
