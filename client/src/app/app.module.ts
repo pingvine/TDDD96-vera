@@ -12,7 +12,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import {CommonModule, registerLocaleData} from '@angular/common';
+import {CommonModule} from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { PatientViewComponent } from './patient/patient-view.component';
 import { OverviewViewComponent } from './overview/overview-view.component';
