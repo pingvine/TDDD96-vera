@@ -1,11 +1,14 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {DatePipe} from '@angular/common';
+import {DatePipe, registerLocaleData} from '@angular/common';
+import localeSv from '@angular/common/locales/sv';
+
+registerLocaleData(localeSv, 'sv-se');
 
 @Pipe({
   name: 'datePipe'
 })
 export class DatePipePipe  implements PipeTransform {
-  private datePipe = new DatePipe('sv-se');  // Registered in app.module.ts
+  private datePipe = new DatePipe('sv-se');
 
   transform(date: Date, args?: any): string {
     const now = new Date(Date.now());

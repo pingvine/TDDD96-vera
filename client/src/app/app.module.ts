@@ -25,16 +25,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
-import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
-import localeSv from '@angular/common/locales/sv';
 
-registerLocaleData(localeSv, 'sv-se')
 
 @NgModule({
   declarations: [
