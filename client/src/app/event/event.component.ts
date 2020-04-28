@@ -6,7 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent implements OnInit {
-  @Input() date: number = Date.now();
+  @Input() date: Date = new Date(Date.now());
   @Input() info = 'Placeholder information';
   @Input() user = 'TestUser';
   constructor() { }
