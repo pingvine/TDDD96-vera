@@ -18,7 +18,7 @@ import {By} from "@angular/platform-browser";
 
 
 
-fdescribe('OverviewTableComponent', () => {
+describe('OverviewTableComponent', () => {
   let component: OverviewTableComponent;
   let fixture: ComponentFixture<OverviewTableComponent>;
   let debugElement : DebugElement;
