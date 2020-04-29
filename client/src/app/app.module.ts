@@ -32,6 +32,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { DatePipePipe } from './date-pipe.pipe';
     MatOptionModule,
     MatSelectModule,
     FormsModule,
+    MatStepperModule,
 
   ],
   providers: [],
