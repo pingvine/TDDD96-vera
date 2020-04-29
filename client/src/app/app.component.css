@@ -39,3 +39,6 @@
   color: white;
   background: #303F9F;
 }
+.mat-sidenav-container {
+  height: 100%;
+}
