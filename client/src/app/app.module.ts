@@ -33,6 +33,7 @@ import {MatListModule} from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
 import { VisitReasonComponent } from './patient/visit-reason/visit-reason.component';
+import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view-header.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { VisitReasonComponent } from './patient/visit-reason/visit-reason.compon
     EventComponent,
     DatePipePipe,
     VisitReasonComponent,
+    VisitViewHeaderComponent,
   ],
   imports: [
     BrowserModule,
