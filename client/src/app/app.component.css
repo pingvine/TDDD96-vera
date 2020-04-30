@@ -31,11 +31,11 @@
   outline: none;
 }
 
-.view-sidenav-list-item {
-  color: black;
+.active-view {
+  color: #009688;
+  background: rgba(0,0,0,0.04);
 }
 
 .view-sidenav-list-item:hover {
-  color: white;
-  background: #303F9F;
+  color: #303F9F;
 }
