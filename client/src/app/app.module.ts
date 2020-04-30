@@ -12,7 +12,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { PatientViewComponent } from './patient/patient-view.component';
 import { OverviewViewComponent } from './overview/overview-view.component';
@@ -25,11 +25,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
-import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
+import { EventComponent } from './event/event.component';
+import { DatePipePipe } from './date-pipe.pipe';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +46,8 @@ import {MatListModule} from '@angular/material/list';
     TeamViewComponent,
     NewPatientViewComponent,
     AppHeaderComponent,
+    EventComponent,
+    DatePipePipe,
   ],
   imports: [
     BrowserModule,

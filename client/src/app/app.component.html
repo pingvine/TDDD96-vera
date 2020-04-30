@@ -7,8 +7,8 @@
 
 </div>
 
-<mat-sidenav-container hasBackdrop="true">
-  <mat-sidenav #sidenav mode="over" class="view-sidenav">
+<mat-sidenav-container hasBackdrop="false">
+  <mat-sidenav #sidenav mode="over" class="view-sidenav"  >
     <mat-nav-list >
       <!--Add extra anchor-element with 0 height to avoid top element always being marked -->
       <a mat-list-item routerLink="/" style="height: 0;"></a>
@@ -19,7 +19,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content >
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

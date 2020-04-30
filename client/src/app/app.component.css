@@ -11,8 +11,8 @@
 }
 
 .view-sidenav {
-  height: auto;
-  width: auto;
+  height: 100%;
+  width: 20%;
 }
 
 .mat-app-menu {

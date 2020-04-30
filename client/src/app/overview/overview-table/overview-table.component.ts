@@ -4,6 +4,9 @@ import { ColumnMode } from '@swimlane/ngx-datatable/public-api';
 import { NgxDatatableModule, INgxDatatableConfig} from '@swimlane/ngx-datatable/public-api';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
+
+
+
 @Component({
   selector: 'app-overview-table',
   templateUrl: './overview-table.component.html',
@@ -19,45 +22,79 @@ export class OverviewTableComponent implements OnInit {
   pending = [];
   groups = [];
   editing = {};
-  teams = [{team: 'A', check: false}, {team: 'B', check: false}, {team: 'C', check: false}, {team: 'D', check: false}, {team: 'X', check: false}, {team: 'U', check: false}];
-  rows = [];
-  temp = [
-    {prio: 'yellow', social: '601113-6865', team: 'B', name: 'Jens', gender: 'male', age: 59, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '01:00', search: 'buksm 178', activity: '', time: '20 min', arrival_method: 'ambulance'   },
-    {prio: 'green', social: '691122-6451', team: 'C', name: 'Per', gender: 'female', age: 50, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:00', search: 'buksm 178', activity: '', time: '10 min', arrival_method: 'ambulance'  },
-    {prio: 'blue', social: '600829-6631', team: 'B', name: 'Axel', gender: 'male', age: 59, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '03:00', search: 'buksm 178', activity: '', time: '13 min', arrival_method: 'ambulance'   },
-    {prio: 'blue', social: '980808-7890', team: 'A', name: 'Tina',  gender: 'male', age: 52, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:40', search: 'buksm 178', activity: '', time: '48 min', arrival_method: 'ambulance'   },
-    {prio: 'orange', social: '000213-9277', team: 'B', name: 'Elias', gender: 'male', age: 20, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:50', search: 'buksm 178', activity: '', time: '240 min', arrival_method: 'ambulance'   },
-    {prio: 'red', social: '940628-3789', team: 'C', name: 'Tomas', gender: 'female', age: 25, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:06', search: 'buksm 178', activity: '', time: '64 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '1993-05-13', team: 'D', name: 'Bardia', gender: 'female', age: 26, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:07', search: 'buksm 178', activity: '', time: '25 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '1998-05-20', team: 'D', name: 'Robert', gender: 'female', age: 21, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:08', search: 'buksm 178', activity: '', time: '23 min', arrival_method: 'ambulance'  },
-    {prio: 'yellow', social: '1965-01-09', team: 'D', name: 'Markus', gender: 'female', age: 55, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:12', search: 'buksm 178', activity: '', time: '12 min', arrival_method: 'ambulance'  },
-    {prio: 'blue', social: '123456-7890', team: 'U', name: 'Molly', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:00', search: 'buksm 178', activity: '', time: '34 min', arrival_method: 'ambulance'  },
-    {prio: 'red', social: '123456-7890', team: 'U', name: 'Kassandra', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '04:24', search: 'buksm 178', activity: '', time: '10 min', arrival_method: 'ambulance'  },
-    {prio: 'orange', social: '123456-7890', team: 'U', name: 'Margit', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:23', search: 'buksm 178', activity: '', time: '19 min', arrival_method: 'ambulance'  },
-    {prio: 'orange', social: '123456-7890', team: 'X', name: 'Jenny', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:12', search: 'buksm 178', activity: '', time: '146 min', arrival_method: 'ambulance'  },
-    {prio: 'yellow', social: '123456-7890', team: 'X', name: 'Kent', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:00', search: 'buksm 178', activity: '', time: '89 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '123456-7890', team: 'X', name: 'Liya', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '01:10', search: 'buksm 178', activity: '', time: '43 min', arrival_method: 'ambulance'  },
-    {prio: 'orange', social: '123456-7890', team: 'X', name: 'Nikol', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:00', search: 'buksm 178', activity: '', time: '23 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '123456-7890', team: 'X', name: 'Erika', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:54', search: 'buksm 178', activity: '', time: '64 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '123456-7890', team: 'X', name: 'Elin', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:28', search: 'buksm 178', activity: '', time: '32 min', arrival_method: 'ambulance'  }
-  ];
-
-
-
+  teams = [ {name: 'A', check: false}, {name: 'B', check: false}, {name: 'C', check: false}, {name: 'D', check: false}, {name: 'X', check: false}, {name: 'U', check: false}];
+  searchRows = [];
+  allRows = [
+    {all: 0, prio: 'yellow', social: '601113-6865', team: 'B', team_temp: 'B', name: 'Jens', gender: 'male', age: 59, dr: 'Kerstin', nurse: 'Asim', nurse2: 'Ella', arrival: '01:00', search: 'buksm', activity: '', time: 20, arrival_method: 'ambulance'   },
+    {all: 0, prio: 'green', social: '691122-6451', team: 'C', team_temp: 'C', name: 'Per', gender: 'female', age: 50, dr: 'Kerstin', nurse: 'Johan', nurse2: 'Martin', arrival: '02:00', search: 'buksm', activity: '', time: 10, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'blue', social: '600829-6631', team: 'B', team_temp: 'B', name: 'Axel', gender: 'male', age: 59, dr: 'Rakeeb', nurse: 'Asim', nurse2: 'Madihna', arrival: '03:00', search: 'buksm', activity: '', time: 13, arrival_method: 'ambulance'   },
+    {all: 0, prio: 'blue', social: '980808-7890', team: 'A', team_temp: 'A', name: 'Tina',  gender: 'male', age: 52, dr: 'Kerstin', nurse: 'Johan', nurse2: 'Ella', arrival: '00:40', search: 'buksm', activity: '', time: 48, arrival_method: 'ambulance'   },
+    {all: 0, prio: 'orange', social: '000213-9277', team: 'B', team_temp: 'B', name: 'Elias', gender: 'male', age: 20, dr: 'Kerstin', nurse: 'Ola', nurse2: 'Martin', arrival: '00:50', search: 'buksm', activity: '', time:  40, arrival_method: 'ambulance'   },
+    {all: 0, prio: 'red', social: '940628-3789', team: 'C', team_temp: 'C', name: 'Tomas', gender: 'female', age: 25, dr: 'Kerstin', nurse: 'Johan', nurse2: 'Ella', arrival: '00:06', search: 'buksm', activity: '', time: 64, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'green', social: '1993-05-13', team: 'D', team_temp: 'D', name: 'Bardia', gender: 'female', age: 26, dr: 'Rakeeb', nurse: 'Asim', nurse2: 'Martin', arrival: '00:07', search: 'buksm', activity: '', time: 25, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'green', social: '1998-05-20', team: 'D', team_temp: 'D', name: 'Robert', gender: 'female', age: 21, dr: 'Rakeeb', nurse: 'Johan', nurse2: 'Madihna', arrival: '00:08', search: 'buksm', activity: '', time: 23, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'yellow', social: '1965-01-09', team: 'D', team_temp: 'D', name: 'Markus', gender: 'female', age: 55, dr: 'Rakeeb', nurse: 'Johan', nurse2: 'Ella', arrival: '00:12', search: 'buksm', activity: '', time: 12, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'blue', social: '123456-7890', team: 'U', team_temp: 'U', name: 'Molly', gender: 'female', age: 22, dr: 'Kerstin', nurse: 'Asim', nurse2: 'Martin', arrival: '02:00', search: 'buksm', activity: '', time: 34, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'red', social: '123456-7890', team: 'U', team_temp: 'U', name: 'Kassandra', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Johan', nurse2: 'Ella', arrival: '04:24', search: 'buksm', activity: '', time: 10, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'orange', social: '123456-7890', team: 'U', team_temp: 'U', name: 'Margit', gender: 'female', age: 22, dr: 'David', nurse: 'Ola', nurse2: 'Martin', arrival: '00:23', search: 'buksm', activity: '', time: 19, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'orange', social: '123456-7890', team: 'X', team_temp: 'X', name: 'Jenny', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Asim', nurse2: 'Madihna', arrival: '02:12', search: 'buksm', activity: '', time:  46, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'yellow', social: '123456-7890', team: 'X', team_temp: 'X', name: 'Kent', gender: 'female', age: 22, dr: 'David', nurse: 'Ola', nurse2: 'Madihna', arrival: '00:00', search: 'buksm', activity: '', time: 89, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'green', social: '123456-7890', team: 'X', team_temp: 'X', name: 'Liya', gender: 'female', age: 22, dr: 'David', nurse: 'Asim', nurse2: 'Martin', arrival: '01:10', search: 'buksm', activity: '', time: 43, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'orange', social: '123456-7890', team: 'X', team_temp: 'X', name: 'Nikol', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Ola', nurse2: 'Ella', arrival: '00:00', search: 'buksm', activity: '', time: 23, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'green', social: '123456-7890', team: 'X', team_temp: 'X', name: 'Erika', gender: 'female', age: 22, dr: 'David', nurse: 'Asim', nurse2: 'Ella', arrival: '00:54', search: 'buksm', activity: '', time: 64, arrival_method: 'ambulance'  },
+    {all: 0, prio: 'green', social: '123456-7890', team: 'X', team_temp: 'X', name: 'Elin', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Johan', nurse2: 'Martin', arrival: '00:28', search: 'buksm', activity: '', time: 32, arrival_method: 'ambulance'}];
+  showAllTeams = false;
+  drList = ['Kerstin', 'David', 'Rakeeb'];
+  nurseList = ['Johan', 'Asim', 'Ola'];
+  assistantNurseList = ['Madihna', 'Ella', 'Martin'];
+  drFilter = '';
+  nurseFilter = '';
+  assistantNurseFilter = '';
+  searchFilter = '';
+  rawEvent: any;
+  contextmenuRow: any;
+  contextmenuColumn: any;
 
   ngOnInit(): void {
-    this.temp = this.sortProperties(this.temp,"team", false, false);
-    this.rows = this.temp;
+    this.allRows = this.sortProperties(this.allRows, 'team', false);
+    this.searchRows = this.allRows;
   }
 
 
-  updateCheckboxFilter() {
-    for (const team of this.teams){
-      console.log(team.team + ' :' + team.check);
+  addPatient(visit): void {
+    this.allRows = this.allRows.concat([visit]);
+  }
+
+  resetButtonPressed() {
+    this.clearFilters('all');
+    this.table.groupHeader.collapseAllGroups();
+  }
+
+  clearFilters(option: string): void {
+    if (option === 'all' || option === 'checkbox') {
+      this.clearCheckboxes('allBox');
+      this.clearCheckboxes('teamBoxes');
     }
+    if (option === 'all' || option === 'search') {
+      this.searchFilter = '';
+    }
+    if (option === 'all' || option === 'personel') {
+      this.nurseFilter = '';
+      this.drFilter = '';
+      this.assistantNurseFilter = '';
+    }
+    this.searchRows = this.allRows;
   }
 
-  updateFilter(event) {
+  clickSearchBar(event) {
+    console.log(event);
+    console.log(event.target.childNodes);
+    this.clearFilters('checkbox');
+    this.clearFilters('personel');
+    this.table.groupHeader.collapseAllGroups();
+  }
+
+  updateSearchFilter(event): void {
     let val = event.target.value;
     const num = isNaN(val);
     console.log(num);
@@ -65,55 +102,124 @@ export class OverviewTableComponent implements OnInit {
     let temp = [];
     if (num) {
       val = val.toLowerCase();
-      temp = this.temp.filter(function(d) {
+      temp = this.allRows.filter((d) => {
         return d.name.toLowerCase().indexOf(val) !== -1 || !val;
       });
     } else {
-      temp = this.temp.filter(function(d) {
+      temp = this.allRows.filter((d) => {
         return d.social.toLowerCase().indexOf(val) !== -1 || !val;
       });
     }
-    this.rows = temp;
-
+    this.searchRows = temp;
   }
 
-  sortRows(event) {
-    console.log(event);
+  updateCheckboxFilter(): void {
+    this.clearFilters('search');
+    this.clearFilters('personel');
+    this.clearCheckboxes('allBox');
+    let rows = [];
+    for (const team of this.teams) {
+      if (team.check) {
+        rows = rows.concat(this.allRows.filter((d) => {
+          return d.team.indexOf(team.name) !== -1 || !team.name;
+        }));
+      }
+    }
+    if (rows.length !== 0) {
+      this.searchRows = [...rows];
+    } else {
+      console.log(this.searchRows.length);
+      this.searchRows = this.allRows;
+      console.log(this.searchRows.length);
+    }
+    this.table.groupHeader.collapseAllGroups();
+  }
+
+  clearCheckboxes(option: string): void {
+    if (option === 'teamBoxes') {
+      console.log('Clear team checks');
+      for (const team of this.teams) {
+        team.check = false;
+      }
+    } else if (option === 'allBox') {
+      console.log('Clear all check');
+      this.showAllTeams = false;
+    }
+  }
+
+  filterWorkers() {
+    this.clearFilters('search');
+    this.clearFilters('checkbox');
+    // filter our data
+    let temp = [];
+    console.log(this.drFilter);
+    if (this.drFilter !== '') {
+      temp = temp.concat(this.allRows.filter((d) => {
+
+
+        console.log(d.dr.indexOf(this.drFilter));
+        return d.dr.indexOf(this.drFilter) !== -1 || !this.drFilter;
+      }));
+    }
+    console.log(temp);
+
+    if (this.nurseFilter !== '') {
+      temp = temp.concat(this.allRows.filter((d) => {
+        return d.nurse.indexOf(this.nurseFilter) !== -1 || !this.nurseFilter;
+      }));
+    }
+
+    if (this.assistantNurseFilter !== '') {
+      temp = temp.concat(this.allRows.filter((d) => {
+        return d.nurse2.indexOf(this.assistantNurseFilter) !== -1 || !this.assistantNurseFilter;
+      }));
+    }
+    this.searchRows = temp;
+    this.table.groupHeader.collapseAllGroups();
+  }
+
+  changeGroupView(): void {
+    if (this.table !== undefined) {
+      this.clearCheckboxes('teamBoxes');
+    }
+    this.searchRows = this.allRows;
+  }
+
+  sortRows(event): void {
     if (event.newValue !== undefined) {
       const reverse = event.newValue !== 'asc';
-      console.log(this.sortProperties(this.rows, event.column.prop, false, reverse));
-      this.rows = this.sortProperties(this.rows, event.column.prop, false, reverse);
-      this.rows = this.sortProperties(this.rows, 'team', false, false);
+      this.searchRows = this.sortProperties(this.searchRows, event.column.prop,  reverse);
+      this.searchRows = this.sortProperties(this.searchRows, 'team',  false);
+      this.searchRows = [...this.searchRows];
     } else {
-      this.rows = this.temp;
+      this.searchRows = this.allRows;
     }
-
-
   }
 
-  print(event) {
-    console.log(event);
-  }
 
-  doubleclick(event: any) {
-    console.log(event);
-  }
-
-  activity(event: any) {
+  mouseActivity(event: any): void {
     if (event.type === 'click') {
-      this.visitor.emit(event.row);
-      console.log(event.row.social);
+      if (event.column.name === 'Personnummer(år)(kön)') {
+        console.log('Clicked Social-id');
+        this.visitor.emit(event.row);
+      } else if (event.column.name === 'Checkup') {
+        console.log('Clicked Checkup');
+      } else if (event.column.name === 'Aktivitet') {
+        console.log('Clicked Activity');
+      } else if (event.column.name === 'Kommentar') {
+        console.log('Clicked Comment');
+      }
     }
   }
 
-  activityClicked(event) {
+  activityClicked(event): void {
     console.log('Activity clicked');
   }
 
   constructor() { }
 
 
-  toggleExpandGroup(group) {
+  toggleExpandGroup(group): void {
     console.log('Toggled Expand Group!', group);
     this.table.groupHeader.toggleExpandGroup(group);
   }
@@ -123,9 +229,10 @@ export class OverviewTableComponent implements OnInit {
   }
 
 
-  sortProperties(obj, sortedBy, isNumericSort, reverse) {
+  sortProperties(obj, sortedBy, reverse)  {
     sortedBy = sortedBy || 1; // by default first key
-    isNumericSort = isNumericSort || false; // by default text sort
+    const isNumericSort = typeof obj[0][sortedBy] === 'number'; // by default text sort
+
     reverse = reverse || false; // by default no reverse
 
     const reversed = (reverse) ? -1 : 1;
@@ -137,17 +244,33 @@ export class OverviewTableComponent implements OnInit {
         }
     }
     if (isNumericSort) {
-      sortable.sort(function(a, b) {
-            return reversed * (a[1][sortedBy] - b[1][sortedBy]);
+      sortable.sort((a, b) => {
+            return reversed * (a[sortedBy] - b[sortedBy]);
       });
     } else {
-      sortable.sort(function(a, b) {
-          const x = a[sortedBy].toLowerCase(),
-              y = b[sortedBy].toLowerCase();
+      sortable.sort((a, b) => {
+          const x = a[sortedBy].toLowerCase();
+          const y = b[sortedBy].toLowerCase();
           return x < y ? reversed * -1 : x > y ? reversed : 0;
         });
     }
 
-    return sortable; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+    return sortable;
+  }
+
+  onTableContextMenu(contextMenuEvent) {
+    console.log(contextMenuEvent);
+
+    this.rawEvent = contextMenuEvent.event;
+    if (contextMenuEvent.type === 'body') {
+      this.contextmenuRow = contextMenuEvent.content;
+      this.contextmenuColumn = undefined;
+    } else {
+      this.contextmenuColumn = contextMenuEvent.content;
+      this.contextmenuRow = undefined;
+    }
+
+    contextMenuEvent.event.preventDefault();
+    contextMenuEvent.event.stopPropagation();
   }
 }
