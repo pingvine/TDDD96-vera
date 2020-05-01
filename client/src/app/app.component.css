@@ -12,7 +12,7 @@
 
 .view-sidenav {
   height: 100%;
-  width: 15%;
+  width: auto;
 }
 
 .mat-app-menu {
@@ -41,5 +41,5 @@
 }
 
 .view-sidenav-list-item {
-  font-size: 30px;
+  font-size: 24px;
 }
