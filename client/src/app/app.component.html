@@ -1,16 +1,18 @@
 <div class="mat-app-background">
   <button mat-button (click)="sidenav.toggle()" class="mat-app-menu-button">
-    <mat-icon class="mat-app-menu">menu</mat-icon>
+    <mat-icon *ngIf="sidenav.opened" class="mat-app-menu">menu_opened</mat-icon>
+    <mat-icon *ngIf="!sidenav.opened" class="mat-app-menu">menu</mat-icon>
   </button>
   <app-header></app-header>
 
 </div>
 
-<mat-sidenav-container hasBackdrop="false">
+<mat-sidenav-container hasBackdrop="true">
   <mat-sidenav #sidenav mode="over" class="view-sidenav"  >
     <mat-nav-list >
-      <!-- Add 'routerLink="{{view.url}}"' to the tag bellow when more views are designed-->
-      <a mat-list-item (click)="sidenav.toggle()" routerLink="{{view.url}}" *ngFor="let view of views"
+      <!--Add extra anchor-element with 0 height to avoid top element always being marked -->
+      <a mat-list-item routerLink="/" style="height: 0;"></a>
+      <a mat-list-item (click)="sidenav.toggle()" routerLink="{{view.url}}" routerLinkActive="active-view" role="navigation" *ngFor="let view of views"
          class="view-sidenav-list-item">
         {{ view.name }}
       </a>
