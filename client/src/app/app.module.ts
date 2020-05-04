@@ -32,8 +32,10 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
-import { VisitReasonComponent } from './patient/visit-reason/visit-reason.component';
+import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
 import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view-header.component';
+import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical/visit-topical.component';
+import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-info-personal/visit-info-personal.component';
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view
     DatePipePipe,
     VisitReasonComponent,
     VisitViewHeaderComponent,
+    VisitTopicalComponent,
+    VisitInfoPersonalComponent,
   ],
   imports: [
     BrowserModule,
