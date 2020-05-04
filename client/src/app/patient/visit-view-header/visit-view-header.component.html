@@ -1,4 +1,4 @@
-<mat-grid-list class="mat-grid-list" cols="12" rowHeight="1:1">
+<mat-grid-list cols="12" rowHeight="1:1">
   <mat-grid-tile colspan="2">
     <div class="tile-container">
       <app-visit-info-personal></app-visit-info-personal>
@@ -7,7 +7,7 @@
 
   <mat-grid-tile>
     <div class="tile-container">
-      <app-visit-reason></app-visit-reason>
+      <app-visit-reason (reasonChange)="onReasonChange($event)"></app-visit-reason>
     </div>
   </mat-grid-tile>
 
