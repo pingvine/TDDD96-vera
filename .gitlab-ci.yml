@@ -16,6 +16,7 @@ test:
     script:
     - cd client
     - npm config delete proxy
+    - npm install get-caller-file
     - npm install --loglevel verbose
     - ./node_modules/.bin/ng test --watch=false --code-coverage=true
 
