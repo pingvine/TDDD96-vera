@@ -3,10 +3,16 @@ mat-grid-list {
   height: 50px;
 }
 
-.vital-params {
-  float: right;
+.left-col {
+  float: left;
+  padding: 8px;
 }
 
-.body-image {
-  float: left;
+.right-col {
+  float: right;
+  padding: 8px;
+}
+
+.right-col mat-form-field {
+  max-height: 10px;
 }
