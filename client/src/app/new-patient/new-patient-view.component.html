@@ -1,31 +1,57 @@
 <div class="container">
-  <mat-horizontal-stepper>
+  <mat-horizontal-stepper #matHorizontalStepper>
+
     <mat-step>
-      <ng-template>
-        <mat-card style="border-radius: 8px">
-          Patient
+      <ng-template matStepLabel>
+        <mat-card [ngClass]="matHorizontalStepper.selectedIndex === 0 ? 'stepper-header-selected': 'stepper-header'">
+          Patientinformation
         </mat-card>
       </ng-template>
         <mat-card style="background-color: #C5CAE9; border-radius: 16px">
           <mat-card-content>
 
-            <button mat-button matStepperNext>Next</button>
 
+            <button mat-button matStepperNext>Next</button>
           </mat-card-content>
         </mat-card>
-
-
     </mat-step>
 
     <mat-step>
-      <ng-template matStepLabel>Triage</ng-template>
+      <ng-template matStepLabel>
+        <mat-card [ngClass]="matHorizontalStepper.selectedIndex === 1 ? 'stepper-header-selected' : 'stepper-header'">
+          Triage
+        </mat-card>
+      </ng-template>
       <img [src]="'assets/img/human.png'">
       <button mat-button matStepperPrevious>Previous</button>
       <button mat-button matStepperNext>Next</button>
     </mat-step>
 
     <mat-step>
-      <ng-template matStepLabel>Aktiviteter</ng-template>
+      <ng-template matStepLabel>
+        <mat-card [ngClass]="matHorizontalStepper.selectedIndex === 2 ?  'stepper-header-selected' :'stepper-header' ">
+          Aktiviteter
+        </mat-card>
+      </ng-template>
+      <button mat-button matStepperPrevious>Previous</button>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>
+      <mat-card [ngClass]="matHorizontalStepper.selectedIndex === 3 ?  'stepper-header-selected' :'stepper-header'">
+        Dokumentation
+      </mat-card>
+      </ng-template>
+      <button mat-button matStepperPrevious>Previous</button>
+    </mat-step>
+
+
+    <mat-step>
+      <ng-template matStepLabel>
+        <mat-card [ngClass]="matHorizontalStepper.selectedIndex === 4 ?  'stepper-header-selected' :'stepper-header' ">
+          Ordinationer
+        </mat-card>
+        </ng-template>
       <button mat-button matStepperPrevious>Previous</button>
     </mat-step>
   </mat-horizontal-stepper>
