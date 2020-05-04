@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Message} from '../../../overview/visit-selector/visit-selector.component';
 
 @Component({
@@ -11,10 +11,16 @@ export class VisitEventsComponent implements OnInit {
     {date: new Date(Date.now()), user: 'LäkBeatrice', info: 'Ny ordination Voltaren 75mg'}
   ];
 
+  @Output() clicked: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+
+  onClick() {
+    this.clicked.emit(null);
   }
 
 
