@@ -1,7 +1,6 @@
 import { Person } from './Person'
 import { CareEvent } from './CareEvent'
 import { HealthManager } from '../Managers/HealthManager'
-import { getDiffieHellman } from 'crypto'
 
 export class Visit{
     private id: number
@@ -9,6 +8,14 @@ export class Visit{
     private hosts: Person[]
     private timeLine: CareEvent[]
     private healthManager: HealthManager
+
+    constructor(id: number, person: Person){
+        this.id = id
+        this.person = person
+        this.hosts = []
+        this.timeLine = []
+        this.healthManager = undefined
+    }
 
     getId(){
         return this.id
