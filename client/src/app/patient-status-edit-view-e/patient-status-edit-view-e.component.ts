@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientStatusEditViewEComponent implements OnInit {
   panelOpenState = false;
+  sarskada = false;
+  brannskada = false;
+  hudutslag = false;
   constructor() { }
 
   ngOnInit(): void {

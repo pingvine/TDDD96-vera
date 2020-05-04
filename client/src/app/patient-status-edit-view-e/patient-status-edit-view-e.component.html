@@ -1,19 +1,19 @@
-<p>patient-status-edit-view-e works!</p>
-
-<mat-card class="edit-view-e">
-  <mat-card-header class="edit-view-e-header">
-    <mat-card-title>E - Exponering</mat-card-title>
-    <mat-radio-button>Anmärkning</mat-radio-button>
-    <mat-radio-button>Ingen anmärkning</mat-radio-button>
+<mat-card class="mat-card-background">
+  <mat-card-header class="mat-card-header">
+    <mat-card-title class="mat-card-title">E - Exponering</mat-card-title>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content class="mat-card-content">
+    <mat-radio-group>
+      <mat-radio-button value="1" class="mat-radio-test">Anmärkning</mat-radio-button>
+      <mat-radio-button value="2" class="mat-radio-test">Ingen anmärkning</mat-radio-button>
+    </mat-radio-group>
     <p>
       Tänk alltid på patientens integritet vid avklädning. Täck över den del av kroppen som för tillfället inte bedöms.
     </p>
 
     <mat-accordion>
 
-      <mat-expansion-panel class="edit-view-expansion-test">
+      <mat-expansion-panel class="mat-expansion-panel">
         <mat-expansion-panel-header>
           <mat-panel-title>
             Anmärk på hud
@@ -23,9 +23,11 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <mat-radio-button>Sårskada</mat-radio-button>
-        <mat-radio-button>Brännskada</mat-radio-button>
-        <mat-radio-button>Hudutslag</mat-radio-button>
+        <mat-radio-group>
+          <mat-radio-button value="1">Sårskada</mat-radio-button>
+          <mat-radio-button value="2">Brännskada</mat-radio-button>
+          <mat-radio-button value="3">Hudutslag</mat-radio-button>
+        </mat-radio-group>
         <mat-form-field>
           <mat-label>Kommentar</mat-label>
           <input matInput>
