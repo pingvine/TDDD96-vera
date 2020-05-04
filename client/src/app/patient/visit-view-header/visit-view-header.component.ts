@@ -23,4 +23,9 @@ export class VisitViewHeaderComponent implements OnInit {
   onClickedEvents($event: any) {
     console.log('Clicked the events. We want to open the view.');
   }
+
+  onClickBody() {
+    console.log('Open vital parameters view');
+
+  }
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-visit-body',
@@ -15,9 +15,14 @@ export class VisitBodyComponent implements OnInit {
   @Input() pain: number;  // Pain estimate // Todo validator
   @Input() weight: number;
 
+  @Output() onClickBody = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onClicked($event: MouseEvent) {
+    this.onClickBody.emit();
+  }
 }
