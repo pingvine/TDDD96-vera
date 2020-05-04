@@ -12,7 +12,7 @@
 
 .view-sidenav {
   height: 100%;
-  width: 20%;
+  width: auto;
 }
 
 .mat-app-menu {
@@ -31,13 +31,17 @@
   outline: none;
 }
 
-.view-sidenav-list-item {
-  color: #303F9F;
+.active-view {
+  color: #009688;
+  background: rgba(0,0,0,0.04);
 }
 
 .view-sidenav-list-item:hover {
-  color: white;
-  background: #303F9F;
+  color: #303F9F;
+}
+
+.view-sidenav-list-item {
+  font-size: 24px;
 }
 .mat-sidenav-container {
   height: 100%;
