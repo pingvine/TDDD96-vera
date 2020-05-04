@@ -19,4 +19,8 @@ export class VisitViewHeaderComponent implements OnInit {
   onTopicalChange(topicalText: string) {
     console.log('Topical change: ' + topicalText);
   }
+
+  onClickedEvents($event: any) {
+    console.log('Clicked the events. We want to open the view.');
+  }
 }
