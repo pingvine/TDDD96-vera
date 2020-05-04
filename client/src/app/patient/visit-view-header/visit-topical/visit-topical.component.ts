@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-visit-topical',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisitTopicalComponent implements OnInit {
 
+  @Input() text = '';
+  @Output() textChanged = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onTextChanged(text: string) {
+    this.textChanged.emit(text);
   }
 
 }

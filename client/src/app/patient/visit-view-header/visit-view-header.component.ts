@@ -15,4 +15,8 @@ export class VisitViewHeaderComponent implements OnInit {
   onReasonChange(reason: string) {
     console.log('Hello I am the header component and I received reasonChange event: ' + reason);
   }
+
+  onTopicalChange(topicalText: string) {
+    console.log('Topical change: ' + topicalText);
+  }
 }

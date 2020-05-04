@@ -13,7 +13,7 @@
 
   <mat-grid-tile colspan="3">
     <div class="tile-container">
-      <app-visit-topical></app-visit-topical>
+      <app-visit-topical (textChanged)="onTopicalChange($event)"></app-visit-topical>
     </div>
   </mat-grid-tile>
 
