@@ -6,8 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  views = [{name: 'Enhetsöversikt', url: '/overview'}, {name: 'Patientöversikt', url: '/patient'},
-    {name: 'Teamöversikt', url: '/team'}, {name: 'Sammanställning', url: '/summary'}];
+  views = [{name: 'Enhetsöversikt', url: '/overview'},
+    // {name: 'Patientöversikt', url: '/patient', active: false},
+    {name: 'Teamöversikt', url: '/team'},
+    {name: 'Inställningar', url: '/settings'}];
 
   title = 'VERA 20';
 
