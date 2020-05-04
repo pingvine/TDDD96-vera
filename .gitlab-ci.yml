@@ -7,6 +7,9 @@ workflow:
     
 test:
     stage: test
+    services:
+    - name: docker:stable-dind
+      command: [ "dockerd", "--host=unix:///var/run/docker.sock", "--host=tcp://0.0.0.0:2375", "--mtu=1450" ]
     script:
     - cd client
     - npm config delete proxy
