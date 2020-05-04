@@ -5,19 +5,10 @@ workflow:
         - if: $CI_MERGE_REQUEST_ID
         - if: $CI_COMMIT_BRANCH == 'master'
 
-before_script:
-    - npm install --loglevel verbose
-
 test:
     stage: test
-    services:
-    - name: docker:stable-dind
-      command: [ "dockerd", "--host=unix:///var/run/docker.sock", "--host=tcp://0.0.0.0:2375", "--mtu=1450" ]
     script:
     - cd client
-    - npm config delete proxy
-    - npm install get-caller-file
-    - npm install --loglevel verbose
+    - npm install 
     - ./node_modules/.bin/ng test --watch=false --code-coverage=true
-
     
