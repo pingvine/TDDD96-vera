@@ -14,6 +14,7 @@ import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { PatientViewComponent } from './patient/patient-view.component';
 import { OverviewViewComponent } from './overview/overview-view.component';
 import { SummaryViewComponent } from './summary/summary-view.component';
@@ -27,10 +28,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
-import { AppHeaderComponent } from './app-header/app-header.component';
+import {AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
-import { PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
+import {PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PatientStatusViewDialogComponent } from './patient-status-view-dialog/patient-status-view-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -45,6 +49,7 @@ import { PatientStatusViewComponent } from './patient-status-view/patient-status
     NewPatientViewComponent,
     AppHeaderComponent,
     PatientStatusViewComponent,
+    PatientStatusViewDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,7 @@ import { PatientStatusViewComponent } from './patient-status-view/patient-status
     MatSidenavModule,
     MatMenuModule,
     MatIconModule,
+    MatDialogModule,
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
@@ -75,9 +81,11 @@ import { PatientStatusViewComponent } from './patient-status-view/patient-status
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
+    MatExpansionModule,
     FormsModule,
 
   ],
+  entryComponents: [PatientStatusViewDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

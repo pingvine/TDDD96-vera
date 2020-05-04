@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PatientStatusViewComponent } from './patient-status-view.component';
 
 describe('PatientStatusViewComponent', () => {
@@ -23,3 +22,6 @@ describe('PatientStatusViewComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+
