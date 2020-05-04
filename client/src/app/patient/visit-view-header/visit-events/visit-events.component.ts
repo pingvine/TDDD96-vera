@@ -9,7 +9,7 @@ import {Message} from '../../../overview/visit-selector/visit-selector.component
 export class VisitEventsComponent implements OnInit {
   events: Message[] = [
     {date: new Date(Date.now()), user: 'LäkBeatrice', info: 'Ny ordination Voltaren 75mg'}
-  ]
+  ];
 
   constructor() { }
 
