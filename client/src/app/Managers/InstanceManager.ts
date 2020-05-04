@@ -2,7 +2,6 @@ import { Team } from '../models/Team';
 import { Visit } from '../models/Visit';
 import { User } from '../models/User';
 import { Person } from '../models/Person';
-import { UserType } from '../models/UserType';
 
 const dummyId: number = 0 //TODO: Remove and change occurrences when db exists
 
