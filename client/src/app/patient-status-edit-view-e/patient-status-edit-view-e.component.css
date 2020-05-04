@@ -39,3 +39,8 @@
   margin-right: 16px;
   margin-bottom: 16px;
 }
+
+.mat-example-radio-group {
+  display: flex;
+  margin: 16px 0;
+}

@@ -10,9 +10,14 @@ export class PatientStatusEditViewEComponent implements OnInit {
   sarskada = false;
   brannskada = false;
   hudutslag = false;
+  kommentar = "";
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  updateKommentar(event) {
+    this.kommentar = event.target.value;
   }
 
 }

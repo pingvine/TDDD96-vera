@@ -46,6 +46,19 @@
         </mat-expansion-panel-header>
 
       </mat-expansion-panel>
+
+      <label id="sfinktertonus-label">Sfinktertonus</label>
+      <mat-radio-group
+        aria-labelledby="sfinktertonus-label" class="mat-example-radio-group">
+        <mat-radio-button value="1" class="mat-radio-test">Normal</mat-radio-button>
+        <mat-radio-button value="2" class="mat-radio-test">Nedsatt</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="fill" style="height: 100%; width: 15em; font-size: 16px">
+        <mat-label>Kommentar</mat-label>
+        <input matInput (keyup)="updateKommentar($event)"/>
+      </mat-form-field>
+
     </mat-accordion>
   </mat-card-content>
   <mat-card-actions>
