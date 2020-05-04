@@ -2,6 +2,7 @@ import { Person } from './Person';
 
 export class Team{
     private id: number;
+    private prefix: string;
     private members: Person[];
 
     constructor(id: number, members: Person[]) {
@@ -11,6 +12,11 @@ export class Team{
     getId(){
         return this.id;
     }
+
+    getPrefix(){
+        return this.prefix;
+    }
+
     getMembers(){
         return this.members;
     }
