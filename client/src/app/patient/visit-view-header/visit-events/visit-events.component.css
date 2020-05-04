@@ -5,3 +5,7 @@
 mat-card-title {
   text-align: center;
 }
+
+.events-title {
+  font-size: 14px;
+}
