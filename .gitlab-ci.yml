@@ -13,7 +13,7 @@ test:
     script:
     - cd client
     - npm config delete proxy
-    - npm install ionic --loglevel verbose
+    - npm install --loglevel verbose
     - ./node_modules/.bin/ng test --watch=false --code-coverage=true
 
     
