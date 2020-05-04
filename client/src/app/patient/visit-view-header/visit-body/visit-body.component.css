@@ -1,0 +1,12 @@
+mat-grid-list {
+  width: 100px;
+  height: 50px;
+}
+
+.vital-params {
+  float: right;
+}
+
+.body-image {
+  float: left;
+}
