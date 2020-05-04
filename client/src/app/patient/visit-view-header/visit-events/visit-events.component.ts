@@ -11,7 +11,7 @@ export class VisitEventsComponent implements OnInit {
     {date: new Date(Date.now()), user: 'LäkBeatrice', info: 'Ny ordination Voltaren 75mg'}
   ];
 
-  @Output() clicked: EventEmitter<any> = new EventEmitter();
+  @Output() clickedEvents: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class VisitEventsComponent implements OnInit {
   }
 
   onClick() {
-    this.clicked.emit(null);
+    this.clickedEvents.emit(null);
   }
 
 
