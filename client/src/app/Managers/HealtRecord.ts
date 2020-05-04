@@ -1,4 +1,4 @@
-function getData(ehrId: number, data: string){
+export function getEhrData(ehrId: number, data: string){
     return 'true'
 }
 
@@ -6,6 +6,6 @@ function getEhrId(socialId: number){
     return 1
 }
 
-function postData(id: number, data: string){
+export function postEhrData(id: number, data: string){
     return 'true'
 }
