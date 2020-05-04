@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {EventComponent} from '../../../event/event.component';
+import {Message} from '../../../overview/visit-selector/visit-selector.component';
 
 @Component({
   selector: 'app-visit-events',
@@ -7,11 +7,15 @@ import {EventComponent} from '../../../event/event.component';
   styleUrls: ['./visit-events.component.css']
 })
 export class VisitEventsComponent implements OnInit {
-  events: EventComponent[];
+  events: Message[] = [
+    {date: new Date(Date.now()), user: 'LäkBeatrice', info: 'Ny ordination Voltaren 75mg'}
+  ]
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
+
 
 }
