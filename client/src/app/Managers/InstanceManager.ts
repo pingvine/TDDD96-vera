@@ -5,7 +5,6 @@ import { Person } from '../models/Person';
 import { UserType } from '../models/UserType';
 
 const dummyId: number = 0 //TODO: Remove and change occurrences when db exists
-const dummyUserType = UserType.Editor //TODO: Remove and change occurrences
 
 export class InstanceManager{
     private teams: Team[]
@@ -64,7 +63,7 @@ export class InstanceManager{
     }
 
     createUser(id: number, person: Person){
-        let newUser = new User(id, person, dummyUserType)
+        let newUser = new User(id, person, undefined)
         this.users.push(newUser)
         return newUser
     }
