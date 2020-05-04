@@ -27,13 +27,16 @@ import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from "@angular/material/select";
 import {FormsModule} from "@angular/forms";
-import { AppHeaderComponent } from './app-header/app-header.component';
+import {AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
 import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/patient-status-edit-view-e.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
+import {MatDialogModule} from '@angular/material/dialog';
+import { PatientStatusViewDialogComponent } from './patient-status-view-dialog/patient-status-view-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -49,6 +52,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     AppHeaderComponent,
     PatientStatusViewComponent,
     PatientStatusEditViewEComponent,
+    PatientStatusViewDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +63,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatSidenavModule,
     MatMenuModule,
     MatIconModule,
+    MatDialogModule,
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
@@ -79,11 +84,13 @@ import {MatExpansionModule} from "@angular/material/expansion";
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
+    MatExpansionModule,
     FormsModule,
     MatRadioModule,
     MatExpansionModule,
 
   ],
+  entryComponents: [PatientStatusViewDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
