@@ -1,3 +1,7 @@
 .events-container {
   min-height: 100%;
 }
+
+mat-card-title {
+  text-align: center;
+}
