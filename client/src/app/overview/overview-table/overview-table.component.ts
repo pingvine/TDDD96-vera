@@ -3,14 +3,13 @@ import { NgStyle, CommonModule } from '@angular/common';
 import { ColumnMode } from '@swimlane/ngx-datatable/public-api';
 import { NgxDatatableModule, INgxDatatableConfig} from '@swimlane/ngx-datatable/public-api';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
-
+import { ActivePatientsService } from '../../active-patients.service'
 
 
 @Component({
   selector: 'app-overview-table',
   templateUrl: './overview-table.component.html',
-  styleUrls: ['./overview-table.component.scss']
+  styleUrls: ['./overview-table.component.scss'],
 
 })
 export class OverviewTableComponent implements OnInit {
@@ -56,10 +55,34 @@ export class OverviewTableComponent implements OnInit {
   contextmenuColumn: any;
 
   ngOnInit(): void {
+
+    this.data.getActive().subscribe(answer =>{
+        console.log(answer)
+        if(answer !== null && answer !== ''){
+            let patients = answer.parties;
+            for(let i = 0; i < patients.length; i++){
+                console.log(patients[i].additionalInfo.Team)
+                let displayDic = {}
+                displayDic.name = patients[i].firstNames;
+                displayDic.team = patients[i].additionalInfo.Team;
+                displayDic.social = patients[i].additionalInfo.Personnummer;
+                displayDic.gender = patients[i].gender.toLowerCase();
+                displayDic.age = patients[i].additionalInfo.Ålder;
+                displayDic.search = patients[i].additionalInfo.Sökorsak
+                displayDic.prio = patients[i].additionalInfo.prio
+
+                this.allRows.push(displayDic);
+            }
+        }
+        else{
+            console.log('Error: No answer')
+        }
+    })
     this.allRows = this.sortProperties(this.allRows, 'team', false);
     this.searchRows = this.allRows;
+    this.searchRows = [...this.searchRows];
   }
-
+  constructor(private data : ActivePatientsService) { }
 
   addPatient(visit): void {
     this.allRows = this.allRows.concat([visit]);
@@ -216,7 +239,7 @@ export class OverviewTableComponent implements OnInit {
     console.log('Activity clicked');
   }
 
-  constructor() { }
+
 
 
   toggleExpandGroup(group): void {
