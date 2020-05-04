@@ -1,30 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { ViewNameService } from '../view-name.service';
+import {HeaderName} from '../header-name';
 
 @Component({
   selector: 'app-settings-view',
   templateUrl: './settings-view.component.html',
   styleUrls: ['./settings-view.component.css']
 })
-export class SettingsViewComponent implements OnInit, OnDestroy {
-  view: string;
-  subscription: Subscription;
-  constructor(private viewNameService: ViewNameService) {
-    this.subscription = this.viewNameService.view$.subscribe(view => this.view = view);
-  }
-
-  setView() {
-    this.viewNameService.changeView('Inställningar');
+export class SettingsViewComponent extends HeaderName implements OnInit {
+  constructor(viewNameService: ViewNameService) {
+    super(viewNameService, 'Inställningar');
   }
 
   ngOnInit(): void {
-    this.setView();
-  }
-
-  // To prevent memory leaks
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    super.setView();
   }
 
 }

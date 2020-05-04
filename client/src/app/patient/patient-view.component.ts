@@ -1,20 +1,17 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { RequestService } from '../request.service';
 import { ViewNameService } from '../view-name.service';
-import { Subscription } from 'rxjs';
+import {HeaderName} from '../header-name';
 
 @Component({
   selector: 'app-patient-view',
   templateUrl: './patient-view.component.html',
   styleUrls: ['./patient-view.component.css']
 })
-export class PatientViewComponent implements OnInit, OnDestroy {
+export class PatientViewComponent extends HeaderName implements OnInit {
   url = 'http://localhost:4201/patient';
-  subscription: Subscription;
-  view: string;
-  constructor(private service: RequestService, private viewNameService: ViewNameService) {
-    this.subscription = this.viewNameService.view$.subscribe(view => this.view = view);
-
+  constructor(private service: RequestService, viewNameService: ViewNameService) {
+    super(viewNameService, 'Patientvy');
   }
 
   private getPatient(): void {
@@ -24,17 +21,8 @@ export class PatientViewComponent implements OnInit, OnDestroy {
       });
   }
 
-  setView() {
-    this.viewNameService.changeView('Patientöversikt');
-  }
-
   ngOnInit(): void {
-    this.setView();
+    super.setView();
     this.getPatient();
-  }
-
-  // To prevent memory leaks
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }

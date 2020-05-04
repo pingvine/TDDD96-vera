@@ -1,30 +1,18 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ViewNameService } from '../view-name.service';
-import { Subscription } from 'rxjs';
+import {HeaderName} from '../header-name';
 
 @Component({
   selector: 'app-new-patient',
   templateUrl: './new-patient-view.component.html',
   styleUrls: ['./new-patient-view.component.css']
 })
-export class NewPatientViewComponent implements OnInit, OnDestroy {
-  view: string;
-  subscription: Subscription;
-  constructor(private viewNameService: ViewNameService) {
-    this.subscription = this.viewNameService.view$.subscribe(view => this.view = view);
-  }
-
-  setView() {
-    this.viewNameService.changeView('Ny patient');
+export class NewPatientViewComponent extends HeaderName implements OnInit {
+  constructor(viewNameService: ViewNameService) {
+    super(viewNameService, 'Ny patient');
   }
 
   ngOnInit(): void {
-    this.setView();
+    super.setView();
   }
-
-  // To prevent memory leaks
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
 }

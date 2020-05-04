@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { ViewNameService } from '../view-name.service';
-import { Subscription } from 'rxjs';
+import {HeaderName} from '../header-name';
 
 @Component({
   selector: 'app-summary-view',
@@ -9,13 +9,11 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./summary-view.component.css'],
   providers: [RequestService]
 })
-export class SummaryViewComponent implements OnInit, OnDestroy {
-  view: string;
-  subscription: Subscription;
+export class SummaryViewComponent extends HeaderName implements OnInit {
   url = 'http://localhost:4201/summary';
   response = [];
-  constructor(private service: RequestService, private viewNameService: ViewNameService) {
-    this.subscription = this.viewNameService.view$.subscribe(view => this.view = view);
+  constructor(private service: RequestService, viewNameService: ViewNameService) {
+    super(viewNameService, 'Sammanställning');
   }
 
   private getSummary(): void {
@@ -26,17 +24,8 @@ export class SummaryViewComponent implements OnInit, OnDestroy {
     });
   }
 
-  setView() {
-    this.viewNameService.changeView('Sammanställning');
-  }
-
   ngOnInit(): void {
-    this.setView();
+    super.setView();
     this.getSummary();
-  }
-
-  // To prevent memory leaks
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }
