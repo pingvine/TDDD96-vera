@@ -4,7 +4,10 @@ workflow:
     rules:
         - if: $CI_MERGE_REQUEST_ID
         - if: $CI_COMMIT_BRANCH == 'master'
-    
+
+  before_script:
+    - npm install --loglevel verbose
+
 test:
     stage: test
     services:
