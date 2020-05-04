@@ -5,7 +5,7 @@ workflow:
         - if: $CI_MERGE_REQUEST_ID
         - if: $CI_COMMIT_BRANCH == 'master'
 
-  before_script:
+before_script:
     - npm install --loglevel verbose
 
 test:
