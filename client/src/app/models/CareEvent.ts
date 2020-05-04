@@ -1,19 +1,20 @@
 import { ActionType } from './ActionType'
 import { Person } from './Person'
+import { RoleType } from './RoleType'
 
 export class CareEvent{
     private touched: Date
     private creatorId: number
-    private receiversId: number
+    private recievers: [RoleType[], number]
     private completed: [Date, number]
     private actionType: ActionType
     private creationTime: Date
     private comment: string
 
-    constructor(creator: Person, reciever: Person, action: ActionType, comment: string){
+    constructor(creator: Person, recievers: RoleType[], team: number, action: ActionType, comment: string){
         this.touched = new Date
-        this.creatorId = reciever.getId()
-        this.receiversId = creator.getId()
+        this.creatorId = creator.getId()
+        this.recievers = [recievers, team]
         this.completed = undefined
         this.actionType = action
         this.creationTime = new Date()
