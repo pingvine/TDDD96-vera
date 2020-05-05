@@ -14,6 +14,7 @@ mat-grid-tile {
 
 .tile-container {
   height: 100%;
+  margin-top: 8px;
 }
 
 .patient-header {
