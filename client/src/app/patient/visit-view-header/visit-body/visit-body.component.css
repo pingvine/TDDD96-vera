@@ -12,5 +12,14 @@ mat-grid-list {
 }
 
 mat-form-field {
-  max-height: 16px;
+  max-height: 24px;
+  font-size: 8px;
+  max-width: 50%;
 }
+
+.vp-flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
