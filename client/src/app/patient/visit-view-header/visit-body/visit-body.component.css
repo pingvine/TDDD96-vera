@@ -3,16 +3,14 @@ mat-grid-list {
   height: 50px;
 }
 
-.left-col {
-  float: left;
-  padding: 8px;
+.row {
+  display: flex
 }
 
-.right-col {
-  float: right;
-  padding: 8px;
+.col {
+  flex: 50%;
 }
 
-.right-col mat-form-field {
-  max-height: 10px;
+mat-form-field {
+  max-height: 16px;
 }
