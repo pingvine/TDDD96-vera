@@ -12,18 +12,22 @@ mat-grid-list {
 }
 
 mat-form-field {
-  max-height: 24px;
-  font-size: 8px;
+  max-height: 32px;
+  font-size: 10px;
   max-width: 30%;
-  margin: 0 8px 0 8px;
+  margin: 0 8px 0 24px;
 }
 
 .vp-flex-container {
   /*display: flex;*/
   /*flex-direction: column;*/
+  margin:auto;
 }
 
 .vp-body {
   margin: auto;
 }
 
+.body-image {
+  width: 60px;
+}
