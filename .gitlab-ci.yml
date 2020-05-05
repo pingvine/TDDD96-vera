@@ -4,11 +4,11 @@ workflow:
     rules:
         - if: $CI_MERGE_REQUEST_ID
         - if: $CI_COMMIT_BRANCH == 'master'
-    
+
 test:
     stage: test
     script:
     - cd client
-    - npm install
+    - npm install 
     - ./node_modules/.bin/ng test --watch=false --code-coverage=true
     

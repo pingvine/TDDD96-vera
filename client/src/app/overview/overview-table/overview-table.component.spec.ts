@@ -21,7 +21,7 @@ import {By} from "@angular/platform-browser";
 describe('OverviewTableComponent', () => {
   let component: OverviewTableComponent;
   let fixture: ComponentFixture<OverviewTableComponent>;
-  let debugElement : DebugElement;
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

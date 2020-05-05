@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {RequestService} from '../request.service';
-import {DummyGet} from '../models/get.dummy.model';
+import { RequestService } from '../request.service';
+import { DummyGet } from '../models/get.dummy.model';
+import { ViewNameService } from '../view-name.service';
+import {HeaderName} from '../header-name';
 
 @Component({
   selector: 'app-overview',
@@ -8,14 +10,15 @@ import {DummyGet} from '../models/get.dummy.model';
   styleUrls: ['./overview-view.component.css'],
   providers: [RequestService]
 })
-export class OverviewViewComponent implements OnInit {
+export class OverviewViewComponent extends HeaderName implements OnInit {
   selectedVisitor: any;
   visitorSelectorOpened: boolean;
-  title = 'Enhetsöversikt';
   url = 'http://localhost:4200/overview';
   response: DummyGet[];
   responseOk = false;
-  constructor(private service: RequestService) { }
+  constructor(private service: RequestService, viewNameService: ViewNameService) {
+    super(viewNameService, 'Enhetsöversikt');
+  }
 
   private getPatients(): void {
     this.service.getData(this.url)
@@ -37,5 +40,7 @@ export class OverviewViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPatients();
+    super.setView();
   }
+
 }
