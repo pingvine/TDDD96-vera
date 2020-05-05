@@ -8,8 +8,13 @@ mat-grid-list {
 
 mat-grid-tile {
   min-width: 10%;
+  /*min-height: 100%;*/
 }
 
 .tile-container {
 
+}
+
+.patient-header {
+  height: 150px;
 }
