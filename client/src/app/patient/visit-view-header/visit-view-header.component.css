@@ -12,7 +12,7 @@ mat-grid-tile {
 }
 
 .tile-container {
-
+  height: 100%;
 }
 
 .patient-header {
