@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-patient-view.component.css']
 })
 export class NewPatientViewComponent implements OnInit {
-
+  departments = [
+    'Motala', 'Linköping', 'Norrköping'
+  ];
   constructor() { }
 
   ngOnInit(): void {

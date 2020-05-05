@@ -33,6 +33,8 @@ import {MatListModule} from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 @NgModule({
@@ -81,6 +83,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatSelectModule,
     FormsModule,
     MatStepperModule,
+    MatButtonToggleModule,
+    MatRadioModule,
 
   ],
   providers: [],
