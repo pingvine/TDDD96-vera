@@ -36,6 +36,9 @@ import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/v
 import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view-header.component';
 import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical/visit-topical.component';
 import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-info-personal/visit-info-personal.component';
+import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
+import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -56,6 +59,8 @@ import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-in
     VisitViewHeaderComponent,
     VisitTopicalComponent,
     VisitInfoPersonalComponent,
+    VisitBodyComponent,
+    VisitEventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +92,7 @@ import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-in
     MatOptionModule,
     MatSelectModule,
     FormsModule,
-
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
