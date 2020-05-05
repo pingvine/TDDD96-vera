@@ -30,7 +30,7 @@ export class CareEvent{
     }
 
     getReceiverId(){
-        return this.receiversId
+        return this.recievers
     }
 
     markAsCompleted(markedBy: number){
