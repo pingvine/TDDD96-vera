@@ -101,7 +101,7 @@
        <!--    Row Column Template     -->
 
        <!-- Age and prio -->
-      <ngx-datatable-column  name="" prop="prio" sortable="true" [frozenLeft]="false" [width]="40">
+      <ngx-datatable-column  name="Prio" prop="prio" sortable="true" [frozenLeft]="false" [width]="50">
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
           <span class="prio-box" [style.text-shadow]="row['prio']" [style.background-color]="row['prio']"> ▮ </span>
         </ng-template>
@@ -128,16 +128,12 @@
       </ngx-datatable-column>
 
       <ngx-datatable-column name="Sökorsak" prop="search"  [width]="100"></ngx-datatable-column>
-
-      <ngx-datatable-column name="Aktivitet" prop="activity" (click)="activityClicked($event)" [width]="75"></ngx-datatable-column>
-
-      <ngx-datatable-column name="Namn" prop="name" [sortable]="true" [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Aktivitet" prop="activity"  [width]="75"></ngx-datatable-column>
+      <ngx-datatable-column name="Namn" prop="name" [sortable]="true" [width]="140"></ngx-datatable-column>
 
       <!-- Personel in charge -->
       <ngx-datatable-column name="Anvs.Läk." prop="dr"  [sortable]="true" [width]="90"></ngx-datatable-column>
-
       <ngx-datatable-column name="Ansv.Ssk." prop="nurse"  [sortable]="true" [width]="90"></ngx-datatable-column>
-
       <ngx-datatable-column name="Ansv.Usk." prop="nurse2" [sortable]="true" [width]="90"></ngx-datatable-column>
       <!-- Misc. -->
       <ngx-datatable-column name="Kommentar"  [width]="100" [sortable]="false"></ngx-datatable-column>
@@ -168,7 +164,7 @@
     (tableContextmenu)="onTableContextMenu($event)"
     (activate)="mouseActivity($event)"
   >
-    <ngx-datatable-column  name="" sortable="true" [frozenLeft]="false" [width]="40">
+    <ngx-datatable-column  name="Prio" sortable="true" [frozenLeft]="false" [width]="50">
       <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
         <span class="prio-box" [style.text-shadow]="row['prio']" [style.background-color]="row['prio']"> ▮ </span>
       </ng-template>
@@ -191,10 +187,10 @@
     </ngx-datatable-column>
 
     <ngx-datatable-column name="Sökorsak" prop="search"  [width]="100"></ngx-datatable-column>
-    <ngx-datatable-column name="Aktivitet" prop="activity" (click)="activityClicked($event)" [width]="75"></ngx-datatable-column>
-    <ngx-datatable-column name="Namn" prop="name" [sortable]="true" [width]="75"></ngx-datatable-column>
+    <ngx-datatable-column name="Aktivitet" prop="activity"  [width]="75"></ngx-datatable-column>
+    <ngx-datatable-column name="Namn" prop="name" [sortable]="true" [width]="140"></ngx-datatable-column>
 
-    <!-- Personel in charge -->
+    <!-- Personel -->
     <ngx-datatable-column name="Anvs.Läk." prop="dr"  [sortable]="true" [width]="90"></ngx-datatable-column>
     <ngx-datatable-column name="Ansv.Ssk." prop="nurse"  [sortable]="true" [width]="90"></ngx-datatable-column>
     <ngx-datatable-column name="Ansv.Usk." prop="nurse2" [sortable]="true" [width]="90"></ngx-datatable-column>
