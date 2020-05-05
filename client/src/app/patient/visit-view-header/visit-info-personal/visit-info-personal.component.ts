@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Priority} from '../../../models/Priority';
-import {PriorityText} from "../../../models/PriorityText";
+import {PriorityText} from '../../../models/PriorityText';
 
 @Component({
   selector: 'app-visit-info-personal',
@@ -13,6 +13,8 @@ export class VisitInfoPersonalComponent implements OnInit, OnChanges {
   @Input() firstName = 'firstName';
   @Input() lastName = 'lastName';
   @Input() socialId = 199801010101;
+  @Input() age = 0;
+  @Input() gender = 'Man';
   // @Input() attention: AttentionData;
 
   @Output() prioChange: EventEmitter<number> = new EventEmitter();
