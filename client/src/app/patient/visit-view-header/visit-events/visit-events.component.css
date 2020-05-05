@@ -1,5 +1,8 @@
 .events-container {
-  min-height: 100%;
+  min-height: 80%;
+  margin-top: 8px;
+  margin-right: 8px;
+  padding: 8px;
 }
 
 mat-card-title {
