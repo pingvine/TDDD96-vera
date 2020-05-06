@@ -1,3 +1,5 @@
+import { EventVera } from "../../shared/models/EventVera";
+
 "use strict";
 
 var webSocketsServerPort = 80;
@@ -29,10 +31,11 @@ wsServer.on('request', function(request) {
     connection.on('message', function(message) {
         if (message.type === 'utf8') { // accept text
             console.log((new Date()) + ' Received Message: ' + message.utf8Data);
-            let event = events.push(message) - 1; 
+            let event: EventVera = JSON.parse(message);
+            storeEvent(event);
 
             // broadcast message to all connected clients
-            var json = JSON.stringify({ type:'message', data: 'Hej alla!' });
+            var json = JSON.stringify(events);
             for (var i=0; i < clients.length; i++) {
                 clients[i].sendUTF(json);
                 console.log((new Date()) + ' Server sent: <' + json + '> to: ' + clients[i]);
@@ -46,3 +49,7 @@ wsServer.on('request', function(request) {
         clients.splice(index, 1); 
     });
 });
+
+function storeEvent(event: EventVera){
+    events.push(event) - 1; 
+}
