@@ -1,0 +1,17 @@
+.container {
+  padding: 8px;
+}
+
+.left-col {
+  float: left;
+  padding: 8px;
+}
+
+.right-col {
+  float: right;
+  font-size: 10px;
+}
+
+.ums-image {
+  width: 50px;
+}

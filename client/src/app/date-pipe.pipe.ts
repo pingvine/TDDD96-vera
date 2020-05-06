@@ -30,9 +30,9 @@ export class DatePipePipe  implements PipeTransform {
     } else if (diffDays === -1) {
       format = 'Imorgon';
     } else {
-      return this.datePipe.transform(copyDate, 'hh:mm');
+      return this.datePipe.transform(copyDate, 'M/d HH:mm');
     }
 
-    return format + ' ' + this.datePipe.transform(copyDate, 'hh:mm');
+    return format + ' ' + this.datePipe.transform(copyDate, 'HH:mm');
   }
 }
