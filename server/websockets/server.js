@@ -39,11 +39,7 @@ wsServer.on('request', function(request) {
     );
 
     connection.on('close', function(connection) {
-        if (userName !== false && userColor !== false) {
-            console.log((new Date()) + " Peer "
-                + connection.remoteAddress + " disconnected.");
-            clients.splice(index, 1);
-        }
+        console.log((new Date()) + " Peer " + connection.remoteAddress + " disconnected.");
+        clients.splice(index, 1); 
     });
-
 });
