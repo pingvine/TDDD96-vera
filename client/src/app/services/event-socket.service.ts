@@ -45,6 +45,11 @@ export class EventSocketService implements OnInit {
           this.connect();
         },
       },
+      openObserver: {
+        next: (value) => {
+          console.log('Open observer trigger');
+        },
+      },
     });
   }
 
