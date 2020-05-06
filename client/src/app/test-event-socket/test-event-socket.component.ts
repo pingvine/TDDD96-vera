@@ -20,7 +20,7 @@ export class TestEventSocketComponent implements OnInit {
 
   activeUsers: [];
 
-  senderId: string;
+  senderId: string = "default";
 
   constructor(private eventService: EventSocketService) { }
 
