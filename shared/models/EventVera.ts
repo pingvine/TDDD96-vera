@@ -1,6 +1,6 @@
 import {EventType} from "./EventType";
 
-export interface EventVera {
+export class EventVera {
     senderId: string;
     eventType: EventType;
     data: {}
