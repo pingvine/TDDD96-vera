@@ -33,14 +33,16 @@ wsServer.on('request', function(request) {
             console.log((new Date()) + ' Received Message: ' + message.utf8Data);
             let obj = JSON.parse(message.utf8Data);
             let event: EventVera = new EventVera(obj.senderId, obj.eventType, obj.data)
-            handleEvent(event);
 
+            handleEvent(event);
             // broadcast message to all connected clients
             var json = JSON.stringify(events);
             for (var i=0; i < clients.length; i++) {
                 clients[i].sendUTF(json);
                 console.log((new Date()) + ' Server sent: <' + json + '> to: ' + clients[i]);
             }
+
+
         }
     }
     );
@@ -61,11 +63,26 @@ function handleEvent(event: EventVera){
     }
 }
 
+function eventExists(event: EventVera): boolean {
+    // Has no effect because JS doesn't know how to differentiate events?
+    return events.includes(event);
+}
+
 function storeEvent(event: EventVera){
-    events.push(event) - 1; 
+    if (!eventExists(event)) {
+        events.push(event);
+    }
 }
 
 function removeEvent(event: EventVera){
-    const index = events.indexOf(event, 0);
-    events.splice(index, 1);
+    events = events.filter( function (ev: EventVera) {
+        return ev.senderId != event.senderId;
+    })
+    // console.log("REMOVE");
+    // const index = events.indexOf(event);
+    // console.log("INDEX " + index);
+    // if (index > -1) {
+    //     console.log("REMOVE 2");
+    //     events.splice(index, 1);
+    // }
 }
