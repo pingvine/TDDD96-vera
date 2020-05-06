@@ -1,10 +1,31 @@
-<button mat-raised-button color="primary" (click)="sendMessage()">Send a message to the server!</button>
-<h1>Messages from server</h1>
-<mat-list>
-  <mat-card style="margin:8px;" *ngFor="let message of messages">
-    <mat-card-content>
-      {{ message }}
-    </mat-card-content>
-  </mat-card>
-</mat-list>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <div>
+      <button mat-raised-button color="primary" (click)="sendMessage()">Send a message to the server!</button>
+      <h1>Messages from server</h1>
+      <mat-list>
+        <mat-card style="margin:8px;" *ngFor="let message of messages">
+          <mat-card-content>
+            {{ message }}
+          </mat-card-content>
+        </mat-card>
+      </mat-list>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Proof of concept card</mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content style="text-align: center">
+        Statusbedömning
+      </mat-card-content>
+      <mat-card-footer>
+        Aktiva: {{ activeUsers }}
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
 

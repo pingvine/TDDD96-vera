@@ -13,6 +13,7 @@ export interface TestMessage {
 })
 export class TestEventSocketComponent implements OnInit {
   messages: string[] = [];
+  activeUsers: [];
 
   constructor(private eventService: EventSocketService) { }
 
