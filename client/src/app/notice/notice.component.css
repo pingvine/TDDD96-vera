@@ -15,10 +15,7 @@ mat-card-content {
 }
 
 .notice-type {
-  color: white;
-  font-size: 32px;
-  height: 32px;
-  width: 32px;
+  margin: auto;
 }
 
 .notice-type-container {
@@ -47,9 +44,29 @@ mat-card-content {
 .notice-text {
   font-size: 10px;
   color: #bdbdbd;
+  line-height: normal;
 }
 
 .notice-title {
   color: #212121;
   font-size: 14px;
+}
+
+.notice-type-icon {
+  color: white;
+  font-size: 32px;
+  height: 32px;
+  width: 32px;
+}
+
+.notice-type-important {
+  height: 100%;
+  width: 100%;
+  background: orange
+}
+
+.notice-type-info {
+  height: 100%;
+  width: 100%;
+  background: blue
 }

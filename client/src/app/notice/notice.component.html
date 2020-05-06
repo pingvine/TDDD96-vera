@@ -3,14 +3,22 @@
     <mat-grid-list cols="8" rowHeight="fit">
       <mat-grid-tile rowspan="3">
         <div class="tile-container">
-          <mat-icon *ngIf="type==='important'" class="notice-type" style="background: orange">
-            warning
-          </mat-icon>
-          <div *ngIf="type==='info'" class="notice-type-container" style="background: blue">
-            <div style="margin: auto">
-              <mat-icon class="notice-type">
-                info_outline
-              </mat-icon>
+          <div *ngIf="type==='important'" class="notice-type-important">
+            <div  class="notice-type-container">
+              <div class="notice-type">
+                <mat-icon class="notice-type-icon">
+                  warning
+                </mat-icon>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="type==='info'" class="notice-type-info">
+            <div class="notice-type-container">
+              <div class="notice-type">
+                <mat-icon class="notice-type-icon">
+                  info_outline
+                </mat-icon>
+              </div>
             </div>
           </div>
         </div>
@@ -37,25 +45,25 @@
       </mat-grid-tile>
       <mat-grid-tile colspan="2">
         <div class="notice-text">
-          Hej!
+          {{name}} {{socialId}}
         </div>
       </mat-grid-tile>
 
       <mat-grid-tile colspan="2">
         <div class="notice-text">
-          Hej!
+          {{age}} år
         </div>
       </mat-grid-tile>
 
       <mat-grid-tile colspan="2">
         <div class="notice-text">
-          Hej!
+          {{team}} <br> {{timeSent}}
         </div>
       </mat-grid-tile>
 
       <mat-grid-tile colspan="6" rowspan="2">
         <div class="notice-title">
-          Hej!
+          {{title}}
         </div>
       </mat-grid-tile>
     </mat-grid-list>
