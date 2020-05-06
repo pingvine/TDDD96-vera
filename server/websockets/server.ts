@@ -6,6 +6,7 @@ var webSocketServer = require('websocket').server;
 var http = require('http');
 
 var clients = [ ];
+var events = [ ]; 
 
 var server = http.createServer(function(request, response) {});
 server.listen(webSocketsServerPort, function() {
@@ -28,12 +29,13 @@ wsServer.on('request', function(request) {
     connection.on('message', function(message) {
         if (message.type === 'utf8') { // accept text
             console.log((new Date()) + ' Received Message: ' + message.utf8Data);
-            
-            // // broadcast message to all connected clients
-            // var json = JSON.stringify({ type:'message', data: 'Hej alla!' });
-            // for (var i=0; i < clients.length; i++) {
-            //     clients[i].sendUTF(json);
-            // }
+            let event = events.push(message) - 1; 
+
+            // broadcast message to all connected clients
+            var json = JSON.stringify({ type:'message', data: 'Hej alla!' });
+            for (var i=0; i < clients.length; i++) {
+                clients[i].sendUTF(json);
+            }
         }
     }
     );
