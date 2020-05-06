@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
-import { WebSocketSubject } from 'rxjs/internal-compatibility';
-import { webSocket } from 'rxjs/webSocket';
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { Observable, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,11 @@ export class EventSocketService implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.webSocket.subscribe((msg) => {
+    this.connect();
+  }
+
+  connect(): Subscription {
+    return this.webSocket.subscribe((msg) => {
       console.log(`CLIENT WEBSOCKET: Received msg: ${msg}`);
     },
     (error) => {
