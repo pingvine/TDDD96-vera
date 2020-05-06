@@ -2,11 +2,14 @@ import { Injectable, OnInit } from '@angular/core';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { Observable, Subscription } from 'rxjs';
 
+
+const wsUrl = 'ws://localhost:4201';
+
 @Injectable({
   providedIn: 'root',
 })
 export class EventSocketService implements OnInit {
-  private webSocket: WebSocketSubject<any> = webSocket('ws://localhost:4201');
+  private webSocket: WebSocketSubject<any> = webSocket(wsUrl);
 
   constructor() { }
 
@@ -14,7 +17,11 @@ export class EventSocketService implements OnInit {
     this.connect();
   }
 
-  connect(): Subscription {
+  connect() {
+    if (!this.webSocket || this.webSocket.closed) {
+      this.webSocket = this.getNewWebSocket();
+    }
+
     return this.webSocket.subscribe((msg) => {
       console.log(`CLIENT WEBSOCKET: Received msg: ${msg}`);
     },
@@ -25,5 +32,17 @@ export class EventSocketService implements OnInit {
       // Completed
       console.log('CLIENT WEBSOCKET: Completed.');
     });
+  }
+
+  private getNewWebSocket(url = wsUrl) {
+    return webSocket(url);
+  }
+
+  sendMessage(msg: any) {
+    this.webSocket.next(msg);
+  }
+
+  close() {
+    this.webSocket.complete();
   }
 }
