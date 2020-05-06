@@ -6,7 +6,10 @@
     <mat-icon class="notice-icon">notifications_none</mat-icon>
   </button>
   <mat-menu #beforeMenu="matMenu" xPosition="before" class="notice-menu">
-    <app-notice></app-notice>
+      <app-notice [notice]="notice" (deleteNoticeSelector)="removeNotice($event)" *ngFor="let notice of notices"></app-notice>
+      <div *ngIf="alerts===0" class="empty-notice-list">
+        Här var det tomt
+      </div>
   </mat-menu>
 
 

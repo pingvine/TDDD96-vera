@@ -1,4 +1,4 @@
-<mat-card class="background">
+<mat-card class="background" (click)="deleteNotice()">
   <mat-card-content>
     <mat-grid-list cols="8" rowHeight="fit">
       <mat-grid-tile rowspan="3">
@@ -45,7 +45,7 @@
       </mat-grid-tile>
       <mat-grid-tile colspan="2">
         <div class="notice-text">
-          {{name}} {{socialId}}
+          {{name}} {{personalId}}
         </div>
       </mat-grid-tile>
 
