@@ -29,6 +29,10 @@ const routes: Routes = [
     component: OverviewViewComponent,
     data: {}
   },
+  { path: 'patient',
+    component: PatientViewComponent,
+    data: {}
+  },
   { path: '',
     redirectTo: 'overview',
     pathMatch: 'full'

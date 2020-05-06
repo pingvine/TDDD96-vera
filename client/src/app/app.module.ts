@@ -32,6 +32,13 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
+import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
+import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view-header.component';
+import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical/visit-topical.component';
+import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-info-personal/visit-info-personal.component';
+import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
+import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatRadioModule} from '@angular/material/radio';
@@ -51,6 +58,12 @@ import {MatRadioModule} from '@angular/material/radio';
     AppHeaderComponent,
     EventComponent,
     DatePipePipe,
+    VisitReasonComponent,
+    VisitViewHeaderComponent,
+    VisitTopicalComponent,
+    VisitInfoPersonalComponent,
+    VisitBodyComponent,
+    VisitEventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,10 +95,10 @@ import {MatRadioModule} from '@angular/material/radio';
     MatOptionModule,
     MatSelectModule,
     FormsModule,
+    MatTooltipModule,
     MatStepperModule,
     MatButtonToggleModule,
     MatRadioModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]
