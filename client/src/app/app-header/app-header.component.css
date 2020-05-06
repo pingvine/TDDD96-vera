@@ -24,7 +24,7 @@
   left: 64px;
 }
 
-.notice-menu {
+.notice-menu-button {
   width: 100px;
   height: 32px;
   background: #009688;
@@ -33,6 +33,16 @@
   border: none;
   top: 8px;
   display: flex;
+}
+
+::ng-deep.notice-menu {
+  max-width: none !important;
+}
+
+.notice-menu {
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .notice-icon {
