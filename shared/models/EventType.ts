@@ -1,4 +1,4 @@
-enum EventType {
+export enum EventType {
     EditEvent,
     CareEvent
 }
