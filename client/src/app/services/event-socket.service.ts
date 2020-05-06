@@ -18,6 +18,7 @@ export class EventSocketService implements OnInit {
   }
 
   connect() {
+    console.log("CONNECTING! :D");
     if (!this.webSocket || this.webSocket.closed) {
       this.webSocket = this.getNewWebSocket();
     }
@@ -26,7 +27,7 @@ export class EventSocketService implements OnInit {
       console.log(`CLIENT WEBSOCKET: Received msg: ${msg}`);
     },
     (error) => {
-      console.log(`CLIENT WEBSOCKET: Error msg: ${error}`);
+      console.log(`CLIENT WEBSOCKET: Error msg: ${error.message}`);
     },
     () => {
       // Completed
