@@ -19,7 +19,7 @@ import { OverviewViewComponent } from './overview/overview-view.component';
 import { SummaryViewComponent } from './summary/summary-view.component';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
-import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
+import { NewVisitViewComponent } from './new-visit/new-visit-view.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -54,7 +54,7 @@ import {MatRadioModule} from '@angular/material/radio';
     SummaryViewComponent,
     SettingsViewComponent,
     TeamViewComponent,
-    NewPatientViewComponent,
+    NewVisitViewComponent,
     AppHeaderComponent,
     EventComponent,
     DatePipePipe,

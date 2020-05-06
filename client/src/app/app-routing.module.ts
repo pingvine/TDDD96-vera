@@ -5,11 +5,11 @@ import {OverviewViewComponent} from './overview/overview-view.component';
 import {SummaryViewComponent} from './summary/summary-view.component';
 import {TeamViewComponent} from './team/team-view.component';
 import {SettingsViewComponent} from './settings/settings-view.component';
-import {NewPatientViewComponent} from './new-patient/new-patient-view.component';
+import {NewVisitViewComponent} from './new-visit/new-visit-view.component';
 
 const routes: Routes = [
   { path: 'patient/new',
-    component: NewPatientViewComponent,
+    component: NewVisitViewComponent,
     pathMatch: 'full'
   },
   { path: 'settings',
