@@ -35,7 +35,16 @@ export class EventSocketService implements OnInit {
   }
 
   private getNewWebSocket(url = wsUrl) {
-    return webSocket(url);
+    return webSocket({
+      url: url,
+      closeObserver: {
+        next: (value) => {
+          console.log('CLIENT WEBSOCKET: Connection closed :(. Reconnecting.');
+          this.webSocket = undefined;
+          this.connect();
+        },
+      },
+    });
   }
 
   sendMessage(msg: any) {
