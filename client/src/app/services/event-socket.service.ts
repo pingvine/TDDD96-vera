@@ -1,6 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { Observable, Subscription } from 'rxjs';
+import {TestMessage} from "../test-event-socket/test-event-socket.component";
 
 
 const wsUrl = 'ws://localhost:80';
@@ -57,7 +58,7 @@ export class EventSocketService implements OnInit {
     this.webSocket.next(msg);
   }
 
-  getEventObservable(): Observable<any> {
+  getEventObservable(): Observable<TestMessage> {
     // Pipe this with the data format we are using
     return this.webSocket.asObservable();
   }
