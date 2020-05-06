@@ -13,6 +13,7 @@
     "mongo-db": "^1.0.2",
     "mongoose": "^5.8.11",
     "morgan": "~1.9.1",
+    "websocket": "^1.0.31",
     "websockets": "^0.2.0"
   }
 }
