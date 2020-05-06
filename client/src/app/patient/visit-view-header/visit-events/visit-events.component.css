@@ -1,0 +1,13 @@
+.events-container {
+  min-height: 80%;
+  margin-right: 8px;
+  padding: 8px;
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+.events-title {
+  font-size: 14px;
+}

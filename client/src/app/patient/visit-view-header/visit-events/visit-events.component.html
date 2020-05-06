@@ -1,0 +1,11 @@
+<mat-card (click)="onClick()" class="events-container">
+  <mat-card-title class="events-title">Händelser</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let event of events">
+        <app-event [date]="event.date" [info]="event.info" [user]="event.user"></app-event>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-card-content>
+</mat-card>

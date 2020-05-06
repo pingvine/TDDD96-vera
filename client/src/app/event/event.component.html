@@ -1,3 +1,5 @@
 <mat-card class="event-bg">
-  <p>{{this.date | datePipe }} | {{ this.user }}: {{ this.info }}</p>
+  <mat-card-content>
+    {{this.date | datePipe }} | {{ this.user }}: {{ this.info }}
+  </mat-card-content>
 </mat-card>
