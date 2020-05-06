@@ -1,0 +1,33 @@
+<div class="patient-header">
+  <mat-grid-list cols="12" rowHeight="fit">
+    <mat-grid-tile colspan="2">
+      <div class="tile-container">
+        <app-visit-info-personal></app-visit-info-personal>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="tile-container">
+        <app-visit-reason (reasonChange)="onReasonChange($event)"></app-visit-reason>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="3">
+      <div class="tile-container">
+        <app-visit-topical (textChanged)="onTopicalChange($event)"></app-visit-topical>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="3">
+      <div class="tile-container">
+        <app-visit-body (onClickBody)="onClickBody()"></app-visit-body>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="3">
+      <div class="tile-container">
+        <app-visit-events (clickedEvents)="onClickedEvents($event)"></app-visit-events>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

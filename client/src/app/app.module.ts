@@ -33,6 +33,13 @@ import {MatListModule} from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
 import { NoticeComponent } from './notice/notice.component';
+import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
+import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view-header.component';
+import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical/visit-topical.component';
+import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-info-personal/visit-info-personal.component';
+import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
+import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -50,6 +57,12 @@ import { NoticeComponent } from './notice/notice.component';
     EventComponent,
     DatePipePipe,
     NoticeComponent,
+    VisitReasonComponent,
+    VisitViewHeaderComponent,
+    VisitTopicalComponent,
+    VisitInfoPersonalComponent,
+    VisitBodyComponent,
+    VisitEventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +94,7 @@ import { NoticeComponent } from './notice/notice.component';
     MatOptionModule,
     MatSelectModule,
     FormsModule,
-
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
