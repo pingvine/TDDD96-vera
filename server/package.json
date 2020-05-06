@@ -12,6 +12,7 @@
     "express": "~4.16.1",
     "mongo-db": "^1.0.2",
     "mongoose": "^5.8.11",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "websockets": "^0.2.0"
   }
 }
