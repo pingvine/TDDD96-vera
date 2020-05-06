@@ -9,7 +9,7 @@ const wsUrl = 'ws://localhost:4201';
   providedIn: 'root',
 })
 export class EventSocketService implements OnInit {
-  private webSocket: WebSocketSubject<any> = webSocket(wsUrl);
+  private webSocket: WebSocketSubject<any>;
 
   constructor() { }
 
