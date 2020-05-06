@@ -3,7 +3,7 @@ import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { Observable, Subscription } from 'rxjs';
 
 
-const wsUrl = 'ws://localhost:4201';
+const wsUrl = 'ws://localhost:80 ';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ export class EventSocketService implements OnInit {
   }
 
   connect() {
-    console.log("CONNECTING! :D");
+    console.log('CONNECTING! :D');
     if (!this.webSocket || this.webSocket.closed) {
       this.webSocket = this.getNewWebSocket();
     }
@@ -50,6 +50,11 @@ export class EventSocketService implements OnInit {
 
   sendMessage(msg: any) {
     this.webSocket.next(msg);
+  }
+
+  getEventObservable(): Observable<any> {
+    // Pipe this with the data format we are using
+    return this.webSocket.asObservable();
   }
 
   close() {
