@@ -35,6 +35,8 @@ export class TestEventSocketComponent implements OnInit {
         const data = lastMsg.data as EditEventData;
         this.messages.push(lastMsg.senderId + " field: " + data.fieldId + " start: " + data.status);
 
+        // Check if the user wants to edit or stop edit, and add or remove from activeUsers depending on this,
+        // avoids duplicates
         if (data.status && !this.activeUsers.includes(lastMsg.senderId)) {
           this.activeUsers.push(lastMsg.senderId);
         } else if (!data.status && this.activeUsers.includes(lastMsg.senderId)) {
