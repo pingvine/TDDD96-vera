@@ -33,7 +33,7 @@ wsServer.on('request', function(request) {
             console.log((new Date()) + ' Received Message: ' + message.utf8Data);
             let obj = JSON.parse(message.utf8Data);
             let event: EventVera = new EventVera(obj.senderId, obj.eventType, obj.data)
-            storeEvent(event);
+            handleEvent(event);
 
             // broadcast message to all connected clients
             var json = JSON.stringify(events);
@@ -51,6 +51,21 @@ wsServer.on('request', function(request) {
     });
 });
 
+function handleEvent(event: EventVera){
+    console.log(event.data['status'])
+    if (event.data['status'] == true){
+        storeEvent(event);
+    }
+    if (event.data['status'] == false){
+        removeEvent(event);
+    }
+}
+
 function storeEvent(event: EventVera){
     events.push(event) - 1; 
+}
+
+function removeEvent(event: EventVera){
+    const index = events.indexOf(event, 0);
+    events.splice(index, 1);
 }
