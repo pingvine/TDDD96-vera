@@ -7,6 +7,8 @@ import { EventSocketService } from '../services/event-socket.service';
   styleUrls: ['./test-event-socket.component.css'],
 })
 export class TestEventSocketComponent implements OnInit {
+  messages: string[] = ['Hello1', 'Hello2'];
+
   constructor(private eventService: EventSocketService) { }
 
   ngOnInit(): void {

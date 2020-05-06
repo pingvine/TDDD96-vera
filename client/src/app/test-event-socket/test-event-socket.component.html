@@ -1,1 +1,10 @@
-<button (click)="sendMessage()">Send a message to the server!</button>
+<button mat-raised-button color="primary" (click)="sendMessage()">Send a message to the server!</button>
+<h1>Messages from server</h1>
+<mat-list>
+  <mat-card style="margin:8px;" *ngFor="let message of messages">
+    <mat-card-content>
+      {{ message }}
+    </mat-card-content>
+  </mat-card>
+</mat-list>
+
