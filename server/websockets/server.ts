@@ -35,6 +35,7 @@ wsServer.on('request', function(request) {
             var json = JSON.stringify({ type:'message', data: 'Hej alla!' });
             for (var i=0; i < clients.length; i++) {
                 clients[i].sendUTF(json);
+                console.log((new Date()) + ' Server sent: <' + json + '> to: ' + clients[i]);
             }
         }
     }
