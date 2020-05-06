@@ -46,7 +46,7 @@ export class TestEventSocketComponent implements OnInit {
     };
 
     const event = {
-      senderId: 'simon',
+      senderId: this.senderId,
       eventType: EventType.EditEvent,
       data,
     };
