@@ -20,6 +20,8 @@ export class TestEventSocketComponent implements OnInit {
 
   activeUsers: [];
 
+  senderId: string;
+
   constructor(private eventService: EventSocketService) { }
 
   ngOnInit(): void {
@@ -59,7 +61,7 @@ export class TestEventSocketComponent implements OnInit {
     };
 
     const event = {
-      senderId: 'simon',
+      senderId: this.senderId,
       eventType: EventType.EditEvent,
       data,
     };

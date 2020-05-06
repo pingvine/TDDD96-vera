@@ -1,6 +1,7 @@
 <mat-grid-list cols="2">
   <mat-grid-tile>
     <div>
+
       <button mat-raised-button color="primary" (click)="sendMessage()">Send a message to the server!</button>
       <h1>Messages from server</h1>
       <mat-list>
@@ -13,7 +14,12 @@
     </div>
   </mat-grid-tile>
   <mat-grid-tile>
+    <mat-form-field>
+      <input matInput [ngModel]="senderId" placeholder="Input your sender ID">
+    </mat-form-field>
+
     <mat-card>
+
       <mat-card-header>
         <mat-card-title>Proof of concept card</mat-card-title>
 
