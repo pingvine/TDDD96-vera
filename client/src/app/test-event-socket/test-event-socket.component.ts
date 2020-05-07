@@ -27,28 +27,31 @@ export class TestEventSocketComponent implements OnInit {
   ngOnInit(): void {
     this.eventService.connect();
     this.eventService.getEventObservable().subscribe((msg) => {
-      console.log(`COMPoNENT RECEIVED MSG: ${msg[msg.length - 1].eventType}`);
+      console.log(`COMPoNENT RECEIVED MSG: ${msg.eventType}`);
 
-      const lastMsg = msg[msg.length - 1];
-      if (lastMsg.eventType === EventType.EditEvent) {
-        console.log('EditEvent! :D');
-        const data = lastMsg.data as EditEventData;
-        this.messages.push(lastMsg.senderId + " field: " + data.fieldId + " start: " + data.status);
-
-        // Check if the user wants to edit or stop edit, and add or remove from activeUsers depending on this,
-        // avoids duplicates
-        if (data.status && !this.activeUsers.includes(lastMsg.senderId)) {
-          this.activeUsers.push(lastMsg.senderId);
-        } else if (!data.status && this.activeUsers.includes(lastMsg.senderId)) {
-          const index = this.activeUsers.indexOf(lastMsg.senderId);
-
-          if (index > -1) {
-            this.activeUsers.splice(index, 1);
-          }
-          //delete this.activeUsers[index];
-        }
+      switch (msg.eventType) {
+        case EventType.EditEvent:
+          this.handleEditEvent(msg);
       }
     });
+  }
+
+  handleEditEvent(event: EventVera) {
+    console.log('EditEvent! :D');
+    const data = event.data as EditEventData;
+    this.messages.push(`${event.senderId} field: ${data.fieldId} start: ${data.status}`);
+
+    // Check if the user wants to edit or stop edit, and add or remove from activeUsers depending on this,
+    // avoids duplicates
+    if (data.status && !this.activeUsers.includes(event.senderId)) {
+      this.activeUsers.push(event.senderId);
+    } else if (!data.status && this.activeUsers.includes(event.senderId)) {
+      const index = this.activeUsers.indexOf(event.senderId);
+
+      if (index > -1) {
+        this.activeUsers.splice(index, 1);
+      }
+    }
   }
 
   sendMessage() {

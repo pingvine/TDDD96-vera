@@ -60,7 +60,7 @@ export class EventSocketService implements OnInit {
     this.webSocket.next(msg);
   }
 
-  getEventObservable(): Observable<EventVera[]> {
+  getEventObservable(): Observable<EventVera> {
     // Pipe this with the data format we are using
     return this.webSocket.asObservable();
   }
