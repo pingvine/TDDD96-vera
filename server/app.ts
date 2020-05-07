@@ -1,3 +1,5 @@
+import {EventVera} from "../shared/models/EventVera";
+import {EventType} from "../shared/models/EventType";
 
 var eventserver = require('./websockets/server');
 var express = require('express');
@@ -52,4 +54,37 @@ app.get("/events", (req, res, next) => {
 
 eventserver.runWebSocketServer();
 
+
+initDb();
+
+function initDb() {
+  //console.log("JSON VERA: " + JSON.stringify(new EventVera("test")))
+
+  let data = {
+    fieldId: "1",
+    status: true
+  }
+
+  let editEvent = new EventVera("simon", EventType.EditEvent, data);
+
+  var eventSchema = new mongoose.Schema({
+    senderId: String,
+    eventType: Number,
+    data: {}
+  })
+  let EventModel = mongoose.model("eventvera", eventSchema);
+  let event = new EventModel(editEvent);
+  event.save((err, val) => {
+    console.log("save: " + val);
+  });  // Save to mongodb db
+
+  EventModel.findOne({senderId: 'simon'}, function (err, eventOne) {
+    console.log("docs " + eventOne);
+  });
+
+  EventModel.deleteMany({senderId: 'simon'}, (err, val) => {
+    console.log("Err: " + err + "val " + val);
+  })
+
+}
 module.exports = app;
