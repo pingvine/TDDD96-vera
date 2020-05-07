@@ -77,13 +77,11 @@ function isEditEventDuplicate(event: EventVera): boolean {
         let data2 = event2.data as EditEventData;
         return event.senderId === event2.senderId && data1.fieldId === data2.fieldId && data1.status === data2.status;
     })
-    console.log("DUPLICATES: " + duplicates.toString());
     return duplicates.length != 0;
 }
 
 function handleEditEvent(event: EventVera) {
     const data = event.data as EditEventData;
-    console.log(event.data['status'])
     broadcast.push(event);
     if (isEditEventDuplicate(event)) {
         return;
