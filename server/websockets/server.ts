@@ -1,4 +1,6 @@
-import { EventVera } from "../../shared/models/EventVera";
+import {EventVera} from "../../shared/models/EventVera";
+import {EditEventData} from "../../shared/models/EditEventData";
+import {EventType} from "../../shared/models/EventType";
 
 "use strict";
 
@@ -53,13 +55,26 @@ wsServer.on('request', function(request) {
     });
 });
 
-function handleEvent(event: EventVera){
+function handleEditEvent(event: EventVera) {
+    const data = event.data as EditEventData;
     console.log(event.data['status'])
     if (event.data['status'] == true){
         storeEvent(event);
     }
     if (event.data['status'] == false){
         removeEvent(event);
+    }
+}
+
+function handleCareEvent(event: EventVera) {
+}
+
+function handleEvent(event: EventVera){
+    switch(event.eventType) {
+        case EventType.CareEvent:
+            handleCareEvent(event);
+        case EventType.EditEvent:
+            handleEditEvent(event);
     }
 }
 
