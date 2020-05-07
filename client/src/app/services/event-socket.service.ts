@@ -1,9 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
-import {Observable, Subject, Subscription} from 'rxjs';
-import {TestMessage} from "../test-event-socket/test-event-socket.component";
-import {EditEventData} from "../../../../shared/models/EditEventData";
-import {EventVera} from "../../../../shared/models/EventVera";
+import { Observable, Subject} from 'rxjs';
+import { EventVera } from '../../../../shared/models/EventVera';
 
 
 const wsUrl = 'ws://localhost:80';
@@ -13,6 +11,7 @@ const wsUrl = 'ws://localhost:80';
 })
 export class EventSocketService implements OnInit {
   private webSocket: WebSocketSubject<any>;
+
   private messages: Subject<EventVera> = new Subject<EventVera>();
 
   constructor() { }
