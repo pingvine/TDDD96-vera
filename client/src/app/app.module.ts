@@ -42,6 +42,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatRadioModule} from '@angular/material/radio';
+import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import {MatRadioModule} from '@angular/material/radio';
     VisitInfoPersonalComponent,
     VisitBodyComponent,
     VisitEventsComponent,
+    NewVisitInformationComponent,
   ],
   imports: [
     BrowserModule,

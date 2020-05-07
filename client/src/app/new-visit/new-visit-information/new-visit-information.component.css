@@ -1,0 +1,10 @@
+.mat-grid-tile {
+  /*border: solid 2px red;*/
+  padding-top: 8px;
+}
+.mat-radio-button {
+  margin-left: 16px;
+}
+.mat-form-field {
+  width: 100%;
+}

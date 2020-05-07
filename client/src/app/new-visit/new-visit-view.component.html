@@ -1,4 +1,5 @@
 <div class="container">
+
   <mat-horizontal-stepper #matHorizontalStepper>
 
     <mat-step>
@@ -7,125 +8,17 @@
           Patientinformation
         </mat-card>
       </ng-template>
+
       <mat-card style="background-color: #C5CAE9; border-radius: 16px; margin-bottom: 16px">
         <mat-card-content>
-          <mat-grid-list cols="12" rowHeight="2:1.5" gutterSize="4px">
-
-            <!--Row one-->
-
-            <mat-grid-tile colspan="2">
-              <mat-form-field appearance="outline">
-                <mat-label>För- & efternamn</mat-label>
-                <input matInput type="text">
-              </mat-form-field>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="2">
-              <mat-form-field >
-                <mat-label>Personnummer/id</mat-label>
-                <input matInput type="text" maxlength="12">
-              </mat-form-field>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="2">
-              <mat-form-field >
-                <mat-label>Ålder</mat-label>
-                <input matInput type="number" maxlength="3">
-              </mat-form-field>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="2"></mat-grid-tile>
-            <mat-grid-tile colspan="2">
-              <mat-form-field >
-                <mat-label>Ankomsttid</mat-label>
-                <input matInput type="time">
-              </mat-form-field>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="2">
-              <mat-form-field >
-                <mat-label>Mottagning</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let department of departments" [value] = department>
-                    {{department}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-            </mat-grid-tile>
-
-            <!-- Row Two-->
-
-            <mat-grid-tile colspan="2">
-              <mat-button-toggle-group>
-                <mat-button-toggle value="Male" aria-label="Text align center">
-                  Man
-                </mat-button-toggle>
-                <mat-button-toggle value="Female" aria-label="Text align center">
-                  Kvinna
-                </mat-button-toggle>
-              </mat-button-toggle-group>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="3">
-              <mat-form-field >
-                <mat-label>Adress, Postnummer, Ort</mat-label>
-                <input matInput>
-              </mat-form-field>
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <mat-checkbox color="accent">ID-kontroll</mat-checkbox>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="3"></mat-grid-tile>
-            <mat-grid-tile>
-              <mat-checkbox color="accent">Remiss</mat-checkbox>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="2">TEST</mat-grid-tile>
-
-            <!--Row Three-->
-
-            <mat-grid-tile colspan="2">
-              <mat-form-field >
-                <mat-label>Telefonnummer</mat-label>
-                <input matInput type="tel">
-              </mat-form-field></mat-grid-tile>
-            <mat-grid-tile colspan="4">
-              <mat-form-field >
-                <mat-label>Anhöriga</mat-label>
-                <input matInput>
-              </mat-form-field>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="4"></mat-grid-tile>
-            <mat-grid-tile colspan="2">TEST</mat-grid-tile>
-
-            <!-- Row Four-->
-
-            <mat-grid-tile>Transport</mat-grid-tile>
-            <mat-grid-tile colspan="3">
-              <mat-radio-group aria-label="Transport">
-                <mat-radio-button value="1">Gående</mat-radio-button>
-                <mat-radio-button value="2">Ambulans</mat-radio-button>
-              </mat-radio-group>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="6"></mat-grid-tile>
-            <mat-grid-tile colspan="2">TEST</mat-grid-tile>
-
-            <!-- Row Five-->
-
-            <mat-grid-tile>Tystnadsplikt</mat-grid-tile>
-            <mat-grid-tile colspan="2">
-              <mat-radio-group aria-label="Tystnadsplikt">
-                <mat-radio-button value="1">Ja</mat-radio-button>
-                <mat-radio-button value="2">Nej</mat-radio-button>
-              </mat-radio-group>
-            </mat-grid-tile>
-            <mat-grid-tile colspan="9"></mat-grid-tile>
-
-          </mat-grid-list>
+          <app-new-visit-information></app-new-visit-information>
         </mat-card-content>
       </mat-card>
-
-
-
         <mat-card style="background-color: #C5CAE9; border-radius: 16px">
           <mat-card-content>
 
-
             <button mat-button matStepperNext>Next</button>
+
           </mat-card-content>
         </mat-card>
     </mat-step>
