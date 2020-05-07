@@ -1,0 +1,72 @@
+.background {
+  background: #F2F2F2;
+  width: 300px;
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+mat-grid-list {
+  height: 100%;
+}
+
+mat-card-content {
+  height: 70px;
+}
+
+.notice-type {
+  margin: auto;
+}
+
+.notice-type-container {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+}
+
+.gender {
+  font-size: 50px;
+}
+
+.tile-container {
+  height: 100%;
+  width: 100%;
+}
+
+
+.gender-container {
+  width: 64px;
+  height: 64px;
+  margin: auto;
+}
+
+.notice-text {
+  font-size: 10px;
+  color: #bdbdbd;
+  line-height: normal;
+}
+
+.notice-title {
+  color: #212121;
+  font-size: 14px;
+}
+
+.notice-type-icon {
+  color: white;
+  font-size: 32px;
+  height: 32px;
+  width: 32px;
+}
+
+.notice-type-important {
+  height: 100%;
+  width: 100%;
+  background: orange
+}
+
+.notice-type-info {
+  height: 100%;
+  width: 100%;
+  background: blue
+}

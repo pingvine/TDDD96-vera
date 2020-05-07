@@ -24,7 +24,7 @@
   left: 64px;
 }
 
-.notice-menu {
+.notice-menu-button {
   width: 100px;
   height: 32px;
   background: #009688;
@@ -35,6 +35,24 @@
   display: flex;
 }
 
+::ng-deep.notice-menu {
+  max-width: none !important;
+}
+
+.notice-menu {
+  width: 100%;
+}
+
 .notice-icon {
   color: white;
+}
+
+.empty-notice-list {
+  width: 300px;
+  height: 70px;
+  color: #cccccc;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }

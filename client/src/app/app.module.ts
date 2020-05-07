@@ -32,6 +32,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
+import { NoticeComponent } from './notice/notice.component';
 import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
 import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view-header.component';
 import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical/visit-topical.component';
@@ -56,6 +57,7 @@ import { TestEventSocketComponent } from './test-event-socket/test-event-socket.
     AppHeaderComponent,
     EventComponent,
     DatePipePipe,
+    NoticeComponent,
     VisitReasonComponent,
     VisitViewHeaderComponent,
     VisitTopicalComponent,
