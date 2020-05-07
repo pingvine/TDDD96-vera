@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { EventSocketService } from '../services/event-socket.service';
-import { EventType } from '../../../../shared/models/EventType';
-import { EditEventData } from '../../../../shared/models/EditEventData';
-import { EventVera } from '../../../../shared/models/EventVera';
+import {Component, OnInit} from '@angular/core';
+import {EventSocketService} from '../services/event-socket.service';
+import {EventType} from '../../../../shared/models/EventType';
+import {EditEventData} from '../../../../shared/models/EditEventData';
+import {EventVera} from '../../../../shared/models/EventVera';
+import {ServerService} from "../services/server.service";
 
 
 export class TestMessage {
@@ -22,9 +23,18 @@ export class TestEventSocketComponent implements OnInit {
 
   senderId: string = 'default';
 
-  constructor(private eventService: EventSocketService) { }
+  constructor(private eventService: EventSocketService, private serverService: ServerService) { }
 
   ngOnInit(): void {
+
+    this.serverService.getEvents().subscribe((events) => {
+      events.forEach((event) => {
+        if (event.eventType === EventType.EditEvent) {
+          this.activeUsers.push(event.senderId);
+        }
+      })
+    });
+
     this.eventService.connect();
     this.eventService.getEventObservable().subscribe((msg) => {
       console.log(`COMPoNENT RECEIVED MSG: ${msg.eventType}`);
