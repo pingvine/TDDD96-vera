@@ -17,7 +17,7 @@ const httpOptions = {
 export class ServerService {
   constructor(private http: HttpClient) { }
 
-  getEvents(): Observable<EventVera[]> {
+  getEvents(): Observable<any> {
     const url = `${baseUrl}/events`;
     return this.http.get(url, httpOptions);
   }
