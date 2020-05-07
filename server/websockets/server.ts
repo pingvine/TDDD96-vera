@@ -57,7 +57,7 @@ wsServer.on('request', function(request) {
     });
 });
 
-function isEditEventDuplicate(event: EventVera) {
+function isEditEventDuplicate(event: EventVera): boolean {
     // Check if an event is a duplicate from senderId, fieldId, and status
     let duplicates = [];
     let data1 = event.data as EditEventData;
@@ -65,13 +65,17 @@ function isEditEventDuplicate(event: EventVera) {
         let data2 = event2.data as EditEventData;
         return event.senderId === event2.senderId && data1.fieldId === data2.fieldId && data1.status === data2.status;
     })
-
     console.log("DUPLICATES: " + duplicates.toString());
+    return false;
 }
 
 function handleEditEvent(event: EventVera) {
     const data = event.data as EditEventData;
     console.log(event.data['status'])
+    if (isEditEventDuplicate(event)) {
+        return;
+    }
+
     if (event.data['status'] == true){
         storeEvent(event);
     }
