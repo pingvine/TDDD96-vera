@@ -46,6 +46,7 @@ app.use('/patient', patientRouter);
 app.use('/summary', summaryRouter);
 
 app.get("/events", (req, res, next) => {
+  // TODO REPLACE WITH DATABASE GET FROM ACTIVEEVENTS
   res.json(eventserver.getEvents());
 });
 
