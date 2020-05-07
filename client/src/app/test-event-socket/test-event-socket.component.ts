@@ -33,6 +33,12 @@ export class TestEventSocketComponent implements OnInit {
         case EventType.EditEvent:
           this.handleEditEvent(msg);
       }
+    },
+    (error) => {
+      console.log('CMPNT Error');
+    },
+    () => {
+      console.log('CMPNT Complete');
     });
   }
 
