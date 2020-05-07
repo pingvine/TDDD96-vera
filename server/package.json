@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "npx tsc websockets/server.ts && node ./bin/www",
     "ws": "npx tsc websockets/server.ts && node websockets/server.js"
   },
   "dependencies": {
