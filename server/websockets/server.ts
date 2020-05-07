@@ -10,7 +10,9 @@ var webSocketServer = require('websocket').server;
 var http = require('http');
 
 var clients = [ ];
-var events = [ ]; 
+var events = [ ];
+// Separate list for broadcasting to clients
+var broadcast = [];
 
 var server = http.createServer(function(request, response) {});
 server.listen(webSocketsServerPort, function() {
