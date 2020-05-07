@@ -19,6 +19,6 @@ export class ServerService {
 
   getEvents(): Observable<EventVera[]> {
     const url = `${baseUrl}/events`;
-    return this.http.get(url, httpOptions).;
+    return this.http.get(url, httpOptions);
   }
 }
