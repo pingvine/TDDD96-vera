@@ -45,8 +45,8 @@ app.use('/overview', overviewRouter);
 app.use('/patient', patientRouter);
 app.use('/summary', summaryRouter);
 
-app.get("/testurl", (req, res, next) => {
-  res.json(["tony", "lisa", "mich"]);
+app.get("/events", (req, res, next) => {
+  res.json(eventserver.getEvents());
 });
 
 eventserver.runWebSocketServer();

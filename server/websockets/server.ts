@@ -134,3 +134,7 @@ function removeEvent(event: EventVera){
     //     events.splice(index, 1);
     // }
 }
+
+export function getEvents(): EventVera[] {
+    return events;
+}
