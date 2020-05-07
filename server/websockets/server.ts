@@ -96,6 +96,7 @@ function handleEditEvent(event: EventVera) {
 }
 
 function handleCareEvent(event: EventVera) {
+    broadcast.push(event);
 }
 
 function handleEvent(event: EventVera){
