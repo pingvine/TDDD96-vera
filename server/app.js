@@ -1,9 +1,10 @@
+
+var eventserver = require('./websockets/server');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-
 var testRouter = require('./routes/test');
 var indexRouter = require('./routes/index');
 var overviewRouter = require('./routes/overview');
@@ -18,6 +19,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('Connected to MongoDB!');
 });
+
 // Only accept trusted connections
 var corsOptions = {
   origin:  function (origin, callback) {
@@ -43,5 +45,10 @@ app.use('/overview', overviewRouter);
 app.use('/patient', patientRouter);
 app.use('/summary', summaryRouter);
 
+app.get("/testurl", (req, res, next) => {
+  res.json(["tony", "lisa", "mich"]);
+});
+
+eventserver.runWebSocketServer();
 
 module.exports = app;
