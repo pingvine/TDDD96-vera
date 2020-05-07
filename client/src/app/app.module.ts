@@ -43,6 +43,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
+import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-reason.component';
 
 
 @NgModule({
@@ -66,6 +67,7 @@ import { NewVisitInformationComponent } from './new-visit/new-visit-information/
     VisitBodyComponent,
     VisitEventsComponent,
     NewVisitInformationComponent,
+    NewVisitReasonComponent,
   ],
   imports: [
     BrowserModule,

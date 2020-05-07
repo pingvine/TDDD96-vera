@@ -12,15 +12,11 @@
       <mat-card style="background-color: #C5CAE9; border-radius: 16px; margin-bottom: 16px">
         <mat-card-content>
           <app-new-visit-information></app-new-visit-information>
+          <mat-divider [inset]="true"></mat-divider>
+          <app-new-visit-reason></app-new-visit-reason>
+          <button mat-button matStepperNext>Next</button>
         </mat-card-content>
       </mat-card>
-        <mat-card style="background-color: #C5CAE9; border-radius: 16px">
-          <mat-card-content>
-
-            <button mat-button matStepperNext>Next</button>
-
-          </mat-card-content>
-        </mat-card>
     </mat-step>
 
     <mat-step>

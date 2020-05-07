@@ -1,0 +1,54 @@
+<mat-grid-list cols="8" rowHeight="2:.75">
+
+  <!-- Row one  -->
+
+  <mat-grid-tile colspan="2">
+    <mat-form-field appearance="outline">
+      <mat-label>Sökorsak</mat-label>
+      <input matInput
+             type="text"
+             (input)="updateReason($event)" >
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="2">
+    <mat-form-field appearance="outline">
+      <mat-label>ESS</mat-label>
+      <input matInput
+             type="text"
+             (input)="updateESS($event)" >
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="4">
+    <mat-label>Uppmärksamhetssignal</mat-label>
+  </mat-grid-tile>
+
+  <!-- Row two  -->
+
+  <mat-grid-tile colspan="4" rowspan="4">
+    <mat-form-field appearance="outline">
+      <mat-label>Aktuellt</mat-label>
+      <input matInput
+             type="text"
+             (input)="updateInformation($event)" >
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="4" rowspan="6">
+    <img class="ums-image" src="assets/ums.webp"/>
+  </mat-grid-tile>
+
+  <!-- Row three  -->
+
+  <mat-grid-tile colspan="2" >
+    Tidigare måenden
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="2" >
+    Tidigare måenden
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+

@@ -16,5 +16,6 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
   }
   ngOnInit(): void {
     super.setView();
+
   }
 }
