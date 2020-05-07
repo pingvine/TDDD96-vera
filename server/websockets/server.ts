@@ -40,11 +40,23 @@ wsServer.on('request', function(request) {
 
             handleEvent(event);
             // broadcast message to all connected clients
-            var json = JSON.stringify(events);
-            for (var i=0; i < clients.length; i++) {
-                clients[i].sendUTF(json);
-                console.log((new Date()) + ' Server sent: <' + json + '> to: ' + clients[i]);
-            }
+            // var json = JSON.stringify(events);
+            // for (var i=0; i < clients.length; i++) {
+            //     clients[i].sendUTF(json);
+            //     console.log((new Date()) + ' Server sent: <' + json + '> to: ' + clients[i]);
+            // }
+
+            broadcast.forEach((event) => {
+                let json = JSON.stringify(event);
+                clients.forEach((client) => {
+                    client.sendUTF(json);
+                    console.log((new Date()) + ' Server sent: <' + json + '> to: ' + client)
+                })
+                // Pop from queue
+                broadcast.shift()
+            })
+
+
 
 
         }
@@ -77,9 +89,11 @@ function handleEditEvent(event: EventVera) {
     }
 
     if (event.data['status'] == true){
+        broadcast.push(event);
         storeEvent(event);
     }
     if (event.data['status'] == false){
+        broadcast.push(event);
         removeEvent(event);
     }
 }
