@@ -66,7 +66,7 @@ function isEditEventDuplicate(event: EventVera): boolean {
         return event.senderId === event2.senderId && data1.fieldId === data2.fieldId && data1.status === data2.status;
     })
     console.log("DUPLICATES: " + duplicates.toString());
-    return false;
+    return duplicates.length != 0;
 }
 
 function handleEditEvent(event: EventVera) {
