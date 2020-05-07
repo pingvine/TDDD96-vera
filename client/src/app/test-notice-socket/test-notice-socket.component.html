@@ -1,0 +1,22 @@
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <mat-form-field>
+      <input matInput [(ngModel)]="senderId" [value]="senderId" placeholder="Input your sender ID">
+    </mat-form-field>
+
+    <mat-card >
+
+      <mat-card-header>
+        <mat-card-title>Proof of concept card</mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content style="text-align: center">
+        Titta till patient
+        <br>
+        <button (click)="sendNotice()" mat-raised-button color="primary">Send Notice</button>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+

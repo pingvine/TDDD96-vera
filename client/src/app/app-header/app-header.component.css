@@ -14,7 +14,9 @@
   color: white;
 }
 
-
+::ng-deep.mat-menu-content:not {
+  padding: 0;
+}
 
 .current-view {
   color: white;
@@ -37,6 +39,7 @@
 
 ::ng-deep.notice-menu {
   max-width: none !important;
+  max-height: 325px !important;
 }
 
 .notice-menu {
@@ -56,3 +59,4 @@
   justify-content: center;
   display: flex;
 }
+

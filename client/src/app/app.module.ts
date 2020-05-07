@@ -41,6 +41,7 @@ import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TestEventSocketComponent } from './test-event-socket/test-event-socket.component';
+import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-socket.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { TestEventSocketComponent } from './test-event-socket/test-event-socket.
     VisitBodyComponent,
     VisitEventsComponent,
     TestEventSocketComponent,
+    TestNoticeSocketComponent,
   ],
   imports: [
     BrowserModule,
