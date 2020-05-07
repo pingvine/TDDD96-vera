@@ -84,16 +84,15 @@ function isEditEventDuplicate(event: EventVera): boolean {
 function handleEditEvent(event: EventVera) {
     const data = event.data as EditEventData;
     console.log(event.data['status'])
+    broadcast.push(event);
     if (isEditEventDuplicate(event)) {
         return;
     }
 
     if (event.data['status'] == true){
-        broadcast.push(event);
         storeEvent(event);
     }
     if (event.data['status'] == false){
-        broadcast.push(event);
         removeEvent(event);
     }
 }
