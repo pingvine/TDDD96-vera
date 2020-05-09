@@ -11,7 +11,7 @@
 }
 
 .view-sidenav {
-  height: auto;
+  height: 100%;
   width: auto;
 }
 
@@ -25,17 +25,21 @@
   top: -10px;
   left: -16px;
   background: #303F9F;
-  padding-bottom: 48px;
+  padding-bottom: 22px;
   padding-right: 48px;
   border: none;
   outline: none;
 }
 
-.view-sidenav-list-item {
-  color: #303F9F;
+.active-view {
+  color: #009688;
+  background: rgba(0,0,0,0.04);
 }
 
 .view-sidenav-list-item:hover {
-  color: white;
-  background: #303F9F;
+  color: #303F9F;
+}
+
+.view-sidenav-list-item {
+  font-size: 24px;
 }

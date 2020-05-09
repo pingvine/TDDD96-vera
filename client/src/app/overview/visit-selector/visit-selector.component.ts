@@ -1,7 +1,8 @@
 import {Component, Input, OnInit, SimpleChanges, OnChanges, Output, EventEmitter} from '@angular/core';
 
 export interface Message {
-  date: string;
+  date: Date;
+  user: string;
   info: string;
 }
 @Component({
@@ -19,7 +20,7 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
   team: string;
   sex: string;
   actions: Message[] = [
-    {date: 'Idag kl. 14:35', info: 'Läk Beatrice: Ny ordination Voltaren 75mg'}
+    {date: new Date(Date.now()), user: 'LäkBeatrice', info: 'Ny ordination Voltaren 75mg'}
   ];
   constructor() {}
 
@@ -29,10 +30,12 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
   ngOnChanges(changes: SimpleChanges) {
-    this.name = this.visit.name;
-    this.age = this.visit.age;
-    this.personalId = this.visit.social;
-    this.priority = this.visit.prio;
-    this.team = this.visit.team;
+    if (this.visit !== undefined) {
+      this.name = this.visit.name;
+      this.age = this.visit.age;
+      this.personalId = this.visit.social;
+      this.priority = this.visit.prio;
+      this.team = this.visit.team;
+    }
   }
 }

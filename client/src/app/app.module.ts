@@ -12,7 +12,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { PatientViewComponent } from './patient/patient-view.component';
 import { OverviewViewComponent } from './overview/overview-view.component';
@@ -26,8 +26,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
-import {AppHeaderComponent } from './app-header/app-header.component';
+import {FormsModule} from '@angular/forms';
+import { AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
@@ -40,6 +40,17 @@ import { PatientStatusSummaryHeaderComponent } from './patient-status-summary/pa
 import { PatientStatusEditViewEComponent } from './patient/patient-status-edit-view-e/patient-status-edit-view-e.component';
 import { InfoCardComponent } from './info-card/info-card.component';
 import { StatusExpandSkinComponent } from './patient/patient-status-edit-view-e/status-expand-skin/status-expand-skin.component';
+
+import { EventComponent } from './event/event.component';
+import { DatePipePipe } from './date-pipe.pipe';
+import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
+import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view-header.component';
+import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical/visit-topical.component';
+import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-info-personal/visit-info-personal.component';
+import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
+import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {EhrService} from "./ehr.service";
 
 
 @NgModule({
@@ -61,6 +72,14 @@ import { StatusExpandSkinComponent } from './patient/patient-status-edit-view-e/
     PatientStatusSummaryComponent,
     PatientStatusSummaryHeaderComponent,
     StatusExpandSkinComponent,
+    EventComponent,
+    DatePipePipe,
+    VisitReasonComponent,
+    VisitViewHeaderComponent,
+    VisitTopicalComponent,
+    VisitInfoPersonalComponent,
+    VisitBodyComponent,
+    VisitEventsComponent,
   ],
   imports: [
     BrowserModule,
@@ -97,9 +116,10 @@ import { StatusExpandSkinComponent } from './patient/patient-status-edit-view-e/
     MatRadioModule,
     MatExpansionModule,
 
+    MatTooltipModule,
   ],
   entryComponents: [],
-  providers: [],
+  providers: [ EhrService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

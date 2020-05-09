@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ViewNameService } from '../view-name.service';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +7,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent implements OnInit {
-  currentView = 'Enhetsöversikt';
   alerts = [].length;
-  constructor() { }
+  currentView: string;
+
+  constructor(private viewNameService: ViewNameService) {
+    this.viewNameService.view$.subscribe(view => this.currentView = view);
+  }
 
   ngOnInit(): void {
   }

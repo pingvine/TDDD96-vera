@@ -18,14 +18,19 @@ const routes: Routes = [
   { path: 'team',
     component: TeamViewComponent
   },
-  { path: 'summary',
-    component: SummaryViewComponent
-  },
-  { path: 'patient',
+  { path: 'patient/:social-id',
     component: PatientViewComponent
+  },
+  {
+    path: 'patient/:social-id/summary',
+    component: SummaryViewComponent
   },
   { path: 'overview',
     component: OverviewViewComponent,
+    data: {}
+  },
+  { path: 'patient',
+    component: PatientViewComponent,
     data: {}
   },
   { path: '',
