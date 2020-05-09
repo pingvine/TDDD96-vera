@@ -30,91 +30,27 @@ export interface partyData {
 }
 
 const testParty : partyData = {
-    firstNames: 'inter',
-    lastNames: 'test',
-    projekt: 'VERA2020',
-
+    additionalInfo: {
+        active: true,
+        arrivalTime: '',
+        arrivalMethod: '',
+        personnummer: '',
+        projekt: 'VERA2020',
+        search: '',
+        team: 'X',
+        ehrId: '',
+        prio: '',
+        age: '',
+        tystnadsplikt: false,
+        mottagning: '',
+        remiss: false,
+    },
+    dateOfBirth: '',
+    firstNames: '',
+    lastNames: '',
 
 }
 
-}
-/*
-const partyData = {
-
-        firstNames: name,
-        lastNames: name,
-        dateOfBirth: '1962-10-02',
-        gender: 'FEMALE',
-        // id: 123456,
-
-        partyAdditionalInfo: [
-        {
-          key: 'personnummer',
-          value: '860102-0000'
-        },
-        {
-          key: 'projekt',
-          value: 'VERA2020'
-        },
-        {
-          key: 'search',
-          value: 'Feber 154',
-        },
-        {
-          key: 'arrivalTime',
-          value: '12:00-4/5',
-        },
-        {
-          key: 'age',
-          value: '33',
-        },
-        {
-          key: 'ehrId',
-          value: "7cefe311-6911-4cb5-a577-360c12002599",
-        },
-        {
-          key: 'active',
-          value: true,
-        },
-        {
-          key: 'arrivalMethod',
-          value: 'bil',
-        },
-        {
-          key: 'team',
-          value: 'A',
-        },
-        {
-          key: 'dr',
-          value: 'Test läk',
-        },
-        {
-          key: 'nurse',
-          value: 'Test ssk',
-        },
-        {
-          key: 'astNurse',
-          value: 'Test usk'
-        },
-        {
-          key: 'prio',
-          value: 'yellow'
-        },
-        {
-          key: 'tystnadsplikt',
-          value: true
-        },
-        {
-          key: 'mottagning',
-          value: 'Linköping'
-        },
-        {
-          key: 'remiss',
-          value: false
-        },
-      ],
-    }
-*/
 @Injectable({
   providedIn: 'root',
 })
