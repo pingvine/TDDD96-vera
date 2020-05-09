@@ -1,7 +1,7 @@
 import {
   Component, EventEmitter, OnInit, Output,
 } from '@angular/core';
-import { FormControl, RequiredValidator, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { RoleType } from '../models/RoleType';
 
 interface Role {
