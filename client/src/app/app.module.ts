@@ -36,6 +36,8 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDialogModule} from '@angular/material/dialog';
 import { PatientStatusViewDialogComponent } from './patient-status-view-dialog/patient-status-view-dialog.component';
+import { PatientStatusSummaryComponent } from './patient-status-summary/patient-status-summary.component';
+import { PatientStatusSummaryHeaderComponent } from './patient-status-summary/patient-status-summary-header/patient-status-summary-header.component';
 
 
 @NgModule({
@@ -53,6 +55,8 @@ import { PatientStatusViewDialogComponent } from './patient-status-view-dialog/p
     PatientStatusViewComponent,
     PatientStatusEditViewEComponent,
     PatientStatusViewDialogComponent,
+    PatientStatusSummaryComponent,
+    PatientStatusSummaryHeaderComponent,
   ],
   imports: [
     BrowserModule,

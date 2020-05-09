@@ -21,14 +21,6 @@
   margin: 0 10px;
 }
 
-.mat-card-header {
-  background-color: #3F51B5;
-  color: white;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  margin-bottom: 16px;
-}
-
 .mat-expansion-panel {
   border: none;
   max-width: fit-content;
