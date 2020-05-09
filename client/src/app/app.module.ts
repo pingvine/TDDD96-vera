@@ -22,7 +22,7 @@ import { TeamViewComponent } from './team/team-view.component';
 import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatError, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
@@ -95,6 +95,7 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     FormsModule,
     MatTooltipModule,
+    MatError
   ],
   providers: [],
   bootstrap: [AppComponent]
