@@ -20,9 +20,13 @@
 }
 
 .logo {
-  width: 30%;
+  width: 50%;
 }
 
 .login-button {
-  float: right;
+
+}
+
+.logo-container {
+  text-align: center;
 }

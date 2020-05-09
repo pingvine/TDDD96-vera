@@ -1,6 +1,9 @@
 <div class="login-container">
   <div class="left-col">
-    <img class="logo" src="./assets/vera.png">
+    <div class="logo-container">
+      <img class="logo" src="./assets/vera.png">
+    </div>
+
   </div>
   <div class="right-col">
     <mat-list>
@@ -14,14 +17,18 @@
         <mat-form-field>
           <mat-label>Roll</mat-label>
           <mat-select>
-            <mat-option *ngFor="let role of roles" [value]="role"
+            <mat-option *ngFor="let role of roles" [value]="role.value">
+              {{role.viewValue}}
+            </mat-option>
           </mat-select>
         </mat-form-field>
       </mat-list-item>
       <mat-list-item>
-          <button class="login-button" mat-raised-button color="primary">
+        <div class="login-button">
+          <button mat-raised-button color="primary">
             Logga in
           </button>
+        </div>
       </mat-list-item>
     </mat-list>
   </div>
