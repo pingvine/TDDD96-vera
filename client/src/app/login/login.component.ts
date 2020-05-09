@@ -1,7 +1,7 @@
 import {
   Component, EventEmitter, OnInit, Output,
 } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, RequiredValidator, Validators } from '@angular/forms';
 import { RoleType } from '../models/RoleType';
 
 interface Role {
@@ -29,6 +29,8 @@ export class LoginComponent implements OnInit {
 
   userName = new FormControl('', [Validators.required, Validators.nullValidator])
 
+  roleControl = new FormControl('', [Validators.required, Validators.nullValidator]);
+
   constructor() { }
 
   ngOnInit(): void {
@@ -39,9 +41,15 @@ export class LoginComponent implements OnInit {
     console.log(`Selected username:${this.userName.value}`);
   }
 
-  getErrorMessage() {
+  getUsernameErrorMessage() {
     if (this.userName.hasError('required')) {
       return 'Du måste skriva in ett användarnamn.';
+    }
+  }
+
+  getSelectorErrorMessage() {
+    if (this.userName.hasError('required')) {
+      return 'Du måste välja en roll.';
     }
   }
 }
