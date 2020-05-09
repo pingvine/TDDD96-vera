@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, EventEmitter, OnInit, Output,
+} from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { RoleType } from '../models/RoleType';
 
 interface Role {
@@ -20,8 +23,19 @@ export class LoginComponent implements OnInit {
     { value: RoleType.Administrator, viewValue: 'Admin' },
   ]
 
+  @Output() logInClick = new EventEmitter<any>();
+
+  selectedRole: RoleType;
+
+  userName = new FormControl('', [Validators.required, Validators.nullValidator])
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  logIn() {
+    console.log(`Selected role:${this.selectedRole}`);
+    console.log(`Selected username:${this.userName.value}`);
   }
 }
