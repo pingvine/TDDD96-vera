@@ -7,9 +7,7 @@
       <mat-radio-button value="1" class="mat-radio-test">Anmärkning</mat-radio-button>
       <mat-radio-button value="2" class="mat-radio-test">Ingen anmärkning</mat-radio-button>
     </mat-radio-group>
-    <p>
-      Tänk alltid på patientens integritet vid avklädning. Täck över den del av kroppen som för tillfället inte bedöms.
-    </p>
+    <app-info-card [info]="warnIntegritet" [icon]="warnIcon"></app-info-card>
 
     <mat-accordion>
 
@@ -44,10 +42,7 @@
             {{panelOpenState ? 'open' : 'closed'}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-          <mat-card>
-            <mat-icon svgIcon="info" aria-hidden="false" aria-label="Info icon"></mat-icon>
-            Klicka på kroppen där du vill anmärka
-          </mat-card>
+        <app-info-card [info]="infoKlicka" [icon]="infoIcon"></app-info-card>
       </mat-expansion-panel>
 
       <label id="sfinktertonus-label">Sfinktertonus</label>

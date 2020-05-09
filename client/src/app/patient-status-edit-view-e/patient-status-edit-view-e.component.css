@@ -10,7 +10,7 @@
 }
 
 .mat-card-background {
-  max-width: fit-content;
+  min-width: fit-content;
   background-color: transparent;
   margin-bottom: 16px;
   border-radius: 8px;
