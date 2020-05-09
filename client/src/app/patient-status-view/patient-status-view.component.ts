@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {PatientStatusViewDialogComponent} from "../patient-status-view-dialog/patient-status-view-dialog.component";
 
 @Component({
   selector: 'app-patient-status-view',
@@ -14,16 +15,16 @@ export class PatientStatusViewComponent implements OnInit {
   ngOnInit(): void {
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(PatientStatusViewDialog, {  width: '800px', height: '800px'
+    const dialogRef = this.dialog.open(PatientStatusViewDialogComponent, {  width: '800px', height: '800px'
     });
 
     }
 }
 
-@Component({
+/*@Component({
   selector: 'app-patient-status-view-dialog',
   templateUrl: '../patient-status-view-dialog/patient-status-view-dialog.component.html',
   styleUrls: ['../patient-status-view-dialog/patient-status-view-dialog.component.css']
-})
+})*/
 
-export class PatientStatusViewDialog{}
+//export class PatientStatusViewDialog{}

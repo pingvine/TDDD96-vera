@@ -31,13 +31,14 @@ import {AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
-import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/patient-status-edit-view-e.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDialogModule} from '@angular/material/dialog';
 import { PatientStatusViewDialogComponent } from './patient-status-view-dialog/patient-status-view-dialog.component';
 import { PatientStatusSummaryComponent } from './patient-status-summary/patient-status-summary.component';
 import { PatientStatusSummaryHeaderComponent } from './patient-status-summary/patient-status-summary-header/patient-status-summary-header.component';
+import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/patient-status-edit-view-e.component';
+import { InfoCardComponent } from './info-card/info-card.component';
 
 
 @NgModule({
@@ -53,8 +54,9 @@ import { PatientStatusSummaryHeaderComponent } from './patient-status-summary/pa
     NewPatientViewComponent,
     AppHeaderComponent,
     PatientStatusViewComponent,
-    PatientStatusEditViewEComponent,
     PatientStatusViewDialogComponent,
+    PatientStatusEditViewEComponent,
+    InfoCardComponent,
     PatientStatusSummaryComponent,
     PatientStatusSummaryHeaderComponent,
   ],
@@ -94,7 +96,7 @@ import { PatientStatusSummaryHeaderComponent } from './patient-status-summary/pa
     MatExpansionModule,
 
   ],
-  entryComponents: [PatientStatusViewDialogComponent],
+  entryComponents: [],
   providers: [],
   bootstrap: [AppComponent]
 })

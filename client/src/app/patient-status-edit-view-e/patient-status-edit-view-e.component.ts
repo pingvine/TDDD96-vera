@@ -11,6 +11,10 @@ export class PatientStatusEditViewEComponent implements OnInit {
   brannskada = false;
   hudutslag = false;
   kommentar = "";
+  infoKlicka = "Klicka på kroppen där du vill anmärka";
+  infoIcon = "info";
+  warnIntegritet = "Tänk alltid på patientens integritet vid avklädning. Täck över den del av kroppen som för tillfället inte bedöms."
+  warnIcon = "warning";
   constructor() { }
 
   ngOnInit(): void {
