@@ -2,4 +2,7 @@
   border-radius: 16px;
   width: 384px;
   height: 520px;
+  padding: 0px;
+  background-color: #F2F2F2;
+  position: sticky;
 }

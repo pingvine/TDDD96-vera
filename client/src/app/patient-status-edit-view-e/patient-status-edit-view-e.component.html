@@ -1,5 +1,7 @@
 <mat-card class="mat-card-background">
 
+  <app-patient-status-summary-header [title]="header_title"></app-patient-status-summary-header>
+
   <mat-card-content class="mat-card-content">
     <mat-radio-group>
       <mat-radio-button value="1" class="mat-radio-test">Anmärkning</mat-radio-button>
@@ -19,11 +21,8 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
 
-        <mat-radio-group>
-          <mat-radio-button value="1">Sårskada</mat-radio-button>
-          <mat-radio-button value="2">Brännskada</mat-radio-button>
-          <mat-radio-button value="3">Hudutslag</mat-radio-button>
-        </mat-radio-group>
+        <app-status-expand-skin></app-status-expand-skin>
+
         <mat-form-field>
           <mat-label>Kommentar</mat-label>
           <input matInput>

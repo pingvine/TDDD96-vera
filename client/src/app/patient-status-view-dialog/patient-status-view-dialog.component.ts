@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-status-view-dialog.component.css']
 })
 export class PatientStatusViewDialogComponent implements OnInit {
-
+  header_title = "Statusbedömning"
   constructor() { }
 
   ngOnInit(): void {

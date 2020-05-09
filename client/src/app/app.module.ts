@@ -39,6 +39,7 @@ import { PatientStatusSummaryComponent } from './patient-status-summary/patient-
 import { PatientStatusSummaryHeaderComponent } from './patient-status-summary/patient-status-summary-header/patient-status-summary-header.component';
 import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/patient-status-edit-view-e.component';
 import { InfoCardComponent } from './info-card/info-card.component';
+import { StatusExpandSkinComponent } from './patient-status-edit-view-e/status-expand-skin/status-expand-skin.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { InfoCardComponent } from './info-card/info-card.component';
     InfoCardComponent,
     PatientStatusSummaryComponent,
     PatientStatusSummaryHeaderComponent,
+    StatusExpandSkinComponent,
   ],
   imports: [
     BrowserModule,

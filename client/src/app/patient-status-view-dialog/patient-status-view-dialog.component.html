@@ -1,7 +1,13 @@
-<h1 mat-dialog-title> Test </h1>
-<h1 mat-dialog-header class = "test">
-
-</h1>
-<div mat-dialog-content>
-  <app-patient-status-edit-view-e></app-patient-status-edit-view-e>
+<div mat-dialog-content style="margin: -24px">
+  <app-patient-status-summary-header [title]="header_title" style="position: sticky"></app-patient-status-summary-header>
+  <div class="exponering-content" style="height: 100%">
+    <mat-grid-list cols="2" [rowHeight]="800">
+      <mat-grid-tile>
+        <app-patient-status-edit-view-e></app-patient-status-edit-view-e>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <app-patient-status-summary></app-patient-status-summary>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
 </div>
