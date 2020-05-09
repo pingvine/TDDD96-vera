@@ -1,6 +1,120 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+//Interface for creating party data.
+export interface partyData {
+    additionalInfo: {
+        active: boolean;
+        arrivalTime: string;
+        arrivalMethod: string;
+        dr?: string;
+        nurse?: string;
+        astNurse?: string;
+        personnummer: string;
+        projekt: string;
+        search: string;
+        team: string;
+        ehrId: string;
+        prio: string;
+        age: string;
+        tystnadsplikt: boolean;
+        mottagning: string;
+        remiss: boolean;
+    };
+    dateOfBirth: string;
+    firstNames: string;
+    gender?: string;
+    id?: string;
+    lastNames: string;
+    version?: number;
+}
+
+const testParty : partyData = {
+    firstNames: 'inter',
+    lastNames: 'test',
+    projekt: 'VERA2020',
+
+
+}
+
+}
+/*
+const partyData = {
+
+        firstNames: name,
+        lastNames: name,
+        dateOfBirth: '1962-10-02',
+        gender: 'FEMALE',
+        // id: 123456,
+
+        partyAdditionalInfo: [
+        {
+          key: 'personnummer',
+          value: '860102-0000'
+        },
+        {
+          key: 'projekt',
+          value: 'VERA2020'
+        },
+        {
+          key: 'search',
+          value: 'Feber 154',
+        },
+        {
+          key: 'arrivalTime',
+          value: '12:00-4/5',
+        },
+        {
+          key: 'age',
+          value: '33',
+        },
+        {
+          key: 'ehrId',
+          value: "7cefe311-6911-4cb5-a577-360c12002599",
+        },
+        {
+          key: 'active',
+          value: true,
+        },
+        {
+          key: 'arrivalMethod',
+          value: 'bil',
+        },
+        {
+          key: 'team',
+          value: 'A',
+        },
+        {
+          key: 'dr',
+          value: 'Test läk',
+        },
+        {
+          key: 'nurse',
+          value: 'Test ssk',
+        },
+        {
+          key: 'astNurse',
+          value: 'Test usk'
+        },
+        {
+          key: 'prio',
+          value: 'yellow'
+        },
+        {
+          key: 'tystnadsplikt',
+          value: true
+        },
+        {
+          key: 'mottagning',
+          value: 'Linköping'
+        },
+        {
+          key: 'remiss',
+          value: false
+        },
+      ],
+    }
+*/
 @Injectable({
   providedIn: 'root',
 })
@@ -41,72 +155,11 @@ export class EhrService {
     return this.http.get(url, this.httpOptions1);
   }
 
-  /* Postar party data för en person, kommer innehålla bl.a. ehrid, pnr och namn, dummydata */
-  postPartyData(name, ehr, personnummer) {
-    const ehrid = ehr.ehrId;
-    return this.http.post(this.urlPartyData,
-      {
-        firstNames: name,
-        lastNames: name,
-        dateOfBirth: '1962-10-02',
-        gender: 'FEMALE',
-        // id: 123456,
-        partyAdditionalInfo: [
-          {
-            key: 'Personnummer',
-            value: personnummer,
-          },
-          {
-            key: 'Projekt',
-            value: 'VERA2020',
-          },
-          {
-            key: 'Sökorsak',
-            value: 'Förmaksflicker',
-          },
-          {
-            key: 'Ankomst',
-            value: '12:00-4/5',
-          },
-          {
-            key: 'Ålder',
-            value: '44',
-          },
-          {
-            key: 'ehrId',
-            value: ehrid,
-          },
-          {
-            key: 'Active',
-            value: 'true',
-          },
-          {
-            key: 'Ankomstsätt',
-            value: 'ambulans',
-          },
-          {
-            key: 'Team',
-            value: 'B',
-          },
-          {
-            key: 'Ansvläk',
-            value: 'Test läk',
-          },
-          {
-            key: 'Ansvssk',
-            value: 'Test ssk',
-          },
-          {
-            key: 'Ansvusk',
-            value: 'Test usk',
-          },
-          {
-            key: 'prio',
-            value: 'red',
-          },
-        ],
 
-      }, this.httpOptions2);
+  /* Postar party data för en person, kommer innehålla bl.a. ehrid, pnr och namn, dummydata */
+  postPartyData(partyData) {
+    //const ehrid = ehr.ehrId;
+    return this.http.post(this.urlPartyData, partyData, this.httpOptions2);
   }
 
   /* Skapar ett ehrID om det saknas för givet personnummer, annars hämtar den party datan för det personnummret
