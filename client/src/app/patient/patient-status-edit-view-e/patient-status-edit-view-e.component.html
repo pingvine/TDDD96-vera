@@ -29,15 +29,11 @@
         </mat-form-field>
       </mat-expansion-panel>
 
-      <mat-expansion-panel (opened)="panelOpenState = true"
-                           (closed)="panelOpenState = false">
+      <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
             Anmärk på kropp (extremiteter etc.)
           </mat-panel-title>
-          <mat-panel-description>
-            {{panelOpenState ? 'open' : 'closed'}}
-          </mat-panel-description>
         </mat-expansion-panel-header>
         <app-info-card [info]="infoKlicka" [icon]="infoIcon"></app-info-card>
       </mat-expansion-panel>

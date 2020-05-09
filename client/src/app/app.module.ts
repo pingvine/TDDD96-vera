@@ -37,9 +37,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { PatientStatusViewDialogComponent } from './patient-status-view-dialog/patient-status-view-dialog.component';
 import { PatientStatusSummaryComponent } from './patient-status-summary/patient-status-summary.component';
 import { PatientStatusSummaryHeaderComponent } from './patient-status-summary/patient-status-summary-header/patient-status-summary-header.component';
-import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/patient-status-edit-view-e.component';
+import { PatientStatusEditViewEComponent } from './patient/patient-status-edit-view-e/patient-status-edit-view-e.component';
 import { InfoCardComponent } from './info-card/info-card.component';
-import { StatusExpandSkinComponent } from './patient-status-edit-view-e/status-expand-skin/status-expand-skin.component';
+import { StatusExpandSkinComponent } from './patient/patient-status-edit-view-e/status-expand-skin/status-expand-skin.component';
 
 
 @NgModule({
