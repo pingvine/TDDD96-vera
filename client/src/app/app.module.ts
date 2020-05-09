@@ -39,6 +39,7 @@ import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-in
 import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     VisitInfoPersonalComponent,
     VisitBodyComponent,
     VisitEventsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
