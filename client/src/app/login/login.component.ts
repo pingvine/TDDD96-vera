@@ -52,4 +52,8 @@ export class LoginComponent implements OnInit {
       return 'Du måste välja en roll.';
     }
   }
+
+  getButtonDisabled() {
+    return !this.userName.value || !this.selectedRole;
+  }
 }

@@ -12,23 +12,26 @@
           <mat-label>Användarnamn</mat-label>
           <input matInput [(ngModel)]="userName.value" required>
           <mat-error *ngIf="userName.invalid">
-            {{getErrorMessage()}}
+            {{getUsernameErrorMessage()}}
           </mat-error>
         </mat-form-field>
       </mat-list-item>
       <mat-list-item>
         <mat-form-field>
           <mat-label>Roll</mat-label>
-          <mat-select [(value)]="selectedRole">
+          <mat-select [(value)]="selectedRole" required>
             <mat-option *ngFor="let role of roles" [value]="role.value">
               {{role.viewValue}}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="roleControl.invalid">
+            {{getSelectorErrorMessage()}}
+          </mat-error>
         </mat-form-field>
       </mat-list-item>
       <mat-list-item>
         <div class="login-button">
-          <button (click)="logIn()" mat-raised-button color="primary">
+          <button [disabled]="getButtonDisabled()" (click)="logIn()" mat-raised-button color="primary">
             Logga in
           </button>
         </div>
