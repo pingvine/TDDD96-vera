@@ -1,8 +1,9 @@
-import {
-  Component, EventEmitter, OnInit, Output,
-} from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { RoleType } from '../models/RoleType';
+import {Component, EventEmitter, OnInit, Output,} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+import {RoleType} from '../models/RoleType';
+import {User} from '../models/User';
+import {Person} from '../models/Person';
+import {UserType} from "../models/UserType";
 
 interface Role {
   value: RoleType;
@@ -39,6 +40,12 @@ export class LoginComponent implements OnInit {
   logIn() {
     console.log(`Selected role:${this.selectedRole}`);
     console.log(`Selected username:${this.userName.value}`);
+
+    const id = 0;
+    const fname = this.userName.value;
+    const lname = '';
+    const person = new Person(id, fname, lname);
+    const user = new User(id, Person, UserType.Editor);
   }
 
   getUsernameErrorMessage() {
