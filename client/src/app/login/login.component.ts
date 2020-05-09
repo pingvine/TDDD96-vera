@@ -1,9 +1,11 @@
-import {Component, EventEmitter, OnInit, Output,} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
-import {RoleType} from '../models/RoleType';
-import {User} from '../models/User';
-import {Person} from '../models/Person';
-import {UserType} from "../models/UserType";
+import {
+  Component, EventEmitter, OnInit, Output,
+} from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { RoleType } from '../models/RoleType';
+import { User } from '../models/User';
+import { Person } from '../models/Person';
+import { UserType } from '../models/UserType';
 
 interface Role {
   value: RoleType;

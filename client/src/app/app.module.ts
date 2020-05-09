@@ -26,7 +26,7 @@ import {MatError, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
@@ -95,7 +95,7 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     FormsModule,
     MatTooltipModule,
-    MatError
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

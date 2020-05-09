@@ -10,7 +10,7 @@
       <mat-list-item>
         <mat-form-field>
           <mat-label>Användarnamn</mat-label>
-          <input matInput [(ngModel)]="userName.value" required>
+          <input matInput [formControl]="userName" required>
           <mat-error *ngIf="userName.invalid">
             {{getUsernameErrorMessage()}}
           </mat-error>
