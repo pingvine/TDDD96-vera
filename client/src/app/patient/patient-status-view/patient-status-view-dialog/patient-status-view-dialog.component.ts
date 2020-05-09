@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientStatusViewDialogComponent implements OnInit {
   header_title = "Statusbedömning"
+  comment = "";
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onCommentChange(comment: string): void {
+    this.comment = comment;
   }
 
 }

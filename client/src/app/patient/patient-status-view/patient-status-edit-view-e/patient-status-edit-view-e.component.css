@@ -36,3 +36,9 @@
   display: flex;
   margin: 16px 0;
 }
+
+.add-button{
+  left: 350px;
+  background-color: rgb(141, 224, 185);
+  box-shadow: 3px 3px 3px rgb(143, 143, 143);
+}

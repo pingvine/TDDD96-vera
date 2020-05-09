@@ -3,3 +3,12 @@
   <mat-radio-button value="2">Brännskada</mat-radio-button>
   <mat-radio-button value="3">Hudutslag</mat-radio-button>
 </mat-radio-group>
+
+<mat-form-field>
+  <mat-label>Kommentar</mat-label>
+  <input matInput [ngModel]="comment" (ngModelChange)="onCommentChange($event)">
+</mat-form-field>
+
+
+
+

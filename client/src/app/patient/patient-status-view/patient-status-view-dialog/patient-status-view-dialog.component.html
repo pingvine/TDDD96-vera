@@ -3,10 +3,10 @@
   <div class="exponering-content" style="height: 100%">
     <mat-grid-list cols="2" [rowHeight]="800">
       <mat-grid-tile>
-        <app-patient-status-edit-view-e></app-patient-status-edit-view-e>
+        <app-patient-status-edit-view-e (commentChange)="onCommentChange($event)"></app-patient-status-edit-view-e>
       </mat-grid-tile>
       <mat-grid-tile>
-        <app-patient-status-summary></app-patient-status-summary>
+        <app-patient-status-summary [comment]="comment"></app-patient-status-summary>
       </mat-grid-tile>
     </mat-grid-list>
   </div>

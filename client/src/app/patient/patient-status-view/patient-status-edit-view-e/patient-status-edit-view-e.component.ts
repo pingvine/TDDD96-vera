@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-patient-status-edit-view-e',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-status-edit-view-e.component.css']
 })
 export class PatientStatusEditViewEComponent implements OnInit {
+  @Output() commentChange: EventEmitter<string> = new EventEmitter();
   panelOpenState = false;
   sarskada = false;
   brannskada = false;
@@ -21,8 +22,8 @@ export class PatientStatusEditViewEComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateKommentar(event) {
-    this.kommentar = event.target.value;
+  onCommentChange(event) {
+    this.commentChange.emit(event);
   }
 
 }

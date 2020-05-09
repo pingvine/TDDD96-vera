@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-status-expand-skin',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusExpandSkinComponent implements OnInit {
 
+  @Input() comment = '';
+  @Output() commentChange: EventEmitter<string> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onCommentChange(event: string) {
+    this.commentChange.emit(event);
   }
 
 }

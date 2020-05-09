@@ -10,7 +10,6 @@
     <app-info-card [info]="warnIntegritet" [icon]="warnIcon"></app-info-card>
 
     <mat-accordion>
-
       <mat-expansion-panel class="mat-expansion-panel">
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -20,15 +19,8 @@
 
           </mat-panel-description>
         </mat-expansion-panel-header>
-
-        <app-status-expand-skin></app-status-expand-skin>
-
-        <mat-form-field>
-          <mat-label>Kommentar</mat-label>
-          <input matInput>
-        </mat-form-field>
+        <app-status-expand-skin (commentChange)="onCommentChange($event)"></app-status-expand-skin>
       </mat-expansion-panel>
-
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -47,7 +39,7 @@
 
       <mat-form-field appearance="fill" style="height: 100%; width: 15em; font-size: 16px">
         <mat-label>Kommentar</mat-label>
-        <input matInput (keyup)="updateKommentar($event)"/>
+        <input matInput (keyup)="onCommentChange($event)"/>
       </mat-form-field>
 
     </mat-accordion>
