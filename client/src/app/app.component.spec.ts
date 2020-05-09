@@ -1,15 +1,21 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HttpClientTestingModule} from "@angular/common/http/testing";
+import { EhrService } from './ehr.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule,
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+      ],
+      providers: [
+        EhrService,
       ],
     }).compileComponents();
   }));
@@ -20,7 +26,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'VERA 20'`, () => {
+  it('should have as title \'VERA 20\'', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('VERA 20');
@@ -31,5 +37,5 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('h1').textContent).toEqual('VERA 20');
-  });*/
+  }); */
 });
