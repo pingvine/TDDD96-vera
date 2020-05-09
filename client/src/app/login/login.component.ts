@@ -38,4 +38,10 @@ export class LoginComponent implements OnInit {
     console.log(`Selected role:${this.selectedRole}`);
     console.log(`Selected username:${this.userName.value}`);
   }
+
+  getErrorMessage() {
+    if (this.userName.hasError('required')) {
+      return 'Du måste skriva in ett användarnamn.';
+    }
+  }
 }
