@@ -45,7 +45,8 @@ export class LoginComponent implements OnInit {
     const fname = this.userName.value;
     const lname = '';
     const person = new Person(id, fname, lname);
-    const user = new User(id, Person, UserType.Editor);
+    person.setRoleType(this.selectedRole);
+    const user = new User(id, person, UserType.Editor);
   }
 
   getUsernameErrorMessage() {
