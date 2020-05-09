@@ -5,7 +5,7 @@ export class EventVera {
     eventType: EventType;
     data: {}
 
-    constructor(senderId: string, eventType: EventType, data: any){
+    constructor(senderId?: string, eventType?: EventType, data?: any){
         this.senderId = senderId;
         this.eventType = eventType;
         this.data = data;
