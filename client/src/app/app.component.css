@@ -43,3 +43,6 @@
 .view-sidenav-list-item {
   font-size: 24px;
 }
+.mat-sidenav-container {
+  height: 100%;
+}

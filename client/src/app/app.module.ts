@@ -19,7 +19,7 @@ import { OverviewViewComponent } from './overview/overview-view.component';
 import { SummaryViewComponent } from './summary/summary-view.component';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
-import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
+import { NewVisitViewComponent } from './new-visit/new-visit-view.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -39,6 +39,11 @@ import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-in
 import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatRadioModule} from '@angular/material/radio';
+import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
+import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-reason.component';
 import {EhrService} from "./ehr.service";
 
 
@@ -52,7 +57,7 @@ import {EhrService} from "./ehr.service";
     SummaryViewComponent,
     SettingsViewComponent,
     TeamViewComponent,
-    NewPatientViewComponent,
+    NewVisitViewComponent,
     AppHeaderComponent,
     EventComponent,
     DatePipePipe,
@@ -62,6 +67,8 @@ import {EhrService} from "./ehr.service";
     VisitInfoPersonalComponent,
     VisitBodyComponent,
     VisitEventsComponent,
+    NewVisitInformationComponent,
+    NewVisitReasonComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +101,9 @@ import {EhrService} from "./ehr.service";
     MatSelectModule,
     FormsModule,
     MatTooltipModule,
+    MatStepperModule,
+    MatButtonToggleModule,
+    MatRadioModule,
   ],
   providers: [ EhrService ],
   bootstrap: [AppComponent]
