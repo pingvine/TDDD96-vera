@@ -22,11 +22,11 @@ import { TeamViewComponent } from './team/team-view.component';
 import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatError, MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
@@ -39,6 +39,7 @@ import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-in
 import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LoginComponent } from './login/login.component';
 import {EhrService} from "./ehr.service";
 
 
@@ -62,6 +63,7 @@ import {EhrService} from "./ehr.service";
     VisitInfoPersonalComponent,
     VisitBodyComponent,
     VisitEventsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +96,7 @@ import {EhrService} from "./ehr.service";
     MatSelectModule,
     FormsModule,
     MatTooltipModule,
+    ReactiveFormsModule,
   ],
   providers: [ EhrService ],
   bootstrap: [AppComponent]

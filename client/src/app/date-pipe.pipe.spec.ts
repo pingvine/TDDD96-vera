@@ -11,17 +11,20 @@ describe('DatePipePipe', () => {
 
   it('should say yesterday', () => {
     const yesterday = new Date(Date.now() - dayMs);
-    expect(dayPipe.transform(yesterday).includes('Igår')).toBeTrue();
+    const transform = dayPipe.transform(yesterday);
+    const check = transform.includes('Igår');
+    expect(check).toBeTrue();
   });
 
   it('should say tomorrow', () => {
     const tomorrow = new Date(Date.now() + dayMs);
-    expect(dayPipe.transform(tomorrow).includes('Imorgon')).toBeTrue();
+    const transform = dayPipe.transform(tomorrow);
+    const check = transform.includes('Imorgon');
+    expect(check).toBeTrue();
   });
 
   it('should say today', () => {
     const today = new Date(Date.now());
-    expect(dayPipe.transform(today).includes( 'Idag')).toBeTrue();
+    expect(dayPipe.transform(today).includes('Idag')).toBeTrue();
   });
-
 });
