@@ -34,10 +34,10 @@
   <!-- Row two -->
   <mat-grid-tile colspan="2">
     <mat-button-toggle-group (change)="updateGender($event.value)">
-      <mat-button-toggle value="Male" aria-label="Text align center">
+      <mat-button-toggle value="MALE" aria-label="Text align center">
         Man
       </mat-button-toggle>
-      <mat-button-toggle value="Female" aria-label="Text align center">
+      <mat-button-toggle value="FEMALE" aria-label="Text align center">
         Kvinna
       </mat-button-toggle>
     </mat-button-toggle-group>
@@ -97,13 +97,16 @@
     </mat-form-field>
   </mat-grid-tile>
 
-    <mat-grid-tile colspan="2">
+    <mat-grid-tile colspan="1">
       <mat-form-field appearance="outline">
         <mat-label>Ankomsttid</mat-label>
         <input matInput type="time">
       </mat-form-field>
     </mat-grid-tile>
 
+    <mat-grid-tile colspan="1">
+        <button mat-button (click)='savePatient()' >Save</button>
+    </mat-grid-tile>
 
 <!--  Row five -->
 
@@ -134,4 +137,3 @@
     </mat-form-field>
   </mat-grid-tile>
 </mat-grid-list>
-

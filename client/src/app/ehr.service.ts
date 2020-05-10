@@ -10,7 +10,7 @@ export interface partyData {
         dr?: string;
         nurse?: string;
         astNurse?: string;
-        personnummer: string;
+        socialId: string;
         projekt: string;
         search: string;
         team: string;
@@ -19,9 +19,15 @@ export interface partyData {
         age: string;
         tystnadsplikt: boolean;
         mottagning: string;
-        remiss: boolean;
+        remittance: boolean;
+        phone?: string;
+        postcode?: string;
+        town?: string;
+        idChecked:boolean;
+        address?: string;
+        relative?: string;
+
     };
-    dateOfBirth: string;
     firstNames: string;
     gender?: string;
     id?: string;
@@ -29,26 +35,26 @@ export interface partyData {
     version?: number;
 }
 
-const testParty : partyData = {
-    additionalInfo: {
-        active: true,
-        arrivalTime: '',
-        arrivalMethod: '',
-        personnummer: '',
-        projekt: 'VERA2020',
-        search: '',
-        team: 'X',
-        ehrId: '',
-        prio: '',
-        age: '',
-        tystnadsplikt: false,
-        mottagning: '',
-        remiss: false,
-    },
-    dateOfBirth: '',
-    firstNames: '',
-    lastNames: '',
+const testparty : partyData = {
+additionalInfo: {
+    active: true,
+    arrivalTime: '',
+    arrivalMethod: '',
+    socialId: '',
+    projekt: 'VERA2020',
+    search: '',
+    team: 'X',
+    ehrId: '',
+    prio: '',
+    age: '',
+    tystnadsplikt: false,
+    mottagning: '',
+    remittance: false,
+    idChecked: false,
 
+},
+firstNames: 'test',
+lastNames: '123',
 }
 
 @Injectable({
@@ -76,7 +82,7 @@ export class EhrService {
 
   urlPartyData = `${this.baseUrl}/demographics/party`;
 
-  urlpnr = '/demographics/party/query/?Personnummer=';
+  urlpnr = '/demographics/party/query/?socialId=';
 
   urlPnr = this.baseUrl + this.urlpnr;
 
@@ -93,21 +99,22 @@ export class EhrService {
 
 
   /* Postar party data för en person, kommer innehålla bl.a. ehrid, pnr och namn, dummydata */
-  postPartyData(partyData) {
-    //const ehrid = ehr.ehrId;
-    return this.http.post(this.urlPartyData, partyData, this.httpOptions2);
+  postPartyData(party) {
+    return this.http.post(this.urlPartyData, party, this.httpOptions2);
   }
 
   /* Skapar ett ehrID om det saknas för givet personnummer, annars hämtar den party datan för det personnummret
   * Egentligen ska det skickas med partydata som input för att fylla på om det inte finns ett ehrid */
-  async createPerson(name, personnummer) {
-    this.getPnr(personnummer.toString()).subscribe((resp: any) => {
+  async createPerson(party) {
+    console.log(party)
+    this.getPnr(party.additionalInfo.socialId).subscribe((resp: any) => {
       if (resp === null) {
         console.log('Skapa nytt ehrId och lägg till party data');
         const ehr = this.http.post(this.urlCreateId, '', this.httpOptions2);
         ehr.subscribe((resp2) => {
-          this.postPartyData(name, resp2, personnummer).subscribe((ans1) => {
-            console.log(ans1);
+            party.additionalInfo.ehrId = resp2.ehrId;
+            this.postPartyData(party).subscribe((ans1) => {
+                console.log(ans1);
           });
         });
       } else {
