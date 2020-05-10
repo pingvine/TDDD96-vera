@@ -40,6 +40,7 @@ import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { LoginComponent } from './login/login.component';
+import {EhrService} from "./ehr.service";
 
 
 @NgModule({
@@ -97,7 +98,7 @@ import { LoginComponent } from './login/login.component';
     MatTooltipModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ EhrService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
