@@ -1,79 +1,93 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
+import { partyData, EhrService } from '../../ehr.service'
 
 @Component({
   selector: 'app-new-visit-information',
   templateUrl: './new-visit-information.component.html',
   styleUrls: ['./new-visit-information.component.css'],
 })
-export class NewVisitInformationComponent implements OnInit {
+export class NewVisitInformationComponent implements OnInit{
 
-  socialId: number = null;
-  name: string = null;
-  age: number = null;
-  gender: string = null;
-  phone: number = null;
-  address: string = null;
-  postcode: number = null;
-  town: string = null;
-  idChecked: boolean = false;
-  relative: string = null;
-  remittance: boolean = false;
+    party : partyData = {
+    additionalInfo: {
+        active: true,
+        arrivalTime: '',
+        arrivalMethod: '',
+        socialId: '',
+        projekt: 'VERA2020',
+        search: '',
+        team: 'X',
+        ehrId: '',
+        prio: '',
+        age: '',
+        tystnadsplikt: false,
+        mottagning: '',
+        remittance: false,
+        idChecked: false,
 
-  constructor() { }
+    },
+    firstNames: 'test',
+    lastNames: '123',
+}
+  constructor(private ehrService : EhrService) { }
 
   ngOnInit(): void {  }
 
   updateName(name: any) {
-    this.name = name.target.value;
-    console.log('Name:' + this.name);
+    this.party.firstNames = name.target.value;
+    console.log('Name:' + this.party.firstNames);
   }
 
   updateSocialId(socialId: any) {
-    this.socialId = socialId.target.value;
-    console.log('Social id:' + this.socialId);
+    this.party.additionalInfo.socialId = socialId.target.value;
+    console.log('Social id:' + this.party.additionalInfo.socialId);
   }
 
   updateAge(age: any) {
-    this.age = age.target.value;
-    console.log('Age:' + this.age);
+    this.party.additionalInfo.age = age.target.value;
+    console.log('Age:' + this.party.additionalInfo.age);
   }
 
   updateGender(gender: any) {
-    this.gender = gender;
-    console.log('Gender:' + this.gender);
+    this.party.gender = gender;
+    console.log('Gender:' + this.party.gender);
   }
 
   updatePhone(phone: any) {
-    this.phone = phone.target.value;
-    console.log('Phone' + this.phone);
+    this.party.additionalInfo.phone = phone.target.value;
+    console.log('Phone' + this.party.additionalInfo.phone);
   }
 
   updatePostcode(postcode: any) {
-    this.postcode = postcode.target.value;
-    console.log('Postcode' + this.postcode);
+    this.party.additionalInfo.postcode = postcode.target.value;
+    console.log('Postcode' + this.party.additionalInfo.postcode);
   }
   updateTown(town: any) {
-    this.town = town.target.value;
-    console.log('Town' + this.town);
+    this.party.additionalInfo.town = town.target.value;
+    console.log('Town' + this.party.additionalInfo.town);
   }
   updateAddress(address: any) {
-    this.address = address.target.value;
-    console.log('Address' + this.address);
+    this.party.additionalInfo.address = address.target.value;
+    console.log('Address' + this.party.additionalInfo.address);
   }
 
   updateIdChecked(checked: boolean) {
-    this.idChecked = checked;
-    console.log('checked' + this.idChecked);
+    this.party.additionalInfo.idChecked = checked;
+    console.log('checked' + this.party.additionalInfo.idChecked);
   }
 
   updateRemittance(remittance: boolean) {
-    this.remittance = remittance;
-    console.log('Remittance' + this.remittance);
+    this.party.additionalInfo.remittance = remittance;
+    console.log('Remittance' + this.party.additionalInfo.remittance);
   }
 
   updateRelative(relative: any) {
-    this.relative = relative.target.value;
-    console.log('Relative' + this.relative);
+    this.party.additionalInfo.relative = relative.target.value;
+    console.log('Relative' + this.party.additionalInfo.relative);
+  }
+  savePatient(){
+    this.ehrService.createPerson(this.party);
+    console.log('patient saved')
   }
 
 }
