@@ -44,6 +44,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
 import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-reason.component';
+import {EhrService} from "./ehr.service";
 
 
 @NgModule({
@@ -104,7 +105,7 @@ import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-
     MatButtonToggleModule,
     MatRadioModule,
   ],
-  providers: [],
+  providers: [ EhrService ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -103,19 +103,19 @@
        <!-- Age and prio -->
       <ngx-datatable-column  name="Prio" prop="prio" sortable="true" [frozenLeft]="false" [width]="50">
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
-          <span class="prio-box" [style.text-shadow]="row['prio']" [style.background-color]="row['prio']"> ▮ </span>
+          <span class="prio-box" [style.text-shadow]="row.prio" [style.background-color]="row.prio"> ▮ </span>
         </ng-template>
       </ngx-datatable-column>
 
       <ngx-datatable-column  name="Personnummer(år)(kön)" prop="social" [width]="175" [frozenLeft]="" [sortable]="false">
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
-           <span> <strong [innerHTML]="row['social']"> </strong> ( <i [innerHTML]="row['age']"></i> )( <span *ngIf="row['gender'] === 'male'">&#9794;</span> <span *ngIf="row['gender'] === 'female'">&#9792;</span> )  </span>
+           <span> <strong >{{row.socialId}} </strong> ( <i [innerHTML]="row['age']"></i> )( <span *ngIf="row['gender'] === 'MALE'">&#9794;</span> <span *ngIf="row['gender'] === 'FEMALE'">&#9792;</span> )  </span>
         </ng-template>
       </ngx-datatable-column>
       <!-- Info -->
       <ngx-datatable-column name="Ankomst" prop="arrival"  [sortable]="true" [width]="80">
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
-          <span>{{value}}</span>
+          <span>{{row.arrival}}</span>
         </ng-template>
       </ngx-datatable-column>
 
@@ -129,7 +129,11 @@
 
       <ngx-datatable-column name="Sökorsak" prop="search"  [width]="100"></ngx-datatable-column>
       <ngx-datatable-column name="Aktivitet" prop="activity"  [width]="75"></ngx-datatable-column>
-      <ngx-datatable-column name="Namn" prop="name" [sortable]="true" [width]="140"></ngx-datatable-column>
+      <ngx-datatable-column name="Namn" prop="name" [sortable]="true" [width]="140">
+        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+          <span>{{row.name}}</span>
+        </ng-template>
+      </ngx-datatable-column>
 
       <!-- Personel in charge -->
       <ngx-datatable-column name="Anvs.Läk." prop="dr"  [sortable]="true" [width]="90"></ngx-datatable-column>
@@ -172,7 +176,7 @@
 
     <ngx-datatable-column  name="Personnummer(år)(kön)" prop="social" [width]="175" [frozenLeft]="" [sortable]="false">
       <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
-        <span> <strong [innerHTML]="row['social']"> </strong> ( <i [innerHTML]="row['age']"></i> )( <span *ngIf="row['gender'] === 'male'">&#9794;</span> <span *ngIf="row['gender'] === 'female'">&#9792;</span> )  </span>
+        <span> <strong >{{row.socialId}} </strong> ( <i [innerHTML]="row['age']"></i> )( <span *ngIf="row['gender'] === 'MALE'">&#9794;</span> <span *ngIf="row['gender'] === 'FEMALE'">&#9792;</span> )  </span>
       </ng-template>
     </ngx-datatable-column>
     <!-- Info -->

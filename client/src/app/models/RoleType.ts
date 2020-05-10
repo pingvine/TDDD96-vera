@@ -3,4 +3,5 @@ export enum RoleType{
     Nurse = 2,
     AssistingNurse = 3,
     Administrator = 4,
+    Patient = 5,
 }
