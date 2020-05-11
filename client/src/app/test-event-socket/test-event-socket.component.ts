@@ -4,6 +4,7 @@ import {EventType} from '../../../../shared/models/EventType';
 import {EditEventData} from '../../../../shared/models/EditEventData';
 import {EventVera} from '../../../../shared/models/EventVera';
 import {ServerService} from "../services/server.service";
+import {EventVeraListener} from "../interfaces/event-vera-listener";
 
 
 export class TestMessage {
@@ -16,14 +17,16 @@ export class TestMessage {
   templateUrl: './test-event-socket.component.html',
   styleUrls: ['./test-event-socket.component.css'],
 })
-export class TestEventSocketComponent implements OnInit {
+export class TestEventSocketComponent extends EventVeraListener implements OnInit {
   messages: string[] = [];
 
   activeUsers: string[] = [];
 
   senderId: string = 'default';
 
-  constructor(private eventService: EventSocketService, private serverService: ServerService) { }
+  constructor(protected evService: EventSocketService, private serverService: ServerService) {
+    super(evService);
+  }
 
   ngOnInit(): void {
 
@@ -35,21 +38,21 @@ export class TestEventSocketComponent implements OnInit {
       })
     });
 
-    this.eventService.connect();
-    this.eventService.getEventObservable().subscribe((msg) => {
-      console.log(`COMPoNENT RECEIVED MSG: ${msg.eventType}`);
-
-      switch (msg.eventType) {
-        case EventType.EditEvent:
-          this.handleEditEvent(msg);
-      }
-    },
-    (error) => {
-      console.log('CMPNT Error');
-    },
-    () => {
-      console.log('CMPNT Complete');
-    });
+    // this.eventService.connect();
+    // this.eventService.getEventObservable().subscribe((msg) => {
+    //   console.log(`COMPoNENT RECEIVED MSG: ${msg.eventType}`);
+    //
+    //   switch (msg.eventType) {
+    //     case EventType.EditEvent:
+    //       this.handleEditEvent(msg);
+    //   }
+    // },
+    // (error) => {
+    //   console.log('CMPNT Error');
+    // },
+    // () => {
+    //   console.log('CMPNT Complete');
+    // });
   }
 
   handleEditEvent(event: EventVera) {
@@ -107,5 +110,8 @@ export class TestEventSocketComponent implements OnInit {
     };
 
     this.eventService.sendMessage(event);
+  }
+
+  handleCareEvent(msg: EventVera): void {
   }
 }
