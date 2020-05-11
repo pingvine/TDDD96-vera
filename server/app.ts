@@ -83,14 +83,41 @@ app.get('/events/careevent/receiver/id/:id', (req, res) => {
   res.json({ id: req.params.id });
 });
 
+app.post("/event", (req, res) => {
+  res.json({status: "OK"});
+  console.log(req.body);
+})
+
 app.post('/id', (req, res) => {
   res.json({ id: idCounter });
   idCounter += 1;
 });
 
-app.post('/user', (req, res) => {
 
+function userExists(socialId, userss) {
+  console.log(`socialid ${socialId}`);
+  userss.forEach((user) => {
+    console.log(`SocialId comp: ${user.socialId}`);
+    if (socialId === user.socialId) {
+      return true;
+    }
+  });
+  return false;
+}
+
+app.post('/user', (req, res) => {
+  console.log('Request body:');
+  console.log(req.body);
+  if (userExists(req.body.socialId, users)) {
+    res.json({ status: 'alreadyexists' });
+  } else {
+    users.push(req.body);
+    res.json({ status: 'OK' });
+    console.log(users);
+  }
 });
+
+
 
 
 eventserver.runWebSocketServer();
