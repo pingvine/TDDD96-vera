@@ -21,4 +21,9 @@ export class ServerService {
     const url = `${baseUrl}/events`;
     return this.http.get(url, httpOptions);
   }
+
+  getId() : Observable<any> {
+    const url = `${baseUrl}/id`;
+    return this.http.post(url, "", httpOptions);
+  }
 }
