@@ -3,15 +3,20 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "npx tsc websockets/server.ts app.ts && node ./bin/www",
+    "ws": "npx tsc websockets/server.ts && node websockets/server.js"
   },
   "dependencies": {
+    "@types/node": "^13.13.5",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "mongo-db": "^1.0.2",
     "mongoose": "^5.8.11",
-    "morgan": "~1.9.1"
+    "morgan": "~1.9.1",
+    "typescript": "~3.7.5",
+    "websocket": "^1.0.31",
+    "websockets": "^0.2.0"
   }
 }
