@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EventVera } from '../../../../shared/models/EventVera';
+import { User } from '../models/User';
 
 const baseUrl = 'http://localhost:4201';
 
@@ -24,6 +25,11 @@ export class ServerService {
 
   getId() : Observable<any> {
     const url = `${baseUrl}/id`;
-    return this.http.post(url, "", httpOptions);
+    return this.http.post(url, '', httpOptions);
+  }
+
+  createUser(user: User) {
+    const url = `${baseUrl}/user`;
+    return this.http.post(url, JSON.stringify(user), httpOptions);
   }
 }
