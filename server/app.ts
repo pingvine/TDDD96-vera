@@ -16,6 +16,10 @@ const patientRouter = require('./routes/patient');
 const summaryRouter = require('./routes/summary');
 
 
+// TODO replace with db
+const users = [];
+let idCounter = 0;
+
 mongoose.connect('mongodb://localhost/coronavirus', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
@@ -77,6 +81,15 @@ app.get('/events/careevent/receiver/role/:roletype', (req, res) => {
 
 app.get('/events/careevent/receiver/id/:id', (req, res) => {
   res.json({ id: req.params.id });
+});
+
+app.get('/id', (req, res) => {
+  res.json({ id: idCounter });
+  idCounter += 1;
+});
+
+app.post('/user', (req, res) => {
+
 });
 
 
