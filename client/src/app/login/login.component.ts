@@ -2,11 +2,13 @@ import {
   Component, EventEmitter, OnInit, Output,
 } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { RoleType } from '../models/RoleType';
 import { User } from '../models/User';
 import { Person } from '../models/Person';
 import { UserType } from '../models/UserType';
-import {ServerService} from "../services/server.service";
+import { ServerService } from '../services/server.service';
+import { SpinnerOverlayComponent } from '../spinner-overlay/spinner-overlay.component';
 
 interface Role {
   value: RoleType;
@@ -35,14 +37,27 @@ export class LoginComponent implements OnInit {
 
   roleControl = new FormControl('', [Validators.required, Validators.nullValidator]);
 
-  constructor(private serverService: ServerService) { }
+  constructor(private serverService: ServerService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  logIn() {
+  delay(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async logIn() {
+    // Spinner overlay
+    const dialogRef: MatDialogRef<SpinnerOverlayComponent> = this.dialog.open(SpinnerOverlayComponent,
+      {
+        panelClass: 'transparent',
+        disableClose: true
+      });
+    await this.delay(1000);
     console.log(`Selected role:${this.selectedRole}`);
     console.log(`Selected username:${this.userName.value}`);
+
 
 
     this.serverService.getId().subscribe(() => {
@@ -52,8 +67,13 @@ export class LoginComponent implements OnInit {
       const person = new Person(id, fname, lname);
       person.setRoleType(this.selectedRole);
       const user = new User(id, person, UserType.Editor);
-    })
-
+    },
+    (error) => {
+      dialogRef.close();
+    },
+    () => {
+      dialogRef.close();
+    });
   }
 
   getUsernameErrorMessage() {
