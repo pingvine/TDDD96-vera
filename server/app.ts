@@ -1,5 +1,6 @@
 import { EventVera } from '../shared/models/EventVera';
 import { EventType } from '../shared/models/EventType';
+import { RoleType } from '../client/src/app/models/RoleType';
 
 const express = require('express');
 const path = require('path');
@@ -52,18 +53,30 @@ app.use('/summary', summaryRouter);
 /*
 REST
  */
-app.get('/events', (req, res, next) => {
+app.get('/events', (req, res) => {
   // TODO REPLACE WITH DATABASE GET FROM ACTIVEEVENTS
   res.json(eventserver.getEvents());
 });
 
 app.get('/visit/:socialId', (req, res) => {
-  console.log(`visit req: ${req}`);
-  res.json({});
+  res.json({ id: req.params.socialId });
 });
 
 app.get('/user/:id', (req, res) => {
-  res.json({});
+  res.json({ id: req.params.id });
+});
+
+app.get('/events/careevent/receiver/role/:roletype', (req, res) => {
+  console.log(`Event roletype params: ${req.params.roletype}`);
+  if (req.params.roletype in RoleType) {
+    res.json({ Status: 'OK' });
+  } else {
+    res.json({ Error: 'RoleType does not exist.' });
+  }
+});
+
+app.get('/events/careevent/receiver/id/:id', (req, res) => {
+  res.json({ id: req.params.id });
 });
 
 
