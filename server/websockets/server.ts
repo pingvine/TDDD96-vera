@@ -1,3 +1,4 @@
+import { Subject } from 'rxjs';
 import { EventVera } from '../../shared/models/EventVera';
 import { EditEventData } from '../../shared/models/EditEventData';
 import { EventType } from '../../shared/models/EventType';
@@ -23,6 +24,18 @@ const wsServer = new webSocketServer({
   httpServer: server,
 });
 
+function broadcastToClients() {
+  broadcast.forEach((event) => {
+    const json = JSON.stringify(event);
+    clients.forEach((client) => {
+      client.sendUTF(json);
+      console.log(`${new Date()} Server sent: <${json}> to: ${client}`);
+    });
+    // Pop from queue
+    broadcast.shift();
+  });
+}
+
 export function runWebSocketServer() {
   wsServer.on('request', (request) => {
     console.log(`${new Date()} Connection from origin ${request.origin}.`);
@@ -46,16 +59,6 @@ export function runWebSocketServer() {
         //     clients[i].sendUTF(json);
         //     console.log((new Date()) + ' Server sent: <' + json + '> to: ' + clients[i]);
         // }
-
-        broadcast.forEach((event) => {
-          const json = JSON.stringify(event);
-          clients.forEach((client) => {
-            client.sendUTF(json);
-            console.log(`${new Date()} Server sent: <${json}> to: ${client}`);
-          });
-          // Pop from queue
-          broadcast.shift();
-        });
       }
     });
 
@@ -85,10 +88,10 @@ function handleEditEvent(event: EventVera) {
     return;
   }
 
-  if (event.data.status == true) {
+  if (event.data['status'] === true) {
     storeEvent(event);
   }
-  if (event.data.status == false) {
+  if (event.data['status'] === false) {
     removeEvent(event);
   }
 }
@@ -97,13 +100,17 @@ function handleCareEvent(event: EventVera) {
   broadcast.push(event);
 }
 
-function handleEvent(event: EventVera) {
+export function handleEvent(event: EventVera) {
+  console.log('HANDLE EVENT');
+  console.log(event);
   switch (event.eventType) {
     case EventType.CareEvent:
       handleCareEvent(event);
     case EventType.EditEvent:
       handleEditEvent(event);
   }
+
+  broadcastToClients();
 }
 
 function eventExists(event: EventVera): boolean {
