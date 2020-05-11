@@ -13,7 +13,7 @@ const http = require('http');
 const clients = [];
 let events = [];
 // Separate list for broadcasting to clients
-const broadcast = [];
+let broadcast = [];
 
 const server = http.createServer((request, response) => {});
 server.listen(webSocketsServerPort, () => {
@@ -32,8 +32,10 @@ function broadcastToClients() {
       console.log(`${new Date()} Server sent: <${json}> to: ${client}`);
     });
     // Pop from queue
-    broadcast.shift();
   });
+
+  // This will not work in concurrency
+  broadcast = []
 }
 
 export function runWebSocketServer() {
