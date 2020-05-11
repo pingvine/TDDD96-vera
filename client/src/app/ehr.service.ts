@@ -111,7 +111,7 @@ export class EhrService {
       if (resp === null) {
         console.log('Skapa nytt ehrId och lägg till party data');
         const ehr = this.http.post(this.urlCreateId, '', this.httpOptions2);
-        ehr.subscribe((resp2) => {
+        ehr.subscribe((resp2: any) => {
             party.additionalInfo.ehrId = resp2.ehrId;
             this.postPartyData(party).subscribe((ans1) => {
                 console.log(ans1);

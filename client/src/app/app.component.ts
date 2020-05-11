@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     this.ehrService.getActivePatients('MOTTAGNING').subscribe((resp: any) => {
       resp.parties.forEach((partyData) => {
         // eslint-disable-next-line max-len
-        const pat = this.im.createPerson(partyData.additionalInfo.Personnummer, partyData.firstNames, partyData.lastNames);
+        const pat = this.im.createPerson(partyData.additionalInfo.socialId, partyData.firstNames, partyData.lastNames);
         pat.setRoleType(RoleType.Patient);
         const vis = this.im.createVisit(pat);
         const healthManager = new HealthManager(partyData.additionalInfo.ehrId);

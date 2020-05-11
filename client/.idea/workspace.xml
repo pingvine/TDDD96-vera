@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a3618c58-c36f-46f7-99bb-e15d12cdb7d5" name="Default Changelist" comment="Separates visit personal information to own component">
+      <change afterPath="$PROJECT_DIR$/src/app/login/login.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/login/login.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/login/login.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/login/login.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/services/event-socket.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/services/event-socket.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/services/server.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/services/server.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/test-event-socket/test-event-socket.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/test-event-socket/test-event-socket.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/test-event-socket/test-event-socket.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/test-event-socket/test-event-socket.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/vera.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/.eslintrc.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/websockets/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/websockets/server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/models/CareEventData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/models/EditEventData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/models/EventType.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/models/EventType.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/models/EventVera.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/models/EventVera.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../shared/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/date-pipe.pipe.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/date-pipe.pipe.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/date-pipe.pipe.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/date-pipe.pipe.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/ehr.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ehr.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/new-visit/new-visit-information/new-visit-information.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/new-visit/new-visit-information/new-visit-information.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/new-visit/new-visit-information/new-visit-information.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/new-visit/new-visit-information/new-visit-information.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/new-visit/new-visit-reason/new-visit-reason.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/new-visit/new-visit-reason/new-visit-reason.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/new-visit/new-visit-view.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/new-visit/new-visit-view.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../server/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../server/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="visitor-selector-menu" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
+  <component name="ProjectId" id="1aofu3666Ohdvb47NjEIysdi5cb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/img" />
+    <property name="node.js.detected.package.jscs" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.jscs" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.jscs" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/node_modules/protractor" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.jscs" />
+    <property name="ts.external.directory.path" value="C:\Users\josef\Documents\digital-akutjournal\client\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\josef\Documents\digital-akutjournal\client\src\assets\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\josef\Documents\digital-akutjournal\client\src\assets\img" />
+      <recent name="C:\Users\josef\Documents\digital-akutjournal\client\src\app\overview" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Tests (client)" type="JavaScriptTestRunnerKarma">
+      <config-file value="$PROJECT_DIR$/karma.conf.js" />
+      <karma-package-dir value="$PROJECT_DIR$/node_modules/@angular/cli" />
+      <working-directory value="$PROJECT_DIR$" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="E2E Tests (client)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="$PROJECT_DIR$/node_modules/protractor" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3618c58-c36f-46f7-99bb-e15d12cdb7d5" name="Default Changelist" comment="" />
+      <created>1587407085889</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587407085889</updated>
+      <workItem from="1587407088260" duration="1523000" />
+      <workItem from="1587453341490" duration="11673000" />
+      <workItem from="1587477093038" duration="7634000" />
+      <workItem from="1587489187152" duration="1330000" />
+      <workItem from="1587490585148" duration="2056000" />
+      <workItem from="1587542428661" duration="9259000" />
+      <workItem from="1587554079216" duration="6787000" />
+      <workItem from="1587561793798" duration="19521000" />
+      <workItem from="1587623845676" duration="9615000" />
+      <workItem from="1587637519096" duration="15618000" />
+      <workItem from="1587989628404" duration="8783000" />
+      <workItem from="1588148269098" duration="28240000" />
+      <workItem from="1588668826943" duration="16063000" />
+      <workItem from="1588766185050" duration="14812000" />
+      <workItem from="1588842352881" duration="8605000" />
+      <workItem from="1589111685934" duration="8650000" />
+    </task>
+    <task id="LOCAL−00001" summary="Added sidenavigation for displaying patient">
+      <created>1587462343039</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1587462343040</updated>
+    </task>
+    <task id="LOCAL−00002" summary="Removed old merge">
+      <created>1587463295784</created>
+      <option name="number" value="LOCAL−00002" />
+      <option name="presentableId" value="LOCAL−00002" />
+      <updated>1587463295784</updated>
+    </task>
+    <task id="LOCAL−00003" summary="Fixes merge conflict">
+      <created>1587464988275</created>
+      <option name="number" value="LOCAL−00003" />
+      <option name="presentableId" value="LOCAL−00003" />
+      <updated>1587464988275</updated>
+    </task>
+    <task id="LOCAL−00004" summary="Added missing package-lock file">
+      <created>1587465515977</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1587465515977</updated>
+    </task>
+    <task id="LOCAL−00005" summary="Fixed layout with colors, margin, positions with cards and grid">
+      <created>1587489045127</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1587489045127</updated>
+    </task>
+    <task id="LOCAL−00006" summary="Removed components; start and log. &#10;Changed url for overview from oversikt to overview">
+      <created>1587489981366</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1587489981366</updated>
+    </task>
+    <task id="LOCAL−00007" summary="Added components for the overhead&#10;Finished Triage component for the overhead">
+      <created>1587560849396</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1587560849396</updated>
+    </task>
+    <task id="LOCAL−00008" summary="Changed name on files and folder to represent designspecification">
+      <created>1587564858719</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1587564858719</updated>
+    </task>
+    <task id="LOCAL−00009" summary="Removed unnecessary components,&#10;Switched layout to grid layout&#10;Added actions (händelser) to the selector">
+      <created>1587588135649</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1587588135649</updated>
+    </task>
+    <task id="LOCAL−00010" summary="Added MatListModule to app.module.ts">
+      <created>1587624174007</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1587624174007</updated>
+    </task>
+    <task id="LOCAL−00011" summary="Added interactions/communications between table and visitorSelector">
+      <created>1587639071352</created>
+      <option name="number" value="LOCAL−00011" />
+      <option name="presentableId" value="LOCAL−00011" />
+      <updated>1587639071352</updated>
+    </task>
+    <task id="LOCAL−00012" summary="Merge remote-tracking branch 'origin/master' into patientmeny-enhetsöversikt&#10;&#10;# Conflicts:&#10;#&#9;client/src/app/app.component.html (Fixed)&#10;#&#9;client/src/app/app.module.ts (Fixed)&#10;#&#9;client/src/app/overview/overview-view.component.ts (Fixed)">
+      <created>1587644032005</created>
+      <option name="number" value="LOCAL−00012" />
+      <option name="presentableId" value="LOCAL−00012" />
+      <updated>1587644032005</updated>
+    </task>
+    <task id="LOCAL−00013" summary="Changed name on selector to match name">
+      <created>1587717576439</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1587717576440</updated>
+    </task>
+    <task id="LOCAL−00014" summary="Changed name on selector to match name">
+      <created>1588150614701</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1588150614701</updated>
+    </task>
+    <task id="LOCAL−00015" summary="Add human.png to assets">
+      <created>1588165066185</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1588165066185</updated>
+    </task>
+    <task id="LOCAL−00016" summary="Add button action to redirect to new patient view">
+      <created>1588165173857</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1588165173857</updated>
+    </task>
+    <task id="LOCAL−00017" summary="Add basic layout to new-patient">
+      <created>1588165317940</created>
+      <option name="number" value="LOCAL−00017" />
+      <option name="presentableId" value="LOCAL−00017" />
+      <updated>1588165317940</updated>
+    </task>
+    <task id="LOCAL−00018" summary="Adds stepper module from Angular Material Design to new-patient">
+      <created>1588179932862</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1588179932863</updated>
+    </task>
+    <task id="LOCAL−00019" summary="Fix container height">
+      <created>1588180322504</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1588180322504</updated>
+    </task>
+    <task id="LOCAL−00020" summary="Add material stepper to project">
+      <created>1588180380716</created>
+      <option name="number" value="LOCAL−00020" />
+      <option name="presentableId" value="LOCAL−00020" />
+      <updated>1588180380716</updated>
+    </task>
+    <task id="LOCAL−00021" summary="Add styling for stepper">
+      <created>1588603163454</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1588603163454</updated>
+    </task>
+    <task id="LOCAL−00022" summary="Add input forms for visit information at new patient view">
+      <created>1588678209247</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1588678209247</updated>
+    </task>
+    <task id="LOCAL−00023" summary="Change name on module from new-patient-view to new-visit-view">
+      <created>1588756962869</created>
+      <option name="number" value="LOCAL−00023" />
+      <option name="presentableId" value="LOCAL−00023" />
+      <updated>1588756962869</updated>
+    </task>
+    <task id="LOCAL−00024" summary="Separates visit personal information to own component">
+      <created>1588844817349</created>
+      <option name="number" value="LOCAL−00024" />
+      <option name="presentableId" value="LOCAL−00024" />
+      <updated>1588844817349</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added sidenavigation for displaying patient" />
+    <MESSAGE value="Removed old merge" />
+    <MESSAGE value="Fixes merge conflict" />
+    <MESSAGE value="Added missing package-lock file" />
+    <MESSAGE value="Fixed layout with colors, margin, positions with cards and grid" />
+    <MESSAGE value="Removed components; start and log. &#10;Changed url for overview from oversikt to overview" />
+    <MESSAGE value="Added components for the overhead&#10;Finished Triage component for the overhead" />
+    <MESSAGE value="Changed name on files and folder to represent designspecification" />
+    <MESSAGE value="Removed unnecessary components,&#10;Switched layout to grid layout&#10;Added actions (händelser) to the selector" />
+    <MESSAGE value="Added MatListModule to app.module.ts" />
+    <MESSAGE value="Added interactions/communications between table and visitorSelector" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master' into patientmeny-enhetsöversikt&#10;&#10;# Conflicts:&#10;#&#9;client/src/app/app.component.html (Fixed)&#10;#&#9;client/src/app/app.module.ts (Fixed)&#10;#&#9;client/src/app/overview/overview-view.component.ts (Fixed)" />
+    <MESSAGE value="Changed name on selector to match name" />
+    <MESSAGE value="Add human.png to assets" />
+    <MESSAGE value="Add button action to redirect to new patient view" />
+    <MESSAGE value="Add basic layout to new-patient" />
+    <MESSAGE value="Adds stepper module from Angular Material Design to new-patient" />
+    <MESSAGE value="Fix container height" />
+    <MESSAGE value="Add material stepper to project" />
+    <MESSAGE value="Add styling for stepper" />
+    <MESSAGE value="Add input forms for visit information at new patient view" />
+    <MESSAGE value="Change name on module from new-patient-view to new-visit-view" />
+    <MESSAGE value="Separates visit personal information to own component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Separates visit personal information to own component" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="717" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589116659819">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="717" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589116659819" />
+    <state x="5085" y="1317" key="#com.intellij.ide.util.MemberChooser" timestamp="1588770748841">
+      <screen x="3840" y="1080" width="1920" height="1020" />
+    </state>
+    <state x="1245" y="242" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587997835614" />
+    <state x="5085" y="1317" key="#com.intellij.ide.util.MemberChooser/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1588770748841" />
+    <state x="402" y="27" width="1116" height="890" key="CommitChangelistDialog2" timestamp="1589194427715">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="402" y="27" width="1116" height="890" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1589194427715" />
+    <state x="623" y="111" width="1293" height="1088" key="CommitChangelistDialog2/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588180529375" />
+    <state x="4582" y="1175" key="CommitChangelistDialog2/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1588678207624" />
+    <state x="125" y="102" width="2048" height="1148" key="DiffContextDialog" timestamp="1588844689806">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="125" y="102" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588844689806" />
+    <state x="217" y="196" width="2048" height="1148" key="DiffContextDialog/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588180528179" />
+    <state x="3840" y="1080" key="DiffContextDialog/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1587489905123" />
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1589194637252">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589194637252" />
+    <state width="1256" height="274" key="GridCell.Tab.0.bottom/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588788283595" />
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1588767172848" />
+    <state width="1899" height="274" key="GridCell.Tab.0.center" timestamp="1589194637251">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589194637251" />
+    <state width="1256" height="274" key="GridCell.Tab.0.center/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588788283594" />
+    <state width="1899" height="274" key="GridCell.Tab.0.center/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1588767172848" />
+    <state width="1899" height="274" key="GridCell.Tab.0.left" timestamp="1589194637251">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589194637251" />
+    <state width="1256" height="274" key="GridCell.Tab.0.left/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588788283594" />
+    <state width="1899" height="274" key="GridCell.Tab.0.left/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1588767172848" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right" timestamp="1589194637251">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589194637251" />
+    <state width="1256" height="274" key="GridCell.Tab.0.right/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588788283595" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1588767172848" />
+    <state x="249" y="123" key="MergeDialog" timestamp="1588151404599">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="249" y="123" key="MergeDialog/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588151404599" />
+    <state x="994" y="418" key="MultipleFileMergeDialog" timestamp="1588151404630">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="994" y="418" key="MultipleFileMergeDialog/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588151404630" />
+    <state x="4301" y="1244" key="SettingsEditor" timestamp="1588767168523">
+      <screen x="3840" y="1080" width="1920" height="1020" />
+    </state>
+    <state x="4301" y="1244" key="SettingsEditor/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1588767168523" />
+    <state x="406" y="184" key="Vcs.Push.Dialog.v2" timestamp="1588844830816">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="406" y="184" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588844830816" />
+    <state x="859" y="531" key="Vcs.Push.Dialog.v2/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588180390200" />
+    <state x="4246" y="1260" key="Vcs.Push.Dialog.v2/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1588678212038" />
+    <state x="1028" y="591" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588180191521">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="771" y="439" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1587717051537" />
+    <state x="1028" y="591" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588180191521" />
+    <state x="741" y="323" key="git4idea.merge.GitMergeDialog" timestamp="1587463187144">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="741" y="323" key="git4idea.merge.GitMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587463187144" />
+    <state x="968" y="504" key="git4idea.merge.GitPullDialog" timestamp="1588180218725">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="726" y="374" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587453887811" />
+    <state x="968" y="504" key="git4idea.merge.GitPullDialog/3840.1080.1920.1020/0.0.2560.1400@0.0.2560.1400" timestamp="1588180218725" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588847155396">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588847155396" />
+    <state x="4463" y="1301" width="672" height="665" key="search.everywhere.popup/3840.1080.1920.1020/0.0.2560.1400@3840.1080.1920.1020" timestamp="1588769129503" />
+  </component>
+</project>

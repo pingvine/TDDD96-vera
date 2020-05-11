@@ -1,0 +1,44 @@
+<div class="login-container">
+  <div class="left-col">
+    <div class="logo-container">
+      <img class="logo" src="./assets/vera.png">
+    </div>
+
+  </div>
+  <div class="right-col">
+    <mat-list>
+      <mat-list-item>
+        <mat-form-field>
+          <mat-label>Användarnamn</mat-label>
+          <input matInput [formControl]="userName" required>
+          <mat-error *ngIf="userName.invalid">
+            {{getUsernameErrorMessage()}}
+          </mat-error>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-form-field>
+          <mat-label>Roll</mat-label>
+          <mat-select [(value)]="selectedRole" required>
+            <mat-option *ngFor="let role of roles" [value]="role.value">
+              {{role.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="roleControl.invalid">
+            {{getSelectorErrorMessage()}}
+          </mat-error>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-list-item>
+        <div class="login-button">
+          <button [disabled]="getButtonDisabled()" (click)="logIn()" mat-raised-button color="primary">
+            Logga in
+          </button>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+
+
+</div>

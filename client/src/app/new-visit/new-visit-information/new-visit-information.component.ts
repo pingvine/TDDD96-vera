@@ -1,14 +1,17 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
-import { partyData, EhrService } from '../../ehr.service'
+import {Component, OnChanges, OnInit, Output} from '@angular/core';
+import { partyData, EhrService } from '../../ehr.service';
 
 @Component({
   selector: 'app-new-visit-information',
   templateUrl: './new-visit-information.component.html',
   styleUrls: ['./new-visit-information.component.css'],
 })
-export class NewVisitInformationComponent implements OnInit{
+export class NewVisitInformationComponent implements OnInit {
+  departments = [
+    'Motala', 'Linköping', 'Norrköping'
+  ];
 
-    party : partyData = {
+    @Output() party : partyData = {
     additionalInfo: {
         active: true,
         arrivalTime: '',
@@ -26,21 +29,29 @@ export class NewVisitInformationComponent implements OnInit{
         idChecked: false,
 
     },
-    firstNames: 'test',
-    lastNames: '123',
+    firstNames: '',
+    lastNames: '',
 }
   constructor(private ehrService : EhrService) { }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+  }
 
-  updateName(name: any) {
-    this.party.firstNames = name.target.value;
-    console.log('Name:' + this.party.firstNames);
+  updateFirstName(firstName: any) {
+
+      this.party.firstNames = firstName.target.value;
+      console.log('Name:' + this.party.firstNames);
+  }
+  updateLastName(lastName: any) {
+
+      this.party.firstNames = lastName.target.value;
+      console.log('Name:' + this.party.firstNames);
   }
 
   updateSocialId(socialId: any) {
-    this.party.additionalInfo.socialId = socialId.target.value;
-    console.log('Social id:' + this.party.additionalInfo.socialId);
+
+      this.party.additionalInfo.socialId = socialId.target.value;
+      console.log('Social id:' + this.party.additionalInfo.socialId);
   }
 
   updateAge(age: any) {
@@ -89,5 +100,4 @@ export class NewVisitInformationComponent implements OnInit{
     this.ehrService.createPerson(this.party);
     console.log('patient saved')
   }
-
 }

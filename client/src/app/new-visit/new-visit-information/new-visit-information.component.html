@@ -1,13 +1,22 @@
-<mat-grid-list cols="6" rowHeight="2:.5" gutterSize="4px">
+<mat-grid-list cols="6" rowHeight="2:.5" gutterSize="6px">
 
   <!--Row one-->
 
-  <mat-grid-tile colspan="2">
+  <mat-grid-tile colspan="1">
     <mat-form-field appearance="outline">
-      <mat-label>För- & efternamn</mat-label>
+      <mat-label>Förnamn</mat-label>
       <input matInput
              type="text"
-             (input)="updateName($event)" >
+             (input)="updateFirstName($event)" >
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Efternamn</mat-label>
+      <input matInput
+             type="text"
+             (input)="updateLastName($event)" >
     </mat-form-field>
   </mat-grid-tile>
 
@@ -130,9 +139,8 @@
     <mat-form-field appearance="outline">
       <mat-label>Mottagning</mat-label>
       <mat-select>
-        <mat-option>Linköping</mat-option>
-        <mat-option>Norrköping</mat-option>
-        <mat-option>Motala</mat-option>
+        <mat-option *ngFor="let department of departments" [value]="department">{{department}}
+        </mat-option>
       </mat-select>
     </mat-form-field>
   </mat-grid-tile>

@@ -1,35 +1,31 @@
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { OverviewTableComponent } from './overview/overview-table/overview-table.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { VisitSelectorComponent } from './overview/visit-selector/visit-selector.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatError, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
 import { PatientViewComponent } from './patient/patient-view.component';
 import { OverviewViewComponent } from './overview/overview-view.component';
 import { SummaryViewComponent } from './summary/summary-view.component';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
 import { NewVisitViewComponent } from './new-visit/new-visit-view.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatOptionModule} from '@angular/material/core';
-import {MatSelectModule} from '@angular/material/select';
-import {FormsModule} from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppHeaderComponent } from './app-header/app-header.component';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatListModule} from '@angular/material/list';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatListModule } from '@angular/material/list';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
 import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
@@ -44,7 +40,14 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
 import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-reason.component';
-import {EhrService} from "./ehr.service";
+import { VisitSelectorComponent } from './overview/visit-selector/visit-selector.component';
+import { OverviewTableComponent } from './overview/overview-table/overview-table.component';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TestEventSocketComponent } from './test-event-socket/test-event-socket.component';
+import { LoginComponent } from './login/login.component';
+import { EhrService } from './ehr.service';
+
 
 
 @NgModule({
@@ -69,6 +72,8 @@ import {EhrService} from "./ehr.service";
     VisitEventsComponent,
     NewVisitInformationComponent,
     NewVisitReasonComponent,
+    TestEventSocketComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,9 +109,10 @@ import {EhrService} from "./ehr.service";
     MatStepperModule,
     MatButtonToggleModule,
     MatRadioModule,
+    ReactiveFormsModule,
   ],
-  providers: [ EhrService ],
-  bootstrap: [AppComponent]
+  providers: [EhrService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {

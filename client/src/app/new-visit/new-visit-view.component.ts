@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ViewNameService } from '../view-name.service';
 import {HeaderName} from '../header-name';
 
@@ -8,9 +8,9 @@ import {HeaderName} from '../header-name';
   styleUrls: ['./new-visit-view.component.css']
 })
 export class NewVisitViewComponent extends HeaderName implements OnInit {
-  departments = [
-    'Motala', 'Linköping', 'Norrköping'
-  ];
+
+  @Input() patient;
+
   constructor(viewNameService: ViewNameService) {
     super(viewNameService, 'Ny patient');
   }
