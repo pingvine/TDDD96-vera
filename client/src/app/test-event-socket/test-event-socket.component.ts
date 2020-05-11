@@ -98,18 +98,21 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
   }
 
   sendStopEdit() {
-    const data = {
-      fieldId: '1',
-      status: false,
-    };
-
-    const event = {
-      senderId: this.senderId,
-      eventType: EventType.EditEvent,
-      data,
-    };
-
-    this.eventService.sendMessage(event);
+    this.serverService.createEditEvent('1', false, this.senderId).subscribe((msg) => {
+      console.log(msg);
+    });
+    // const data = {
+    //   fieldId: '1',
+    //   status: false,
+    // };
+    //
+    // const event = {
+    //   senderId: this.senderId,
+    //   eventType: EventType.EditEvent,
+    //   data,
+    // };
+    //
+    // this.eventService.sendMessage(event);
   }
 
   handleCareEvent(msg: EventVera): void {
