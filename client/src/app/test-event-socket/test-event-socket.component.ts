@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {EventSocketService} from '../services/event-socket.service';
-import {EventType} from '../../../../shared/models/EventType';
-import {EditEventData} from '../../../../shared/models/EditEventData';
-import {EventVera} from '../../../../shared/models/EventVera';
-import {ServerService} from "../services/server.service";
-import {EventVeraListener} from "../interfaces/event-vera-listener";
+import { Component, OnInit } from '@angular/core';
+import { EventSocketService } from '../services/event-socket.service';
+import { EventType } from '../../../../shared/models/EventType';
+import { EditEventData } from '../../../../shared/models/EditEventData';
+import { EventVera } from '../../../../shared/models/EventVera';
+import { ServerService } from '../services/server.service';
+import { EventVeraListener } from '../interfaces/event-vera-listener';
 
 
 export class TestMessage {
@@ -29,30 +29,13 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
   }
 
   ngOnInit(): void {
-
     this.serverService.getEvents().subscribe((events) => {
       events.forEach((event) => {
         if (event.eventType === EventType.EditEvent) {
           this.activeUsers.push(event.senderId);
         }
-      })
+      });
     });
-
-    // this.eventService.connect();
-    // this.eventService.getEventObservable().subscribe((msg) => {
-    //   console.log(`COMPoNENT RECEIVED MSG: ${msg.eventType}`);
-    //
-    //   switch (msg.eventType) {
-    //     case EventType.EditEvent:
-    //       this.handleEditEvent(msg);
-    //   }
-    // },
-    // (error) => {
-    //   console.log('CMPNT Error');
-    // },
-    // () => {
-    //   console.log('CMPNT Complete');
-    // });
   }
 
   handleEditEvent(event: EventVera) {
@@ -73,46 +56,16 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
     }
   }
 
-  sendMessage() {
-    this.eventService.sendMessage('TestMessageFromClient');
-  }
-
-
-  // TODO make this an interface to implement in other components
-  // get uuid for fields from a service generator?
   sendStartEdit() {
     this.serverService.createEditEvent('1', true, this.senderId).subscribe((msg) => {
       console.log(msg);
     });
-    // const data = {
-    //   fieldId: '1',
-    //   status: true,
-    // };
-    //
-    // const event = {
-    //   senderId: this.senderId,
-    //   eventType: EventType.EditEvent,
-    //   data,
-    // };
-    //this.eventService.sendMessage(event);
   }
 
   sendStopEdit() {
     this.serverService.createEditEvent('1', false, this.senderId).subscribe((msg) => {
       console.log(msg);
     });
-    // const data = {
-    //   fieldId: '1',
-    //   status: false,
-    // };
-    //
-    // const event = {
-    //   senderId: this.senderId,
-    //   eventType: EventType.EditEvent,
-    //   data,
-    // };
-    //
-    // this.eventService.sendMessage(event);
   }
 
   handleCareEvent(msg: EventVera): void {
