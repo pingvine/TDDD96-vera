@@ -85,6 +85,11 @@ app.get('/events/careevent/receiver/id/:id', (req, res) => {
   res.json({ id: req.params.id });
 });
 
+app.get('/teams', (req, res) => {
+  res.json({});
+});
+
+
 app.post("/event", (req, res) => {
   let obj = req.body;
   const event: EventVera = new EventVera(obj.senderId, obj.eventType, obj.data);
