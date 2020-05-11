@@ -7,6 +7,7 @@ import { ServerService } from '../services/server.service';
 import { EventVeraListener } from '../interfaces/event-vera-listener';
 import {User} from "../models/User";
 import {LoginService} from "../services/login.service";
+import {CookieService} from "ngx-cookie-service";
 
 
 export class TestMessage {
@@ -29,14 +30,20 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
   senderId: string = 'default';
 
   constructor(protected evService: EventSocketService, private serverService: ServerService,
-              private loginService: LoginService) {
+              private loginService: LoginService, private cookieService: CookieService) {
     super(evService);
+
+
+    // In case we change the user
     loginService.currentUser.subscribe((user) => {
       this.senderId = user.getFirstName();
     })
   }
 
   ngOnInit(): void {
+    // Get the sender id as the username
+    this.senderId = this.cookieService.get('username');
+
     this.serverService.getEvents().subscribe((events) => {
       events.forEach((event) => {
         if (event.eventType === EventType.EditEvent) {
