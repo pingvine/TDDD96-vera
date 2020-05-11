@@ -5,6 +5,8 @@ import { EditEventData } from '../../../../shared/models/EditEventData';
 import { EventVera } from '../../../../shared/models/EventVera';
 import { ServerService } from '../services/server.service';
 import { EventVeraListener } from '../interfaces/event-vera-listener';
+import {User} from "../models/User";
+import {LoginService} from "../services/login.service";
 
 
 export class TestMessage {
@@ -22,10 +24,16 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
 
   activeUsers: string[] = [];
 
+  private currentUser: User;
+
   senderId: string = 'default';
 
-  constructor(protected evService: EventSocketService, private serverService: ServerService) {
+  constructor(protected evService: EventSocketService, private serverService: ServerService,
+              private loginService: LoginService) {
     super(evService);
+    loginService.currentUser.subscribe((user) => {
+      this.senderId = user.getFirstName();
+    })
   }
 
   ngOnInit(): void {
