@@ -14,6 +14,7 @@ const indexRouter = require('./routes/index');
 const overviewRouter = require('./routes/overview');
 const patientRouter = require('./routes/patient');
 const summaryRouter = require('./routes/summary');
+const bodyParser = require('body-parser');
 
 
 // TODO replace with db
@@ -46,6 +47,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 app.use('/test', testRouter);
@@ -84,8 +86,10 @@ app.get('/events/careevent/receiver/id/:id', (req, res) => {
 });
 
 app.post("/event", (req, res) => {
+  let obj = req.body;
+  const event: EventVera = new EventVera(obj.senderId, obj.eventType, obj.data);
+  eventserver.handleEvent(event);
   res.json({status: "OK"});
-  console.log(req.body);
 })
 
 app.post('/id', (req, res) => {
@@ -95,6 +99,7 @@ app.post('/id', (req, res) => {
 
 
 function userExists(socialId, userss) {
+  // Doesn't work atm
   console.log(`socialid ${socialId}`);
   userss.forEach((user) => {
     console.log(`SocialId comp: ${user.socialId}`);
