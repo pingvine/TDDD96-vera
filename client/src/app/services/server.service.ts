@@ -29,12 +29,12 @@ export class ServerService {
     return this.http.post(url, '', httpOptions);
   }
 
-  createUser(user: User) {
+  createUser(user: User): Observable<any> {
     const url = `${baseUrl}/user`;
     return this.http.post(url, JSON.stringify(user), httpOptions);
   }
 
-  createEditEvent(fieldId: string, status: boolean, senderId: string) {
+  createEditEvent(fieldId: string, status: boolean, senderId: string): Observable<any> {
     const url = `${baseUrl}/event`;
 
     const data = {
@@ -48,6 +48,6 @@ export class ServerService {
       data,
     };
 
-    this.http.post(url, event, httpOptions);
+    return this.http.post(url, event, httpOptions);
   }
 }
