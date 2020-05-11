@@ -69,7 +69,7 @@ app.get('/user/:id', (req, res) => {
 app.get('/events/careevent/receiver/role/:roletype', (req, res) => {
   console.log(`Event roletype params: ${req.params.roletype}`);
   if (req.params.roletype in RoleType) {
-    res.json({ Status: 'OK' });
+    res.json({ roletype: RoleType[req.params.roletype] });
   } else {
     res.json({ Error: 'RoleType does not exist.' });
   }
