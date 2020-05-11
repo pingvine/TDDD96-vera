@@ -19,7 +19,7 @@ export class TestNoticeSocketComponent implements OnInit {
 
   sendNotice() {
     const currentDate = new Date(Date.now());
-    const currentTime = `${currentDate.getDate()}/${currentDate.getMonth()} ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+    const currentTime = `${currentDate.getDate()}/${currentDate.getMonth()+1} ${currentDate.getHours()}:${currentDate.getMinutes()}`;
     const data = {
       gender: 'male',
       type: 'important',

@@ -1,27 +1,27 @@
-import { CareEvent } from '../models/CareEvent'
-import { getEhrData, postEhrData } from './HealtRecord'
+import { CareEvent } from '../models/CareEvent';
+import { getEhrData, postEhrData } from './HealtRecord';
 
 
-export class HealthManager{
-    private ehrId: number
+export class HealthManager {
+    private ehrId: number;
 
-    constructor(id: number){
-        this.ehrId = id
+    constructor(id: number) {
+        this.ehrId = id;
     }
 
-    getData(id: number, data:string){
-    return getEhrData(id, data)
+    getData(id: number, data: string) {
+    return getEhrData(id, data);
     }
 
-    postData(id: number, data: string){
-        postEhrData(id, data)
+    postData(id: number, data: string) {
+        postEhrData(id, data);
     }
 
-    createRecord(){
-        return true
+    createRecord() {
+        return true;
     }
 
-    addCareEvent(event: CareEvent){
-        return true
+    addCareEvent(event: CareEvent) {
+        return true;
     }
 }

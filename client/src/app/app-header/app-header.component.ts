@@ -5,33 +5,22 @@ import {Message} from "../models/Message";
 import {DatePipe} from "@angular/common";
 import {EventType} from "../../../../shared/models/EventType";
 import {EventSocketService} from "../services/event-socket.service";
+import {EventVeraListener} from "../interfaces/event-vera-listener";
 
 @Component({
   selector: 'app-header',
   templateUrl: './app-header.component.html',
   styleUrls: ['./app-header.component.css']
 })
-export class AppHeaderComponent implements OnInit {
+export class AppHeaderComponent extends EventVeraListener implements OnInit {
+
   currentView: string;
   notices = [{gender: 'male', type: 'important', name: 'Johan Berglund', personalId: '19580101-0102', age: 62, team: 'Team A', timeSent: '10.35', title: 'Titta till patient'}];
   alerts = this.notices.length;
 
-  constructor(private viewNameService: ViewNameService, private eventService: EventSocketService) {
+  constructor(private viewNameService: ViewNameService, protected eventService: EventSocketService) {
+    super(eventService);
     this.viewNameService.view$.subscribe(view => this.currentView = view);
-    this.eventService.getEventObservable().subscribe( (msg) => {
-        console.log(`Received msg: ${msg.eventType}`);
-
-        switch (msg.eventType) {
-          case EventType.CareEvent:
-            this.addNotice(msg);
-        }
-      },
-      (error) => {
-        console.log('Error ' + error);
-      },
-      () => {
-        console.log('Complete');
-      });
   }
 
   addNotice(event: any): void {
@@ -59,7 +48,14 @@ export class AppHeaderComponent implements OnInit {
   sendNotice(senderTeam: string, notice: any, receivers: string[]): void {
     const message = new Message(senderTeam, notice, receivers);
 
-    this.eventService.sendMessage(message);
+    //this.eventService.sendMessage(message);
+  }
+
+  handleEditEvent(event: import("../../../../shared/models/EventVera").EventVera): void {
+    console.log(event);
+  }
+  handleCareEvent(event: import("../../../../shared/models/EventVera").EventVera): void {
+    this.addNotice(event);
   }
 
   ngOnInit(): void {

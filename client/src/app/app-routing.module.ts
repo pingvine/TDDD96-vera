@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PatientViewComponent } from './patient/patient-view.component';
-import { OverviewViewComponent } from './overview/overview-view.component';
-import { SummaryViewComponent } from './summary/summary-view.component';
-import { TeamViewComponent } from './team/team-view.component';
-import { SettingsViewComponent } from './settings/settings-view.component';
-import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
-import { TestEventSocketComponent } from './test-event-socket/test-event-socket.component';
 import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-socket.component';
+import {OverviewViewComponent} from './overview/overview-view.component';
+import {SummaryViewComponent} from './summary/summary-view.component';
+import {TeamViewComponent} from './team/team-view.component';
+import {SettingsViewComponent} from './settings/settings-view.component';
+import {NewPatientViewComponent} from './new-patient/new-patient-view.component';
+import {TestEventSocketComponent} from "./test-event-socket/test-event-socket.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   {
@@ -24,11 +25,11 @@ const routes: Routes = [
     component: TeamViewComponent,
   },
   {
-    path: 'patient/:social-id',
+    path: 'patient',
     component: PatientViewComponent,
   },
   {
-    path: 'patient/:social-id/summary',
+    path: 'patient/summary',
     component: SummaryViewComponent,
   },
   {
@@ -37,15 +38,12 @@ const routes: Routes = [
     data: {},
   },
   {
-    path: 'patient',
-    component: PatientViewComponent,
-    data: {},
-  },
-  {
     path: '',
-    redirectTo: 'overview',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
+  { path : 'login',
+    component: LoginComponent},
   {
     path: 'socket',
     component: TestEventSocketComponent,

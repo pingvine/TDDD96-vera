@@ -1,4 +1,4 @@
-<div class="mat-app-background">
+<div class="mat-app-background" *ngIf="currentUser.getFirstName()">
   <button mat-button (click)="sidenav.toggle()" class="mat-app-menu-button">
     <mat-icon *ngIf="sidenav.opened" class="mat-app-menu">menu_opened</mat-icon>
     <mat-icon *ngIf="!sidenav.opened" class="mat-app-menu">menu</mat-icon>
@@ -20,7 +20,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content >
-    <router-outlet></router-outlet>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
