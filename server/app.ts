@@ -83,7 +83,7 @@ app.get('/events/careevent/receiver/id/:id', (req, res) => {
   res.json({ id: req.params.id });
 });
 
-app.get('/id', (req, res) => {
+app.post('/id', (req, res) => {
   res.json({ id: idCounter });
   idCounter += 1;
 });
