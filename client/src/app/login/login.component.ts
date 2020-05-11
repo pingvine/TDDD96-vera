@@ -9,6 +9,7 @@ import { Person } from '../models/Person';
 import { UserType } from '../models/UserType';
 import { ServerService } from '../services/server.service';
 import { SpinnerOverlayComponent } from '../spinner-overlay/spinner-overlay.component';
+import { LoginService } from '../services/login.service';
 
 interface Role {
   value: RoleType;
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
   roleControl = new FormControl('', [Validators.required, Validators.nullValidator]);
 
   constructor(private serverService: ServerService,
+              private loginService: LoginService,
               private dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -67,9 +69,11 @@ export class LoginComponent implements OnInit {
       user.setRoleType(this.selectedRole);
 
       this.serverService.createUser(user).subscribe((msg) => {
-        console.log(`MESSAGE:`);
+        console.log('MESSAGE:');
         console.log(msg);
       });
+
+      this.loginService.changeUser(user);
     },
     (error) => {
       console.log(`Error in login getId: ${error.message}`);
