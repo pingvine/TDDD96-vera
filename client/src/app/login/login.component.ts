@@ -52,16 +52,13 @@ export class LoginComponent implements OnInit {
     const dialogRef: MatDialogRef<SpinnerOverlayComponent> = this.dialog.open(SpinnerOverlayComponent,
       {
         panelClass: 'transparent',
-        disableClose: true
+        disableClose: true,
       });
-    await this.delay(1000);
     console.log(`Selected role:${this.selectedRole}`);
     console.log(`Selected username:${this.userName.value}`);
 
-
-
-    this.serverService.getId().subscribe(() => {
-      const id = 0;
+    this.serverService.getId().subscribe((msg) => {
+      const { id } = msg;
       const fname = this.userName.value;
       const lname = '';
       const person = new Person(id, fname, lname);
