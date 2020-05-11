@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TestEventSocketComponent } from './test-event-socket.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {ServerService} from "../services/server.service";
 
 describe('TestEventSocketComponent', () => {
   let component: TestEventSocketComponent;
@@ -8,7 +10,13 @@ describe('TestEventSocketComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestEventSocketComponent ]
+      declarations: [ TestEventSocketComponent ],
+      imports: [
+        HttpClientTestingModule,
+      ],
+      providers: [
+        ServerService
+      ]
     })
     .compileComponents();
   }));
