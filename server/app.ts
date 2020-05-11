@@ -55,9 +55,10 @@ app.get("/events", (req, res, next) => {
 eventserver.runWebSocketServer();
 
 
-initDb();
-
 function initDb() {
+  /*
+  TESTKOD FÖR DATABAS
+   */
   //console.log("JSON VERA: " + JSON.stringify(new EventVera("test")))
 
   let data = {
