@@ -1,8 +1,6 @@
 <mat-grid-list cols="2">
   <mat-grid-tile>
     <div>
-
-      <button mat-raised-button color="primary" (click)="sendMessage()">Send a message to the server!</button>
       <h1>Messages from server</h1>
       <mat-list>
         <mat-card style="margin:8px;" *ngFor="let message of messages">
