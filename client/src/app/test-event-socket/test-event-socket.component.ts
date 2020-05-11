@@ -53,7 +53,7 @@ export class TestEventSocketComponent implements OnInit {
   }
 
   handleEditEvent(event: EventVera) {
-    console.log('EditEvent! :D');
+    console.log('Got edit event in test socket component.');
     const data = event.data as EditEventData;
     this.messages.push(`${event.senderId} field: ${data.fieldId} start: ${data.status}`);
 
@@ -78,18 +78,20 @@ export class TestEventSocketComponent implements OnInit {
   // TODO make this an interface to implement in other components
   // get uuid for fields from a service generator?
   sendStartEdit() {
-    const data = {
-      fieldId: '1',
-      status: true,
-    };
-
-    const event = {
-      senderId: this.senderId,
-      eventType: EventType.EditEvent,
-      data,
-    };
-
-    this.eventService.sendMessage(event);
+    this.serverService.createEditEvent('1', true, this.senderId).subscribe((msg) => {
+      console.log(msg);
+    });
+    // const data = {
+    //   fieldId: '1',
+    //   status: true,
+    // };
+    //
+    // const event = {
+    //   senderId: this.senderId,
+    //   eventType: EventType.EditEvent,
+    //   data,
+    // };
+    //this.eventService.sendMessage(event);
   }
 
   sendStopEdit() {
