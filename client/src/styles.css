@@ -16,4 +16,9 @@ button.mat-menu-item {
     height: 100%;
     width: 100%;
   }
-  
+
+.transparent .mat-dialog-container {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.0);
+}
+

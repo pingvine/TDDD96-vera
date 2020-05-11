@@ -1,9 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {EventSocketService} from '../services/event-socket.service';
-import {EventType} from '../../../../shared/models/EventType';
-import {EditEventData} from '../../../../shared/models/EditEventData';
-import {EventVera} from '../../../../shared/models/EventVera';
-import {ServerService} from "../services/server.service";
+import { Component, OnInit } from '@angular/core';
+import { EventSocketService } from '../services/event-socket.service';
+import { EventType } from '../../../../shared/models/EventType';
+import { EditEventData } from '../../../../shared/models/EditEventData';
+import { EventVera } from '../../../../shared/models/EventVera';
+import { ServerService } from '../services/server.service';
+import { EventVeraListener } from '../interfaces/event-vera-listener';
+import {User} from "../models/User";
+import {LoginService} from "../services/login.service";
+import {CookieService} from "ngx-cookie-service";
 
 
 export class TestMessage {
@@ -16,44 +20,41 @@ export class TestMessage {
   templateUrl: './test-event-socket.component.html',
   styleUrls: ['./test-event-socket.component.css'],
 })
-export class TestEventSocketComponent implements OnInit {
+export class TestEventSocketComponent extends EventVeraListener implements OnInit {
   messages: string[] = [];
 
   activeUsers: string[] = [];
 
+  private currentUser: User;
+
   senderId: string = 'default';
 
-  constructor(private eventService: EventSocketService, private serverService: ServerService) { }
+  constructor(protected evService: EventSocketService, private serverService: ServerService,
+              private loginService: LoginService, private cookieService: CookieService) {
+    super(evService);
+
+
+    // In case we change the user
+    loginService.currentUser.subscribe((user) => {
+      this.senderId = user.getFirstName();
+    })
+  }
 
   ngOnInit(): void {
+    // Get the sender id as the username
+    this.senderId = this.cookieService.get('username');
 
     this.serverService.getEvents().subscribe((events) => {
       events.forEach((event) => {
         if (event.eventType === EventType.EditEvent) {
           this.activeUsers.push(event.senderId);
         }
-      })
-    });
-
-    this.eventService.connect();
-    this.eventService.getEventObservable().subscribe((msg) => {
-      console.log(`COMPoNENT RECEIVED MSG: ${msg.eventType}`);
-
-      switch (msg.eventType) {
-        case EventType.EditEvent:
-          this.handleEditEvent(msg);
-      }
-    },
-    (error) => {
-      console.log('CMPNT Error');
-    },
-    () => {
-      console.log('CMPNT Complete');
+      });
     });
   }
 
   handleEditEvent(event: EventVera) {
-    console.log('EditEvent! :D');
+    console.log('Got edit event in test socket component.');
     const data = event.data as EditEventData;
     this.messages.push(`${event.senderId} field: ${data.fieldId} start: ${data.status}`);
 
@@ -70,40 +71,18 @@ export class TestEventSocketComponent implements OnInit {
     }
   }
 
-  sendMessage() {
-    this.eventService.sendMessage('TestMessageFromClient');
-  }
-
-
-  // TODO make this an interface to implement in other components
-  // get uuid for fields from a service generator?
   sendStartEdit() {
-    const data = {
-      fieldId: '1',
-      status: true,
-    };
-
-    const event = {
-      senderId: this.senderId,
-      eventType: EventType.EditEvent,
-      data,
-    };
-
-    this.eventService.sendMessage(event);
+    this.serverService.createEditEvent('1', true, this.senderId).subscribe((msg) => {
+      console.log(msg);
+    });
   }
 
   sendStopEdit() {
-    const data = {
-      fieldId: '1',
-      status: false,
-    };
+    this.serverService.createEditEvent('1', false, this.senderId).subscribe((msg) => {
+      console.log(msg);
+    });
+  }
 
-    const event = {
-      senderId: this.senderId,
-      eventType: EventType.EditEvent,
-      data,
-    };
-
-    this.eventService.sendMessage(event);
+  handleCareEvent(msg: EventVera): void {
   }
 }
