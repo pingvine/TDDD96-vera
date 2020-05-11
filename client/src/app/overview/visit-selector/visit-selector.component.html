@@ -59,28 +59,28 @@
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>SpO2 på luft</mat-label>
-                <input matInput type="number">
+                <input matInput (input)="updateSpo2($event)">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>AF</mat-label>
-                <input matInput type="number">
+                <input matInput (input)="updateAF($event)">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Puls</mat-label>
-                <input matInput type="number">
+                <input matInput (input)="updatePuls($event)">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
-                <mat-label>BF</mat-label>
-                <input matInput type="number">
+                <mat-label>BT</mat-label>
+                <input matInput (input)="updateBT($event)">
               </mat-form-field>
             </mat-grid-tile>
 
@@ -94,21 +94,21 @@
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Temperatur</mat-label>
-                <input matInput type="number">
+                <input matInput (input)="updateTemp($event)">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Smärta</mat-label>
-                <input matInput type="number">
+                <input matInput (input)="updatePain($event)">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Vikt</mat-label>
-                <input matInput type="number">
+                <input matInput (input)="updateVikt($event)">
               </mat-form-field>
             </mat-grid-tile>
 
@@ -126,7 +126,9 @@
             </mat-grid-tile>
 
             <mat-grid-tile>
-              <button mat-raised-button color="accent">Uppdatera</button>
+              <button (click) = updateCompositionData()
+                    mat-raised-button color="accent">Uppdatera
+              </button>
             </mat-grid-tile>
           </mat-grid-list>
       </mat-card-content>
