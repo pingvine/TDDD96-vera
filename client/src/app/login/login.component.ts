@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
         panelClass: 'transparent',
         disableClose: true,
       });
+
     console.log(`Selected role:${this.selectedRole}`);
     console.log(`Selected username:${this.userName.value}`);
 
@@ -62,10 +63,16 @@ export class LoginComponent implements OnInit {
       const fname = this.userName.value;
       const lname = '';
       const person = new Person(id, fname, lname);
-      person.setRoleType(this.selectedRole);
       const user = new User(id, person, UserType.Editor);
+      user.setRoleType(this.selectedRole);
+
+      this.serverService.createUser(user).subscribe((msg) => {
+        console.log(`MESSAGE:`);
+        console.log(msg);
+      });
     },
     (error) => {
+      console.log(`Error in login getId: ${error.message}`);
       dialogRef.close();
     },
     () => {
