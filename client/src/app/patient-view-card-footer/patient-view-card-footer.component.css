@@ -1,7 +1,6 @@
 
 .add-button{
     float: right;
-    width: 50px;
     background-color: rgb(141, 224, 185);
     box-shadow: 3px 3px 3px rgb(143, 143, 143);
     margin: 0;
@@ -22,6 +21,7 @@ mat-card-actions{
     margin: 0;
     width: 100%;
     flex: 25%;
+    padding: 4px;
 }
 
 .footer{
