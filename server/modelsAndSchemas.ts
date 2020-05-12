@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-
-export const EventVeraSchema = new mongoose.Schema({
+const EventVeraSchema = new mongoose.Schema({
   senderId: String,
   eventType: Number,
   data: {},
