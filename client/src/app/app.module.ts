@@ -13,7 +13,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatError, MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,16 +26,8 @@ import { SummaryViewComponent } from './summary/summary-view.component';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
 import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatOptionModule} from '@angular/material/core';
-import {MatSelectModule} from "@angular/material/select";
-import {FormsModule} from "@angular/forms";
 import {AppHeaderComponent } from './app-header/app-header.component';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatListModule} from '@angular/material/list';
 import { PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
@@ -46,7 +37,6 @@ import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/pa
 import { PatientViewCardHeaderComponent } from './patient-view-card-header/patient-view-card-header.component';
 import { PatientViewCardContentComponent } from './patient-view-card-content/patient-view-card-content.component';
 import { PatientViewCardFooterComponent } from './patient-view-card-footer/patient-view-card-footer.component';
-import { AppHeaderComponent } from './app-header/app-header.component';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
 import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
@@ -63,7 +53,6 @@ import { TestEventSocketComponent } from './test-event-socket/test-event-socket.
 import { LoginComponent } from './login/login.component';
 import { EhrService } from './ehr.service';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
-import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -131,7 +120,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatTooltipModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ],
   providers: [EhrService],
   bootstrap: [AppComponent],
