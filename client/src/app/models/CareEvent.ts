@@ -12,7 +12,7 @@ export class CareEvent{
     private comment: string
     private patient: Person
 
-    constructor(creator: Person, recievers: RoleType[], team: number, action: ActionType, comment: string, patient: Person){
+    constructor(creator: Person, recievers: RoleType[], team: number, action: ActionType, comment: string, patient?: Person){
         this.touched = new Date
         this.creatorId = creator.getId()
         this.recievers = [recievers, team]

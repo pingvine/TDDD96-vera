@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { PatientStatusViewComponent } from './patient-status-view.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('PatientStatusViewComponent', () => {
   let component: PatientStatusViewComponent;
@@ -8,7 +9,7 @@ describe('PatientStatusViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [MatDialogModule],
+        imports: [MatDialogModule, HttpClientTestingModule],
       declarations: [PatientStatusViewComponent],
       providers: [MatDialog]
     })
