@@ -1,6 +1,13 @@
 import {EventVera} from '../shared/models/EventVera';
 import {RoleType} from '../client/src/app/models/RoleType';
-import {getCareEventByRoleType, initDb, storeEvent, userExists} from './dbHelper'
+import {
+  getCareEventByRoleType,
+  initDb,
+  storeEvent,
+  userExists,
+  getCareEventByTeam,
+  getCareEventByPatient, getAllEvents
+} from './dbHelper'
 
 const express = require('express');
 const path = require('path');
@@ -87,7 +94,10 @@ app.post("/event", (req, res) => {
   eventserver.handleEvent(event);
   res.json({status: "OK"});
 
-  getCareEventByRoleType(RoleType.AssistingNurse)
+  //console.log(getCareEventByRoleType(RoleType.AssistingNurse));
+  //getCareEventByPatient(0);
+  getAllEvents();
+
 })
 
 app.post('/id', (req, res) => {

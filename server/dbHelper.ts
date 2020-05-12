@@ -1,7 +1,7 @@
 import { EventVera } from '../shared/models/EventVera';
 import { EventType } from '../shared/models/EventType';
 import { RoleType } from '../client/src/app/models/RoleType';
-import { EventModel } from './modelsAndSchemas';
+import { EventModel, TestEventModel } from './modelsAndSchemas';
 
 const mongoose = require('mongoose');
 
@@ -13,10 +13,40 @@ const idCounter = 0;
  *
  * @param event JSON EventVera object
  */
-export function storeEvent(event: string) {
+export function storeEvent(event) {
   const eventModel = new EventModel(event);
-  eventModel.save((err, val) => {
+  // eventModel.save((err, val) => {
+  // });
+  const cevt = event.data.careEvent;
+  const testEventModel = new TestEventModel({
+    senderId: event.senderId,
+    eventType: event.eventType,
+    data: {
+      careEvent: {
+        touched: cevt.touched,
+        creatorId: cevt.creatorId,
+        receivers: {
+          roleTypes: cevt.recievers[0],
+          team: cevt.recievers[1],
+        },
+        creationTime: cevt.creationTime,
+        comment: cevt.comment,
+        patient: {
+          socialId: cevt.patient.socialId,
+          firstName: cevt.patient.firstName,
+          lastName: cevt.patient.lastName,
+          roleType: cevt.patient.roleType,
+        },
+      },
+    },
   });
+
+  // testEventModel.save((err, val) => {
+  //   // console.log('Saved test:');
+  //   // console.log(val);
+  //   // console.log('Error');
+  //   // console.log(err);
+  // });
 }
 
 export function removeEvent(anything: any) {
@@ -24,25 +54,29 @@ export function removeEvent(anything: any) {
 }
 
 export function getCareEventByRoleType(roleType: RoleType) {
-  console.log("GET BY ROLETYPE");
-  // let query = EventModel.$where(function () {
-  //   return this.data.careEvent.recievers[0][0] === 3;
-  // }).exec((err, val) => {
-  //   console.log(val);
-  // })
+  console.log('GET BY ROLETYPE');
+  return TestEventModel.find({ 'data.careEvent.receivers.roleTypes': { $in: [roleType] } }).exec((err, val) => val);
 
-  //EventModel.deleteMany({});
 }
 
 export function getCareEventByTeam(team: number) {
-
+  TestEventModel.find({ 'data.careEvent.receivers.team': { $in: team } }).exec((err, val) => {
+  });
 }
 
-export function getCareEventByPatient(socialId: number) {
+export function getCareEventByPatient(socialId: number, callback) {
+  TestEventModel.find({ 'data.careEvent.patient.socialId': { $in: socialId } }).exec((err, val) => {
+    // GÖr om till faktioska care events
+    // skicka till callbacken
 
+  });
 }
 
 export function getAllEvents() {
+  TestEventModel.find({}, (err, val) => {
+    console.log("FOUND");
+    console.log(val);
+  })
 
 }
 

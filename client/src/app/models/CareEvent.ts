@@ -2,6 +2,11 @@ import { ActionType } from './ActionType';
 import { Person } from './Person';
 import { RoleType } from './RoleType';
 
+interface Receivers {
+  roleTypes: RoleType[];
+  team: number;
+}
+
 export class CareEvent {
     private touched: Date
 
