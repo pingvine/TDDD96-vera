@@ -5,9 +5,9 @@ import { EditEventData } from '../../../../shared/models/EditEventData';
 import { EventVera } from '../../../../shared/models/EventVera';
 import { ServerService } from '../services/server.service';
 import { EventVeraListener } from '../interfaces/event-vera-listener';
-import {User} from "../models/User";
-import {LoginService} from "../services/login.service";
-import {CookieService} from "ngx-cookie-service";
+import { User } from '../models/User';
+import { LoginService } from '../services/login.service';
+import { ActionType } from '../models/ActionType';
 
 
 export class TestMessage {
@@ -30,19 +30,18 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
   senderId: string = 'default';
 
   constructor(protected evService: EventSocketService, private serverService: ServerService,
-              private loginService: LoginService, private cookieService: CookieService) {
+              private loginService: LoginService) {
     super(evService);
 
 
     // In case we change the user
     loginService.currentUser.subscribe((user) => {
       this.senderId = user.getFirstName();
-    })
+      this.currentUser = user;
+    });
   }
 
   ngOnInit(): void {
-    // Get the sender id as the username
-    this.senderId = this.cookieService.get('username');
 
     this.serverService.getEvents().subscribe((events) => {
       events.forEach((event) => {
@@ -84,5 +83,13 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
   }
 
   handleCareEvent(msg: EventVera): void {
+  }
+
+  sendCareEvent() {
+    console.log("USER:");
+    console.log(this.currentUser)
+    this.serverService.createCareEvent(this.senderId, this.currentUser,
+      [this.currentUser.getRoleType()], 0, ActionType.Information,
+      'I manually added this');
   }
 }
