@@ -24,7 +24,14 @@ export function removeEvent(anything: any) {
 }
 
 export function getCareEventByRoleType(roleType: RoleType) {
+  console.log("GET BY ROLETYPE");
+  // let query = EventModel.$where(function () {
+  //   return this.data.careEvent.recievers[0][0] === 3;
+  // }).exec((err, val) => {
+  //   console.log(val);
+  // })
 
+  //EventModel.deleteMany({});
 }
 
 export function getCareEventByTeam(team: number) {
