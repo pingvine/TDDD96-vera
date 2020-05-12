@@ -1,3 +1,7 @@
+import { EventVera } from '../shared/models/EventVera';
+import { EventType } from '../shared/models/EventType';
+import { RoleType } from '../client/src/app/models/RoleType';
+
 const mongoose = require('mongoose');
 
 const users = [];
@@ -11,7 +15,7 @@ db.once('open', () => {
   console.log('Connected to MongoDB!');
 });
 
-function userExists(socialId, userss) {
+export function userExists(socialId, userss) {
   // Doesn't work atm
   console.log(`socialid ${socialId}`);
   userss.forEach((user) => {

@@ -1,6 +1,7 @@
 import { EventVera } from '../shared/models/EventVera';
 import { EventType } from '../shared/models/EventType';
 import { RoleType } from '../client/src/app/models/RoleType';
+import {userExists } from './dbHelper'
 
 const express = require('express');
 const path = require('path');
@@ -15,6 +16,9 @@ const patientRouter = require('./routes/patient');
 const summaryRouter = require('./routes/summary');
 const bodyParser = require('body-parser');
 
+
+const users = [];
+var idCounter = 0;
 
 // Only accept trusted connections
 const corsOptions = {
@@ -102,3 +106,5 @@ app.post('/user', (req, res) => {
 });
 
 eventserver.runWebSocketServer();
+
+module.exports = app;
