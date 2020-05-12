@@ -1,0 +1,16 @@
+<mat-card-header class = "card-header">
+    <mat-card-title class = "title" > 
+        {{title}}
+        <mat-icon svg class = "activity-icon">{{iconPath}}</mat-icon>
+    </mat-card-title>
+    <div class = "time">
+         Uppdaterad: {{time}}
+    </div>
+    <mat-card-actions class = "headerActions">
+        <button mat-raised-button class = "fullscreen-button" (click) = "onClick()">
+            <mat-icon class = "fullscreen-icon">fullscreen</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card-header>
+
+

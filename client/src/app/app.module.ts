@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatError, MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PatientViewComponent } from './patient/patient-view.component';
@@ -22,13 +26,13 @@ import { NewPatientViewComponent } from './new-patient/new-patient-view.componen
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
-import {MatOptionModule} from '@angular/material/core';
-import {MatSelectModule} from "@angular/material/select";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
 import { PatientStatusViewComponent } from './patient/patient-status-view/patient-status-view.component';
+import {AppHeaderComponent } from './app-header/app-header.component';
+import { PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
 import { PatientStatusViewDialogComponent } from './patient/patient-status-view/patient-status-view-dialog/patient-status-view-dialog.component';
@@ -37,6 +41,12 @@ import { PatientStatusSummaryHeaderComponent } from './patient/patient-status-vi
 import { PatientStatusEditViewEComponent } from './patient/patient-status-view/patient-status-edit-view-e/patient-status-edit-view-e.component';
 import { InfoCardComponent } from './info-card/info-card.component';
 import { StatusExpandSkinComponent } from './patient/patient-status-view/patient-status-edit-view-e/status-expand-skin/status-expand-skin.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PatientStatusViewDialogComponent } from './patient-status-view-dialog/patient-status-view-dialog.component';
+import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/patient-status-edit-view-e.component';
+import { PatientViewCardHeaderComponent } from './patient-view-card-header/patient-view-card-header.component';
+import { PatientViewCardContentComponent } from './patient-view-card-content/patient-view-card-content.component';
+import { PatientViewCardFooterComponent } from './patient-view-card-footer/patient-view-card-footer.component';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
 import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
@@ -75,6 +85,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     PatientStatusSummaryComponent,
     PatientStatusSummaryHeaderComponent,
     StatusExpandSkinComponent,
+    PatientViewCardHeaderComponent,
+    PatientViewCardContentComponent,
+    PatientViewCardFooterComponent,
     EventComponent,
     DatePipePipe,
     VisitReasonComponent,
@@ -124,7 +137,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatTooltipModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule
   ],
   providers: [EhrService],
   bootstrap: [AppComponent],

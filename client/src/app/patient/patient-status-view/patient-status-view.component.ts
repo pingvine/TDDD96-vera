@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject,Input, Output} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { EventEmitter } from 'events';
 import {PatientStatusViewDialogComponent} from "./patient-status-view-dialog/patient-status-view-dialog.component";
 
 @Component({
@@ -10,9 +11,12 @@ import {PatientStatusViewDialogComponent} from "./patient-status-view-dialog/pat
 
 export class PatientStatusViewComponent implements OnInit {
   panelOpenState = false;
+  @Input() activeUsers: string[];
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(PatientStatusViewDialogComponent, {
