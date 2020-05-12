@@ -1,8 +1,10 @@
 import { EventVera } from '../shared/models/EventVera';
 import { EventType } from '../shared/models/EventType';
 import { RoleType } from '../client/src/app/models/RoleType';
+import {EventModel} from './modelsAndSchemas'
 
 const mongoose = require('mongoose');
+
 
 const users = [];
 const idCounter = 0;
@@ -27,7 +29,7 @@ export function userExists(socialId, userss) {
   return false;
 }
 
-function initDb() {
+export function initDb() {
   /*
     TESTKOD FÖR DATABAS
      */
@@ -39,23 +41,16 @@ function initDb() {
   };
 
   const editEvent = new EventVera('simon', EventType.EditEvent, data);
-
-  const eventSchema = new mongoose.Schema({
-    senderId: String,
-    eventType: Number,
-    data: {},
-  });
-  const EventModel = mongoose.model('eventvera', eventSchema);
   const event = new EventModel(editEvent);
   event.save((err, val) => {
     console.log(`save: ${val}`);
   }); // Save to mongodb db
 
-  EventModel.findOne({ senderId: 'simon' }, (err, eventOne) => {
-    console.log(`docs ${eventOne}`);
-  });
-
-  EventModel.deleteMany({ senderId: 'simon' }, (err, val) => {
-    console.log(`Err: ${err}val ${val}`);
-  });
+  // EventModel.findOne({ senderId: 'simon' }, (err, eventOne) => {
+  //   console.log(`docs ${eventOne}`);
+  // });
+  //
+  // EventModel.deleteMany({ senderId: 'simon' }, (err, val) => {
+  //   console.log(`Err: ${err}val ${val}`);
+  // });
 }

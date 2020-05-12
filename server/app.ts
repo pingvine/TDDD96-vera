@@ -1,7 +1,7 @@
 import { EventVera } from '../shared/models/EventVera';
 import { EventType } from '../shared/models/EventType';
 import { RoleType } from '../client/src/app/models/RoleType';
-import {userExists } from './dbHelper'
+import {initDb, userExists} from './dbHelper'
 
 const express = require('express');
 const path = require('path');
@@ -106,5 +106,6 @@ app.post('/user', (req, res) => {
 });
 
 eventserver.runWebSocketServer();
+initDb();
 
 module.exports = app;
