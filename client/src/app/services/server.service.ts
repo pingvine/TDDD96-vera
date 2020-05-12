@@ -23,8 +23,8 @@ const httpOptions = {
 export class ServerService {
   constructor(private http: HttpClient) { }
 
-  getEvents(): Observable<any> {
-    const url = `${baseUrl}/events`;
+  getEditEvents(): Observable<any> {
+    const url = `${baseUrl}/events/editevent`;
     return this.http.get(url, httpOptions);
   }
 
