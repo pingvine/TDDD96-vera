@@ -1,0 +1,33 @@
+mat-grid-list {
+  width: 100px;
+  height: 50px;
+}
+
+.row {
+  display: flex
+}
+
+.col {
+  flex: 50%;
+}
+
+mat-form-field {
+  max-height: 32px;
+  font-size: 10px;
+  max-width: 30%;
+  margin: 0 8px 0 24px;
+}
+
+.vp-flex-container {
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  margin:auto;
+}
+
+.vp-body {
+  margin: auto;
+}
+
+.body-image {
+  width: 60px;
+}

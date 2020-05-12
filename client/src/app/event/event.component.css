@@ -1,0 +1,9 @@
+.event-bg {
+  background-color: #C5CAE9;
+  padding: 8px;
+  width: 100% !important;
+}
+
+mat-card-content {
+  font-size: 12px;
+}

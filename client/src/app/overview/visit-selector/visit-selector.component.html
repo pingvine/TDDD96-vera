@@ -137,9 +137,7 @@
     <mat-card-content>
       <mat-list>
         <mat-list-item *ngFor="let action of actions">
-          <mat-card style="background-color: #C5CAE9">
-            <p>{{action.date}} | {{action.info}}</p>
-          </mat-card>
+          <app-event [date]="action.date" [info]="action.info" [user]="action.user"></app-event>
         </mat-list-item>
 
       </mat-list>

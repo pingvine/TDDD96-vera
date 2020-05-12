@@ -1,119 +1,239 @@
-import { Component, EventEmitter, OnInit, ViewChild, ViewEncapsulation, Output } from '@angular/core';
-import { NgStyle, CommonModule } from '@angular/common';
-import { ColumnMode } from '@swimlane/ngx-datatable/public-api';
-import { NgxDatatableModule, INgxDatatableConfig} from '@swimlane/ngx-datatable/public-api';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import {
+  Component, EventEmitter, OnInit, ViewChild, Output,
+} from '@angular/core';
+
+interface TableRow {
+  prio: string
+  name: string
+  socialId: number
+  checkupTime: number
+  arrivalTime: number
+  age: number
+  arrivalMethod:string
+  team: string
+  dr:string
+  nurse:string
+  astNurse:string
+  gender:string
+  search:string
+  activites:string
+}
 
 @Component({
   selector: 'app-overview-table',
   templateUrl: './overview-table.component.html',
-  styleUrls: ['./overview-table.component.scss']
+  styleUrls: ['./overview-table.component.scss'],
 
 })
 export class OverviewTableComponent implements OnInit {
   @ViewChild('myTable') table: any;
+
   @Output() visitor = new EventEmitter<string>();
 
-  funder = [];
-  calculated = [];
   pending = [];
+
   groups = [];
-  editing = {};
-  teams = [{team: 'A', check: false}, {team: 'B', check: false}, {team: 'C', check: false}, {team: 'D', check: false}, {team: 'X', check: false}, {team: 'U', check: false}];
-  rows = [];
-  temp = [
-    {prio: 'yellow', social: '601113-6865', team: 'B', name: 'Jens', gender: 'male', age: 59, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '01:00', search: 'buksm 178', activity: '', time: '20 min', arrival_method: 'ambulance'   },
-    {prio: 'green', social: '691122-6451', team: 'C', name: 'Per', gender: 'female', age: 50, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:00', search: 'buksm 178', activity: '', time: '10 min', arrival_method: 'ambulance'  },
-    {prio: 'blue', social: '600829-6631', team: 'B', name: 'Axel', gender: 'male', age: 59, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '03:00', search: 'buksm 178', activity: '', time: '13 min', arrival_method: 'ambulance'   },
-    {prio: 'blue', social: '980808-7890', team: 'A', name: 'Tina',  gender: 'male', age: 52, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:40', search: 'buksm 178', activity: '', time: '48 min', arrival_method: 'ambulance'   },
-    {prio: 'orange', social: '000213-9277', team: 'B', name: 'Elias', gender: 'male', age: 20, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:50', search: 'buksm 178', activity: '', time: '240 min', arrival_method: 'ambulance'   },
-    {prio: 'red', social: '940628-3789', team: 'C', name: 'Tomas', gender: 'female', age: 25, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:06', search: 'buksm 178', activity: '', time: '64 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '1993-05-13', team: 'D', name: 'Bardia', gender: 'female', age: 26, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:07', search: 'buksm 178', activity: '', time: '25 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '1998-05-20', team: 'D', name: 'Robert', gender: 'female', age: 21, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:08', search: 'buksm 178', activity: '', time: '23 min', arrival_method: 'ambulance'  },
-    {prio: 'yellow', social: '1965-01-09', team: 'D', name: 'Markus', gender: 'female', age: 55, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:12', search: 'buksm 178', activity: '', time: '12 min', arrival_method: 'ambulance'  },
-    {prio: 'blue', social: '123456-7890', team: 'U', name: 'Molly', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:00', search: 'buksm 178', activity: '', time: '34 min', arrival_method: 'ambulance'  },
-    {prio: 'red', social: '123456-7890', team: 'U', name: 'Kassandra', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '04:24', search: 'buksm 178', activity: '', time: '10 min', arrival_method: 'ambulance'  },
-    {prio: 'orange', social: '123456-7890', team: 'U', name: 'Margit', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:23', search: 'buksm 178', activity: '', time: '19 min', arrival_method: 'ambulance'  },
-    {prio: 'orange', social: '123456-7890', team: 'X', name: 'Jenny', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:12', search: 'buksm 178', activity: '', time: '146 min', arrival_method: 'ambulance'  },
-    {prio: 'yellow', social: '123456-7890', team: 'X', name: 'Kent', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:00', search: 'buksm 178', activity: '', time: '89 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '123456-7890', team: 'X', name: 'Liya', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '01:10', search: 'buksm 178', activity: '', time: '43 min', arrival_method: 'ambulance'  },
-    {prio: 'orange', social: '123456-7890', team: 'X', name: 'Nikol', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:00', search: 'buksm 178', activity: '', time: '23 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '123456-7890', team: 'X', name: 'Erika', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:54', search: 'buksm 178', activity: '', time: '64 min', arrival_method: 'ambulance'  },
-    {prio: 'green', social: '123456-7890', team: 'X', name: 'Elin', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '00:28', search: 'buksm 178', activity: '', time: '32 min', arrival_method: 'ambulance'  }
-  ];
 
+  teams = [{ name: 'A', check: false }, { name: 'B', check: false }, { name: 'C', check: false }, { name: 'D', check: false }, { name: 'X', check: false }, { name: 'U', check: false }];
 
+  searchRows = [];
 
+  allRows = [];
+
+  showAllTeams = false;
+
+  drList = ['Kerstin', 'David', 'Rakeeb'];
+
+  nurseList = ['Johan', 'Asim', 'Ola'];
+
+  assistantNurseList = ['Madihna', 'Ella', 'Martin'];
+
+  drFilter = '';
+
+  nurseFilter = '';
+
+  assistantNurseFilter = '';
+
+  searchFilter = '';
+
+  rawEvent: any;
+
+  contextmenuRow: any;
+
+  contextmenuColumn: any;
 
   ngOnInit(): void {
-    this.temp = this.sortProperties(this.temp,"team", false, false);
-    this.rows = this.temp;
+    this.searchRows = this.allRows;
   }
 
 
-  updateCheckboxFilter() {
-    for (const team of this.teams){
-      console.log(team.team + ' :' + team.check);
+  loadVisits(loadedRows) {
+    loadedRows.forEach((row) => {
+      this.allRows.push(this.rowMaker(row));
+    });
+    this.searchRows = [...this.allRows];
+    console.log(this.allRows);
+  }
+
+  rowMaker(visit): TableRow {
+    const row = {} as TableRow;
+    row.team = visit.visitInfo.Team;
+    row.name = `${visit.person.getFirstName()} ${visit.person.getLastName()}`;
+    row.activites = '';
+    row.arrivalMethod = visit.visitInfo.Ankomstsätt;
+    row.arrivalTime = visit.visitInfo.Ankomst;
+    row.dr = visit.visitInfo.Ansvläk;
+    row.astNurse = visit.visitInfo.Ansvusk;
+    row.nurse = visit.visitInfo.Ansvssk;
+    row.prio = visit.visitInfo.prio;
+    row.age = visit.visitInfo.Ålder;
+    row.socialId = visit.visitInfo.Personnummer;
+    return row;
+  }
+
+  addPatient(visit): void {
+    this.allRows = this.allRows.concat([visit]);
+  }
+
+  resetButtonPressed() {
+    this.clearFilters('all');
+    this.table.groupHeader.collapseAllGroups();
+  }
+
+  clearFilters(option: string): void {
+    if (option === 'all' || option === 'checkbox') {
+      this.clearCheckboxes('allBox');
+      this.clearCheckboxes('teamBoxes');
     }
+    if (option === 'all' || option === 'search') {
+      this.searchFilter = '';
+    }
+    if (option === 'all' || option === 'personel') {
+      this.nurseFilter = '';
+      this.drFilter = '';
+      this.assistantNurseFilter = '';
+    }
+    this.searchRows = this.allRows;
   }
 
-  updateFilter(event) {
+  clickSearchBar(event) {
+    console.log(event);
+    console.log(event.target.childNodes);
+    this.clearCheckboxes('teamBoxes');
+    this.clearFilters('personel');
+    this.table.groupHeader.collapseAllGroups();
+  }
+
+  updateSearchFilter(event): void {
     let val = event.target.value;
-    const num = isNaN(val);
+    const num = typeof val === 'number';
     console.log(num);
     // filter our data
     let temp = [];
     if (num) {
       val = val.toLowerCase();
-      temp = this.temp.filter(function(d) {
-        return d.name.toLowerCase().indexOf(val) !== -1 || !val;
-      });
+      temp = this.allRows.filter((d) => d.name.toLowerCase().indexOf(val) !== -1 || !val);
     } else {
-      temp = this.temp.filter(function(d) {
-        return d.social.toLowerCase().indexOf(val) !== -1 || !val;
-      });
+      temp = this.allRows.filter((d) => d.social.toLowerCase().indexOf(val) !== -1 || !val);
     }
-    this.rows = temp;
-
+    this.searchRows = temp;
   }
 
-  sortRows(event) {
-    console.log(event);
+  updateCheckboxFilter(): void {
+    this.clearFilters('search');
+    this.clearFilters('personel');
+    this.clearCheckboxes('allBox');
+    let rows = [];
+    for (const team of this.teams) {
+      if (team.check) {
+        rows = rows.concat(this.allRows.filter((d) => d.team.indexOf(team.name) !== -1 || !team.name));
+      }
+    }
+    if (rows.length !== 0) {
+      this.searchRows = [...rows];
+    } else {
+      console.log(this.searchRows.length);
+      this.searchRows = this.allRows;
+      console.log(this.searchRows.length);
+    }
+    this.table.groupHeader.collapseAllGroups();
+  }
+
+  clearCheckboxes(option: string): void {
+    if (option === 'teamBoxes') {
+      console.log('Clear team checks');
+      for (const team of this.teams) {
+        team.check = false;
+      }
+    } else if (option === 'allBox') {
+      console.log('Clear all check');
+      this.showAllTeams = false;
+    }
+  }
+
+  filterWorkers() {
+    this.clearFilters('search');
+    this.clearCheckboxes('teamBoxes');
+    // filter our data
+    let temp = [];
+    console.log(this.drFilter);
+    if (this.drFilter !== '') {
+      temp = temp.concat(this.allRows.filter((d) => {
+        console.log(d.dr.indexOf(this.drFilter));
+        return d.dr.indexOf(this.drFilter) !== -1 || !this.drFilter;
+      }));
+    }
+    console.log(temp);
+
+    if (this.nurseFilter !== '') {
+      temp = temp.concat(this.allRows.filter((d) => d.nurse.indexOf(this.nurseFilter) !== -1 || !this.nurseFilter));
+    }
+
+    if (this.assistantNurseFilter !== '') {
+      temp = temp.concat(this.allRows.filter((d) => d.nurse2.indexOf(this.assistantNurseFilter) !== -1 || !this.assistantNurseFilter));
+    }
+    this.searchRows = temp;
+    this.table.groupHeader.collapseAllGroups();
+  }
+
+  changeGroupView(): void {
+    if (this.table !== undefined) {
+      this.clearCheckboxes('teamBoxes');
+    }
+    this.searchRows = this.allRows;
+  }
+
+  sortRows(event): void {
     if (event.newValue !== undefined) {
       const reverse = event.newValue !== 'asc';
-      console.log(this.sortProperties(this.rows, event.column.prop, false, reverse));
-      this.rows = this.sortProperties(this.rows, event.column.prop, false, reverse);
-      this.rows = this.sortProperties(this.rows, 'team', false, false);
+      this.searchRows = this.sortProperties(this.searchRows, event.column.prop, reverse);
+      if (!this.showAllTeams) {
+        this.searchRows = this.sortProperties(this.searchRows, 'team', false);
+      }
+      this.searchRows = [...this.searchRows];
     } else {
-      this.rows = this.temp;
+      this.searchRows = this.allRows;
     }
-
-
   }
 
-  print(event) {
-    console.log(event);
-  }
 
-  doubleclick(event: any) {
-    console.log(event);
-  }
-
-  activity(event: any) {
+  mouseActivity(event: any): void {
     if (event.type === 'click') {
-      this.visitor.emit(event.row);
-      console.log(event.row.social);
+      if (event.column.name === 'Personnummer(år)(kön)') {
+        console.log('Clicked Social-id');
+        this.visitor.emit(event.row);
+      } else if (event.column.name === 'Checkup') {
+        console.log('Clicked Checkup');
+      } else if (event.column.name === 'Aktivitet') {
+        console.log('Clicked Activity');
+      } else if (event.column.name === 'Kommentar') {
+        console.log('Clicked Comment');
+      }
     }
   }
 
-  activityClicked(event) {
-    console.log('Activity clicked');
-  }
 
-  constructor() { }
-
-
-  toggleExpandGroup(group) {
+  toggleExpandGroup(group): void {
     console.log('Toggled Expand Group!', group);
     this.table.groupHeader.toggleExpandGroup(group);
   }
@@ -123,9 +243,11 @@ export class OverviewTableComponent implements OnInit {
   }
 
 
-  sortProperties(obj, sortedBy, isNumericSort, reverse) {
+  sortProperties(obj, sortedBy, reverse) {
+    console.log(obj);
     sortedBy = sortedBy || 1; // by default first key
-    isNumericSort = isNumericSort || false; // by default text sort
+    const isNumericSort = typeof obj[0][sortedBy] === 'number'; // by default text sort
+
     reverse = reverse || false; // by default no reverse
 
     const reversed = (reverse) ? -1 : 1;
@@ -133,21 +255,36 @@ export class OverviewTableComponent implements OnInit {
     const sortable = [];
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
-            sortable.push( obj[key]);
-        }
+        sortable.push(obj[key]);
+      }
     }
+    console.log(sortable);
     if (isNumericSort) {
-      sortable.sort(function(a, b) {
-            return reversed * (a[1][sortedBy] - b[1][sortedBy]);
-      });
+      sortable.sort((a, b) => reversed * (a[sortedBy] - b[sortedBy]));
     } else {
-      sortable.sort(function(a, b) {
-          const x = a[sortedBy].toLowerCase(),
-              y = b[sortedBy].toLowerCase();
-          return x < y ? reversed * -1 : x > y ? reversed : 0;
-        });
+      sortable.sort((a, b) => {
+        const x = a[sortedBy].toLowerCase();
+        const y = b[sortedBy].toLowerCase();
+        return x < y ? reversed * -1 : x > y ? reversed : 0;
+      });
     }
 
-    return sortable; // array in format [ [ key1, val1 ], [ key2, val2 ], ... ]
+    return sortable;
+  }
+
+  onTableContextMenu(contextMenuEvent) {
+    console.log(contextMenuEvent);
+
+    this.rawEvent = contextMenuEvent.event;
+    if (contextMenuEvent.type === 'body') {
+      this.contextmenuRow = contextMenuEvent.content;
+      this.contextmenuColumn = undefined;
+    } else {
+      this.contextmenuColumn = contextMenuEvent.content;
+      this.contextmenuRow = undefined;
+    }
+
+    contextMenuEvent.event.preventDefault();
+    contextMenuEvent.event.stopPropagation();
   }
 }

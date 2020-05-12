@@ -6,6 +6,8 @@ import {SummaryViewComponent} from './summary/summary-view.component';
 import {TeamViewComponent} from './team/team-view.component';
 import {SettingsViewComponent} from './settings/settings-view.component';
 import {NewPatientViewComponent} from './new-patient/new-patient-view.component';
+import {TestEventSocketComponent} from "./test-event-socket/test-event-socket.component";
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   { path: 'patient/new',
@@ -18,20 +20,29 @@ const routes: Routes = [
   { path: 'team',
     component: TeamViewComponent
   },
-  { path: 'summary',
-    component: SummaryViewComponent
-  },
-  { path: 'patient',
+  { path: 'patient/:social-id',
     component: PatientViewComponent
+  },
+  {
+    path: 'patient/:social-id/summary',
+    component: SummaryViewComponent
   },
   { path: 'overview',
     component: OverviewViewComponent,
     data: {}
   },
+  { path: 'patient',
+    component: PatientViewComponent,
+    data: {}
+  },
+  { path : 'login',
+    component: LoginComponent},
   { path: '',
     redirectTo: 'overview',
     pathMatch: 'full'
-  }
+  },
+  { path: 'socket',
+    component: TestEventSocketComponent,}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

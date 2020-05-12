@@ -1,0 +1,7 @@
+<div style="width:100%">
+  <mat-form-field appearance="outline">
+    <mat-label>Aktuellt</mat-label>
+    <textarea [ngModel]="text"  (ngModelChange)="onTextChanged($event)" cdkAutosizeMaxRows="3" cdkTextareaAutosize matInput
+              placeholder="Aktuell händelse"></textarea>
+  </mat-form-field>
+</div>
