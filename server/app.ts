@@ -1,7 +1,7 @@
 import { EventVera } from '../shared/models/EventVera';
 import { EventType } from '../shared/models/EventType';
 import { RoleType } from '../client/src/app/models/RoleType';
-import {initDb, userExists} from './dbHelper'
+import {initDb, storeEvent, userExists} from './dbHelper'
 
 const express = require('express');
 const path = require('path');
@@ -82,6 +82,7 @@ app.get('/teams', (req, res) => {
 
 
 app.post("/event", (req, res) => {
+  storeEvent(req.body);
   let obj = req.body;
   const event: EventVera = new EventVera(obj.senderId, obj.eventType, obj.data);
   eventserver.handleEvent(event);

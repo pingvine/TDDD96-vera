@@ -1,57 +1,74 @@
-import { ActionType } from './ActionType'
-import { Person } from './Person'
-import { RoleType } from './RoleType'
+import { ActionType } from './ActionType';
+import { Person } from './Person';
+import { RoleType } from './RoleType';
 
-export class CareEvent{
+export class CareEvent {
     private touched: Date
+
     private creatorId: number
+
     private recievers: [RoleType[], number]
+
     private completed: [Date, number]
+
     private actionType: ActionType
+
     private creationTime: Date
+
     private comment: string
 
-    constructor(creator: Person, recievers: RoleType[], team: number, action: ActionType, comment: string){
-        this.touched = new Date
-        this.creatorId = creator.getId()
-        this.recievers = [recievers, team]
-        this.completed = undefined
-        this.actionType = action
-        this.creationTime = new Date()
-        this.comment = comment
+    private patient: Person;
+
+    constructor(creator: Person, recievers: RoleType[], team: number, action: ActionType, comment: string, patient?: Person) {
+      this.touched = new Date();
+      this.creatorId = creator.getId();
+      this.recievers = [recievers, team];
+      this.completed = undefined;
+      this.actionType = action;
+      this.creationTime = new Date();
+      this.comment = comment;
+      this.patient = patient;
     }
 
-    touch(){
-        this.touched = new Date()
+    setPatient(person: Person) {
+      this.patient = person;
     }
 
-    getCreatorId(){
-        return this.creatorId
+    getPatient(): Person {
+      return this.patient;
     }
 
-    getReceiverId(){
-        return this.recievers
+    touch() {
+      this.touched = new Date();
     }
 
-    markAsCompleted(markedBy: number){
-        this.completed = [new Date(), markedBy]
+    getCreatorId() {
+      return this.creatorId;
     }
 
-    getActionType(){
-        return this.actionType
+    getReceiverId() {
+      return this.recievers;
     }
 
-    getCreationTime(){
-        return this.creationTime
+    markAsCompleted(markedBy: number) {
+      this.completed = [new Date(), markedBy];
     }
 
-    getComment(){
-        return this.comment
+    getActionType() {
+      return this.actionType;
     }
 
-    appendComment(comment: string){
-        let lineBreak = '\n'
-        this.comment = this.comment.concat(lineBreak)
-        this.comment = this.comment.concat(comment.toString())
+    getCreationTime() {
+      return this.creationTime;
+    }
+
+    getComment() {
+      return this.comment;
+    }
+
+    appendComment(comment: string) {
+      const lineBreak = '\n';
+      this.comment = this.comment.concat(lineBreak);
+      this.comment = this.comment.concat(comment.toString());
     }
 }

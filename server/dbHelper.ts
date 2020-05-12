@@ -14,7 +14,8 @@ const idCounter = 0;
  * @param event JSON EventVera object
  */
 export function storeEvent(event: string) {
-
+  console.log("STORE EVENT")
+  console.log(event);
 }
 
 export function removeEvent(anything: any) {
