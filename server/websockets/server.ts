@@ -114,8 +114,10 @@ export function handleEvent(event: EventVera) {
   switch (event.eventType) {
     case EventType.CareEvent:
       handleCareEvent(event);
+      break;
     case EventType.EditEvent:
       handleEditEvent(event);
+      break;
   }
 
   broadcastToClients();
