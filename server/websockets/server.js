@@ -81,6 +81,12 @@ function handleEditEvent(event) {
 }
 function handleCareEvent(event) {
     broadcast.push(event);
+    var data = event.data;
+    var creationTime = data['careEvent']['creationTime'];
+    console.log("CARE EVENT");
+    console.log(creationTime);
+    var date = new Date(creationTime);
+    console.log(date.getTime());
 }
 function handleEvent(event) {
     console.log('HANDLE EVENT');
