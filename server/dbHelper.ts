@@ -62,7 +62,7 @@ export function getCareEventByRoleType(roleType: RoleType, callback) {
       // Do something with each event
       events.push(event);
     })
-    callback(events);
+    callback(err, events);
   });
 
 }
@@ -75,7 +75,7 @@ export function getCareEventByTeam(team: number, callback) {
       // Do something with each event
       events.push(event);
     })
-    callback(events);
+    callback(err, events);
   });
 }
 
@@ -87,7 +87,7 @@ export function getCareEventByPatient(socialId: number, callback) {
       // Do something with each event
       events.push(event);
     })
-    callback(events);
+    callback(err, events);
   });
 }
 
@@ -99,7 +99,7 @@ export function getAllEvents(callback) {
       // Do something with each event
       events.push(event);
     })
-    callback(events);
+    callback(err, events);
   })
 
 }

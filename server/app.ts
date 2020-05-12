@@ -71,16 +71,27 @@ app.get('/user/:id', (req, res) => {
 });
 
 app.get('/events/careevent/receiver/role/:roletype', (req, res) => {
-  console.log(`Event roletype params: ${req.params.roletype}`);
   if (req.params.roletype in RoleType) {
-    res.json({ roletype: RoleType[req.params.roletype] });
+    getCareEventByRoleType(req.params.roletype, (err, val) => {
+      if (err) {
+        res.json(err);
+      } else {
+        res.json(val);
+      }
+    });
   } else {
     res.json({ Error: 'RoleType does not exist.' });
   }
 });
 
-app.get('/events/careevent/receiver/id/:id', (req, res) => {
-  res.json({ id: req.params.id });
+app.get('/events/careevent/receiver/team/:team', (req, res) => {
+  getCareEventByTeam(req.params.team, (err, val) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(val);
+    }
+  });
 });
 
 app.get('/teams', (req, res) => {
