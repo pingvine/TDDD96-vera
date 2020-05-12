@@ -43,7 +43,7 @@ export class Person {
       this.roleType = roleType;
     }
 
-    setId(socialId: string) {
+    setId(socialId: number) {
       this.socialId = socialId;
     }
 }
