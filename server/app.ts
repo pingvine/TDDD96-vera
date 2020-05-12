@@ -96,7 +96,10 @@ app.post("/event", (req, res) => {
 
   //console.log(getCareEventByRoleType(RoleType.AssistingNurse));
   //getCareEventByPatient(0);
-  getAllEvents();
+  getAllEvents((val) => {
+    console.log("RECEIVED ALL EVNTS FROM CB");
+    console.log(val);
+  });
 
 })
 

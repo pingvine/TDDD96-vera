@@ -72,10 +72,9 @@ export function getCareEventByPatient(socialId: number, callback) {
   });
 }
 
-export function getAllEvents() {
+export function getAllEvents(callback) {
   TestEventModel.find({}, (err, val) => {
-    console.log("FOUND");
-    console.log(val);
+    callback(val);
   })
 
 }
