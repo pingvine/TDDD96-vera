@@ -90,6 +90,8 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
     console.log(this.currentUser)
     this.serverService.createCareEvent(this.senderId, this.currentUser,
       [this.currentUser.getRoleType()], 0, ActionType.Information,
-      'I manually added this');
+      'I manually added this').subscribe((msg) => {
+        console.log(msg);
+    });
   }
 }
