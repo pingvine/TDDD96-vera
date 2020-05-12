@@ -17,6 +17,34 @@ db.once('open', () => {
   console.log('Connected to MongoDB!');
 });
 
+/**
+ *
+ * @param event JSON EventVera object
+ */
+export function storeEvent(event: string) {
+
+}
+
+export function removeEvent(anything: any) {
+
+}
+
+export function getCareEventByRoleType(roleType: RoleType) {
+
+}
+
+export function getCareEventByTeam(team: number) {
+
+}
+
+export function getCareEventByPatient(socialId: number) {
+
+}
+
+export function getAllEvents() {
+
+}
+
 export function userExists(socialId, userss) {
   // Doesn't work atm
   console.log(`socialid ${socialId}`);
