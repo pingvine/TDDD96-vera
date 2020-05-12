@@ -45,7 +45,6 @@ import { LoginComponent } from './login/login.component';
 import { EhrService } from './ehr.service';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import {CookieService} from "ngx-cookie-service";
 
 
 @NgModule({
@@ -107,7 +106,7 @@ import {CookieService} from "ngx-cookie-service";
     MatProgressSpinnerModule,
     MatDialogModule
   ],
-  providers: [EhrService, CookieService],
+  providers: [EhrService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
