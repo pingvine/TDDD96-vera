@@ -26,8 +26,8 @@ export function storeEvent(event) {
         touched: cevt.touched,
         creatorId: cevt.creatorId,
         receivers: {
-          roleTypes: cevt.recievers[0],
-          team: cevt.recievers[1],
+          roleTypes: cevt.receivers.roleTypes,
+          team: cevt.receivers.team,
         },
         creationTime: cevt.creationTime,
         comment: cevt.comment,
@@ -41,12 +41,12 @@ export function storeEvent(event) {
     },
   });
 
-  // testEventModel.save((err, val) => {
-  //   // console.log('Saved test:');
-  //   // console.log(val);
-  //   // console.log('Error');
-  //   // console.log(err);
-  // });
+  testEventModel.save((err, val) => {
+    // console.log('Saved test:');
+    // console.log(val);
+    // console.log('Error');
+    // console.log(err);
+  });
 }
 
 export function removeEvent(anything: any) {

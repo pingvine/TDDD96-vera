@@ -12,7 +12,7 @@ export class CareEvent {
 
     private creatorId: number
 
-    private recievers: [RoleType[], number]
+    private receivers: Receivers
 
     private completed: [Date, string]
 
@@ -24,10 +24,10 @@ export class CareEvent {
 
     private patient: Person;
 
-    constructor(creator: Person, recievers: RoleType[], team: number, action: ActionType, comment: string, patient?: Person) {
+    constructor(creator: Person, receivers: RoleType[], team: number, action: ActionType, comment: string, patient?: Person) {
       this.touched = new Date();
       this.creatorId = creator.getId();
-      this.recievers = [recievers, team];
+      this.receivers = { roleTypes: receivers, team };
       this.completed = undefined;
       this.actionType = action;
       this.creationTime = new Date();
@@ -52,7 +52,7 @@ export class CareEvent {
     }
 
     getReceiverId() {
-      return this.recievers;
+      return this.receivers;
     }
 
     markAsCompleted(markedBy: string) {
