@@ -57,9 +57,19 @@ app.use('/summary', summaryRouter);
 /*
 REST
  */
-app.get('/events', (req, res) => {
+app.get('/events/editevent', (req, res) => {
   // TODO REPLACE WITH DATABASE GET FROM ACTIVEEVENTS
   res.json(eventserver.getEvents());
+});
+
+app.get('/events/careevent', (req, res) => {
+  getAllEvents((err, val) => {
+    if (err) {
+      res.json(err);
+    } else {
+      res.json(val);
+    }
+  });
 });
 
 app.get('/visit/:socialId', (req, res) => {
