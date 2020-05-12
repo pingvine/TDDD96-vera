@@ -14,14 +14,6 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths":
-    {
-      "tslib": ["node_modules/tslib"]
-    }
-  },
-  "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    ]
   }
 }

@@ -1,0 +1,51 @@
+<mat-grid-list cols="3">
+  <mat-grid-tile>
+    <div>
+      <h1>Messages from server</h1>
+      <mat-list>
+        <mat-card style="margin:8px;" *ngFor="let message of messages">
+          <mat-card-content>
+            {{ message }}
+          </mat-card-content>
+        </mat-card>
+      </mat-list>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field>
+      <input matInput [(ngModel)]="senderId" placeholder="Input your sender ID">
+    </mat-form-field>
+
+    <mat-card >
+
+      <mat-card-header>
+        <mat-card-title>Proof of concept card</mat-card-title>
+
+      </mat-card-header>
+      <mat-card-content style="text-align: center">
+        Statusbedömning
+        <br>
+        <button (click)="sendStartEdit()" mat-raised-button color="primary">Start editing</button>
+        <button (click)="sendStopEdit()" mat-button color="primary">Stop editing</button>
+      </mat-card-content>
+      <mat-card-footer>
+
+        Aktiva: {{ activeUsers.toString() }}
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>CareEvent</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        Skicka CareEvent
+        <br>
+        <button (click)="sendCareEvent()"mat-raised-button color="primary">Skicka ett CareEvent</button>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+
