@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { EventVera } from '../../../../shared/models/EventVera';
 import { User } from '../models/User';
 import { EventType } from '../../../../shared/models/EventType';
+import { Person } from '../models/Person';
+import { RoleType } from '../models/RoleType';
+import { ActionType } from '../models/ActionType';
+import { CareEvent } from '../models/CareEvent';
 
 const baseUrl = 'http://localhost:4201';
 
@@ -45,6 +49,23 @@ export class ServerService {
     const event = {
       senderId,
       eventType: EventType.EditEvent,
+      data,
+    };
+
+    return this.http.post(url, event, httpOptions);
+  }
+
+  createCareEvent(senderId: string, senderPerson: Person, receivers: RoleType[],
+    team: number, action: ActionType, comment: string): Observable<any> {
+    const url = `${baseUrl}/event`;
+    const careEvent = new CareEvent(senderPerson, receivers, team, action, comment);
+    const data = {
+      careEvent,
+    };
+
+    const event = {
+      senderId,
+      eventType: EventType.CareEvent,
       data,
     };
 

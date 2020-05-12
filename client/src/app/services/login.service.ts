@@ -3,7 +3,6 @@ import { BehaviorSubject } from 'rxjs';
 import { User } from '../models/User';
 import { Person } from '../models/Person';
 import { UserType } from '../models/UserType';
-import {CookieService} from "ngx-cookie-service";
 
 @Injectable({
   providedIn: 'root',
@@ -13,10 +12,24 @@ export class LoginService {
 
   currentUser = this.userSource.asObservable();
 
-  constructor(private cookieService: CookieService) { }
+  constructor() {
+    if (sessionStorage.getItem('user')) {
+      console.log('USER EXISTS IN SESSION');
+      const userJson = JSON.parse(sessionStorage.getItem('user'));
+      const userObj = new User(0, new Person(0, '', ''), UserType.Viewer);
+      userObj.setRoleType(userJson.roleType);
+      userObj.setFirstName(userJson.firstName);
+      userObj.setLastName(userJson.lastName);
+      userObj.setId(userJson.socialId);
+      userObj.setUserType(userJson.userType);
+      this.userSource.next(userObj);
+    } else {
+      // User does not exist
+    }
+  }
 
   changeUser(user: User) {
     this.userSource.next(user);
-    this.cookieService.set('username', user.getFirstName());
+    sessionStorage.setItem('user', JSON.stringify(user));
   }
 }

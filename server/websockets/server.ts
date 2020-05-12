@@ -2,6 +2,8 @@ import { Subject } from 'rxjs';
 import { EventVera } from '../../shared/models/EventVera';
 import { EditEventData } from '../../shared/models/EditEventData';
 import { EventType } from '../../shared/models/EventType';
+import {CareEvent} from "../../client/src/app/models/CareEvent";
+import {CareEventData} from "../../shared/models/CareEventData";
 
 'use strict';
 
@@ -98,6 +100,12 @@ function handleEditEvent(event: EventVera) {
 
 function handleCareEvent(event: EventVera) {
   broadcast.push(event);
+  let data = event.data;
+  let creationTime = data['careEvent']['creationTime'];
+  console.log("CARE EVENT");
+  console.log(creationTime);
+  let date = new Date(creationTime);
+  console.log(date.getTime());
 }
 
 export function handleEvent(event: EventVera) {
