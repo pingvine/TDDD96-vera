@@ -11,7 +11,7 @@
 
 .mat-card-background {
   min-width: fit-content;
-  background-color: transparent;
+  background-color: white;
   margin-bottom: 16px;
   border-radius: 8px;
   padding: 0px;
@@ -41,4 +41,8 @@
   left: 350px;
   background-color: rgb(141, 224, 185);
   box-shadow: 3px 3px 3px rgb(143, 143, 143);
+}
+
+.body-image {
+  width: 100px;
 }

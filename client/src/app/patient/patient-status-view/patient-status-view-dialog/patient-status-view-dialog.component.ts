@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class PatientStatusViewDialogComponent implements OnInit {
   header_title = "Statusbedömning"
   comment = "";
+  header_title_a = "A - Luftväg";
+  header_title_b = "B - Andning";
+  header_title_c = "C - Cirkulation";
+  header_title_d = "D - Medvetandegrad";
   constructor() {
   }
 

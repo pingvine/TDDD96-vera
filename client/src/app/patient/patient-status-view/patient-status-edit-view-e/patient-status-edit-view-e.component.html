@@ -1,6 +1,6 @@
 <mat-card class="mat-card-background">
   <app-patient-status-summary-header [title]="header_title" (click)="isOn = !isOn"></app-patient-status-summary-header>
-  <mat-card-content class="mat-card-content" *ngIf="isOn">
+  <mat-card-content class="mat-card-content" *ngIf="isOn" style="margin-top: 16px">
     <mat-radio-group>
       <mat-radio-button value="1" class="mat-radio-test" [ngModel]="remark" (ngModelChange)="onRemarkChange($event)" (click)="addRemark()">Anmärkning</mat-radio-button>
       <mat-radio-button value="2" class="mat-radio-test">Ingen anmärkning</mat-radio-button>
@@ -26,6 +26,7 @@
           </mat-panel-title>
         </mat-expansion-panel-header>
         <app-info-card [info]="infoKlicka" [icon]="infoIcon"></app-info-card>
+        <img _ngcontent-wji-c143="" src="assets/body.webp" class="body-image">
       </mat-expansion-panel>
 
       <label id="sfinktertonus-label">Sfinktertonus</label>

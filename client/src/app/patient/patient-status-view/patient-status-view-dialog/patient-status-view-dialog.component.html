@@ -1,11 +1,25 @@
-<div mat-dialog-content style="margin: -24px">
+<div mat-dialog-content>
   <app-patient-status-summary-header [title]="header_title"></app-patient-status-summary-header>
-  <div class="exponering-content" style="height: 600px">
+  <div class="exponering-content">
     <mat-grid-list cols="2" [rowHeight]="800">
       <mat-grid-tile [rowspan]="1">
-        <app-patient-status-edit-view-e style="width: 100%" (commentChange)="onCommentChange($event)" (remarkChange)="onRemarkChange($event)"></app-patient-status-edit-view-e>
+        <mat-grid-list cols="1" rowHeight="fit" class="exponering-list">
+          <div style="margin-bottom: 16px">
+            <app-patient-status-summary-header [title]="header_title_a" style="width: 100%"></app-patient-status-summary-header>
+          </div>
+          <div style="margin-bottom: 16px">
+            <app-patient-status-summary-header [title]="header_title_b" style="width: 100%"></app-patient-status-summary-header>
+          </div>
+          <div style="margin-bottom: 16px">
+            <app-patient-status-summary-header [title]="header_title_c" style="width: 100%"></app-patient-status-summary-header>
+          </div>
+          <div style="margin-bottom: 16px">
+            <app-patient-status-summary-header [title]="header_title_d" style="width: 100%"></app-patient-status-summary-header>
+          </div>
+          <app-patient-status-edit-view-e style="width: 100%" (commentChange)="onCommentChange($event)"></app-patient-status-edit-view-e>
+        </mat-grid-list>
       </mat-grid-tile>
-      <mat-grid-tile [rowspan]="1">
+      <mat-grid-tile [rowspan]="1" style="scroll-snap-type: y mandatory">
         <app-patient-status-summary [comment]="comment"></app-patient-status-summary>
       </mat-grid-tile>
     </mat-grid-list>

@@ -1,5 +1,16 @@
+.status-header {
+  width: 100%;
+  padding-bottom: 16px;
+}
+
+.exponering-list {
+  width: 100%;
+}
+
 .exponering-content {
-  padding: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: #f2f2f2;
 }
 
 .mat-dialog-content {

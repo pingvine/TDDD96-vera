@@ -12,10 +12,10 @@ export class PatientStatusEditViewEComponent implements OnInit {
   remark = false;
   infoKlicka = "Klicka på kroppen där du vill anmärka";
   infoIcon = "info";
-  warnIntegritet = "Tänk alltid på patientens integritet vid avklädning. Täck över den del av kroppen som för tillfället inte bedöms."
+  warnIntegritet = "Tänk alltid på patientens integritet vid avklädning. Täck över den del av kroppen som för tillfället inte bedöms.";
   warnIcon = "warning";
-  header_title = "E - Exponering"
-  isOn = false;
+  header_title = "E - Exponering";
+  isOn = true;
   constructor() { }
 
   ngOnInit(): void {
