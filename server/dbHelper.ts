@@ -1,7 +1,7 @@
 import { EventVera } from '../shared/models/EventVera';
 import { EventType } from '../shared/models/EventType';
 import { RoleType } from '../client/src/app/models/RoleType';
-import {EventModel} from './modelsAndSchemas'
+import { EventModel } from './modelsAndSchemas';
 
 const mongoose = require('mongoose');
 
@@ -14,8 +14,9 @@ const idCounter = 0;
  * @param event JSON EventVera object
  */
 export function storeEvent(event: string) {
-  console.log("STORE EVENT")
-  console.log(event);
+  const eventModel = new EventModel(event);
+  eventModel.save((err, val) => {
+  });
 }
 
 export function removeEvent(anything: any) {
@@ -51,7 +52,7 @@ export function userExists(socialId, userss) {
 }
 
 export function initDb() {
-  mongoose.connect('mongodb://localhost/coronavirus', {useNewUrlParser: true, useUnifiedTopology: true});
+  mongoose.connect('mongodb://localhost/coronavirus', { useNewUrlParser: true, useUnifiedTopology: true });
 
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
@@ -61,27 +62,26 @@ export function initDb() {
 }
 
 
-  /*
+/*
     TESTKOD FÖR DATABAS
      */
-  // console.log("JSON VERA: " + JSON.stringify(new EventVera("test")))
+// console.log("JSON VERA: " + JSON.stringify(new EventVera("test")))
 
-  // const data = {
-  //   fieldId: '1',
-  //   status: true,
-  // };
-  //
-  // const editEvent = new EventVera('simon', EventType.EditEvent, data);
-  // const event = new EventModel(editEvent);
-  // event.save((err, val) => {
-  //   console.log(`save: ${val}`);
-  // }); // Save to mongodb db
+// const data = {
+//   fieldId: '1',
+//   status: true,
+// };
+//
+// const editEvent = new EventVera('simon', EventType.EditEvent, data);
+// const event = new EventModel(editEvent);
+// event.save((err, val) => {
+//   console.log(`save: ${val}`);
+// }); // Save to mongodb db
 
-  // EventModel.findOne({ senderId: 'simon' }, (err, eventOne) => {
-  //   console.log(`docs ${eventOne}`);
-  // });
-  //
-  // EventModel.deleteMany({ senderId: 'simon' }, (err, val) => {
-  //   console.log(`Err: ${err}val ${val}`);
-  // });
-
+// EventModel.findOne({ senderId: 'simon' }, (err, eventOne) => {
+//   console.log(`docs ${eventOne}`);
+// });
+//
+// EventModel.deleteMany({ senderId: 'simon' }, (err, val) => {
+//   console.log(`Err: ${err}val ${val}`);
+// });
