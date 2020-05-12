@@ -1,10 +1,8 @@
 <mat-card class="mat-card-background">
-
-  <app-patient-status-summary-header [title]="header_title"></app-patient-status-summary-header>
-
-  <mat-card-content class="mat-card-content">
+  <app-patient-status-summary-header [title]="header_title" (click)="isOn = !isOn"></app-patient-status-summary-header>
+  <mat-card-content class="mat-card-content" *ngIf="isOn">
     <mat-radio-group>
-      <mat-radio-button value="1" class="mat-radio-test">Anmärkning</mat-radio-button>
+      <mat-radio-button value="1" class="mat-radio-test" [ngModel]="remark" (ngModelChange)="onRemarkChange($event)" (click)="addRemark()">Anmärkning</mat-radio-button>
       <mat-radio-button value="2" class="mat-radio-test">Ingen anmärkning</mat-radio-button>
     </mat-radio-group>
     <app-info-card [info]="warnIntegritet" [icon]="warnIcon"></app-info-card>
@@ -44,6 +42,4 @@
 
     </mat-accordion>
   </mat-card-content>
-  <mat-card-actions>
-  </mat-card-actions>
 </mat-card>

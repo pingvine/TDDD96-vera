@@ -1,11 +1,11 @@
 <div mat-dialog-content style="margin: -24px">
   <app-patient-status-summary-header [title]="header_title"></app-patient-status-summary-header>
-  <div class="exponering-content" style="height: 100%">
+  <div class="exponering-content" style="height: 600px">
     <mat-grid-list cols="2" [rowHeight]="800">
-      <mat-grid-tile>
-        <app-patient-status-edit-view-e (commentChange)="onCommentChange($event)"></app-patient-status-edit-view-e>
+      <mat-grid-tile [rowspan]="1">
+        <app-patient-status-edit-view-e style="width: 100%" (commentChange)="onCommentChange($event)" (remarkChange)="onRemarkChange($event)"></app-patient-status-edit-view-e>
       </mat-grid-tile>
-      <mat-grid-tile>
+      <mat-grid-tile [rowspan]="1">
         <app-patient-status-summary [comment]="comment"></app-patient-status-summary>
       </mat-grid-tile>
     </mat-grid-list>

@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class PatientStatusViewDialogComponent implements OnInit {
   header_title = "Statusbedömning"
   comment = "";
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -17,4 +18,11 @@ export class PatientStatusViewDialogComponent implements OnInit {
     this.comment = comment;
   }
 
+  onRemarkChange(remark: boolean) {
+    if (remark == true) {
+      console.log("HEJ");
+      this.comment += "Exponering";
+    }
+    console.log(":(")
+  }
 }

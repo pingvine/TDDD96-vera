@@ -15,7 +15,7 @@ export class PatientStatusViewComponent implements OnInit {
   ngOnInit(): void {
   }
   openDialog(): void {
-    const dialogRef = this.dialog.open(PatientStatusViewDialogComponent, {  width: '1200px', height: '800px', panelClass: 'status-container'
+    const dialogRef = this.dialog.open(PatientStatusViewDialogComponent, {  width: '1200px', height: '600px', panelClass: 'status-container'
     });
 
     }
