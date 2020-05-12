@@ -1,31 +1,31 @@
-import {EventVera} from '../shared/models/EventVera';
-import {RoleType} from '../client/src/app/models/RoleType';
+import { EventVera } from '../shared/models/EventVera';
+import { RoleType } from '../client/src/app/models/RoleType';
 import {
   getCareEventByRoleType,
   initDb,
   storeEvent,
   userExists,
   getCareEventByTeam,
-  getCareEventByPatient, getAllEvents
-} from './dbHelper'
-import {EventType} from "../shared/models/EventType";
+  getCareEventByPatient, getAllEvents,
+} from './dbHelper';
+import { EventType } from '../shared/models/EventType';
 
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const eventserver = require('./websockets/server');
 const testRouter = require('./routes/test');
 const indexRouter = require('./routes/index');
 const overviewRouter = require('./routes/overview');
 const patientRouter = require('./routes/patient');
 const summaryRouter = require('./routes/summary');
-const bodyParser = require('body-parser');
 
 
 const users = [];
-var idCounter = 0;
+let idCounter = 0;
 
 // Only accept trusted connections
 const corsOptions = {
@@ -88,25 +88,15 @@ app.get('/teams', (req, res) => {
 });
 
 
-app.post("/event", (req, res) => {
-
+app.post('/event', (req, res) => {
   if (req.body.eventType === EventType.CareEvent) {
     storeEvent(req.body);
   }
-
-  let obj = req.body;
+  const obj = req.body;
   const event: EventVera = new EventVera(obj.senderId, obj.eventType, obj.data);
   eventserver.handleEvent(event);
-  res.json({status: "OK"});
-
-  //console.log(getCareEventByRoleType(RoleType.AssistingNurse));
-  //getCareEventByPatient(0);
-  getAllEvents((val) => {
-    console.log("RECEIVED ALL EVNTS FROM CB");
-    console.log(val);
-  });
-
-})
+  res.json({ status: 'OK' });
+});
 
 app.post('/id', (req, res) => {
   res.json({ id: idCounter });
