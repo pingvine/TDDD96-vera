@@ -14,7 +14,7 @@ export class CareEvent {
 
     private recievers: [RoleType[], number]
 
-    private completed: [Date, number]
+    private completed: [Date, string]
 
     private actionType: ActionType
 
@@ -55,7 +55,7 @@ export class CareEvent {
       return this.recievers;
     }
 
-    markAsCompleted(markedBy: number) {
+    markAsCompleted(markedBy: string) {
       this.completed = [new Date(), markedBy];
     }
 
