@@ -53,28 +53,53 @@ export function removeEvent(anything: any) {
 
 }
 
-export function getCareEventByRoleType(roleType: RoleType) {
+export function getCareEventByRoleType(roleType: RoleType, callback) {
   console.log('GET BY ROLETYPE');
-  return TestEventModel.find({ 'data.careEvent.receivers.roleTypes': { $in: [roleType] } }).exec((err, val) => val);
+  return TestEventModel.find({ 'data.careEvent.receivers.roleTypes': { $in: [roleType] } }).exec((err, val) => {
+    let events = []
+
+    val.forEach((event) => {
+      // Do something with each event
+      events.push(event);
+    })
+    callback(events);
+  });
 
 }
 
-export function getCareEventByTeam(team: number) {
+export function getCareEventByTeam(team: number, callback) {
   TestEventModel.find({ 'data.careEvent.receivers.team': { $in: team } }).exec((err, val) => {
+    let events = []
+
+    val.forEach((event) => {
+      // Do something with each event
+      events.push(event);
+    })
+    callback(events);
   });
 }
 
 export function getCareEventByPatient(socialId: number, callback) {
   TestEventModel.find({ 'data.careEvent.patient.socialId': { $in: socialId } }).exec((err, val) => {
-    // GÖr om till faktioska care events
-    // skicka till callbacken
+    let events = []
 
+    val.forEach((event) => {
+      // Do something with each event
+      events.push(event);
+    })
+    callback(events);
   });
 }
 
 export function getAllEvents(callback) {
   TestEventModel.find({}, (err, val) => {
-    callback(val);
+    let events = []
+
+    val.forEach((event) => {
+      // Do something with each event
+      events.push(event);
+    })
+    callback(events);
   })
 
 }
