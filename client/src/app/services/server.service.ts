@@ -56,7 +56,7 @@ export class ServerService {
   }
 
   createCareEvent(senderId: string, senderPerson: Person, receivers: RoleType[],
-    team: number, action: ActionType, comment: string) {
+    team: number, action: ActionType, comment: string): Observable<any> {
     const url = `${baseUrl}/event`;
     const careEvent = new CareEvent(senderPerson, receivers, team, action, comment);
     const data = {
@@ -68,5 +68,7 @@ export class ServerService {
       eventType: EventType.CareEvent,
       data,
     };
+
+    return this.http.post(url, event, httpOptions);
   }
 }
