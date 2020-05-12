@@ -36,6 +36,9 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDialogModule} from '@angular/material/dialog';
 import { PatientStatusViewDialogComponent } from './patient-status-view-dialog/patient-status-view-dialog.component';
 import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/patient-status-edit-view-e.component';
+import { PatientViewCardHeaderComponent } from './patient-view-card-header/patient-view-card-header.component';
+import { PatientViewCardContentComponent } from './patient-view-card-content/patient-view-card-content.component';
+import { PatientViewCardFooterComponent } from './patient-view-card-footer/patient-view-card-footer.component';
 
 
 @NgModule({
@@ -53,6 +56,9 @@ import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e/pa
     PatientStatusViewComponent,
     PatientStatusViewDialogComponent,
     PatientStatusEditViewEComponent,
+    PatientViewCardHeaderComponent,
+    PatientViewCardContentComponent,
+    PatientViewCardFooterComponent,
   ],
   imports: [
     BrowserModule,

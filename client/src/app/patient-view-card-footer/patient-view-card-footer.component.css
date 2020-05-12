@@ -1,0 +1,33 @@
+
+.add-button{
+    float: right;
+    width: 50px;
+    background-color: rgb(141, 224, 185);
+    box-shadow: 3px 3px 3px rgb(143, 143, 143);
+    margin: 0;
+    padding: 0;
+}
+
+.aktiv{
+    font-size: 10px;
+    flex: 75%;
+    margin: 0;
+    float: left;
+    position: absolute;
+    bottom: 16px;
+
+}
+
+mat-card-actions{
+    margin: 0;
+    width: 100%;
+    flex: 25%;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    display: flex;
+}

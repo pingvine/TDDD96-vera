@@ -1,24 +1,69 @@
 
-<div class = "container">
-<mat-grid-list cols = "4" rowHeight = "2:1" [gutterSize]="'100px'">
+
+<div class = "gridListContainer">
+<mat-grid-list cols = "4" rowHeight = "1.25:1" [gutterSize]="'10px'">
     <mat-grid-tile>
-        <mat-card class = "patient-block">
-            <mat-card-header>
-                <mat-card-actions>
-                    <button mat-raised-button class = "fullscreen-button" (click)="openDialog()">
-                        <mat-icon class = "fullscreen-icon">fullscreen</mat-icon>
-                    </button>
-                </mat-card-actions>
-            </mat-card-header>
-            <mat-card-content>
-                Test
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-raised-button class = "add-button" (click)="openDialog()">
-                    <mat-icon >add</mat-icon>
-                </button>
-            </mat-card-actions>
+      <div class = "tileContent">
+        <mat-card class = "patientBlock">
+          <app-patient-view-card-header (onClickFullScreen)="openDialog()" title="Statusbedömning" iconPath = "dashboard" time = 14:27></app-patient-view-card-header>
+          <app-patient-view-card-content> </app-patient-view-card-content>  
+          <app-patient-view-card-footer></app-patient-view-card-footer>
         </mat-card>
+      </div>
     </mat-grid-tile>
+    <mat-grid-tile>
+      <div class = "tileContent">
+        <mat-card class = "patientBlock">
+          <app-patient-view-card-header title="Omvårdnad" iconPath = "healing" time = 14:27> </app-patient-view-card-header>
+          <app-patient-view-card-content> </app-patient-view-card-content>  
+          <app-patient-view-card-footer></app-patient-view-card-footer>
+      </mat-card>
+    </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class = "tileContent">
+        <mat-card class = "patientBlock">
+        <app-patient-view-card-header title="Ordinationer" iconPath = "local_hospital" time = 14:27> </app-patient-view-card-header>
+        <app-patient-view-card-content> </app-patient-view-card-content>  
+        <app-patient-view-card-footer></app-patient-view-card-footer>
+      </mat-card>
+    </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class = "tileContent">
+        <mat-card class = "patientBlock">
+        <app-patient-view-card-header title="Hälsohistorik" iconPath = "history" time = 14:27> </app-patient-view-card-header>
+        <app-patient-view-card-content> </app-patient-view-card-content>  
+        <app-patient-view-card-footer></app-patient-view-card-footer>
+      </mat-card>
+    </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class = "tileContent">
+      <mat-card class = "patientBlock">
+        <app-patient-view-card-header title="Prover" iconPath = "opacity" time = 14:27> </app-patient-view-card-header>
+        <app-patient-view-card-content> </app-patient-view-card-content>  
+        <app-patient-view-card-footer></app-patient-view-card-footer>
+      </mat-card>
+    </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class = "tileContent">
+      <mat-card class = "patientBlock">
+          <app-patient-view-card-header title="Slutbedömning" iconPath = "book" time = 14:27> </app-patient-view-card-header>
+          <app-patient-view-card-content> </app-patient-view-card-content>  
+          <app-patient-view-card-footer></app-patient-view-card-footer>
+        </mat-card>
+       </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class = "tileContent">
+      <mat-card class = "patientBlock">
+        <app-patient-view-card-header title="Sammanfattning" iconPath = "bookmarks" time = 14:27> </app-patient-view-card-header>
+        <app-patient-view-card-content> </app-patient-view-card-content>  
+      </mat-card>
+    </div>
+    </mat-grid-tile>
+ 
 </mat-grid-list>
 </div>
