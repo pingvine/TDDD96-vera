@@ -9,14 +9,6 @@ const mongoose = require('mongoose');
 const users = [];
 const idCounter = 0;
 
-mongoose.connect('mongodb://localhost/coronavirus', { useNewUrlParser: true, useUnifiedTopology: true });
-
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-  console.log('Connected to MongoDB!');
-});
-
 /**
  *
  * @param event JSON EventVera object
@@ -58,21 +50,31 @@ export function userExists(socialId, userss) {
 }
 
 export function initDb() {
+  mongoose.connect('mongodb://localhost/coronavirus', {useNewUrlParser: true, useUnifiedTopology: true});
+
+  const db = mongoose.connection;
+  db.on('error', console.error.bind(console, 'connection error:'));
+  db.once('open', () => {
+    console.log('Connected to MongoDB!');
+  });
+}
+
+
   /*
     TESTKOD FÖR DATABAS
      */
   // console.log("JSON VERA: " + JSON.stringify(new EventVera("test")))
 
-  const data = {
-    fieldId: '1',
-    status: true,
-  };
-
-  const editEvent = new EventVera('simon', EventType.EditEvent, data);
-  const event = new EventModel(editEvent);
-  event.save((err, val) => {
-    console.log(`save: ${val}`);
-  }); // Save to mongodb db
+  // const data = {
+  //   fieldId: '1',
+  //   status: true,
+  // };
+  //
+  // const editEvent = new EventVera('simon', EventType.EditEvent, data);
+  // const event = new EventModel(editEvent);
+  // event.save((err, val) => {
+  //   console.log(`save: ${val}`);
+  // }); // Save to mongodb db
 
   // EventModel.findOne({ senderId: 'simon' }, (err, eventOne) => {
   //   console.log(`docs ${eventOne}`);
@@ -81,4 +83,4 @@ export function initDb() {
   // EventModel.deleteMany({ senderId: 'simon' }, (err, val) => {
   //   console.log(`Err: ${err}val ${val}`);
   // });
-}
+
