@@ -8,6 +8,7 @@ import {
   getCareEventByTeam,
   getCareEventByPatient, getAllEvents
 } from './dbHelper'
+import {EventType} from "../shared/models/EventType";
 
 const express = require('express');
 const path = require('path');
@@ -88,7 +89,11 @@ app.get('/teams', (req, res) => {
 
 
 app.post("/event", (req, res) => {
-  storeEvent(req.body);
+
+  if (req.body.eventType === EventType.CareEvent) {
+    storeEvent(req.body);
+  }
+
   let obj = req.body;
   const event: EventVera = new EventVera(obj.senderId, obj.eventType, obj.data);
   eventserver.handleEvent(event);
