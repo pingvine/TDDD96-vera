@@ -39,6 +39,7 @@ import { PatientViewCardContentComponent } from './patient-view-card-content/pat
 import { PatientViewCardFooterComponent } from './patient-view-card-footer/patient-view-card-footer.component';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
+import { NoticeComponent } from './notice/notice.component';
 import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
 import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view-header.component';
 import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical/visit-topical.component';
@@ -50,6 +51,7 @@ import { OverviewTableComponent } from './overview/overview-table/overview-table
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TestEventSocketComponent } from './test-event-socket/test-event-socket.component';
+import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-socket.component';
 import { LoginComponent } from './login/login.component';
 import { EhrService } from './ehr.service';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
@@ -75,6 +77,7 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
     PatientViewCardFooterComponent,
     EventComponent,
     DatePipePipe,
+    NoticeComponent,
     VisitReasonComponent,
     VisitViewHeaderComponent,
     VisitTopicalComponent,
@@ -82,6 +85,7 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
     VisitBodyComponent,
     VisitEventsComponent,
     TestEventSocketComponent,
+    TestNoticeSocketComponent,
     LoginComponent,
     SpinnerOverlayComponent,
   ],

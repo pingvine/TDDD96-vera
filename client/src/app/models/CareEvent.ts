@@ -10,8 +10,9 @@ export class CareEvent{
     private actionType: ActionType
     private creationTime: Date
     private comment: string
+    private patient: Person
 
-    constructor(creator: Person, recievers: RoleType[], team: number, action: ActionType, comment: string){
+    constructor(creator: Person, recievers: RoleType[], team: number, action: ActionType, comment: string, patient: Person){
         this.touched = new Date
         this.creatorId = creator.getId()
         this.recievers = [recievers, team]
@@ -19,6 +20,7 @@ export class CareEvent{
         this.actionType = action
         this.creationTime = new Date()
         this.comment = comment
+        this.patient = patient
     }
 
     touch(){

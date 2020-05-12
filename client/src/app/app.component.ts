@@ -3,6 +3,8 @@ import { InstanceManager } from './Managers/InstanceManager';
 import { EhrService } from './ehr.service';
 import { RoleType } from './models/RoleType';
 import { HealthManager } from './Managers/HealthManager';
+import {LoginService} from "./services/login.service";
+import {User} from "./models/User";
 
 @Component({
   selector: 'app-root',
@@ -11,6 +13,8 @@ import { HealthManager } from './Managers/HealthManager';
 })
 export class AppComponent implements OnInit {
   currentComponent: any;
+
+  currentUser: User;
 
   views = [{ name: 'Enhetsöversikt', url: '/overview' },
     // {name: 'Patientöversikt', url: '/patient', active: false},
@@ -21,7 +25,11 @@ export class AppComponent implements OnInit {
 
   im = new InstanceManager();
 
-  constructor(private ehrService: EhrService) {}
+  constructor(private ehrService: EhrService, private loginService: LoginService) {
+    this.loginService.currentUser.subscribe((user) => {
+      this.currentUser = user;
+    });
+  }
 
   ngOnInit(): void {
     this.ehrService.getActivePatients('MOTTAGNING').subscribe((resp: any) => {
