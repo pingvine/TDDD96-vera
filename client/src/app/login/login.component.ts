@@ -10,6 +10,7 @@ import { UserType } from '../models/UserType';
 import { ServerService } from '../services/server.service';
 import { SpinnerOverlayComponent } from '../spinner-overlay/spinner-overlay.component';
 import { LoginService } from '../services/login.service';
+import {Router} from "@angular/router";
 
 interface Role {
   value: RoleType;
@@ -40,7 +41,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private serverService: ServerService,
               private loginService: LoginService,
-              private dialog: MatDialog) { }
+              private dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -74,6 +76,7 @@ export class LoginComponent implements OnInit {
       });
 
       this.loginService.changeUser(user);
+      this.router.navigate(['overview']);
     },
     (error) => {
       console.log(`Error in login getId: ${error.message}`);
