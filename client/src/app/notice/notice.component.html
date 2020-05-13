@@ -4,7 +4,7 @@
       <mat-grid-list cols="8" rowHeight="fit">
         <mat-grid-tile rowspan="3">
           <div class="tile-container">
-            <div *ngIf="type==='important'" class="notice-type-important">
+            <div *ngIf="type===actionType.Warning" class="notice-type-important">
               <div class="notice-type-container">
                 <div class="notice-type">
                   <mat-icon class="notice-type-icon">
@@ -13,7 +13,7 @@
                 </div>
               </div>
             </div>
-            <div *ngIf="type==='info'" class="notice-type-info">
+            <div *ngIf="type===actionType.Information" class="notice-type-info">
               <div class="notice-type-container">
                 <div class="notice-type">
                   <mat-icon class="notice-type-icon">
