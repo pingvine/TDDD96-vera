@@ -12,3 +12,14 @@ export function getNumberFromSocialString(socialId: string) {
   }
   return parseInt(pnr);
 }
+
+export function getAgeFromSocialId(socialId: number) {
+  const year = new Date().getFullYear();
+
+}
+
+export function getAgeFromSocialIdString(socialId: string): number {
+  const year = parseInt(socialId.substring(0, 4));
+  const today = new Date();
+  return today.getFullYear() - year;
+}
