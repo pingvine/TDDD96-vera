@@ -43,7 +43,7 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
 
   ngOnInit(): void {
 
-    this.serverService.getEvents().subscribe((events) => {
+    this.serverService.getEditEvents().subscribe((events) => {
       events.forEach((event) => {
         if (event.eventType === EventType.EditEvent) {
           this.activeUsers.push(event.senderId);

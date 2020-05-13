@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { DatePipePipe } from '../date-pipe.pipe';
 
 import { NoticeComponent } from './notice.component';
 
@@ -8,7 +9,7 @@ describe('NoticeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoticeComponent ]
+      declarations: [ NoticeComponent, DatePipePipe ]
     })
     .compileComponents();
   }));

@@ -33,9 +33,9 @@ function broadcastToClients() {
       client.sendUTF(json);
       console.log(`${new Date()} Server sent: <${json}> to: ${client}`);
     });
-    // Pop from queue
-    broadcast.shift();
   });
+  // Pop all
+  broadcast.length = 0;
 }
 
 export function runWebSocketServer() {
@@ -128,8 +128,10 @@ export function handleEvent(event: EventVera) {
   switch (event.eventType) {
     case EventType.CareEvent:
       handleCareEvent(event);
+      break;
     case EventType.EditEvent:
       handleEditEvent(event);
+      break;
   }
 
   broadcastToClients();
