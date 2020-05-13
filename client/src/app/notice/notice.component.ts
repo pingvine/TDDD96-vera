@@ -15,7 +15,7 @@ export class NoticeComponent implements OnInit, OnChanges {
   personalId: string;
   age: number;
   team: string;
-  timeSent: string;
+  timeSent: Date;
   title: string;
 
   actionType = ActionType;

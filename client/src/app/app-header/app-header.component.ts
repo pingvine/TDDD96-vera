@@ -16,7 +16,7 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
   currentView: string;
 
   notices = [{
-    gender: 'male', type: ActionType.Warning, name: 'Johan Berglund', personalId: 199000000134, age: 62, team: 'Team A', timeSent: new Date(), title: 'Titta till patient',
+    gender: 'male', type: ActionType.Warning, name: 'Johan Berglund', personalId: 199000000134, age: 62, team: 0, timeSent: new Date(), title: 'Titta till patient',
   }];
 
   constructor(private viewNameService: ViewNameService, protected eventService: EventSocketService) {
