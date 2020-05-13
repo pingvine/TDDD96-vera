@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PatientService} from "../../services/patient.service";
+import {Visit} from "../../models/Visit";
 
 @Component({
   selector: 'app-visit-view-header',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./visit-view-header.component.css']
 })
 export class VisitViewHeaderComponent implements OnInit {
+  private currentVisit: Visit;
 
-  constructor() { }
+  constructor(private patientService: PatientService) {
+    this.patientService.currentVisit.subscribe((visit) => {
+      this.currentVisit = visit;
+    })
+  }
 
   ngOnInit(): void {
   }
