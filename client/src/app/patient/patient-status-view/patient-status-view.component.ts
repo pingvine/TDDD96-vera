@@ -21,7 +21,7 @@ export class PatientStatusViewComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(PatientStatusViewDialogComponent, {
       width: '1200px',
-      height: '900px',
+      height: '600px',
       panelClass: 'transparent'
     });
     this.panelOpenState = true;

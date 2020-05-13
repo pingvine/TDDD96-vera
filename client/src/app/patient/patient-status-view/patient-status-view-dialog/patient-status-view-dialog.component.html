@@ -1,23 +1,20 @@
-<div mat-dialog-content>
-  <app-patient-status-summary-header [title]="header_title"></app-patient-status-summary-header>
+<app-patient-status-summary-header [title]="header_title"></app-patient-status-summary-header>
+<div mat-dialog-content class="mat-dialog-content">
   <div class="exponering-content">
-    <mat-grid-list cols="2" [rowHeight]="800">
+    <mat-grid-list cols="2">
       <mat-grid-tile [rowspan]="1">
-        <mat-grid-list cols="1" rowHeight="fit" class="exponering-list">
-          <div style="margin-bottom: 16px">
-            <app-patient-status-summary-header [title]="header_title_a" style="width: 100%"></app-patient-status-summary-header>
-          </div>
-          <div style="margin-bottom: 16px">
-            <app-patient-status-summary-header [title]="header_title_b" style="width: 100%"></app-patient-status-summary-header>
-          </div>
-          <div style="margin-bottom: 16px">
-            <app-patient-status-summary-header [title]="header_title_c" style="width: 100%"></app-patient-status-summary-header>
-          </div>
-          <div style="margin-bottom: 16px">
-            <app-patient-status-summary-header [title]="header_title_d" style="width: 100%"></app-patient-status-summary-header>
-          </div>
+
+        <mat-expansion-panel cols="1">
+          <mat-expansion-panel-header class="mat-expansion-panel-header">
+            <mat-panel-title style="color: white">
+              E - Exponering
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
           <app-patient-status-edit-view-e style="width: 100%" (commentChange)="onCommentChange($event)"></app-patient-status-edit-view-e>
-        </mat-grid-list>
+
+        </mat-expansion-panel>
+
       </mat-grid-tile>
       <mat-grid-tile [rowspan]="1" style="scroll-snap-type: y mandatory">
         <app-patient-status-summary [comment]="comment"></app-patient-status-summary>
@@ -25,3 +22,18 @@
     </mat-grid-list>
   </div>
 </div>
+
+<mat-grid-list cols="1" rowHeight="fit" class="exponering-list">
+  <div style="margin-bottom: 16px">
+    <app-patient-status-summary-header [title]="header_title_a" style="width: 100%"></app-patient-status-summary-header>
+  </div>
+  <div style="margin-bottom: 16px">
+    <app-patient-status-summary-header [title]="header_title_b" style="width: 100%"></app-patient-status-summary-header>
+  </div>
+  <div style="margin-bottom: 16px">
+    <app-patient-status-summary-header [title]="header_title_c" style="width: 100%"></app-patient-status-summary-header>
+  </div>
+  <div style="margin-bottom: 16px">
+    <app-patient-status-summary-header [title]="header_title_d" style="width: 100%"></app-patient-status-summary-header>
+  </div>
+</mat-grid-list>

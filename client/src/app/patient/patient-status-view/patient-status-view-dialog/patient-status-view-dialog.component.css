@@ -11,9 +11,28 @@
   padding-left: 16px;
   padding-right: 16px;
   background-color: #f2f2f2;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 .mat-dialog-content {
   padding: 0px;
   max-height: 100%;
+}
+.mat-expansion-panel-header {
+  background-color: #3F51B5 !important;
+  color: white;
+  display: flex;
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.mat-expansion-panel-header:hover {
+  background-color: #3F51B5 !important;
+  color: white;
+  display: flex;
+  width: 600px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
