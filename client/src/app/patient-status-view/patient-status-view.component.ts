@@ -22,7 +22,7 @@ export class PatientStatusViewComponent extends EventVeraListener implements OnI
   private localUser: User;
 
   constructor(public dialog: MatDialog, private loginService: LoginService,
-              private serverService: ServerService, private eventSocketService: EventSocketService) {
+              protected serverService: ServerService, private eventSocketService: EventSocketService) {
     super(eventSocketService);
   }
 
@@ -31,7 +31,7 @@ export class PatientStatusViewComponent extends EventVeraListener implements OnI
       this.localUser = user;
     })
 
-    this.serverService.getEvents().subscribe((events) => {
+    this.serverService.getEditEvents().subscribe((events) => {
       events.forEach((event) => {
         if (event.eventType === EventType.EditEvent) {
           this.activeUsers.push(event.senderId);
