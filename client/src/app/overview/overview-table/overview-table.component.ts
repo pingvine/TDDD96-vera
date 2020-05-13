@@ -87,7 +87,7 @@ export class OverviewTableComponent implements OnInit {
     row.nurse = visit.visitInfo.Ansvssk;
     row.prio = visit.visitInfo.prio;
     row.age = visit.visitInfo.Ålder;
-    row.socialId = visit.visitInfo.Personnummer;
+    row.socialId = visit.visitInfo.socialId;
     return row;
   }
 

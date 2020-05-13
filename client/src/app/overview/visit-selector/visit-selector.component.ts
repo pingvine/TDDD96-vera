@@ -17,7 +17,7 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
   priority: string;
   name: string;
   age: number;
-  personalId: string;
+  socialId: string;
   team: string;
   sex: string;
   actions: Message[] = [
@@ -26,11 +26,11 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
 
   spo2: number;
   af: number;
-  puls: number;
+  pulse: number;
   bt: number;
   temp: number;
   pain: number;
-  vikt: number;
+  weight: number;
 
   constructor(private ehrService : EhrService) {}
 
@@ -43,49 +43,16 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
     if (this.visit !== undefined) {
       this.name = this.visit.name;
       this.age = this.visit.age;
-      this.personalId = this.visit.social;
+      this.socialId = this.visit.socialId;
       this.priority = this.visit.prio;
       this.team = this.visit.team;
     }
-  }
-  updateSpo2(spo2: any){
-      this.spo2 = spo2.target.value;
-      console.log('spo2: ' + spo2.target.value);
-  }
-
-  updateAF(af: any){
-      this.af = af.target.value;
-      console.log('AF: ' +  af.target.value);
-  }
-
-  updatePuls(puls: any){
-      this.puls = puls.target.value;
-      console.log('Puls: ' +  puls.target.value);
-  }
-
-  updateBT(bt: any){
-      this.bt = bt.target.value;
-      console.log('BT: ' +  bt.target.value);
-  }
-
-  updateTemp(temp: any){
-      this.temp = temp.target.value;
-      console.log('Temperatur: ' +  temp.target.value);
-  }
-
-  updatePain(pain: any){
-      this.pain = pain.target.value;
-      console.log('Temperatur: ' +  pain.target.value);
-  }
-
-  updateVikt(vikt: any){
-      this.vikt = vikt.target.value;
-      console.log('Vikt: ' +  vikt.target.value);
   }
   updateCompositionData(){
     const compositionData = {
         'ctx/language': 'sv',
         'ctx/territory': 'SI',
+
         //SpO2
         'journal_vera2020/pulsoximetri/ospecificerad_händelse/spo|numerator': this.spo2,
 
@@ -93,7 +60,7 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
         'journal_vera2020/andning/ospecificerad_händelse/frekvens|magnitude': this.af,
 
         //Puls
-        'journal_vera2020/puls_hjärtfrekvens/ospecificerad_händelse/frekvens|magnitude': this.puls,
+        'journal_vera2020/puls_hjärtfrekvens/ospecificerad_händelse/frekvens|magnitude': this.pulse,
 
         //Blodtryck
         'journal_vera2020/blodtryck/ospecificerad_händelse/medelartärtryck|magnitude': this.bt,
@@ -107,14 +74,14 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
         'journal_vera2020/abbey_smärtskala/alla_fall/totala_smärtpoäng': this.pain,
 
         //Vikt
-        'journal_vera2020/kroppsvikt/ospecificerad_händelse/vikt|magnitude': this.vikt,
+        'journal_vera2020/kroppsvikt/ospecificerad_händelse/vikt|magnitude': this.weight,
         'journal_vera2020/kroppsvikt/ospecificerad_händelse/vikt|unit': "kg"
     }
-    let ehrId = this.ehrService.getPnr("19970530").subscribe((answer: any) => {
-        console.log('EhrId: ' + answer.parties[0].additionalInfo.ehrId)
+    this.ehrService.getPnr(this.socialId).subscribe((answer: any) => {
+        this.ehrService.postCompositionData(compositionData, answer.parties[0].additionalInfo.ehrId)
     });
 
-    console.log(this.ehrService.postCompositionData(compositionData, ehrId));
+
   }
 
 

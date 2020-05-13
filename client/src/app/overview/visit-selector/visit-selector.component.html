@@ -12,7 +12,7 @@
 
 
           <mat-grid-tile><span>{{name}}</span></mat-grid-tile>
-          <mat-grid-tile><p>{{personalId}}</p></mat-grid-tile>
+          <mat-grid-tile><p>{{socialId}}</p></mat-grid-tile>
 
         </mat-grid-list>
       </mat-grid-tile>
@@ -42,7 +42,9 @@
       <mat-grid-tile></mat-grid-tile>
 
       <mat-grid-tile colspan="6">
-        <button mat-raised-button class="visit-redirect-button" color="accent">Patientvy</button>
+        <button onclick = "window.location.href = 'http://localhost:4200/patient';"
+        mat-raised-button class="visit-redirect-button" color="accent">Patientvy
+        </button>
       </mat-grid-tile>
 
     </mat-grid-list>
@@ -59,28 +61,28 @@
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>SpO2 på luft</mat-label>
-                <input matInput (input)="updateSpo2($event)">
+                <input matInput [(ngModel)] = "spo2">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>AF</mat-label>
-                <input matInput (input)="updateAF($event)">
+                <input matInput [(ngModel)] = "af">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Puls</mat-label>
-                <input matInput (input)="updatePuls($event)">
+                <input matInput [(ngModel)] = "pulse">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>BT</mat-label>
-                <input matInput (input)="updateBT($event)">
+                <input matInput [(ngModel)] = "bt">
               </mat-form-field>
             </mat-grid-tile>
 
@@ -94,21 +96,21 @@
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Temperatur</mat-label>
-                <input matInput (input)="updateTemp($event)">
+                <input matInput [(ngModel)] = "temp">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Smärta</mat-label>
-                <input matInput (input)="updatePain($event)">
+                <input matInput [(ngModel)] = "pain">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Vikt</mat-label>
-                <input matInput (input)="updateVikt($event)">
+                <input matInput [(ngModel)] = "weight">
               </mat-form-field>
             </mat-grid-tile>
 
