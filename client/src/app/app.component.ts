@@ -6,6 +6,7 @@ import { HealthManager } from './Managers/HealthManager';
 import {LoginService} from "./services/login.service";
 import {User} from "./models/User";
 import {PatientService} from "./services/patient.service";
+import {getNumberFromSocialString} from "./util/helpers";
 
 @Component({
   selector: 'app-root',
@@ -41,22 +42,12 @@ export class AppComponent implements OnInit {
   }
 
     // This is a duplicate, didn't know where to put it for now
-  getNumberFromSocialString(socialId: string) {
-    let pnr = '';
-    if (socialId.includes("-")) {
-      let index = socialId.length - 5;
-      pnr = socialId.substring(0, index) + socialId.substring(index+ 1, socialId.length);
-    } else {
-      pnr = socialId;
-    }
-    return parseInt(pnr);
-  }
 
   ngOnInit(): void {
     this.ehrService.getActivePatients('MOTTAGNING').subscribe((resp: any) => {
       resp.parties.forEach((partyData) => {
         // eslint-disable-next-line max-len
-        const pnr = this.getNumberFromSocialString(partyData.additionalInfo.socialId);
+        const pnr = getNumberFromSocialString(partyData.additionalInfo.socialId);
         const pat = this.im.createPerson(pnr, partyData.firstNames, partyData.lastNames);
         pat.setRoleType(RoleType.Patient);
         const vis = this.im.createVisit(pat);

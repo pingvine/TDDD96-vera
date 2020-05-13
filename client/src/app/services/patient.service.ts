@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Person} from "../models/Person";
 import {Visit} from "../models/Visit";
 import {BehaviorSubject} from "rxjs";
+import {getNumberFromSocialString} from "../util/helpers";
 
 @Injectable({
   providedIn: 'root'
@@ -25,19 +26,8 @@ export class PatientService {
     this.visitSource.next(null);
   }
 
-  getNumberFromSocialString(socialId: string) {
-    let pnr = '';
-    if (socialId.includes("-")) {
-      let index = socialId.length - 5;
-      pnr = socialId.substring(0, index) + socialId.substring(index+ 1, socialId.length);
-    } else {
-      pnr = socialId;
-    }
-    return parseInt(pnr);
-  }
-
   changePnr(socialId: string) {
-    this.pnrSource.next(this.getNumberFromSocialString(socialId));
+    this.pnrSource.next(getNumberFromSocialString(socialId));
   }
 
   clearnPnr() {
