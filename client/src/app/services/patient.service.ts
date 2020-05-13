@@ -25,8 +25,15 @@ export class PatientService {
     this.visitSource.next(null);
   }
 
-  changePnr(socialId: number) {
-    this.pnrSource.next(socialId);
+  changePnr(socialId: string) {
+    let pnr = '';
+    if (socialId.includes("-")) {
+      let index = socialId.length - 5;
+      pnr = socialId.substring(0, index) + socialId.substring(index+ 1, socialId.length);
+    } else {
+      pnr = socialId;
+    }
+    this.pnrSource.next(parseInt(pnr));
   }
 
   clearnPnr() {
