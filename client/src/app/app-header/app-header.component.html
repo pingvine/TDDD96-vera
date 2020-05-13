@@ -6,7 +6,7 @@
     <mat-icon class="notice-icon">notifications_none</mat-icon>
   </button>
   <mat-menu #beforeMenu="matMenu" xPosition="before" class="notice-menu">
-    <button mat-raised-button color="primary" (click)="clearNotices()">Clear</button>
+    <button mat-raised-button color="primary" (click)="clearNotices()">Rensa</button>
     <div class="notice-card">
       <app-notice [notice]="notice" (deleteNoticeSelector)="removeNotice($event)"
                   *ngFor="let notice of notices"></app-notice>
