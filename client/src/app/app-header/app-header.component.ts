@@ -6,6 +6,7 @@ import {DatePipe} from "@angular/common";
 import {EventType} from "../../../../shared/models/EventType";
 import {EventSocketService} from "../services/event-socket.service";
 import {EventVeraListener} from "../interfaces/event-vera-listener";
+import {ActionType} from "../models/ActionType";
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ import {EventVeraListener} from "../interfaces/event-vera-listener";
 export class AppHeaderComponent extends EventVeraListener implements OnInit {
 
   currentView: string;
-  notices = [{gender: 'male', type: 'important', name: 'Johan Berglund', personalId: '19580101-0102', age: 62, team: 'Team A', timeSent: '10.35', title: 'Titta till patient'}];
+  notices = [{gender: 'male', type: ActionType.Warning, name: 'Johan Berglund', personalId: 199000000134, age: 62, team: 'Team A', timeSent: '10.35', title: 'Titta till patient'}];
 
   constructor(private viewNameService: ViewNameService, protected eventService: EventSocketService) {
     super(eventService);
@@ -34,7 +35,7 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
 
 
   createNotice(gender: string, type: string, name: string,
-               personalId: string, age: number, team: string,
+               personalId: number, age: number, team: string,
                currentTime: string, title: string, sender: string, receivers: string[]): any {
     const notice = {gender: gender, type: type, name:  name, personalId: personalId, age: age, team: team, timeSent: currentTime, title: title};
   }
