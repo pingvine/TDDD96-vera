@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PatientService} from "../../services/patient.service";
 import {Visit} from "../../models/Visit";
+import {getAgeFromSocialIdNumber} from "../../util/helpers";
 
 @Component({
   selector: 'app-visit-view-header',
@@ -14,6 +15,24 @@ export class VisitViewHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  getAge() {
+    if (this.currentVisit) {
+      return getAgeFromSocialIdNumber(this.currentVisit.getPerson().getId());
+    }
+  }
+
+  getFirstName() {
+    if (this.currentVisit) {
+      return this.currentVisit.getPerson().getFirstName();
+    }
+  }
+
+  getLastName() {
+    if (this.currentVisit) {
+      return this.currentVisit.getPerson().getLastName();
+    }
   }
 
   onReasonChange(reason: string) {
