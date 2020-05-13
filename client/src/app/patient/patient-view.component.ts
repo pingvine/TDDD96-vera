@@ -48,31 +48,31 @@ export class PatientViewComponent extends HeaderName implements OnInit {
     });*/
     let ehrId = "e8d1e125-1d80-4d5d-825a-359757375dc6";
 
-    this.ehrService.getSpo2(ehrId).subscribe(answer => {
+    this.ehrService.getSpo2(ehrId).subscribe((answer: any) => {
         console.log('SpO2: ' + answer.resultSet[0].value.numerator)
         this.spo2 = answer.resultSet[0].value.numerator;
     });
-    this.ehrService.getAf(ehrId).subscribe(answer => {
+    this.ehrService.getAf(ehrId).subscribe((answer:any) => {
         console.log('AF: ' + answer.resultSet[0].value.magnitude)
         this.spo2 = answer.resultSet[0].value;
     });
-    this.ehrService.getPulse(ehrId).subscribe(answer => {
+    this.ehrService.getPulse(ehrId).subscribe((answer:any) => {
         console.log('pulse: ' + answer.resultSet[0].value.magnitude)
         this.spo2 = answer.resultSet[0].value;
     });
-    this.ehrService.getBt(ehrId).subscribe(answer => {
+    this.ehrService.getBt(ehrId).subscribe((answer:any) => {
         console.log('BT: ' + answer.resultSet[0].value.magnitude)
         this.spo2 = answer.resultSet[0].value;
     });
-    this.ehrService.getTemp(ehrId).subscribe(answer => {
+    this.ehrService.getTemp(ehrId).subscribe((answer:any) => {
         console.log('Temp: ' + answer.resultSet[0].value.magnitude)
         this.spo2 = answer.resultSet[0].value;
     });
-    this.ehrService.getPain(ehrId).subscribe(answer => {
+    this.ehrService.getPain(ehrId).subscribe((answer:any) => {
         console.log('Pain: ' + answer.resultSet[0].value.magnitude)
         this.spo2 = answer.resultSet[0].value;
     });
-    this.ehrService.getWeight(ehrId).subscribe(answer => {
+    this.ehrService.getWeight(ehrId).subscribe((answer:any) => {
         console.log('Weight: ' + answer.resultSet[0].value.magnitude)
         this.spo2 = answer.resultSet[0].value;
     });

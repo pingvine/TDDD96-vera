@@ -26,7 +26,7 @@ export class NewVisitInformationComponent implements OnInit{
         idChecked: false,
 
     },
-    firstNames: 'test',
+    firstNames: '',
     lastNames: '',
 }
   constructor(private ehrService : EhrService) { }
