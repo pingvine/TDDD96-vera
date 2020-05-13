@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PatientService} from "../../services/patient.service";
 import {Visit} from "../../models/Visit";
-import {getAgeFromSocialIdNumber} from "../../util/helpers";
+import {getAgeFromSocialIdNumber, getGenderFromSocialIdString, getNumberFromSocialString} from "../../util/helpers";
 
 @Component({
   selector: 'app-visit-view-header',
@@ -55,6 +55,12 @@ export class VisitViewHeaderComponent implements OnInit {
   getSocialId() {
     if (this.currentVisit) {
       return this.currentVisit.getPerson().getId();
+    }
+  }
+
+  getGender() {
+    if (this.currentVisit) {
+      return getGenderFromSocialIdString(this.currentVisit.getPerson().getId().toString()) === 'female' ? 'Kvinna' : 'Man';
     }
   }
 }
