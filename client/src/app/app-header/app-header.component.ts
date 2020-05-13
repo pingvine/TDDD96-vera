@@ -16,7 +16,6 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
 
   currentView: string;
   notices = [{gender: 'male', type: 'important', name: 'Johan Berglund', personalId: '19580101-0102', age: 62, team: 'Team A', timeSent: '10.35', title: 'Titta till patient'}];
-  alerts = this.notices.length;
 
   constructor(private viewNameService: ViewNameService, protected eventService: EventSocketService) {
     super(eventService);
@@ -26,18 +25,13 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
   addNotice(event: any): void {
     const notice = event.data;
     this.notices.push(notice);
-    this.updateAlerts();
   }
 
   removeNotice(notice: any): void {
     const index = this.notices.indexOf(notice);
     this.notices.splice(index, 1);
-    this.updateAlerts();
   }
 
-  updateAlerts(): void {
-    this.alerts = this.notices.length;
-  }
 
   createNotice(gender: string, type: string, name: string,
                personalId: string, age: number, team: string,
@@ -61,4 +55,7 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
   ngOnInit(): void {
   }
 
+  clearNotices() {
+    this.notices = [];
+  }
 }
