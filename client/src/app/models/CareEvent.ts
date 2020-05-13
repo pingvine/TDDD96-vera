@@ -39,6 +39,10 @@ export class CareEvent {
       this.patient = person;
     }
 
+    setCreationTime(date: Date) {
+      this.creationTime = date;
+    }
+
     getPatient(): Person {
       return this.patient;
     }
