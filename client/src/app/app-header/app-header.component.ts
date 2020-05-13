@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { WebSocketSubject } from 'rxjs/internal-compatibility';
-import { DatePipe } from '@angular/common';
 import { ViewNameService } from '../view-name.service';
 import { Message } from '../models/Message';
-import { EventType } from '../../../../shared/models/EventType';
 import { EventSocketService } from '../services/event-socket.service';
 import { EventVeraListener } from '../interfaces/event-vera-listener';
 import { ActionType } from '../models/ActionType';
+import { EventVera } from '../../../../shared/models/EventVera';
+import { CareEvent } from '../models/CareEvent';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +16,7 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
   currentView: string;
 
   notices = [{
-    gender: 'male', type: ActionType.Warning, name: 'Johan Berglund', personalId: 199000000134, age: 62, team: 'Team A', timeSent: '10.35', title: 'Titta till patient',
+    gender: 'male', type: ActionType.Warning, name: 'Johan Berglund', personalId: 199000000134, age: 62, team: 'Team A', timeSent: new Date(), title: 'Titta till patient',
   }];
 
   constructor(private viewNameService: ViewNameService, protected eventService: EventSocketService) {
@@ -25,9 +24,34 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
     this.viewNameService.view$.subscribe((view) => this.currentView = view);
   }
 
-  addNotice(event: any): void {
-    const { data } = event;
-    const notice = event.data;
+  getGender(socialId: string): string {
+    const genderNum = socialId[socialId.length - 2];
+    // Odd is male, even is female
+    return (genderNum % 2 === 0 ? 'female' : 'male');
+  }
+
+  getAge(socialId: string): number {
+    const year = parseInt(socialId.substring(0, 4));
+    const today = new Date();
+    return today.getFullYear() - year;
+  }
+
+
+  addNotice(event: EventVera): void {
+    const { careEvent } = event.data as CareEvent;
+    const gender = this.getGender(careEvent.patient.socialId.toString());
+    const age = this.getAge(careEvent.patient.socialId.toString());
+    const notice = {
+      gender,
+      type: careEvent.actionType,
+      name: careEvent.patient.firstName + careEvent.patient.lastName,
+      personalId: careEvent.patient.socialId,
+      age: age,
+      timeSent: new Date(careEvent.creationTime),
+      team: careEvent.receivers.team,
+      title: careEvent.comment,
+    };
+    // const notice = careEvent;
     this.notices.push(notice);
   }
 
