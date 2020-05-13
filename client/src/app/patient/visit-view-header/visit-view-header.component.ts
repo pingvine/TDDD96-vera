@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PatientService} from "../../services/patient.service";
 import {Visit} from "../../models/Visit";
 
@@ -8,12 +8,9 @@ import {Visit} from "../../models/Visit";
   styleUrls: ['./visit-view-header.component.css']
 })
 export class VisitViewHeaderComponent implements OnInit {
-  private currentVisit: Visit;
+  @Input() currentVisit: Visit;
 
-  constructor(private patientService: PatientService) {
-    this.patientService.currentVisit.subscribe((visit) => {
-      this.currentVisit = visit;
-    })
+  constructor() {
   }
 
   ngOnInit(): void {
