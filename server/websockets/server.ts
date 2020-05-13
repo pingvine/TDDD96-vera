@@ -33,9 +33,9 @@ function broadcastToClients() {
       client.sendUTF(json);
       console.log(`${new Date()} Server sent: <${json}> to: ${client}`);
     });
-    // Pop from queue
-    broadcast.shift();
   });
+  // Pop all
+  broadcast.length = 0;
 }
 
 export function runWebSocketServer() {
@@ -98,14 +98,28 @@ function handleEditEvent(event: EventVera) {
   }
 }
 
-function handleCareEvent(event: EventVera) {
+function pushAndBroadcast(event: EventVera) {
   broadcast.push(event);
+  broadcastToClients();
+}
+
+function handleCareEvent(event: EventVera) {
   let data = event.data;
   let creationTime = data['careEvent']['creationTime'];
-  console.log("CARE EVENT");
-  console.log(creationTime);
   let date = new Date(creationTime);
-  console.log(date.getTime());
+  if (isDateInFuture(date)) {
+    setTimeout(pushAndBroadcast, getTimeToDateMs(date), event);
+  } else {
+    broadcast.push(event);
+  }
+}
+
+function isDateInFuture(date: Date) {
+  return date.getTime() > Date.now();
+}
+
+function getTimeToDateMs(dateInFuture: Date) {
+  return dateInFuture.getTime() - Date.now();
 }
 
 export function handleEvent(event: EventVera) {
@@ -114,8 +128,10 @@ export function handleEvent(event: EventVera) {
   switch (event.eventType) {
     case EventType.CareEvent:
       handleCareEvent(event);
+      break;
     case EventType.EditEvent:
       handleEditEvent(event);
+      break;
   }
 
   broadcastToClients();
@@ -134,13 +150,6 @@ function storeEvent(event: EventVera) {
 
 function removeEvent(event: EventVera) {
   events = events.filter((ev: EventVera) => ev.senderId != event.senderId);
-  // console.log("REMOVE");
-  // const index = events.indexOf(event);
-  // console.log("INDEX " + index);
-  // if (index > -1) {
-  //     console.log("REMOVE 2");
-  //     events.splice(index, 1);
-  // }
 }
 
 export function getEvents(): EventVera[] {

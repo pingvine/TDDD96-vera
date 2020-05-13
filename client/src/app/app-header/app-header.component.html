@@ -1,16 +1,17 @@
   <div class="current-view">
   {{currentView}}
   </div>
-  <button mat-raised-button matBadge="{{alerts}}" [matBadgeHidden]="alerts < -1"  matBadgeColor="primary"
+  <button mat-raised-button matBadge="{{notices.length}}" [matBadgeHidden]="notices.length === 0"  matBadgeColor="primary"
          [matMenuTriggerFor]="beforeMenu" class="notice-menu-button">
     <mat-icon class="notice-icon">notifications_none</mat-icon>
   </button>
   <mat-menu #beforeMenu="matMenu" xPosition="before" class="notice-menu">
+    <button mat-raised-button color="primary" (click)="clearNotices()">Rensa</button>
     <div class="notice-card">
       <app-notice [notice]="notice" (deleteNoticeSelector)="removeNotice($event)"
                   *ngFor="let notice of notices"></app-notice>
     </div>
-    <div *ngIf="alerts===0" class="empty-notice-list">
+    <div *ngIf="notices.length===0" class="empty-notice-list">
         Här var det tomt
       </div>
   </mat-menu>

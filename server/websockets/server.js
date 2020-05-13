@@ -79,14 +79,26 @@ function handleEditEvent(event) {
         removeEvent(event);
     }
 }
-function handleCareEvent(event) {
+function pushAndBroadcast(event) {
     broadcast.push(event);
+    broadcastToClients();
+}
+function handleCareEvent(event) {
     var data = event.data;
     var creationTime = data['careEvent']['creationTime'];
-    console.log("CARE EVENT");
-    console.log(creationTime);
     var date = new Date(creationTime);
-    console.log(date.getTime());
+    if (isDateInFuture(date)) {
+        setTimeout(pushAndBroadcast, getTimeToDateMs(date), event);
+    }
+    else {
+        broadcast.push(event);
+    }
+}
+function isDateInFuture(date) {
+    return date.getTime() > Date.now();
+}
+function getTimeToDateMs(dateInFuture) {
+    return dateInFuture.getTime() - Date.now();
 }
 function handleEvent(event) {
     console.log('HANDLE EVENT');
@@ -111,13 +123,6 @@ function storeEvent(event) {
 }
 function removeEvent(event) {
     events = events.filter(function (ev) { return ev.senderId != event.senderId; });
-    // console.log("REMOVE");
-    // const index = events.indexOf(event);
-    // console.log("INDEX " + index);
-    // if (index > -1) {
-    //     console.log("REMOVE 2");
-    //     events.splice(index, 1);
-    // }
 }
 function getEvents() {
     return events;
