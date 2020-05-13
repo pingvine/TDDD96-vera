@@ -36,8 +36,12 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
     return today.getFullYear() - year;
   }
 
-
+  /**
+   * Adds a notice to the view.
+   * @param event CareEvent
+   */
   addNotice(event: EventVera): void {
+    // Unpack the event to fit the notice format
     const { careEvent } = event.data as CareEvent;
     const gender = this.getGender(careEvent.patient.socialId.toString());
     const age = this.getAge(careEvent.patient.socialId.toString());
@@ -51,7 +55,6 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
       team: careEvent.receivers.team,
       title: careEvent.comment,
     };
-    // const notice = careEvent;
     this.notices.push(notice);
   }
 
