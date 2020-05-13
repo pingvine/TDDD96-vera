@@ -79,14 +79,27 @@ function handleEditEvent(event) {
         removeEvent(event);
     }
 }
-function handleCareEvent(event) {
+function pushAndBroadcast(event) {
     broadcast.push(event);
+    broadcastToClients();
+}
+function handleCareEvent(event) {
+    //broadcast.push(event);
     var data = event.data;
     var creationTime = data['careEvent']['creationTime'];
     console.log("CARE EVENT");
     console.log(creationTime);
     var date = new Date(creationTime);
+    console.log("Date in future: " + isDateInFuture(date));
     console.log(date.getTime());
+    console.log("Time to future: " + getTimeToDateMs(date));
+    setTimeout(pushAndBroadcast, 1000, event);
+}
+function isDateInFuture(date) {
+    return date.getTime() > Date.now();
+}
+function getTimeToDateMs(dateInFuture) {
+    return dateInFuture.getTime() - Date.now();
 }
 function handleEvent(event) {
     console.log('HANDLE EVENT');

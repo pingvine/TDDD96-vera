@@ -98,14 +98,30 @@ function handleEditEvent(event: EventVera) {
   }
 }
 
-function handleCareEvent(event: EventVera) {
+function pushAndBroadcast(event: EventVera) {
   broadcast.push(event);
+  broadcastToClients();
+}
+
+function handleCareEvent(event: EventVera) {
+  //broadcast.push(event);
   let data = event.data;
   let creationTime = data['careEvent']['creationTime'];
   console.log("CARE EVENT");
   console.log(creationTime);
   let date = new Date(creationTime);
+  console.log("Date in future: " + isDateInFuture(date));
   console.log(date.getTime());
+  console.log("Time to future: " + getTimeToDateMs(date));
+  setTimeout(pushAndBroadcast, 1000, event);
+}
+
+function isDateInFuture(date: Date) {
+  return date.getTime() > Date.now();
+}
+
+function getTimeToDateMs(dateInFuture: Date) {
+  return dateInFuture.getTime() - Date.now();
 }
 
 export function handleEvent(event: EventVera) {
