@@ -59,7 +59,7 @@ export class ServerService {
     team: number, action: ActionType, comment: string): Observable<any> {
     const url = `${baseUrl}/event`;
     const careEvent = new CareEvent(senderPerson, receivers, team, action, comment, new Person(199001010133, 'Manual Patient', ''));
-    careEvent.setCreationTime(Date.now() + 1000*5);  // 5 sek
+    careEvent.setCreationTime(new Date(Date.now() + 1000 * 5)); // 5 sek
     const data = {
       careEvent,
     };
