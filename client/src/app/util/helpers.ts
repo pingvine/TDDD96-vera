@@ -24,3 +24,9 @@ export function getAgeFromSocialIdNumber(socialId: number) {
   const socialIdStr = `${socialId}`;
   return getAgeFromSocialIdString(socialIdStr);
 }
+
+export function getGenderFromSocialIdString(socialId: string): string {
+  const genderNum = parseInt(socialId[socialId.length - 2]);
+  // Odd is male, even is female
+  return (genderNum % 2 === 0 ? 'female' : 'male');
+}

@@ -6,7 +6,7 @@ import { EventVeraListener } from '../interfaces/event-vera-listener';
 import { ActionType } from '../models/ActionType';
 import { EventVera } from '../../../../shared/models/EventVera';
 import { CareEvent } from '../models/CareEvent';
-import {getAgeFromSocialIdString} from "../util/helpers";
+import {getAgeFromSocialIdString, getGenderFromSocialIdString} from "../util/helpers";
 
 @Component({
   selector: 'app-header',
@@ -25,13 +25,6 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
     this.viewNameService.view$.subscribe((view) => this.currentView = view);
   }
 
-  getGender(socialId: string): string {
-    const genderNum = parseInt(socialId[socialId.length - 2]);
-    // Odd is male, even is female
-    return (genderNum % 2 === 0 ? 'female' : 'male');
-  }
-
-
   /**
    * Adds a notice to the view.
    * @param event CareEvent
@@ -39,7 +32,7 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
   addNotice(event: any): void {
     // Unpack the event to fit the notice format
     const careEvent = event.data['careEvent'];
-    const gender = this.getGender(careEvent.patient.socialId.toString());
+    const gender = getGenderFromSocialIdString(careEvent.patient.socialId.toString());
     const age = getAgeFromSocialIdString(careEvent.patient.socialId.toString());
     const notice = {
       gender,
