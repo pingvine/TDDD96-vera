@@ -84,16 +84,15 @@ function pushAndBroadcast(event) {
     broadcastToClients();
 }
 function handleCareEvent(event) {
-    //broadcast.push(event);
     var data = event.data;
     var creationTime = data['careEvent']['creationTime'];
-    console.log("CARE EVENT");
-    console.log(creationTime);
     var date = new Date(creationTime);
-    console.log("Date in future: " + isDateInFuture(date));
-    console.log(date.getTime());
-    console.log("Time to future: " + getTimeToDateMs(date));
-    setTimeout(pushAndBroadcast, 1000, event);
+    if (isDateInFuture(date)) {
+        setTimeout(pushAndBroadcast, getTimeToDateMs(date), event);
+    }
+    else {
+        broadcast.push(event);
+    }
 }
 function isDateInFuture(date) {
     return date.getTime() > Date.now();
@@ -124,13 +123,6 @@ function storeEvent(event) {
 }
 function removeEvent(event) {
     events = events.filter(function (ev) { return ev.senderId != event.senderId; });
-    // console.log("REMOVE");
-    // const index = events.indexOf(event);
-    // console.log("INDEX " + index);
-    // if (index > -1) {
-    //     console.log("REMOVE 2");
-    //     events.splice(index, 1);
-    // }
 }
 function getEvents() {
     return events;
