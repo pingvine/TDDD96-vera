@@ -25,7 +25,7 @@ export class PatientService {
     this.visitSource.next(null);
   }
 
-  changePnr(socialId: string) {
+  getNumberFromSocialString(socialId: string) {
     let pnr = '';
     if (socialId.includes("-")) {
       let index = socialId.length - 5;
@@ -33,7 +33,11 @@ export class PatientService {
     } else {
       pnr = socialId;
     }
-    this.pnrSource.next(parseInt(pnr));
+    return parseInt(pnr);
+  }
+
+  changePnr(socialId: string) {
+    this.pnrSource.next(this.getNumberFromSocialString(socialId));
   }
 
   clearnPnr() {
