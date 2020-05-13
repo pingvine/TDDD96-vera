@@ -5,6 +5,7 @@ import { RoleType } from './models/RoleType';
 import { HealthManager } from './Managers/HealthManager';
 import {LoginService} from "./services/login.service";
 import {User} from "./models/User";
+import {PatientService} from "./services/patient.service";
 
 @Component({
   selector: 'app-root',
@@ -25,10 +26,18 @@ export class AppComponent implements OnInit {
 
   im = new InstanceManager();
 
-  constructor(private ehrService: EhrService, private loginService: LoginService) {
+  constructor(private ehrService: EhrService, private loginService: LoginService, private patientService: PatientService) {
     this.loginService.currentUser.subscribe((user) => {
       this.currentUser = user;
     });
+
+    // If the current select pnr change, update the visit as well
+    this.patientService.currentPnr.subscribe((pnr) => {
+      const currentVisit = this.im.getVisitByID(pnr)
+      this.patientService.changeVisit(currentVisit);
+      console.log("CURRENT VISIT");
+      console.log(currentVisit);
+    })
   }
 
   ngOnInit(): void {
