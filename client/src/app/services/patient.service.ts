@@ -8,6 +8,10 @@ import {getNumberFromSocialString} from "../util/helpers";
   providedIn: 'root'
 })
 
+/**
+ * Serves the currently selected patient (visit).
+ * Subscribe on visit source.
+ */
 export class PatientService {
 
   // Behaviour subject saves the last added object
