@@ -25,7 +25,7 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
   }
 
   getGender(socialId: string): string {
-    const genderNum = socialId[socialId.length - 2];
+    const genderNum = parseInt(socialId[socialId.length - 2]);
     // Odd is male, even is female
     return (genderNum % 2 === 0 ? 'female' : 'male');
   }
@@ -40,9 +40,9 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
    * Adds a notice to the view.
    * @param event CareEvent
    */
-  addNotice(event: EventVera): void {
+  addNotice(event: any): void {
     // Unpack the event to fit the notice format
-    const { careEvent } = event.data as CareEvent;
+    const careEvent = event.data['careEvent'];
     const gender = this.getGender(careEvent.patient.socialId.toString());
     const age = this.getAge(careEvent.patient.socialId.toString());
     const notice = {
