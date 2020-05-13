@@ -2,7 +2,8 @@
   <mat-grid-list cols="12" rowHeight="fit">
     <mat-grid-tile colspan="2">
       <div class="tile-container">
-        <app-visit-info-personal [age]="getAge()"></app-visit-info-personal>
+        <app-visit-info-personal [age]="getAge()" [firstName]="getFirstName()"
+        [lastName]="getLastName()" [socialId]="getSocialId()"></app-visit-info-personal>
       </div>
     </mat-grid-tile>
 

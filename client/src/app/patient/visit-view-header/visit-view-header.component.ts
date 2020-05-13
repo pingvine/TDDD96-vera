@@ -51,4 +51,10 @@ export class VisitViewHeaderComponent implements OnInit {
     console.log('Open vital parameters view');
 
   }
+
+  getSocialId() {
+    if (this.currentVisit) {
+      return this.currentVisit.getPerson().getId();
+    }
+  }
 }
