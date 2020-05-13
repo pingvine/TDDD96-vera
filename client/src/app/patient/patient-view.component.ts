@@ -13,7 +13,7 @@ import {PatientService} from "../services/patient.service";
 export class PatientViewComponent extends HeaderName implements OnInit {
   url = 'http://localhost:4201/patient';
 
-  private currentVisit: Visit;
+  currentVisit: Visit;
 
   constructor(private service: RequestService, viewNameService: ViewNameService, private patientService: PatientService) {
     super(viewNameService, 'Patientvy');
