@@ -20,6 +20,7 @@ export class NoticeComponent implements OnInit, OnChanges {
 
   actionType = ActionType;
   constructor() {
+    this.timeSent = new Date();
   }
 
   deleteNotice(): void {
