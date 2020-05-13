@@ -104,16 +104,14 @@ function pushAndBroadcast(event: EventVera) {
 }
 
 function handleCareEvent(event: EventVera) {
-  //broadcast.push(event);
   let data = event.data;
   let creationTime = data['careEvent']['creationTime'];
-  console.log("CARE EVENT");
-  console.log(creationTime);
   let date = new Date(creationTime);
-  console.log("Date in future: " + isDateInFuture(date));
-  console.log(date.getTime());
-  console.log("Time to future: " + getTimeToDateMs(date));
-  setTimeout(pushAndBroadcast, 1000, event);
+  if (isDateInFuture(date)) {
+    setTimeout(pushAndBroadcast, getTimeToDateMs(date), event);
+  } else {
+    broadcast.push(event);
+  }
 }
 
 function isDateInFuture(date: Date) {
@@ -150,13 +148,6 @@ function storeEvent(event: EventVera) {
 
 function removeEvent(event: EventVera) {
   events = events.filter((ev: EventVera) => ev.senderId != event.senderId);
-  // console.log("REMOVE");
-  // const index = events.indexOf(event);
-  // console.log("INDEX " + index);
-  // if (index > -1) {
-  //     console.log("REMOVE 2");
-  //     events.splice(index, 1);
-  // }
 }
 
 export function getEvents(): EventVera[] {
