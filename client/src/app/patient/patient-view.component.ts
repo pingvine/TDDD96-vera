@@ -22,15 +22,7 @@ export class PatientViewComponent extends HeaderName implements OnInit {
     })
   }
 
-  private getPatient(): void {
-    this.service.getData(this.url)
-      .subscribe(response => {
-        console.log(response);
-      });
-  }
-
   ngOnInit(): void {
     super.setView();
-    this.getPatient();
   }
 }
