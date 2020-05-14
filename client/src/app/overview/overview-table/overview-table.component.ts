@@ -48,11 +48,11 @@ export class OverviewTableComponent implements OnInit {
 
   assistantNurseList = ['Madihna', 'Ella', 'Martin'];
 
-  drFilter = '';
+  drFilter = undefined;
 
-  nurseFilter = '';
+  nurseFilter = undefined;
 
-  assistantNurseFilter = '';
+  assistantNurseFilter = undefined;
 
   searchFilter = '';
 
@@ -92,7 +92,7 @@ export class OverviewTableComponent implements OnInit {
     row.prio = visit.visitInfo.prio;
     row.age = visit.visitInfo.age;
     row.gender = visit.visitInfo.gender;
-    row.socialId = visit.visitInfo.socialId;
+    row.socialId = visit.person.getId();
     return row;
   }
 
@@ -180,27 +180,44 @@ export class OverviewTableComponent implements OnInit {
     this.clearFilters('search');
     this.clearCheckboxes('teamBoxes');
     // filter our data
+    let empty = 0;
     let temp = [];
     console.log(this.drFilter);
-    if (this.drFilter !== '') {
+    if (this.drFilter !== undefined) {
       temp = temp.concat(this.allRows.filter((d) => {
-        console.log(d);
-        if(d.dr !== undefined){
+        if (d.dr !== undefined){
           return d.dr.indexOf(this.drFilter) !== -1 || !this.drFilter;
         }
       }));
+    } else {
+      empty += 1;
     }
-    console.log(temp);
-
-    if (this.nurseFilter !== '') {
-      temp = temp.concat(this.allRows.filter((d) => d.nurse.indexOf(this.nurseFilter) !== -1 || !this.nurseFilter));
+    if (this.nurseFilter !== undefined) {
+      temp = temp.concat(this.allRows.filter((d) => {
+        if (d.nurse !== undefined) {
+          d.nurse.indexOf(this.nurseFilter) !== -1 || !this.nurseFilter;
+        }
+      }));
+    } else {
+      empty += 1;
     }
 
-    if (this.assistantNurseFilter !== '') {
-      temp = temp.concat(this.allRows.filter((d) => d.nurse2.indexOf(this.assistantNurseFilter) !== -1 || !this.assistantNurseFilter));
+    if (this.assistantNurseFilter !== undefined) {
+      temp = temp.concat(this.allRows.filter((d) => {
+        if (d.astNurse !== undefined) {
+          d.astNurse.indexOf(this.assistantNurseFilter) !== -1 || !this.assistantNurseFilter;
+        }
+      }));
+    } else {
+      empty += 1;
+    }
+    if (empty === 3) {
+      temp = this.allRows;
     }
     this.searchRows = temp;
-    this.table.groupHeader.collapseAllGroups();
+    if(!this.showAllTeams){
+      this.table.groupHeader.collapseAllGroups();
+    }
   }
 
   changeGroupView(): void {

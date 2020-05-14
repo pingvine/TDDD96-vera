@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatOptionModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 import { OverviewTableComponent } from './overview-table.component';
-import {NgxDatatableModule} from '@swimlane/ngx-datatable';
-import {MatCardModule} from "@angular/material/card";
-import {MatGridListModule} from "@angular/material/grid-list";
-import {MatFormFieldModule, MatLabel} from "@angular/material/form-field";
-import {MatSelectModule} from "@angular/material/select";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatInput, MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatOptionModule} from "@angular/material/core";
-import {FormsModule} from "@angular/forms";
-import {DebugElement} from "@angular/core";
-import {By} from "@angular/platform-browser";
-
-
+import {Visit} from "../../models/Visit";
+import {Person} from "../../models/Person";
 
 
 describe('OverviewTableComponent', () => {
@@ -25,16 +25,30 @@ describe('OverviewTableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OverviewTableComponent ],
-      imports: [NgxDatatableModule, FormsModule, MatCardModule, MatGridListModule, MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatButtonModule, MatInputModule, BrowserAnimationsModule, MatOptionModule]
+      declarations: [OverviewTableComponent],
+      imports: [
+        NgxDatatableModule, FormsModule, MatCardModule, MatGridListModule,
+        MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatButtonModule,
+        MatInputModule, BrowserAnimationsModule, MatOptionModule,
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OverviewTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.searchRows = [{
+      prio: 'yellow', social: '010101-7890', team: 'B', name: 'Dany', gender: 'male', age: 31, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '01:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
+    },
+      {
+        prio: 'green', social: '123456-7890', team: 'C', name: 'Molly', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
+      },
+      {
+        prio: 'blue', social: '123456-7890', team: 'B', name: 'Chany', gender: 'male', age: 34, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '03:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
+      },
+    ];
   });
 
   it('should create', () => {
@@ -42,15 +56,15 @@ describe('OverviewTableComponent', () => {
   });
 
   it('sorting function should return correct number list', () => {
-    const list = [{key: 2}, {key: 3},  {key: 4},  {key: 5}, {key: 1}];
-    expect(component.sortProperties(list, 'key', false)).toEqual([{key: 1}, {key: 2},  {key: 3},  {key: 4}, {key: 5}]);
-    expect(component.sortProperties(list, 'key', true)).toEqual([{key: 5}, {key: 4},  {key: 3},  {key: 2}, {key: 1}]);
+    const list = [{ key: 2 }, { key: 3 }, { key: 4 }, { key: 5 }, { key: 1 }];
+    expect(component.sortProperties(list, 'key', false)).toEqual([{ key: 1 }, { key: 2 }, { key: 3 }, { key: 4 }, { key: 5 }]);
+    expect(component.sortProperties(list, 'key', true)).toEqual([{ key: 5 }, { key: 4 }, { key: 3 }, { key: 2 }, { key: 1 }]);
   });
 
   it('sorting function should return correct alphabetic list', () => {
-    const list = [{key: 'aab'}, {key: 'aba'},  {key: 'aaa'},  {key: 'bba'}, {key: 'bbb'}];
-    expect(component.sortProperties(list, 'key', false)).toEqual([{key: 'aaa'}, {key: 'aab'},  {key: 'aba'},  {key: 'bba'}, {key: 'bbb'}]);
-    expect(component.sortProperties(list, 'key', true)).toEqual([{key: 'bbb'}, {key: 'bba'},  {key: 'aba'},  {key: 'aab'}, {key: 'aaa'}]);
+    const list = [{ key: 'aab' }, { key: 'aba' }, { key: 'aaa' }, { key: 'bba' }, { key: 'bbb' }];
+    expect(component.sortProperties(list, 'key', false)).toEqual([{ key: 'aaa' }, { key: 'aab' }, { key: 'aba' }, { key: 'bba' }, { key: 'bbb' }]);
+    expect(component.sortProperties(list, 'key', true)).toEqual([{ key: 'bbb' }, { key: 'bba' }, { key: 'aba' }, { key: 'aab' }, { key: 'aaa' }]);
   });
 
   it('should show the correct table', () => {
@@ -76,7 +90,13 @@ describe('OverviewTableComponent', () => {
     expect(component.drFilter).toEqual('');
   });
 
-
-
+  it('should create a row from a visit', () => {
+    const person = new Person(1234567890, 'firstname', 'lastname');
+    const visit = new Visit(123, person);
+    const visitInfo = {Team:'A'};
+    visit.setVisitInfo(visitInfo);
+    const row = component.rowMaker(visit);
+    expect(row.name).toEqual('firstname lastname');
+    expect(row.socialId).toEqual(1234567890);
+  });
 });
-
