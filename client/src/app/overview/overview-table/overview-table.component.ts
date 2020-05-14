@@ -78,13 +78,12 @@ export class OverviewTableComponent implements OnInit {
   }
 
   rowMaker(visit): TableRow {
-    console.log(visit);
     const row = {} as TableRow;
     row.team = visit.visitInfo.team;
     row.name = `${visit.person.getFirstName()} ${visit.person.getLastName()}`;
     row.activites = '';
     row.arrivalMethod = visit.visitInfo.arrivalMethod;
-    row.arrivalTime = visit.visitInfo.arrivalTime;
+    row.arrivalTime = visit.visitInfo.arrivalTime.slice(14, 19);
     row.dr = visit.visitInfo.dr;
     row.search = visit.visitInfo.search;
     row.astNurse = visit.visitInfo.astNurse;
