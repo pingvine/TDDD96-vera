@@ -62,6 +62,8 @@ export class OverviewTableComponent implements OnInit {
 
   contextmenuColumn: any;
 
+  sortCounter: number = 0;
+
   ngOnInit(): void {
     this.searchRows = this.allRows;
   }
@@ -79,7 +81,7 @@ export class OverviewTableComponent implements OnInit {
     console.log(visit);
     const row = {} as TableRow;
     row.team = visit.visitInfo.team;
-    row.name = `${visit.person.getFirstName()}`; // ${visit.person.getLastName()};
+    row.name = `${visit.person.getFirstName()} ${visit.person.getLastName()}`;
     row.activites = '';
     row.arrivalMethod = visit.visitInfo.arrivalMethod;
     row.arrivalTime = visit.visitInfo.arrivalTime;
@@ -101,6 +103,7 @@ export class OverviewTableComponent implements OnInit {
   resetButtonPressed() {
     this.clearFilters('all');
     this.table.groupHeader.collapseAllGroups();
+    this.table.sorts = [];
   }
 
   clearFilters(option: string): void {
@@ -129,15 +132,14 @@ export class OverviewTableComponent implements OnInit {
 
   updateSearchFilter(event): void {
     let val = event.target.value;
-    const num = typeof val === 'number';
-    console.log(num);
+    const num2 = isNaN(Number(val));
     // filter our data
     let temp = [];
-    if (num) {
+    if (num2) {
       val = val.toLowerCase();
       temp = this.allRows.filter((d) => d.name.toLowerCase().indexOf(val) !== -1 || !val);
     } else {
-      temp = this.allRows.filter((d) => d.social.toLowerCase().indexOf(val) !== -1 || !val);
+      temp = this.allRows.filter((d) => d.socialId.toLowerCase().indexOf(val) !== -1 || !val);
     }
     this.searchRows = temp;
   }
@@ -182,8 +184,10 @@ export class OverviewTableComponent implements OnInit {
     console.log(this.drFilter);
     if (this.drFilter !== '') {
       temp = temp.concat(this.allRows.filter((d) => {
-        console.log(d.dr.indexOf(this.drFilter));
-        return d.dr.indexOf(this.drFilter) !== -1 || !this.drFilter;
+        console.log(d);
+        if(d.dr !== undefined){
+          return d.dr.indexOf(this.drFilter) !== -1 || !this.drFilter;
+        }
       }));
     }
     console.log(temp);
@@ -207,15 +211,29 @@ export class OverviewTableComponent implements OnInit {
   }
 
   sortRows(event): void {
-    if (event.newValue !== undefined) {
-      const reverse = event.newValue !== 'asc';
-      this.searchRows = this.sortProperties(this.searchRows, event.column.prop, reverse);
-      if (!this.showAllTeams) {
-        this.searchRows = this.sortProperties(this.searchRows, 'team', false);
-      }
-      this.searchRows = [...this.searchRows];
+    console.log(event);
+    console.log(this.table.sorts);
+    console.log(this.sortCounter);
+    if (event.prevValue === undefined) {
+      this.sortCounter = 0;
+    }
+    if (this.sortCounter > 1) {
+      console.log('clear sorts');
+      this.table.sorts = [];
+      this.searchRows = [...this.allRows];
+      this.sortCounter = 0;
     } else {
-      this.searchRows = this.allRows;
+      this.sortCounter += 1;
+      if (event.newValue !== undefined) {
+        const reverse = event.newValue !== 'asc';
+        this.searchRows = this.sortProperties(this.searchRows, event.column.prop, reverse);
+        if (!this.showAllTeams) {
+          this.searchRows = this.sortProperties(this.searchRows, 'team', reverse);
+        }
+        this.searchRows = [...this.searchRows];
+      } else {
+        this.searchRows = this.allRows;
+      }
     }
   }
 
@@ -266,8 +284,8 @@ export class OverviewTableComponent implements OnInit {
       sortable.sort((a, b) => reversed * (a[sortedBy] - b[sortedBy]));
     } else {
       sortable.sort((a, b) => {
-        const x = a[sortedBy].toLowerCase();
-        const y = b[sortedBy].toLowerCase();
+        const x = a[sortedBy];
+        const y = b[sortedBy];
         return x < y ? reversed * -1 : x > y ? reversed : 0;
       });
     }

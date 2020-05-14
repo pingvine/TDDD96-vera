@@ -113,7 +113,7 @@
         </ng-template>
       </ngx-datatable-column>
       <!-- Info -->
-      <ngx-datatable-column name="Ankomst" prop="arrival"  [sortable]="true" [width]="80">
+      <ngx-datatable-column name="Ankomst" prop="arrival"  [sortable]="true" [width]="150">
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
           <span>{{row.arrivalTime}}</span>
         </ng-template>
@@ -123,8 +123,6 @@
       <ngx-datatable-column name="Checkup" prop="time" [sortable]="true" [width]="80">
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
           <span >{{row.time}} min</span>
-
-
         </ng-template>
       </ngx-datatable-column>
 
@@ -181,7 +179,7 @@
       </ng-template>
     </ngx-datatable-column>
     <!-- Info -->
-    <ngx-datatable-column name="Ankomst" prop="arrival" [sortable]="true" [width]="75"></ngx-datatable-column>
+    <ngx-datatable-column name="Ankomst" prop="arrival" [sortable]="true" [width]="200"></ngx-datatable-column>
     <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
       <span>{{value}}</span>
     </ng-template>
