@@ -33,15 +33,14 @@
 
   <mat-grid-tile colspan="2">
     <mat-form-field appearance="outline">
-      <mat-label>Ålder</mat-label>
-      <input matInput
-             type="number"
-             (input)="updateAge($event)">
-    </mat-form-field>
-  </mat-grid-tile>
+      <mat-label>Telefonnummer</mat-label>
+
+      <input matInput type="tel" (input)="updatePhone($event)">
+    </mat-form-field></mat-grid-tile>
+
 
   <!-- Row two -->
-  <mat-grid-tile colspan="2">
+  <mat-grid-tile colspan="1">
     <mat-button-toggle-group (change)="updateGender($event.value)">
       <mat-button-toggle value="MALE" aria-label="Text align center">
         Man
@@ -50,6 +49,15 @@
         Kvinna
       </mat-button-toggle>
     </mat-button-toggle-group>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Ålder</mat-label>
+      <input matInput
+             type="number"
+             (input)="updateAge($event)">
+    </mat-form-field>
   </mat-grid-tile>
 
   <mat-grid-tile colspan="2">
@@ -68,19 +76,14 @@
 
   <mat-grid-tile colspan="1">
     <mat-form-field appearance="outline">
-      <mat-label>Town</mat-label>
+      <mat-label>Stad</mat-label>
       <input matInput (input)="updateTown($event)">
     </mat-form-field>
   </mat-grid-tile>
 
   <!-- Row three -->
 
-  <mat-grid-tile colspan="2">
-    <mat-form-field appearance="outline">
-      <mat-label>Telefonnummer</mat-label>
 
-      <input matInput type="tel" (input)="updatePhone($event)">
-    </mat-form-field></mat-grid-tile>
 
   <mat-grid-tile colspan="4">
     <mat-form-field appearance="outline">
@@ -99,49 +102,56 @@
     <mat-checkbox color="accent" (change)="updateRemittance($event.checked)">Remiss</mat-checkbox>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="2">
+  <mat-grid-tile colspan="1">
     <mat-form-field appearance="outline">
       <mat-label>Choose a date</mat-label>
-      <input matInput type="date">
+      <input matInput type="date" [value]="date">
     </mat-form-field>
   </mat-grid-tile>
 
     <mat-grid-tile colspan="1">
       <mat-form-field appearance="outline">
         <mat-label>Ankomsttid</mat-label>
-        <input matInput type="time">
+        <input matInput type="time" [value]="time">
       </mat-form-field>
     </mat-grid-tile>
-
-    <mat-grid-tile colspan="1">
-        <button mat-button (click)='savePatient()' >Save</button>
-    </mat-grid-tile>
-
-<!--  Row five -->
-
-  <mat-grid-tile colspan="2">
-    <mat-radio-group>
-      <mat-label>Transport</mat-label>
-        <mat-radio-button value="1">Gående</mat-radio-button>
-        <mat-radio-button value="2">Ambulans</mat-radio-button>
-    </mat-radio-group>
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="2">
-    <mat-label>Tystnadsplikt</mat-label>
-    <mat-radio-group>
-      <mat-radio-button value="1">Ja</mat-radio-button>
-      <mat-radio-button value="2">Nej</mat-radio-button>
-    </mat-radio-group>
-  </mat-grid-tile>
 
   <mat-grid-tile colspan="2">
     <mat-form-field appearance="outline">
       <mat-label>Mottagning</mat-label>
       <mat-select>
-        <mat-option *ngFor="let department of departments" [value]="department">{{department}}
+        <mat-option *ngFor="let department of departments" [value]="department" (onSelectionChange)="updateDepartment(department)">{{department}}
         </mat-option>
       </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+<!--  Row five -->
+
+  <mat-grid-tile colspan="1">
+    <mat-checkbox color="accent" (change)="updateSecrecy($event.checked)">Tystnadsplikt</mat-checkbox>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1"></mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Ankomstmedel</mat-label>
+      <mat-select #select>
+        <mat-option
+          *ngFor="let arrivalMethod of arrivalMethods"
+          [value]="arrivalMethod"
+          (onSelectionChange)="updateArrivalMethod(arrivalMethod)">
+          {{arrivalMethod}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Annat</mat-label>
+      <input matInput [disabled]="select.value !== 'Annat'">
     </mat-form-field>
   </mat-grid-tile>
 </mat-grid-list>
