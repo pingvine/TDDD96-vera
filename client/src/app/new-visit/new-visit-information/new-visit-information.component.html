@@ -4,117 +4,17 @@
 
   <mat-grid-tile colspan="1">
     <mat-form-field appearance="outline">
-      <mat-label>Förnamn</mat-label>
-      <input matInput
-             type="text"
-             (input)="updateFirstName($event)" >
+      <mat-label>Ankomstdatum</mat-label>
+      <input matInput type="date" [value]="date" disabled>
     </mat-form-field>
   </mat-grid-tile>
 
   <mat-grid-tile colspan="1">
     <mat-form-field appearance="outline">
-      <mat-label>Efternamn</mat-label>
-      <input matInput
-             type="text"
-             (input)="updateLastName($event)" >
+      <mat-label>Ankomsttid</mat-label>
+      <input matInput type="time" [value]="time" disabled>
     </mat-form-field>
   </mat-grid-tile>
-
-  <mat-grid-tile colspan="2">
-    <mat-form-field appearance="outline">
-      <mat-label>Personnummer/id</mat-label>
-      <input matInput
-             type="text"
-             maxlength="12"
-             (input)="updateSocialId($event)"
-             placeholder="Ex. 19970530XXXX">
-    </mat-form-field>
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="2">
-    <mat-form-field appearance="outline">
-      <mat-label>Telefonnummer</mat-label>
-
-      <input matInput type="tel" (input)="updatePhone($event)">
-    </mat-form-field></mat-grid-tile>
-
-
-  <!-- Row two -->
-  <mat-grid-tile colspan="1">
-    <mat-button-toggle-group (change)="updateGender($event.value)">
-      <mat-button-toggle value="MALE" aria-label="Text align center">
-        Man
-      </mat-button-toggle>
-      <mat-button-toggle value="FEMALE" aria-label="Text align center">
-        Kvinna
-      </mat-button-toggle>
-    </mat-button-toggle-group>
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="1">
-    <mat-form-field appearance="outline">
-      <mat-label>Ålder</mat-label>
-      <input matInput
-             type="number"
-             (input)="updateAge($event)">
-    </mat-form-field>
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="2">
-    <mat-form-field appearance="outline">
-      <mat-label>Adress</mat-label>
-      <input matInput (input)="updateAddress($event)">
-    </mat-form-field>
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="1">
-    <mat-form-field appearance="outline">
-      <mat-label>Postkod</mat-label>
-      <input matInput (input)="updatePostcode($event)">
-    </mat-form-field>
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="1">
-    <mat-form-field appearance="outline">
-      <mat-label>Stad</mat-label>
-      <input matInput (input)="updateTown($event)">
-    </mat-form-field>
-  </mat-grid-tile>
-
-  <!-- Row three -->
-
-
-
-  <mat-grid-tile colspan="4">
-    <mat-form-field appearance="outline">
-      <mat-label>Anhöriga</mat-label>
-      <input matInput (input)="updateRelative($event)">
-    </mat-form-field>
-  </mat-grid-tile>
-
-  <!--Row four-->
-
-  <mat-grid-tile colspan="1">
-    <mat-checkbox color="accent" (change)="updateIdChecked($event.checked)">ID-kontroll</mat-checkbox>
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="1">
-    <mat-checkbox color="accent" (change)="updateRemittance($event.checked)">Remiss</mat-checkbox>
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="1">
-    <mat-form-field appearance="outline">
-      <mat-label>Choose a date</mat-label>
-      <input matInput type="date" [value]="date">
-    </mat-form-field>
-  </mat-grid-tile>
-
-    <mat-grid-tile colspan="1">
-      <mat-form-field appearance="outline">
-        <mat-label>Ankomsttid</mat-label>
-        <input matInput type="time" [value]="time">
-      </mat-form-field>
-    </mat-grid-tile>
 
   <mat-grid-tile colspan="2">
     <mat-form-field appearance="outline">
@@ -125,14 +25,6 @@
       </mat-select>
     </mat-form-field>
   </mat-grid-tile>
-
-<!--  Row five -->
-
-  <mat-grid-tile colspan="1">
-    <mat-checkbox color="accent" (change)="updateSecrecy($event.checked)">Tystnadsplikt</mat-checkbox>
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="1"></mat-grid-tile>
 
   <mat-grid-tile colspan="1">
     <mat-form-field appearance="outline">
@@ -151,7 +43,122 @@
   <mat-grid-tile colspan="1">
     <mat-form-field appearance="outline">
       <mat-label>Annat</mat-label>
-      <input matInput [disabled]="select.value !== 'Annat'">
+      <input matInput
+             [disabled]="select.value !== 'Annat'"
+             (focusout)="updateArrivalMethod($event.target.value)">
     </mat-form-field>
   </mat-grid-tile>
-</mat-grid-list>
+
+  <!--Row two-->
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Förnamn</mat-label>
+      <input matInput
+             type="text"
+             (focusout)="updateFirstName($event.target.value)" >
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Efternamn</mat-label>
+      <input matInput
+             type="text"
+             (focusout)="updateLastName($event.target.value)" >
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Födelseår</mat-label>
+      <input matInput
+             type="date"
+             (focusout)="updateSocialId($event.target.value)">
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Sista 4 eller unikt id</mat-label>
+      <input matInput type="text"
+      (focusout)="updateId($event.target.value)">
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-button-toggle-group (change)="updateGender($event.value)">
+      <mat-button-toggle value="MALE" aria-label="Text align center">
+        Man
+      </mat-button-toggle>
+      <mat-button-toggle value="FEMALE" aria-label="Text align center">
+        Kvinna
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Ålder</mat-label>
+      <input matInput
+             type="number"
+             [value]="party.additionalInfo.age"
+             (focusout)="updateAge($event.target.value)">
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <!-- Row three -->
+  <mat-grid-tile colspan="2">
+    <mat-form-field appearance="outline">
+      <mat-label>Telefonnummer</mat-label>
+
+      <input matInput type="tel" (focusout)="updatePhone($event.target.value)">
+    </mat-form-field></mat-grid-tile>
+
+  <mat-grid-tile colspan="2">
+    <mat-form-field appearance="outline">
+      <mat-label>Adress</mat-label>
+      <input matInput (focusout)="updateAddress($event.target.value)">
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Postkod</mat-label>
+      <input matInput (focusout)="updatePostcode($event.target.value)">
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-form-field appearance="outline">
+      <mat-label>Stad</mat-label>
+      <input matInput (focusout)="updateTown($event.target.value)">
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <!-- Row four -->
+
+  <mat-grid-tile colspan="6">
+    <mat-form-field appearance="outline">
+      <mat-label>Anhöriga</mat-label>
+      <input matInput (focusout)="updateRelative($event.target.value)">
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <!--Row five-->
+
+  <mat-grid-tile colspan="1">
+    <mat-checkbox color="accent" (change)="updateIdChecked($event.checked)">ID-kontroll</mat-checkbox>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-checkbox color="accent" (change)="updateRemittance($event.checked)">Remiss</mat-checkbox>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1">
+    <mat-checkbox color="accent" (change)="updateSecrecy($event.checked)">Tystnadsplikt</mat-checkbox>
+  </mat-grid-tile>
+
+  <mat-grid-tile colspan="1"></mat-grid-tile>
+
+ </mat-grid-list>
