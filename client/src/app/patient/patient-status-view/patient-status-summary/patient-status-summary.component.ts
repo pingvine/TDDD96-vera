@@ -6,9 +6,11 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./patient-status-summary.component.css']
 })
 export class PatientStatusSummaryComponent implements OnInit {
-  @Input() comment: string;
+  @Input() comment;
+
   header_title = "Sammanfattning";
-  constructor() { }
+
+  constructor() {}
 
   ngOnInit(): void {
   }

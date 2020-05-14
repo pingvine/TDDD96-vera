@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-patient-status-view-dialog',
@@ -13,25 +12,17 @@ export class PatientStatusViewDialogComponent implements OnInit {
   header_title_b = "B - Andning";
   header_title_c = "C - Cirkulation";
   header_title_d = "D - Medvetandegrad";
-
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-
-  constructor(private _formBuilder: FormBuilder) {}
-
-  ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
+  constructor() {
   }
 
-  
+  ngOnInit(): void {
+  }
 
-  onCommentChange(comment: string): void {
-    this.comment = comment;
+  onCommentChange(list: string): void {
+    console.log(list);
+    let html = this.convertToHtmlList(list);
+    console.log(html)
+    this.comment = html;
   }
 
   onRemarkChange(remark: boolean) {
@@ -40,5 +31,31 @@ export class PatientStatusViewDialogComponent implements OnInit {
       this.comment += "Exponering";
     }
     console.log(":(")
+  }
+
+  convertToHtmlList(dict){
+    let html = '';
+    if(dict.active === '1'){
+      html += '<ul><li>' + dict.name + '</li>';
+      if(dict.skin !== undefined){
+        html += '<ul><li>Anmärkning på hud</li>';
+        html += '<ul><li>' + dict.skin.type + '</li>';
+        if(dict.skin.comment !== '') {
+          html += '<li>' + dict.skin.comment + '</li>';
+        }
+        html += '</ul></ul>';
+      }
+      if(dict.sfi !== '') {
+        html += '<ul><li>Sfinktertonus</li>';
+        html += '<ul><li>' + dict.sfi + '</li></ul></ul>';
+      }
+      if(dict.comment !== ''){
+        html += '<ul><li>Kommentar</li>';
+        html += '<ul><li>' + dict.comment + '</li></ul></ul>';
+      }
+
+      html += '</ul>';
+    }
+    return html;
   }
 }
