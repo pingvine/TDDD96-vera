@@ -32,5 +32,11 @@ const TestSchema = new mongoose.Schema({
   },
 });
 
+const CurrentIdSchema = new mongoose.Schema({
+  currentId: Number
+});
+
 export const EventModel = mongoose.model('eventvera', EventVeraSchema);
 export const TestEventModel = mongoose.model('testevent', TestSchema);
+export const CurrentIdModel = mongoose.model('currentid', CurrentIdSchema);
+
