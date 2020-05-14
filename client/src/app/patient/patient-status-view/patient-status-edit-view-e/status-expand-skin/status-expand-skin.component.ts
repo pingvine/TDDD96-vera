@@ -7,7 +7,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class StatusExpandSkinComponent implements OnInit {
 
-  @Input() comment = '';
+  comment = '';
   @Output() commentChange: EventEmitter<string> = new EventEmitter();
 
   constructor() { }

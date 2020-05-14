@@ -22,4 +22,10 @@ button.mat-menu-item {
   background: rgba(0, 0, 0, 0.0);
 }
 
+.custom-dialog-container .mat-dialog-container {
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.0);
+  padding: 0px;
+}
+
 
