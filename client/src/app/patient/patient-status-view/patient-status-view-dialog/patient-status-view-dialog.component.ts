@@ -6,12 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patient-status-view-dialog.component.css']
 })
 export class PatientStatusViewDialogComponent implements OnInit {
-  header_title = "Statusbedömning"
+  header_title = "Statusbedömning";
   comment = "";
-  header_title_a = "A - Luftväg";
-  header_title_b = "B - Andning";
-  header_title_c = "C - Cirkulation";
-  header_title_d = "D - Medvetandegrad";
   constructor() {
   }
 
@@ -21,40 +17,28 @@ export class PatientStatusViewDialogComponent implements OnInit {
   onCommentChange(list: string): void {
     console.log(list);
     let html = this.convertToHtmlList(list);
-    console.log(html)
+    console.log(html);
     this.comment = html;
-  }
-
-  onRemarkChange(remark: boolean) {
-    if (remark == true) {
-      console.log("HEJ");
-      this.comment += "Exponering";
-    }
-    console.log(":(")
   }
 
   convertToHtmlList(dict){
     let html = '';
     if(dict.active === '1'){
-      html += '<ul><li>' + dict.name + '</li>';
+      html += '<ul><li><h2>' + dict.name + '</h2></li>';
       if(dict.skin !== undefined){
         html += '<ul><li>Anmärkning på hud</li>';
-        html += '<ul><li>' + dict.skin.type + '</li>';
-        if(dict.skin.comment !== '') {
-          html += '<li>' + dict.skin.comment + '</li>';
-        }
+        html += '<ul><li>' + dict.skin.type + ': ' + dict.skin.comment + '</li>';
         html += '</ul></ul>';
       }
       if(dict.sfi !== '') {
         html += '<ul><li>Sfinktertonus</li>';
-        html += '<ul><li>' + dict.sfi + '</li></ul></ul>';
+        html += '<ul><li>' + dict.sfi + ': ' + dict.comment + '</li></ul></ul>';
       }
-      if(dict.comment !== ''){
-        html += '<ul><li>Kommentar</li>';
-        html += '<ul><li>' + dict.comment + '</li></ul></ul>';
-      }
-
       html += '</ul>';
+    }
+    else if(dict.active === '2') {
+      html += '<ul><li><h2>' + dict.name + '</h2></li>';
+      html += '<ul><li>Ingen anmärkning</li>';
     }
     return html;
   }

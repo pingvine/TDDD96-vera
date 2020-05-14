@@ -30,7 +30,7 @@ export class PatientStatusEditViewEComponent implements OnInit {
 
   sfinktertonus = '';
 
-  comment = ''
+  comment = '';
 
   skin = undefined;
 
@@ -50,7 +50,7 @@ export class PatientStatusEditViewEComponent implements OnInit {
 
   updateSummary() {
     const summary = {};
-    summary.name = 'E - Exponering';
+    summary.name = 'Exponering';
     // anmärkning
     summary.active = this.remark;
     // hud

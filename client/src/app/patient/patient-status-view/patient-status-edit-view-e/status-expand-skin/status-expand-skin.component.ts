@@ -12,7 +12,7 @@ export class StatusExpandSkinComponent implements OnInit {
 
   type = '';
 
-  @Output() changedValues: EventEmitter<string> = new EventEmitter();
+  @Output() changedValues: EventEmitter<any> = new EventEmitter();
 
 
   constructor() { }

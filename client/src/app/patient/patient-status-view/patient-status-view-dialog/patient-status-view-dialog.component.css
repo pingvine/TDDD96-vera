@@ -59,3 +59,7 @@
   padding: 16px;
   position: sticky;
 }
+
+.list {
+  list-style-type: none;
+}
