@@ -126,7 +126,7 @@ app.post('/id', (req, res) => {
   idCounter += 1;
 });
 
-app.get('/id', (req, res) => {
+app.get('/getNewId', (req, res) => {
   getCurrentId((err, val) => {
     res.json(val);
   });
