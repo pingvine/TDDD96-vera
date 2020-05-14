@@ -1,36 +1,49 @@
 import { RoleType } from './RoleType';
 
-export class Person{
+export class Person {
     private socialId: number;
+
     private firstName: string;
-    private lastName: string; 
+
+    private lastName: string;
+
     private roleType: RoleType;
 
-    constructor(id: number, fName: string , lName: string) {
-        this.socialId = id;
-        this.firstName = fName;
-        this.lastName = lName;
+    constructor(id: number, fName: string, lName: string) {
+      this.socialId = id;
+      this.firstName = fName;
+      this.lastName = lName;
     }
-    
-    getId(){
-        return this.socialId;
+
+    getId() {
+      return this.socialId;
     }
-    getFirstName(){
-        return this.firstName;
+
+    getFirstName() {
+      return this.firstName;
     }
-    getLastName(){
-        return this.lastName;
+
+    getLastName() {
+      return this.lastName;
     }
-    getRoleType(){
-        return this.roleType;
+
+    getRoleType() {
+      return this.roleType;
     }
-    setFirstName(fName: string){
-        this.firstName = fName;
+
+    setFirstName(fName: string) {
+      this.firstName = fName;
     }
-    setLastName(lName: string){
-        this.lastName = lName;
+
+    setLastName(lName: string) {
+      this.lastName = lName;
     }
-    setRoleType(roleType: RoleType){
-        this.roleType = roleType;
+
+    setRoleType(roleType: RoleType) {
+      this.roleType = roleType;
+    }
+
+    setId(socialId: number) {
+      this.socialId = socialId;
     }
 }

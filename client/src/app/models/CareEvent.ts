@@ -1,57 +1,83 @@
-import { ActionType } from './ActionType'
-import { Person } from './Person'
-import { RoleType } from './RoleType'
+import { ActionType } from './ActionType';
+import { Person } from './Person';
+import { RoleType } from './RoleType';
 
-export class CareEvent{
+interface Receivers {
+  roleTypes: RoleType[];
+  team: number;
+}
+
+export class CareEvent {
     private touched: Date
+
     private creatorId: number
-    private recievers: [RoleType[], number]
-    private completed: [Date, number]
+
+    private receivers: Receivers
+
+    private completed: [Date, string]
+
     private actionType: ActionType
+
     private creationTime: Date
+
     private comment: string
 
-    constructor(creator: Person, recievers: RoleType[], team: number, action: ActionType, comment: string){
-        this.touched = new Date
-        this.creatorId = creator.getId()
-        this.recievers = [recievers, team]
-        this.completed = undefined
-        this.actionType = action
-        this.creationTime = new Date()
-        this.comment = comment
+    private patient: Person;
+
+    constructor(creator: Person, receivers: RoleType[], team: number, action: ActionType, comment: string, patient?: Person) {
+      this.touched = new Date();
+      this.creatorId = creator.getId();
+      this.receivers = { roleTypes: receivers, team };
+      this.completed = undefined;
+      this.actionType = action;
+      this.creationTime = new Date();
+      this.comment = comment;
+      this.patient = patient;
     }
 
-    touch(){
-        this.touched = new Date()
+    setPatient(person: Person) {
+      this.patient = person;
     }
 
-    getCreatorId(){
-        return this.creatorId
+    setCreationTime(date: Date) {
+      this.creationTime = date;
     }
 
-    getReceiverId(){
-        return this.recievers
+    getPatient(): Person {
+      return this.patient;
     }
 
-    markAsCompleted(markedBy: number){
-        this.completed = [new Date(), markedBy]
+    touch() {
+      this.touched = new Date();
     }
 
-    getActionType(){
-        return this.actionType
+    getCreatorId() {
+      return this.creatorId;
     }
 
-    getCreationTime(){
-        return this.creationTime
+    getReceiverId() {
+      return this.receivers;
     }
 
-    getComment(){
-        return this.comment
+    markAsCompleted(markedBy: string) {
+      this.completed = [new Date(), markedBy];
     }
 
-    appendComment(comment: string){
-        let lineBreak = '\n'
-        this.comment = this.comment.concat(lineBreak)
-        this.comment = this.comment.concat(comment.toString())
+    getActionType() {
+      return this.actionType;
+    }
+
+    getCreationTime() {
+      return this.creationTime;
+    }
+
+    getComment() {
+      return this.comment;
+    }
+
+    appendComment(comment: string) {
+      const lineBreak = '\n';
+      this.comment = this.comment.concat(lineBreak);
+      this.comment = this.comment.concat(comment.toString());
     }
 }

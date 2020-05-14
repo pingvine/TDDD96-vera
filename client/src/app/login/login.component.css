@@ -1,0 +1,38 @@
+.login-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+}
+
+.left-col {
+  marign: auto;
+  padding: 0px;
+  float: left;
+  flex: 50%;
+}
+
+mat-list-item {
+  margin: 16px;
+}
+.right-col {
+  margin: auto;
+  padding: 0px;
+  float: left;
+  flex: 50%;
+}
+
+.logo {
+  width: 50%;
+}
+
+.login-button {
+
+}
+
+.logo-container {
+  text-align: center;
+}
+
+.spinner {
+}

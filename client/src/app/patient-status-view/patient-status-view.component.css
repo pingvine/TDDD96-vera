@@ -1,0 +1,26 @@
+ 
+.gridListContainer{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    padding: 24px;
+}
+
+mat-grid-list{
+    max-width: 100%;
+    height: 100%;
+}
+
+.tileContent{
+    height: 100%;
+    width: 100%;
+}
+
+.patientBlock{
+    height: 200px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+
+}

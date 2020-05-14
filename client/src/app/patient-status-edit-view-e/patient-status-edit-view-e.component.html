@@ -1,0 +1,69 @@
+<mat-card class="mat-card-background">
+  <mat-card-header class="mat-card-header">
+    <mat-card-title class="mat-card-title">E - Exponering</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mat-card-content">
+    <mat-radio-group>
+      <mat-radio-button value="1" class="mat-radio-test">Anmärkning</mat-radio-button>
+      <mat-radio-button value="2" class="mat-radio-test">Ingen anmärkning</mat-radio-button>
+    </mat-radio-group>
+    <p>
+      Tänk alltid på patientens integritet vid avklädning. Täck över den del av kroppen som för tillfället inte bedöms.
+    </p>
+
+    <mat-accordion>
+
+      <mat-expansion-panel class="mat-expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Anmärk på hud
+          </mat-panel-title>
+          <mat-panel-description>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-radio-group>
+          <mat-radio-button value="1">Sårskada</mat-radio-button>
+          <mat-radio-button value="2">Brännskada</mat-radio-button>
+          <mat-radio-button value="3">Hudutslag</mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field>
+          <mat-label>Kommentar</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                           (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Anmärk på kropp (extremiteter etc.)
+          </mat-panel-title>
+          <mat-panel-description>
+            {{panelOpenState ? 'open' : 'closed'}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+          <mat-card>
+            <mat-icon svgIcon="info" aria-hidden="false" aria-label="Info icon"></mat-icon>
+            Klicka på kroppen där du vill anmärka
+          </mat-card>
+      </mat-expansion-panel>
+
+      <label id="sfinktertonus-label">Sfinktertonus</label>
+      <mat-radio-group
+        aria-labelledby="sfinktertonus-label" class="mat-example-radio-group">
+        <mat-radio-button value="1" class="mat-radio-test">Normal</mat-radio-button>
+        <mat-radio-button value="2" class="mat-radio-test">Nedsatt</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field appearance="fill" style="height: 100%; width: 15em; font-size: 16px">
+        <mat-label>Kommentar</mat-label>
+        <input matInput (keyup)="updateKommentar($event)"/>
+      </mat-form-field>
+
+    </mat-accordion>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>

@@ -34,7 +34,7 @@ export class OverviewTableComponent implements OnInit {
 
   groups = [];
 
-  teams = [{ name: 'A', check: false }, { name: 'B', check: false }, { name: 'C', check: false }, { name: 'D', check: false }, { name: 'X', check: false }, { name: 'U', check: false }];
+  teams = [{ name: 'A', check: false }, { name: 'X', check: false }, { name: 'U', check: false }];
 
   searchRows = [];
 
@@ -76,17 +76,20 @@ export class OverviewTableComponent implements OnInit {
   }
 
   rowMaker(visit): TableRow {
+    console.log(visit);
     const row = {} as TableRow;
-    row.team = visit.visitInfo.Team;
-    row.name = `${visit.person.getFirstName()} ${visit.person.getLastName()}`;
+    row.team = visit.visitInfo.team;
+    row.name = `${visit.person.getFirstName()}`; // ${visit.person.getLastName()};
     row.activites = '';
-    row.arrivalMethod = visit.visitInfo.Ankomstsätt;
-    row.arrivalTime = visit.visitInfo.Ankomst;
-    row.dr = visit.visitInfo.Ansvläk;
-    row.astNurse = visit.visitInfo.Ansvusk;
-    row.nurse = visit.visitInfo.Ansvssk;
+    row.arrivalMethod = visit.visitInfo.arrivalMethod;
+    row.arrivalTime = visit.visitInfo.arrivalTime;
+    row.dr = visit.visitInfo.dr;
+    row.search = visit.visitInfo.search;
+    row.astNurse = visit.visitInfo.astNurse;
+    row.nurse = visit.visitInfo.nurse;
     row.prio = visit.visitInfo.prio;
-    row.age = visit.visitInfo.Ålder;
+    row.age = visit.visitInfo.age;
+    row.gender = visit.visitInfo.gender;
     row.socialId = visit.visitInfo.socialId;
     return row;
   }
@@ -268,7 +271,6 @@ export class OverviewTableComponent implements OnInit {
         return x < y ? reversed * -1 : x > y ? reversed : 0;
       });
     }
-
     return sortable;
   }
 

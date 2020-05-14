@@ -1,0 +1,46 @@
+.mat-card-title {
+  text-align: center;
+  font-size: medium;
+}
+
+.mat-card-content {
+  font-size: small;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.mat-card-background {
+  max-width: fit-content;
+  background-color: transparent;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 0px;
+}
+
+.mat-checkbox {
+  margin: 0 10px;
+}
+
+.mat-card-header {
+  background-color: #3F51B5;
+  color: white;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.mat-expansion-panel {
+  border: none;
+  max-width: fit-content;
+  margin-bottom: 16px;
+}
+
+.mat-radio-test {
+  margin-right: 16px;
+  margin-bottom: 16px;
+}
+
+.mat-example-radio-group {
+  display: flex;
+  margin: 16px 0;
+}
