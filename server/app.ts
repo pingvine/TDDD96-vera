@@ -6,7 +6,9 @@ import {
   storeEvent,
   userExists,
   getCareEventByTeam,
-  getCareEventByPatient, getAllEvents,
+  getCareEventByPatient, 
+  getAllEvents,
+  getCurrentId,
 } from './dbHelper';
 import { EventType } from '../shared/models/EventType';
 
@@ -122,6 +124,12 @@ app.post('/event', (req, res) => {
 app.post('/id', (req, res) => {
   res.json({ id: idCounter });
   idCounter += 1;
+});
+
+app.get('/getNewId', (req, res) => {
+  getCurrentId((err, val) => {
+    res.json(val);
+  });
 });
 
 app.post('/user', (req, res) => {

@@ -1,13 +1,20 @@
 import { EventVera } from '../shared/models/EventVera';
 import { EventType } from '../shared/models/EventType';
 import { RoleType } from '../client/src/app/models/RoleType';
-import { EventModel, TestEventModel } from './modelsAndSchemas';
+import { EventModel, TestEventModel, CurrentIdModel } from './modelsAndSchemas';
 
 const mongoose = require('mongoose');
 
 
 const users = [];
 const idCounter = 0;
+
+export function getCurrentId(callback) {
+    CurrentIdModel.updateOne({}, {$inc: { currentId: 1}}, (err, res) => {})
+    CurrentIdModel.find((err, id) => {
+        callback(err, id[0].currentId);
+    })
+}
 
 /**
  *
