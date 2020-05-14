@@ -2,10 +2,15 @@ import {
   Component, EventEmitter, OnInit, Output,
 } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { RoleType } from '../models/RoleType';
 import { User } from '../models/User';
 import { Person } from '../models/Person';
 import { UserType } from '../models/UserType';
+import { ServerService } from '../services/server.service';
+import { SpinnerOverlayComponent } from '../spinner-overlay/spinner-overlay.component';
+import { LoginService } from '../services/login.service';
+import {Router} from "@angular/router";
 
 interface Role {
   value: RoleType;
@@ -34,21 +39,52 @@ export class LoginComponent implements OnInit {
 
   roleControl = new FormControl('', [Validators.required, Validators.nullValidator]);
 
-  constructor() { }
+  constructor(private serverService: ServerService,
+              private loginService: LoginService,
+              private dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  logIn() {
+  delay(ms: number) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  async logIn() {
+    // Spinner overlay
+    const dialogRef: MatDialogRef<SpinnerOverlayComponent> = this.dialog.open(SpinnerOverlayComponent,
+      {
+        panelClass: 'transparent',
+        disableClose: true,
+      });
+
     console.log(`Selected role:${this.selectedRole}`);
     console.log(`Selected username:${this.userName.value}`);
 
-    const id = 0;
-    const fname = this.userName.value;
-    const lname = '';
-    const person = new Person(id, fname, lname);
-    person.setRoleType(this.selectedRole);
-    const user = new User(id, person, UserType.Editor);
+    this.serverService.getId().subscribe((msg) => {
+      const { id } = msg;
+      const fname = this.userName.value;
+      const lname = '';
+      const person = new Person(id, fname, lname);
+      const user = new User(id, person, UserType.Editor);
+      user.setRoleType(this.selectedRole);
+
+      this.serverService.createUser(user).subscribe((msg) => {
+        console.log('MESSAGE:');
+        console.log(msg);
+      });
+
+      this.loginService.changeUser(user);
+      this.router.navigate(['overview']);
+    },
+    (error) => {
+      console.log(`Error in login getId: ${error.message}`);
+      dialogRef.close();
+    },
+    () => {
+      dialogRef.close();
+    });
   }
 
   getUsernameErrorMessage() {

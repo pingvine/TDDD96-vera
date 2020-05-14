@@ -1,0 +1,59 @@
+.card-header{
+    background-color:  rgb(44, 44, 173);
+    border-radius: 5px;
+    display: flex;
+    margin: 0;
+
+}
+
+.title{
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    margin: 0;
+    float: left;
+    flex: 90%;
+    
+}
+
+
+.activity-icon{
+    float: right;
+    padding: 0;
+    margin: 0;
+}
+
+.headerActions{
+    float: right;
+    margin: 0;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+}
+
+.time{
+    position: relative;
+    font-size: 8px;
+    color: white;
+    margin: 0;
+    flex: 10%;
+    float: right;
+}
+
+
+.fullscreen-button{
+    float: right;
+    background-color: transparent;
+    height: 0;
+    width: 0;
+    margin: 0;
+}
+.fullscreen-icon{
+    color: white;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 4px;
+    float: right;
+}
+
+

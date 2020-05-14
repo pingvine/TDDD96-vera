@@ -113,11 +113,12 @@
         </ng-template>
       </ngx-datatable-column>
       <!-- Info -->
-      <ngx-datatable-column name="Ankomst" prop="arrival"  [sortable]="true" [width]="80">
+      <ngx-datatable-column name="Ankomst" prop="arrival"  [sortable]="true" [width]="150">
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
-          <span>{{row.arrival}}</span>
+          <span>{{row.arrivalTime}}</span>
         </ng-template>
       </ngx-datatable-column>
+
 
       <ngx-datatable-column name="Checkup" prop="time" [sortable]="true" [width]="80">
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
@@ -141,7 +142,7 @@
       <ngx-datatable-column name="Ansv.Usk." prop="nurse2" [sortable]="true" [width]="90"></ngx-datatable-column>
       <!-- Misc. -->
       <ngx-datatable-column name="Kommentar"  [width]="100" [sortable]="false"></ngx-datatable-column>
-      <ngx-datatable-column name="Ankomstsätt" prop="arrival_method" [width]="100" [sortable]="false"></ngx-datatable-column>
+      <ngx-datatable-column name="Ankomstsätt" prop="arrivalMethod" [width]="100" [sortable]="false"></ngx-datatable-column>
       <ngx-datatable-column name="Sekretess" [width]="50" [sortable]="false"></ngx-datatable-column>
       <ngx-datatable-column name="Betalat" [width]="100" [sortable]="false"></ngx-datatable-column>
       <ngx-datatable-column name="Värdesaker" [width]="100" [sortable]="false"></ngx-datatable-column>
@@ -180,7 +181,7 @@
       </ng-template>
     </ngx-datatable-column>
     <!-- Info -->
-    <ngx-datatable-column name="Ankomst" prop="arrival" [sortable]="true" [width]="75"></ngx-datatable-column>
+    <ngx-datatable-column name="Ankomst" prop="arrival" [sortable]="true" [width]="150"></ngx-datatable-column>
     <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
       <span>{{value}}</span>
     </ng-template>

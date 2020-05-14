@@ -1,8 +1,6 @@
-<mat-grid-list cols="2">
+<mat-grid-list cols="3">
   <mat-grid-tile>
     <div>
-
-      <button mat-raised-button color="primary" (click)="sendMessage()">Send a message to the server!</button>
       <h1>Messages from server</h1>
       <mat-list>
         <mat-card style="margin:8px;" *ngFor="let message of messages">
@@ -15,7 +13,7 @@
   </mat-grid-tile>
   <mat-grid-tile>
     <mat-form-field>
-      <input matInput [(ngModel)]="senderId" [value]="senderId" placeholder="Input your sender ID">
+      <input matInput [(ngModel)]="senderId" placeholder="Input your sender ID">
     </mat-form-field>
 
     <mat-card >
@@ -34,6 +32,18 @@
 
         Aktiva: {{ activeUsers.toString() }}
       </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>CareEvent</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        Skicka CareEvent
+        <br>
+        <button (click)="sendCareEvent()"mat-raised-button color="primary">Skicka ett CareEvent</button>
+      </mat-card-content>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
