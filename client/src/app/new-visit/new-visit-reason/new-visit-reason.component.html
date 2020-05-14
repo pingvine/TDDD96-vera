@@ -7,7 +7,7 @@
       <mat-label>Sökorsak</mat-label>
       <input matInput
              type="text"
-             (input)="updateReason($event)">
+             (focusout)="updateReason($event)">
     </mat-form-field>
   </mat-grid-tile>
 
@@ -16,7 +16,7 @@
       <mat-label>ESS</mat-label>
       <input matInput
              type="text"
-             (input)="updateESS($event)">
+             (focusout)="updateESS($event)">
     </mat-form-field>
   </mat-grid-tile>
 
@@ -31,9 +31,7 @@
       <mat-label>Aktuellt</mat-label>
       <input matInput
              type="text"
-             (input)="updateInformation($event)"
-      >
-
+             (focusout)="updateInformation($event)">
     </mat-form-field>
   </mat-grid-tile>
 

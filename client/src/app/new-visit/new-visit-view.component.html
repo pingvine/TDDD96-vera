@@ -12,7 +12,7 @@
         <mat-card-content>
           <app-new-visit-information (newVisit)="updateVisitor($event)"></app-new-visit-information>
           <mat-divider [inset]="true"></mat-divider>
-          <app-new-visit-reason></app-new-visit-reason>
+          <app-new-visit-reason (search)="updateVisitorInformation($event)"></app-new-visit-reason>
           <button mat-button matStepperNext>Next</button>
           <button mat-raised-button (click)="addVisit()">Lägg till paitent</button>
         </mat-card-content>

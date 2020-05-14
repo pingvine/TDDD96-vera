@@ -12,7 +12,7 @@ import {EhrService, partyData} from '../ehr.service';
 
 export class NewVisitViewComponent extends HeaderName implements OnInit {
 
-  @Input() visit: partyData;
+  visit: partyData;
 
   constructor(viewNameService: ViewNameService, private ehrService : EhrService) {
     super(viewNameService, 'Ny patient');
@@ -27,6 +27,10 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
   updateVisitor(visit: partyData) {
     console.log('reciving: ' + visit.firstNames + ' ' + visit.lastNames)
     this.visit = visit;
+  }
+  updateVisitorInformation(information: {key, value}) {
+    this.visit.additionalInfo[information.key] = information.value;
+    console.log(this.visit.additionalInfo.search)
   }
 
 }
