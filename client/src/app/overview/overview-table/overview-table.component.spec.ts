@@ -93,7 +93,7 @@ describe('OverviewTableComponent', () => {
   it('should create a row from a visit', () => {
     const person = new Person(1234567890, 'firstname', 'lastname');
     const visit = new Visit(123, person);
-    const visitInfo = {Team:'A'};
+    const visitInfo = {Team: 'A', arrivalTime: '0000-00-00:12:12:12'};
     visit.setVisitInfo(visitInfo);
     const row = component.rowMaker(visit);
     expect(row.name).toEqual('firstname lastname');
