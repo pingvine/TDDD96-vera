@@ -6,3 +6,30 @@
   padding: 0px;
   position: fixed;
 }
+
+.sign-button{
+  position: absolute;
+  bottom: 16px;
+  right: 0;
+  margin: 16px;
+  width: 80px!important;
+  min-width: unset!important;
+  height: 40px !important;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px rgb(143, 143, 143);
+}
+
+.cancel-button{
+  position: absolute;
+  right: 96px;
+  bottom: 0;
+  margin: 16px;
+  width: 80px!important;
+  min-width: unset!important;
+  height: 40px !important;
+  background-color: #f2f2f2;
+  box-shadow: 3px 3px 3px rgb(143, 143, 143);
+  border-radius: 8px;
+}

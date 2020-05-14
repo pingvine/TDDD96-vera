@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-patient-status-summary',
@@ -7,12 +7,17 @@ import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 })
 export class PatientStatusSummaryComponent implements OnInit {
   @Input() comment;
+  @Output() closeDialogEvent = new EventEmitter<any>();
 
   header_title = "Sammanfattning";
 
   constructor() {}
 
   ngOnInit(): void {
+  }
+
+  closeDialog() {
+    this.closeDialogEvent.emit();
   }
 
 }
