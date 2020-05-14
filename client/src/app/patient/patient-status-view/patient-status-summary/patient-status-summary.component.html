@@ -1,6 +1,4 @@
 <mat-card class="status-summary-card">
   <app-patient-status-summary-header [title]="header_title"></app-patient-status-summary-header>
-  <mat-card-content style="margin-top: 16px">
-    {{comment}}
-  </mat-card-content>
+  <mat-card-content style="margin-top: 16px" [innerHTML]="comment"></mat-card-content>
 </mat-card>

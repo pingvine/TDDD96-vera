@@ -1,5 +1,5 @@
-    <mat-radio-group>
-      <mat-radio-button value="1" class="mat-radio-test" [ngModel]="remark" (ngModelChange)="onRemarkChange($event)" (click)="addRemark()">Anmärkning</mat-radio-button>
+    <mat-radio-group [(ngModel)]="remark" (ngModelChange)="updateSummary()">
+      <mat-radio-button value="1" class="mat-radio-test" >Anmärkning</mat-radio-button>
       <mat-radio-button value="2" class="mat-radio-test">Ingen anmärkning</mat-radio-button>
     </mat-radio-group>
     <app-info-card [info]="warnIntegritet" [icon]="warnIcon"></app-info-card>
@@ -14,7 +14,7 @@
 
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <app-status-expand-skin (commentChange)="onCommentChange($event)"></app-status-expand-skin>
+        <app-status-expand-skin (changedValues)="setSkinValue($event)"></app-status-expand-skin>
       </mat-expansion-panel>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
@@ -27,15 +27,15 @@
       </mat-expansion-panel>
 
       <label id="sfinktertonus-label">Sfinktertonus</label>
-      <mat-radio-group
-        aria-labelledby="sfinktertonus-label" class="mat-example-radio-group">
-        <mat-radio-button value="1" class="mat-radio-test">Normal</mat-radio-button>
-        <mat-radio-button value="2" class="mat-radio-test">Nedsatt</mat-radio-button>
+      <mat-radio-group [(ngModel)]="sfinktertonus" (ngModelChange)="updateSummary()"
+                       aria-labelledby="sfinktertonus-label" class="mat-example-radio-group">
+        <mat-radio-button value="Normal" class="mat-radio-test">Normal</mat-radio-button>
+        <mat-radio-button value="Nedsatt" class="mat-radio-test">Nedsatt</mat-radio-button>
       </mat-radio-group>
 
       <mat-form-field appearance="fill" style="height: 100%; width: 15em; font-size: 16px">
         <mat-label>Kommentar</mat-label>
-        <input matInput (keyup)="onCommentChange($event)"/>
+        <input matInput [(ngModel)]="comment" (keyup)="updateSummary()"/>
       </mat-form-field>
 
     </mat-accordion>

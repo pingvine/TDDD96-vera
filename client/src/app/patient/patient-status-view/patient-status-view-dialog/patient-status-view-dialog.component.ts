@@ -18,8 +18,11 @@ export class PatientStatusViewDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCommentChange(comment: string): void {
-    this.comment = comment;
+  onCommentChange(list: string): void {
+    console.log(list);
+    let html = this.convertToHtmlList(list);
+    console.log(html)
+    this.comment = html;
   }
 
   onRemarkChange(remark: boolean) {
@@ -28,5 +31,31 @@ export class PatientStatusViewDialogComponent implements OnInit {
       this.comment += "Exponering";
     }
     console.log(":(")
+  }
+
+  convertToHtmlList(dict){
+    let html = '';
+    if(dict.active === '1'){
+      html += '<ul><li>' + dict.name + '</li>';
+      if(dict.skin !== undefined){
+        html += '<ul><li>Anmärkning på hud</li>';
+        html += '<ul><li>' + dict.skin.type + '</li>';
+        if(dict.skin.comment !== '') {
+          html += '<li>' + dict.skin.comment + '</li>';
+        }
+        html += '</ul></ul>';
+      }
+      if(dict.sfi !== '') {
+        html += '<ul><li>Sfinktertonus</li>';
+        html += '<ul><li>' + dict.sfi + '</li></ul></ul>';
+      }
+      if(dict.comment !== ''){
+        html += '<ul><li>Kommentar</li>';
+        html += '<ul><li>' + dict.comment + '</li></ul></ul>';
+      }
+
+      html += '</ul>';
+    }
+    return html;
   }
 }
