@@ -1,24 +1,28 @@
 <app-patient-status-summary-header [title]="header_title"></app-patient-status-summary-header>
 <div mat-dialog-content class="mat-dialog-content">
   <div class="exponering-content">
-    <mat-grid-list cols="2">
-      <mat-grid-tile [rowspan]="1">
 
-        <mat-expansion-panel cols="1">
-          <mat-expansion-panel-header class="mat-expansion-panel-header">
-            <mat-panel-title style="color: white">
-              E - Exponering
-            </mat-panel-title>
-          </mat-expansion-panel-header>
-
+    <div class="left-col">
+      <mat-vertical-stepper class="mat-vertical-stepper">
+        <mat-step label="A - Luftväg">
+          ...
+        </mat-step>
+        <mat-step label="B - Andning">
+          ...
+        </mat-step>
+        <mat-step label="C - Cirkulation">
+          ...
+        </mat-step>
+        <mat-step label="D - Medvetandegrad">
+          ...
+        </mat-step>
+        <mat-step label="E - Exponering">
           <app-patient-status-edit-view-e style="width: 100%" (commentChange)="onCommentChange($event)"></app-patient-status-edit-view-e>
-
-        </mat-expansion-panel>
-
-      </mat-grid-tile>
-      <mat-grid-tile [rowspan]="1" style="scroll-snap-type: y mandatory">
-        <app-patient-status-summary [comment]="comment"></app-patient-status-summary>
-      </mat-grid-tile>
-    </mat-grid-list>
+        </mat-step>
+      </mat-vertical-stepper>
+    </div>
+    <div class="right-col">
+      <app-patient-status-summary [comment]="comment"></app-patient-status-summary>
+    </div>
   </div>
 </div>

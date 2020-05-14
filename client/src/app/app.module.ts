@@ -57,6 +57,9 @@ import { LoginComponent } from './login/login.component';
 import { EhrService } from './ehr.service';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { StatusFlowaxisComponent } from './patient/patient-status-view/status-flowaxis/status-flowaxis.component';
+import { StatusFlowaxisNodeComponent } from './patient/patient-status-view/status-flowaxis/status-flowaxis-node/status-flowaxis-node.component';
+import {MatStepperModule} from "@angular/material/stepper";
 
 
 @NgModule({
@@ -92,6 +95,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     TestEventSocketComponent,
     LoginComponent,
     SpinnerOverlayComponent,
+    StatusFlowaxisComponent,
+    StatusFlowaxisNodeComponent,
   ],
   imports: [
     BrowserModule,
@@ -131,7 +136,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatRadioModule
+    MatRadioModule,
+    MatStepperModule
   ],
   providers: [EhrService],
   bootstrap: [AppComponent],
