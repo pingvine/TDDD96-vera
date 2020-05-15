@@ -53,6 +53,7 @@ export class AppComponent implements OnInit {
         const vis = this.im.createVisit(pat);
         const healthManager = new HealthManager(partyData.additionalInfo.ehrId);
         vis.setHealthManager(healthManager);
+        partyData.additionalInfo.gender = partyData.gender;
         vis.setVisitInfo(partyData.additionalInfo);
       });
     });
