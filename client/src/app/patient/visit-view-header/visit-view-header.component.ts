@@ -75,7 +75,7 @@ export class VisitViewHeaderComponent implements OnInit {
     }
   }
 
-  //Retrieves helt info connected to currentVisit from EHRScape.
+  //Retrieves health info connected to currentVisit from EHRScape.
   private getPatientHealthInfo(): void {
     this.ehrService.getPnr(this.getSocialId().toString()).subscribe((answer: any) =>{
         this.ehrId = answer.parties[0].additionalInfo.ehrId;
