@@ -6,6 +6,8 @@ import { DummyGet } from '../models/get.dummy.model';
 import { ViewNameService } from '../view-name.service';
 import { HeaderName } from '../header-name';
 import { OverviewTableComponent } from './overview-table/overview-table.component';
+import {PatientService} from "../services/patient.service";
+import {InstanceManager} from "../Managers/InstanceManager";
 
 @Component({
   selector: 'app-overview',
@@ -20,29 +22,15 @@ export class OverviewViewComponent extends HeaderName implements OnInit, AfterVi
 
   visitorSelectorOpened: boolean;
 
-  url = 'http://localhost:4200/overview';
-
-  response: DummyGet[];
-
-  responseOk = false;
-
-  constructor(private service: RequestService, viewNameService: ViewNameService) {
+  constructor(viewNameService: ViewNameService, private patientService: PatientService) {
     super(viewNameService, 'Enhetsöversikt');
-  }
-
-  private getPatients(): void {
-    this.service.getData(this.url)
-      .subscribe((response) => {
-        console.log(response);
-        this.response = response;
-        this.responseOk = true;
-      });
   }
 
   selectVisitor(visitor: any): void {
     this.selectedVisitor = visitor;
     this.visitorSelectorOpened = true;
     console.log(this.selectedVisitor);
+    this.patientService.changePnr(visitor.socialId);
   }
 
   setVisitorSelectorState(state: boolean) {
@@ -51,7 +39,6 @@ export class OverviewViewComponent extends HeaderName implements OnInit, AfterVi
 
 
   ngOnInit(): void {
-    // this.getPatients();
     super.setView();
   }
 

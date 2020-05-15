@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {PatientService} from "../../services/patient.service";
+import {Visit} from "../../models/Visit";
+import {getAgeFromSocialIdNumber, getGenderFromSocialIdString, getNumberFromSocialString} from "../../util/helpers";
 
 @Component({
   selector: 'app-visit-view-header',
@@ -6,10 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./visit-view-header.component.css']
 })
 export class VisitViewHeaderComponent implements OnInit {
+  @Input() currentVisit: Visit;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  getAge() {
+    if (this.currentVisit) {
+      return getAgeFromSocialIdNumber(this.currentVisit.getPerson().getId());
+    }
+  }
+
+  getFirstName() {
+    if (this.currentVisit) {
+      return this.currentVisit.getPerson().getFirstName();
+    }
+  }
+
+  getLastName() {
+    if (this.currentVisit) {
+      return this.currentVisit.getPerson().getLastName();
+    }
   }
 
   onReasonChange(reason: string) {
@@ -27,5 +50,17 @@ export class VisitViewHeaderComponent implements OnInit {
   onClickBody() {
     console.log('Open vital parameters view');
 
+  }
+
+  getSocialId() {
+    if (this.currentVisit) {
+      return this.currentVisit.getPerson().getId();
+    }
+  }
+
+  getGender() {
+    if (this.currentVisit) {
+      return getGenderFromSocialIdString(this.currentVisit.getPerson().getId().toString()) === 'female' ? 'Kvinna' : 'Man';
+    }
   }
 }

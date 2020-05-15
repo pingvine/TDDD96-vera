@@ -17,6 +17,10 @@ button.mat-menu-item {
     width: 100%;
   }
 
+.mat-step-header .mat-step-icon {
+  display: none !important;
+}
+
 .transparent .mat-dialog-container {
   box-shadow: none;
   background: rgba(0, 0, 0, 0.0);

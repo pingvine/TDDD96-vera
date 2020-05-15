@@ -22,7 +22,7 @@ import { OverviewViewComponent } from './overview/overview-view.component';
 import { SummaryViewComponent } from './summary/summary-view.component';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
-import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
+import { NewVisitViewComponent } from './new-visit/new-visit-view.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
@@ -42,24 +42,28 @@ import { PatientViewCardContentComponent } from './patient-view-card-content/pat
 import { PatientViewCardFooterComponent } from './patient-view-card-footer/patient-view-card-footer.component';
 import { EventComponent } from './event/event.component';
 import { DatePipePipe } from './date-pipe.pipe';
+import { NoticeComponent } from './notice/notice.component';
 import { VisitReasonComponent } from './patient/visit-view-header/visit-reason/visit-reason.component';
 import { VisitViewHeaderComponent } from './patient/visit-view-header/visit-view-header.component';
 import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical/visit-topical.component';
 import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-info-personal/visit-info-personal.component';
 import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
+import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-reason.component';
 import { VisitSelectorComponent } from './overview/visit-selector/visit-selector.component';
 import { OverviewTableComponent } from './overview/overview-table/overview-table.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TestEventSocketComponent } from './test-event-socket/test-event-socket.component';
+import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-socket.component';
 import { LoginComponent } from './login/login.component';
 import { EhrService } from './ehr.service';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import { StatusFlowaxisComponent } from './patient/patient-status-view/status-flowaxis/status-flowaxis.component';
-import { StatusFlowaxisNodeComponent } from './patient/patient-status-view/status-flowaxis/status-flowaxis-node/status-flowaxis-node.component';
 import {MatStepperModule} from "@angular/material/stepper";
+
 
 
 @NgModule({
@@ -72,7 +76,7 @@ import {MatStepperModule} from "@angular/material/stepper";
     SummaryViewComponent,
     SettingsViewComponent,
     TeamViewComponent,
-    NewPatientViewComponent,
+    NewVisitViewComponent,
     AppHeaderComponent,
     PatientStatusViewComponent,
     PatientStatusViewDialogComponent,
@@ -86,17 +90,19 @@ import {MatStepperModule} from "@angular/material/stepper";
     PatientViewCardFooterComponent,
     EventComponent,
     DatePipePipe,
+    NoticeComponent,
     VisitReasonComponent,
     VisitViewHeaderComponent,
     VisitTopicalComponent,
     VisitInfoPersonalComponent,
     VisitBodyComponent,
     VisitEventsComponent,
+    NewVisitInformationComponent,
+    NewVisitReasonComponent,
     TestEventSocketComponent,
+    TestNoticeSocketComponent,
     LoginComponent,
     SpinnerOverlayComponent,
-    StatusFlowaxisComponent,
-    StatusFlowaxisNodeComponent,
   ],
   imports: [
     BrowserModule,
@@ -130,14 +136,14 @@ import {MatStepperModule} from "@angular/material/stepper";
     MatSelectModule,
     MatExpansionModule,
     FormsModule,
-    MatRadioModule,
-    MatExpansionModule,
     MatTooltipModule,
+    MatStepperModule,
+    MatButtonToggleModule,
+    MatRadioModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatRadioModule,
-    MatStepperModule
+    MatRadioModule
   ],
   providers: [EhrService],
   bootstrap: [AppComponent],

@@ -14,7 +14,9 @@
   color: white;
 }
 
-
+::ng-deep.mat-menu-content:not {
+  padding: 0;
+}
 
 .current-view {
   color: white;
@@ -24,7 +26,7 @@
   left: 64px;
 }
 
-.notice-menu {
+.notice-menu-button {
   width: 100px;
   height: 32px;
   background: #009688;
@@ -35,6 +37,26 @@
   display: flex;
 }
 
+::ng-deep.notice-menu {
+  max-width: none !important;
+  max-height: 325px !important;
+}
+
+.notice-menu {
+  width: 100%;
+}
+
 .notice-icon {
   color: white;
 }
+
+.empty-notice-list {
+  width: 300px;
+  height: 70px;
+  color: #cccccc;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+

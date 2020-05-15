@@ -1,0 +1,73 @@
+<div class="notice-container">
+  <mat-card class="background" (click)="deleteNotice()">
+    <mat-card-content>
+      <mat-grid-list cols="8" rowHeight="fit">
+        <mat-grid-tile rowspan="3">
+          <div class="tile-container">
+            <div *ngIf="type===actionType.Warning" class="notice-type-important">
+              <div class="notice-type-container">
+                <div class="notice-type">
+                  <mat-icon class="notice-type-icon">
+                    warning
+                  </mat-icon>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="type===actionType.Information" class="notice-type-info">
+              <div class="notice-type-container">
+                <div class="notice-type">
+                  <mat-icon class="notice-type-icon">
+                    info_outline
+                  </mat-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="3">
+          <div *ngIf="gender==='female'" class="gender">
+            <div class="tile-container">
+              <svg viewBox="0 0 24 24">
+                <path fill="currentColor"
+                      d="M12,2A2,2 0 0,1 14,4A2,2 0 0,1 12,6A2,2 0 0,1 10,4A2,2 0 0,1 12,2M10.5,22V16H7.5L10.09,8.41C10.34,7.59 11.1,7 12,7C12.9,7 13.66,7.59 13.91,8.41L16.5,16H13.5V22H10.5Z"/>
+              </svg>
+            </div>
+          </div>
+          <div *ngIf="gender==='male'" class="gender">
+            <div class="tile-container">
+              <div class="gender-container">
+                <svg viewBox="0 0 24 24">
+                  <path fill="currentColor"
+                        d="M12,2A2,2 0 0,1 14,4A2,2 0 0,1 12,6A2,2 0 0,1 10,4A2,2 0 0,1 12,2M10.5,7H13.5A2,2 0 0,1 15.5,9V14.5H14V22H10V14.5H8.5V9A2,2 0 0,1 10.5,7Z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2">
+          <div class="notice-text">
+            {{name}} {{personalId}}
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2">
+          <div class="notice-text">
+            {{age}} år
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2">
+          <div class="notice-text">
+            Team {{team}} <br> {{timeSent | datePipe}}
+          </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="6" rowspan="2">
+          <div class="notice-title">
+            {{title}}
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+  </mat-card>
+</div>

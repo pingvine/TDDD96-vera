@@ -1,0 +1,18 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+.stepper-header {
+  border-radius: 8px;
+  background-color: #008080;
+}
+.stepper-header-selected {
+  border-radius: 8px;
+  background-color: grey;
+}
+.mat-divider {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+

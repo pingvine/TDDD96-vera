@@ -23,8 +23,8 @@ const httpOptions = {
 export class ServerService {
   constructor(private http: HttpClient) { }
 
-  getEvents(): Observable<any> {
-    const url = `${baseUrl}/events`;
+  getEditEvents(): Observable<any> {
+    const url = `${baseUrl}/events/editevent`;
     return this.http.get(url, httpOptions);
   }
 
@@ -58,7 +58,8 @@ export class ServerService {
   createCareEvent(senderId: string, senderPerson: Person, receivers: RoleType[],
     team: number, action: ActionType, comment: string): Observable<any> {
     const url = `${baseUrl}/event`;
-    const careEvent = new CareEvent(senderPerson, receivers, team, action, comment);
+    const careEvent = new CareEvent(senderPerson, receivers, team, action, comment, new Person(199001010133, 'Manual Patient', ''));
+    careEvent.setCreationTime(new Date(Date.now() + 1000 * 5)); // 5 sek
     const data = {
       careEvent,
     };
