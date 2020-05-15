@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Subject, Observable } from 'rxjs'
-import {PatientService} from "../../services/patient.service";
 import {Visit} from "../../models/Visit";
-import {getAgeFromSocialIdNumber, getGenderFromSocialIdString, getNumberFromSocialString} from "../../util/helpers";
+import { getAgeFromSocialIdNumber, getGenderFromSocialIdString } from "../../util/helpers";
 import { EhrService } from '../../ehr.service';
 
 @Component({
@@ -13,9 +11,9 @@ import { EhrService } from '../../ehr.service';
 export class VisitViewHeaderComponent implements OnInit {
   @Input() currentVisit: Visit;
 
-  spo2: number;
+  spo2: number;  //Oxygen saturation
   af: number;    // Airflow count per minute
-  pulse: number;
+  pulse: number; //Heartbeat per minute
   bt: number;    // Blood pressure
   conscious: string;   // Consciousness, GCS, RLS
   temp: number;  // Body temperature
@@ -27,7 +25,6 @@ export class VisitViewHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      console.log('here: ' + this.currentVisit)
       this.getPatientHealthInfo();
   }
 
@@ -78,7 +75,7 @@ export class VisitViewHeaderComponent implements OnInit {
     }
   }
 
-  //Retrieves helt info connected to visit from EHRScape.
+  //Retrieves helt info connected to currentVisit from EHRScape.
   private getPatientHealthInfo(): void {
     this.ehrService.getPnr(this.getSocialId().toString()).subscribe((answer: any) =>{
         this.ehrId = answer.parties[0].additionalInfo.ehrId;

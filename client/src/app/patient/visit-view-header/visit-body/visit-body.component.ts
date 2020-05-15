@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Visit} from "../../../models/Visit";
-import { VisitViewHeaderComponent } from "../visit-view-header.component"
+
+
 
 
 @Component({
@@ -21,7 +21,7 @@ export class VisitBodyComponent implements OnInit {
   @Input() pain: number;  // Pain estimate // Todo validator
   @Input() weight: number;
 
-  constructor(private visitViewHeaderComponent : VisitViewHeaderComponent) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
