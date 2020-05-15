@@ -9,7 +9,6 @@ import { VisitViewHeaderComponent } from "../visit-view-header.component"
   styleUrls: ['./visit-body.component.css']
 })
 export class VisitBodyComponent implements OnInit {
-  //@Input() currentVisit: Visit;
 
   @Output() onClickBody = new EventEmitter<any>();
 
@@ -25,19 +24,6 @@ export class VisitBodyComponent implements OnInit {
   constructor(private visitViewHeaderComponent : VisitViewHeaderComponent) { }
 
   ngOnInit(): void {
-      /*setTimeout(() => {
-          //this.spo2 = this.visitViewHeaderComponent.getSpo2()
-          this.af = this.visitViewHeaderComponent.getAf()
-          this.pulse = this.visitViewHeaderComponent.getPulse()
-          this.bt = this.visitViewHeaderComponent.getBt()
-          this.temp = this.visitViewHeaderComponent.getTemp()
-          this.pain = this.visitViewHeaderComponent.getPain()
-          this.weight = this.visitViewHeaderComponent.getWeight()
-
-      }, 500);
-      his.visitViewHeaderComponent.getSpo2().subscribe((answer: number) =>{
-          this.spo2 = answer;
-      })*/
   }
 
   onClicked($event: MouseEvent) {

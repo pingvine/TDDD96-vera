@@ -5,18 +5,9 @@ var mongoose = require('mongoose');
 var users = [];
 var idCounter = 0;
 function getCurrentId(callback) {
-    var currentIdModel = new modelsAndSchemas_1.CurrentIdModel();
-    currentIdModel.find(function (err, res) {
-        if (err) {
-            console.log('Err: ' + err);
-        }
-        else {
-            console.log('Res: ' + res);
-        }
-        res.currentId += 1;
-        currentIdModel.save(res);
-        callback(err, res.currentId);
-        console.log('Returned: ' + res.currentId + '\n');
+    modelsAndSchemas_1.CurrentIdModel.updateOne({}, { $inc: { currentId: 1 } }, function (err, res) { });
+    modelsAndSchemas_1.CurrentIdModel.find(function (err, id) {
+        callback(err, id[0].currentId);
     });
 }
 exports.getCurrentId = getCurrentId;

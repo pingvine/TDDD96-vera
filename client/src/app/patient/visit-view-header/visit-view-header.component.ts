@@ -13,7 +13,6 @@ import { EhrService } from '../../ehr.service';
 export class VisitViewHeaderComponent implements OnInit {
   @Input() currentVisit: Visit;
 
-  //spo2: Subject <number>;  // Blood saturation
   spo2: number;
   af: number;    // Airflow count per minute
   pulse: number;
@@ -28,6 +27,7 @@ export class VisitViewHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+      console.log('here: ' + this.currentVisit)
       this.getPatientHealthInfo();
   }
 
@@ -80,62 +80,31 @@ export class VisitViewHeaderComponent implements OnInit {
 
   //Retrieves helt info connected to visit from EHRScape.
   private getPatientHealthInfo(): void {
-
     this.ehrService.getPnr(this.getSocialId().toString()).subscribe((answer: any) =>{
         this.ehrId = answer.parties[0].additionalInfo.ehrId;
-        //console.log('ehrId: ' + answer.parties[0].additionalInfo.ehrId)
 
     this.ehrService.getSpo2(this.ehrId).subscribe((answer: any) => {
-        //this.spo2.next(answer.resultSet[0].value.numerator);
         this.spo2 = answer.resultSet[0].value.numerator;
-        //console.log('SpO2: ' + this.spo2)
     });
     this.ehrService.getAf(this.ehrId).subscribe((answer:any) => {
         this.af = answer.resultSet[0].value.magnitude;
-        //console.log('AF: ' + this.af)
     });
     this.ehrService.getPulse(this.ehrId).subscribe((answer:any) => {
         this.pulse = answer.resultSet[0].value.magnitude;
-        //console.log('pulse: ' + this.pulse)
     });
     this.ehrService.getBt(this.ehrId).subscribe((answer:any) => {
         this.bt = answer.resultSet[0].value.magnitude;
-        //console.log('BT: ' + this.bt)
     });
     this.ehrService.getTemp(this.ehrId).subscribe((answer:any) => {
         this.temp = answer.resultSet[0].value.magnitude;
-        //console.log('Temp: ' + this.temp)
     });
     this.ehrService.getPain(this.ehrId).subscribe((answer:any) => {
         this.pain = answer.resultSet[0].value.magnitude;
-        //console.log('Pain: ' + this.pain)
     });
     this.ehrService.getWeight(this.ehrId).subscribe((answer:any) => {
         this.weight = answer.resultSet[0].value.magnitude;
-        //console.log('Weight: ' + this.weight)
     });
     });
-  }
-  getSpo2(): Observable <number>{
-      return this.spo2.asObservable();
-  }
-  getAf(){
-      return this.af;
-  }
-  getPulse(){
-      return this.pulse;
-  }
-  getBt(){
-      return this.bt;
-  }
-  getTemp(){
-      return this.temp;
-  }
-  getPain(){
-      return this.pain;
-  }
-  getWeight(){
-      return this.weight;
   }
 
 

@@ -7,9 +7,9 @@ import {SummaryViewComponent} from './summary/summary-view.component';
 import {TeamViewComponent} from './team/team-view.component';
 import {SettingsViewComponent} from './settings/settings-view.component';
 import {NewVisitViewComponent} from './new-visit/new-visit-view.component';
-
 import {TestEventSocketComponent} from "./test-event-socket/test-event-socket.component";
 import {LoginComponent} from "./login/login.component";
+
 
 const routes: Routes = [
   { path: 'patient/new',

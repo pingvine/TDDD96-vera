@@ -1,4 +1,4 @@
-<mat-grid-list cols="8" rowHeight="2:.75">
+<mat-grid-list cols="8" rowHeight="2:.75" gutterSize="6px">
 
   <!-- Row one  -->
 
@@ -7,8 +7,7 @@
       <mat-label>Sökorsak</mat-label>
       <input matInput
              type="text"
-             //(input)="updateReason($event)"
-             >
+             (focusout)="updateReason($event)">
     </mat-form-field>
   </mat-grid-tile>
 
@@ -17,8 +16,7 @@
       <mat-label>ESS</mat-label>
       <input matInput
              type="text"
-             //(input)="updateESS($event)"
-             >
+             (focusout)="updateESS($event)">
     </mat-form-field>
   </mat-grid-tile>
 
@@ -28,28 +26,17 @@
 
   <!-- Row two  -->
 
-  <mat-grid-tile colspan="4" rowspan="4">
+  <mat-grid-tile colspan="4">
     <mat-form-field appearance="outline">
       <mat-label>Aktuellt</mat-label>
       <input matInput
              type="text"
-             //(input)="updateInformation($event)" 
-             >
+             (focusout)="updateInformation($event)">
     </mat-form-field>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="4" rowspan="6">
-    <img class="ums-image" src="assets/ums.webp"/>
-  </mat-grid-tile>
-
-  <!-- Row three  -->
-
-  <mat-grid-tile colspan="2" >
-    Tidigare måenden
-  </mat-grid-tile>
-
-  <mat-grid-tile colspan="2" >
-    Tidigare måenden
+  <mat-grid-tile colspan="4">
+<!--    <img  class="ums-image" src="assets/ums.webp"/>-->
   </mat-grid-tile>
 
 </mat-grid-list>

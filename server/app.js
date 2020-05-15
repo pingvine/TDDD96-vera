@@ -105,7 +105,7 @@ app.post('/id', function (req, res) {
     res.json({ id: idCounter });
     idCounter += 1;
 });
-app.get('/id', function (req, res) {
+app.get('/getNewId', function (req, res) {
     dbHelper_1.getCurrentId(function (err, val) {
         res.json(val);
     });

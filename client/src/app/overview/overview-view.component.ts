@@ -22,23 +22,8 @@ export class OverviewViewComponent extends HeaderName implements OnInit, AfterVi
 
   visitorSelectorOpened: boolean;
 
-  url = 'http://localhost:4200/overview';
-
-  response: DummyGet[];
-
-  responseOk = false;
-
-  constructor(private service: RequestService, viewNameService: ViewNameService, private patientService: PatientService) {
+  constructor(viewNameService: ViewNameService, private patientService: PatientService) {
     super(viewNameService, 'Enhetsöversikt');
-  }
-
-  private getPatients(): void {
-    this.service.getData(this.url)
-      .subscribe((response) => {
-        console.log(response);
-        this.response = response;
-        this.responseOk = true;
-      });
   }
 
   selectVisitor(visitor: any): void {
@@ -54,7 +39,6 @@ export class OverviewViewComponent extends HeaderName implements OnInit, AfterVi
 
 
   ngOnInit(): void {
-    // this.getPatients();
     super.setView();
   }
 
