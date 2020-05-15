@@ -4,19 +4,59 @@
 
     <div class="left-col">
       <mat-vertical-stepper class="mat-vertical-stepper" #matVerticalStepper>
-        <mat-step label="A - Luftväg">
+        <mat-step>
+          <ng-template matStepLabel>
+            <div class="flex-stepper">
+              <mat-card [ngClass]="matVerticalStepper.selectedIndex === 0 ? 'stepper-header-selected': 'stepper-header'">
+                A
+              </mat-card>
+              <span style="margin: auto">Luftväg</span>
+            </div>
+          </ng-template>
             ...
         </mat-step>
         <mat-step label="B - Andning">
+          <ng-template matStepLabel>
+            <div class="flex-stepper">
+              <mat-card [ngClass]="matVerticalStepper.selectedIndex === 1 ? 'stepper-header-selected': 'stepper-header'">
+                B
+              </mat-card>
+              <span style="margin: auto">Andning</span>
+            </div>
+          </ng-template>
           ...
         </mat-step>
         <mat-step label="C - Cirkulation">
+          <ng-template matStepLabel>
+            <div class="flex-stepper">
+              <mat-card [ngClass]="matVerticalStepper.selectedIndex === 2 ? 'stepper-header-selected': 'stepper-header'">
+                C
+              </mat-card>
+              <span style="margin: auto">Cirkulation</span>
+            </div>
+          </ng-template>
           ...
         </mat-step>
         <mat-step label="D - Medvetandegrad">
+          <ng-template matStepLabel>
+            <div class="flex-stepper">
+              <mat-card [ngClass]="matVerticalStepper.selectedIndex === 3 ? 'stepper-header-selected': 'stepper-header'">
+                D
+              </mat-card>
+              <span style="margin: auto">Medvetandegrad</span>
+            </div>
+          </ng-template>
           ...
         </mat-step>
         <mat-step label="E - Exponering">
+          <ng-template matStepLabel>
+            <div class="flex-stepper">
+              <mat-card [ngClass]="matVerticalStepper.selectedIndex === 4 ? 'stepper-header-selected': 'stepper-header'">
+                E
+              </mat-card>
+              <span style="margin: auto">Exponering</span>
+            </div>
+          </ng-template>
           <app-patient-status-edit-view-e style="width: 100%" (commentChange)="onCommentChange($event)"></app-patient-status-edit-view-e>
         </mat-step>
       </mat-vertical-stepper>

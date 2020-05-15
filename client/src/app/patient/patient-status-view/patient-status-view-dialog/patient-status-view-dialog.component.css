@@ -62,3 +62,22 @@
 .list {
   list-style-type: none;
 }
+
+.stepper-header {
+  border-radius: 100%;
+  background-color: #3F51B5;
+  color: white;
+  margin-right: 16px;
+}
+
+.stepper-header-selected {
+  border-radius: 100%;
+  background-color: #009688;
+  color: white;
+  margin-right: 16px;
+}
+
+.flex-stepper {
+  display: flex;
+  height: 44px !important;
+}
