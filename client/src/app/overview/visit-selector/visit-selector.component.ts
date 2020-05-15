@@ -33,7 +33,7 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
     if (this.visit !== undefined) {
       this.name = this.visit.name;
       this.age = this.visit.age;
-      this.personalId = this.visit.social;
+      this.personalId = this.visit.socialId;
       this.priority = this.visit.prio;
       this.team = this.visit.team;
     }
