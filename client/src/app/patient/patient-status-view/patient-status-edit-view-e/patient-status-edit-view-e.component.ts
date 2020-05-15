@@ -10,7 +10,7 @@ import {
 export class PatientStatusEditViewEComponent implements OnInit {
   @Output() remarkChange: EventEmitter<boolean> = new EventEmitter();
 
-  @Output() commentChange: EventEmitter<string> = new EventEmitter();
+  @Output() commentChange: EventEmitter<any> = new EventEmitter();
 
   panelOpenState = false;
 
@@ -49,18 +49,13 @@ export class PatientStatusEditViewEComponent implements OnInit {
   }
 
   updateSummary() {
-    const summary = {};
-    summary.name = 'Exponering';
-    // anmärkning
-    summary.active = this.remark;
-    // hud
-    summary.skin = this.skin;
-    //  anmärk på kropp
-
-    //  sfinktertonus
-    summary.sfi = this.sfinktertonus;
-    //  kommentar
-    summary.comment = this.comment;
+    const summary = {
+      name: 'Exponering',
+      active: this.remark,
+      skin: this.skin,
+      sfi: this.sfinktertonus,
+      comment: this.comment
+    };
     console.log(summary);
     this.commentChange.emit(summary);
   }

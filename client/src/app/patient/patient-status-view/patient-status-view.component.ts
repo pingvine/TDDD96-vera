@@ -1,15 +1,14 @@
 import { Component, OnInit, Inject,Input, Output} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import {PatientStatusViewDialogComponent} from "../patient-status-view-dialog/patient-status-view-dialog.component";
-import {LoginService} from "../services/login.service";
-import {ServerService} from "../services/server.service";
-import {User} from "../models/User";
-import {EventVeraListener} from "../interfaces/event-vera-listener";
-import {EventVera} from "../../../../shared/models/EventVera";
-import {EventType} from "../../../../shared/models/EventType";
-import {EditEventData} from "../../../../shared/models/EditEventData";
-import {EventSocketService} from "../services/event-socket.service";
-import { EventEmitter } from 'events';
+import {PatientStatusViewDialogComponent} from "./patient-status-view-dialog/patient-status-view-dialog.component";
+import {LoginService} from "../../services/login.service";
+import {ServerService} from "../../services/server.service";
+import {User} from "../../models/User";
+import {EventVeraListener} from "../../interfaces/event-vera-listener";
+import {EventVera} from "../../../../../shared/models/EventVera";
+import {EventType} from "../../../../../shared/models/EventType";
+import {EditEventData} from "../../../../../shared/models/EditEventData";
+import {EventSocketService} from "../../services/event-socket.service";
 
 @Component({
   selector: 'app-patient-status-view',
