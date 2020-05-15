@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-patient-status-view-dialog',
@@ -9,15 +8,18 @@ import {MatDialogRef} from "@angular/material/dialog";
 export class PatientStatusViewDialogComponent implements OnInit {
   header_title = "Statusbedömning";
   comment = "";
-  constructor(public dialogRef: MatDialogRef<PatientStatusViewDialogComponent>) {
+  /*constructor(public dialogRef: MatDialogRef<PatientStatusViewDialogComponent>) {
+  }*/
+
+  constructor() {
   }
 
   ngOnInit(): void {
   }
 
-  closeDialog() {
+  /*closeDialog() {
     this.dialogRef.close();
-  }
+  }*/
 
   onCommentChange(list: string): void {
     console.log(list);
