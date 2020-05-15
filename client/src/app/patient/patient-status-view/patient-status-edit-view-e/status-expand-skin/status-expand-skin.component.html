@@ -1,0 +1,14 @@
+<mat-radio-group [(ngModel)]="type" (ngModelChange)="updateSkin()">
+  <mat-radio-button value="Sårskada" style="margin-right: 8px">Sårskada</mat-radio-button>
+  <mat-radio-button value="Brännskada" style="margin-right: 8px">Brännskada</mat-radio-button>
+  <mat-radio-button value="Hudutslag" style="margin-right: 8px">Hudutslag</mat-radio-button>
+</mat-radio-group>
+
+<mat-form-field>
+  <mat-label>Kommentar</mat-label>
+  <input matInput [(ngModel)]="comment" (ngModelChange)="updateSkin()">
+</mat-form-field>
+
+
+
+
