@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 //Interface for creating party data.
 export interface partyData {
@@ -35,27 +35,6 @@ export interface partyData {
     version?: number;
 }
 
-const testparty : partyData = {
-additionalInfo: {
-    active: true,
-    arrivalTime: '',
-    arrivalMethod: '',
-    socialId: '',
-    projekt: 'VERA2020',
-    search: '',
-    team: 'X',
-    ehrId: '',
-    prio: '',
-    age: '',
-    tystnadsplikt: false,
-    mottagning: '',
-    remittance: false,
-    idChecked: false,
-
-},
-firstNames: 'test',
-lastNames: '123',
-}
 
 @Injectable({
   providedIn: 'root',
@@ -76,6 +55,10 @@ export class EhrService {
 
   };
 
+  compositions = {
+      andning: 'journal_vera2020/andning/ospecificerad_händelse/frekvens|magnitude'
+  }
+
   baseUrl = 'https://rest.ehrscape.com/rest/v1';
 
   urlCreateId = 'https://rest.ehrscape.com/rest/v1/ehr';
@@ -87,6 +70,10 @@ export class EhrService {
   urlPnr = this.baseUrl + this.urlpnr;
 
   urlActive = `${this.baseUrl}/demographics/party/query/?Active=True`;
+
+  urlcomposition = "https://rest.ehrscape.com/rest/v1/composition?";
+
+  urlAQL = this.baseUrl + '/query/?';
 
 
   constructor(private http: HttpClient) { }
@@ -106,7 +93,6 @@ export class EhrService {
   /* Skapar ett ehrID om det saknas för givet personnummer, annars hämtar den party datan för det personnummret
   * Egentligen ska det skickas med partydata som input för att fylla på om det inte finns ett ehrid */
   async createPerson(party) {
-    console.log(party)
     this.getPnr(party.additionalInfo.socialId).subscribe((resp: any) => {
       if (resp === null) {
         console.log('Skapa nytt ehrId och lägg till party data');
@@ -129,4 +115,104 @@ export class EhrService {
   getActivePatients(location: string) {
     return this.http.get(this.urlActive, this.httpOptions1);
   }
+  /*Spara en composition i EHRScape*/
+    async postCompositionData(compositionData, ehrId){
+
+        const httpOptionsCompositionData = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization' : 'Basic ' + btoa('lio.se2:ehr4lio.se2')
+            }),
+            params: new HttpParams()
+                .set('ehrId', ehrId.toString())
+                .set('templateId', 'Journal VERA2020')
+                .set('format', 'FLAT')
+            };
+        console.log('test')
+        this.http.post(this.urlcomposition , compositionData , httpOptionsCompositionData).subscribe(answer => {
+            console.log(answer);
+        });
+
+    }
+    getSpo2(ehrId){
+        var aqlSpo2 = "SELECT x/data[at0001]/events[at0002]/data[at0003]/items[at0006]/value as value, " +
+                      "c/name/value as name " +
+                      "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
+                      "CONTAINS OBSERVATION x[openEHR-EHR-OBSERVATION.pulse_oximetry.v1]" +
+                      "ORDER BY c/context/start_time DESC " +   "OFFSET 0 LIMIT 1";
+
+        const httpParamsAQL = new HttpParams().set('aql', aqlSpo2);
+        return this.sendAQL(httpParamsAQL);
+    }
+
+    getAf(ehrId){
+        var aqlAf = "SELECT x/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value as value," +
+                         "c/name/value as name " +
+                         "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
+                         "CONTAINS OBSERVATION x[openEHR-EHR-OBSERVATION.respiration.v2]" +
+                         "ORDER BY c/context/start_time DESC " +   "OFFSET 0 LIMIT 1";
+
+        const httpParamsAQL = new HttpParams().set('aql', aqlAf);
+        return this.sendAQL(httpParamsAQL);
+    }
+
+    getPulse(ehrId){
+        var aqlPuls = "SELECT x/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as value," +
+                      "c/name/value as name " +
+                      "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
+                      "CONTAINS OBSERVATION x[openEHR-EHR-OBSERVATION.pulse.v2]" +
+                      "ORDER BY c/context/start_time DESC " +   "OFFSET 0 LIMIT 1";
+        const httpParamsAQL = new HttpParams().set('aql', aqlPuls);
+        return this.sendAQL(httpParamsAQL);
+    }
+    getBt(ehrId){
+        var aqlBlodtryck = "SELECT x/data[at0001]/events[at0006]/data[at0003]/items[at1006]/value as value," +
+                           "c/name/value as name " +
+                           "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
+                           "CONTAINS OBSERVATION x[openEHR-EHR-OBSERVATION.blood_pressure.v2]" +
+                           "ORDER BY c/context/start_time DESC " +   "OFFSET 0 LIMIT 1";
+        const httpParamsAQL = new HttpParams().set('aql', aqlBlodtryck);
+        return this.sendAQL(httpParamsAQL);
+    }
+    getTemp(ehrId){
+        var aqlKroppstemperatur = "SELECT x/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as value," +
+                                  "c/name/value as name " +
+                                  "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
+                                  "CONTAINS OBSERVATION x[openEHR-EHR-OBSERVATION.body_temperature.v2] " +
+                                  "ORDER BY c/context/start_time DESC " +   "OFFSET 0 LIMIT 1";
+        const httpParamsAQL = new HttpParams().set('aql', aqlKroppstemperatur);
+        return this.sendAQL(httpParamsAQL);
+    }
+    getWeight(ehrId){
+        var aqlWeight = "SELECT x/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as value," +
+                      "c/name/value as name " +
+                      "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
+                      "CONTAINS OBSERVATION x[openEHR-EHR-OBSERVATION.body_weight.v2]" +
+                      "ORDER BY c/context/start_time DESC " +   "OFFSET 0 LIMIT 1";
+        const httpParamsAQL = new HttpParams().set('aql', aqlWeight);
+        return this.sendAQL(httpParamsAQL);
+    }
+    getPain(ehrId){
+        var aqlAbbeyPainScal = "SELECT x/data[at0001]/events[at0002]/data[at0003]/items[at0029]/value as value," +
+                               "c/name/value as name " +
+                               "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
+                               "CONTAINS OBSERVATION x[openEHR-EHR-OBSERVATION.abbey_pain_scale.v0]" +
+                               "ORDER BY c/context/start_time DESC " +   "OFFSET 0 LIMIT 1";
+        const httpParamsAQL = new HttpParams().set('aql', aqlAbbeyPainScal);
+        return this.sendAQL(httpParamsAQL);
+
+    }
+
+
+    sendAQL(httpParamsAQL){
+        const httpOptionsAQL = {
+            headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Authorization' : 'Basic ' + btoa('lio.se2:ehr4lio.se2')
+            }),
+            params: httpParamsAQL
+            }
+        return this.http.get(this.urlAQL, httpOptionsAQL);
+
+    }
 }

@@ -34,7 +34,7 @@ export class OverviewTableComponent implements OnInit {
 
   groups = [];
 
-  teams = [{ name: 'A', check: false }, { name: 'X', check: false }, { name: 'U', check: false }];
+  teams = [{ name: 'A', check: false }, { name: 'B', check: false }, { name: 'X', check: false }];
 
   searchRows = [];
 
@@ -83,7 +83,7 @@ export class OverviewTableComponent implements OnInit {
     row.name = `${visit.person.getFirstName()} ${visit.person.getLastName()}`;
     row.activites = '';
     row.arrivalMethod = visit.visitInfo.arrivalMethod;
-    row.arrivalTime = visit.visitInfo.arrivalTime.slice(14, 19);
+    row.arrivalTime = visit.visitInfo.arrivalTime.slice(11, 16);
     row.dr = visit.visitInfo.dr;
     row.search = visit.visitInfo.search;
     row.astNurse = visit.visitInfo.astNurse;
