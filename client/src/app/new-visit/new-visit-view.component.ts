@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { ViewNameService } from '../view-name.service';
 import {HeaderName} from '../header-name';
 import {EhrService, partyData} from '../ehr.service';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -14,7 +15,9 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
 
   visit: partyData;
 
-  constructor(viewNameService: ViewNameService, private ehrService : EhrService) {
+  constructor(viewNameService: ViewNameService,
+              private ehrService : EhrService,
+              private router: Router) {
     super(viewNameService, 'Ny patient');
   }
   ngOnInit(): void {
@@ -23,6 +26,10 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
 
   addVisit(): void {
     this.ehrService.createPerson(this.visit);
+    //  TODO check for valid response from ehr first
+    this.router.navigate(['overview']);
+
+
   }
   updateVisitor(visit: partyData) {
     console.log('reciving: ' + visit.firstNames + ' ' + visit.lastNames)
