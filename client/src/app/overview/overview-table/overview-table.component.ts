@@ -34,7 +34,7 @@ export class OverviewTableComponent implements OnInit {
 
   groups = [];
 
-  teams = [{ name: 'A', check: false }, { name: 'X', check: false }, { name: 'U', check: false }];
+  teams = [{ name: 'A', check: false }, { name: 'U', check: false }, { name: 'X', check: false }];
 
   searchRows = [];
 
