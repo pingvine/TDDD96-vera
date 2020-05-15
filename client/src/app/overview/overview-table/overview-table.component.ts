@@ -1,6 +1,7 @@
 import {
   Component, EventEmitter, OnInit, ViewChild, Output,
 } from '@angular/core';
+import {PrioTime} from "../../models/PrioTime";
 
 interface TableRow {
   prio: string
@@ -77,6 +78,7 @@ export class OverviewTableComponent implements OnInit {
 
   rowMaker(visit): TableRow {
     console.log(visit);
+    console.log(PrioTime[visit.visitInfo.prio.toUpperCase()])
     const row = {} as TableRow;
     row.team = visit.visitInfo.team;
     row.name = `${visit.person.getFirstName()}`; // ${visit.person.getLastName()};
@@ -91,6 +93,7 @@ export class OverviewTableComponent implements OnInit {
     row.age = visit.visitInfo.age;
     row.gender = visit.visitInfo.gender;
     row.socialId = visit.visitInfo.socialId;
+    row.checkupTime = Number(PrioTime[visit.visitInfo.prio.toUpperCase()]);
     return row;
   }
 
