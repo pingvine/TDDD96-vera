@@ -3,6 +3,9 @@ import { RequestService } from '../request.service';
 import { ViewNameService } from '../view-name.service';
 import {HeaderName} from '../header-name';
 import { EhrService} from '../ehr.service';
+import {Visit} from "../models/Visit";
+import {PatientService} from "../services/patient.service";
+
 
 @Component({
   selector: 'app-patient-view',
@@ -10,7 +13,6 @@ import { EhrService} from '../ehr.service';
   styleUrls: ['./patient-view.component.css']
 })
 export class PatientViewComponent extends HeaderName implements OnInit {
-  @Input() visit: any = '';
 
   spo2: number;  // Blood saturation
   af: number;    // Airflow count per minute
@@ -22,55 +24,20 @@ export class PatientViewComponent extends HeaderName implements OnInit {
   weight: number;
 
   url = 'http://localhost:4201/patient';
-  constructor(private service: RequestService, viewNameService: ViewNameService, private ehrService : EhrService) {
-    super(viewNameService, 'Patientvy');
+
+  currentVisit: Visit;
+
+  constructor(private service: RequestService, viewNameService: ViewNameService, private patientService: PatientService) {
+      super(viewNameService, 'Patientvy');
+      this.patientService.currentVisit.subscribe((visit) => {
+        this.currentVisit = visit;
+      })
   }
 
-  private getPatientHealthInfo(): void {
-    /*
-    this.service.getData(this.url)
-      .subscribe(response => {
-        console.log(response);
-      });
-    */
-    /*let ehrId = this.ehrService.getPnr(this.visit.socialId).subscribe((answer: any) => {
-        console.log('EhrId: ' + answer.parties[0].additionalInfo.ehrId)
-        console.log('test');
-    });*/
-    let ehrId = "e8d1e125-1d80-4d5d-825a-359757375dc6";
 
-    this.ehrService.getSpo2(ehrId).subscribe((answer: any) => {
-        console.log('SpO2: ' + answer.resultSet[0].value.numerator)
-        this.spo2 = answer.resultSet[0].value.numerator;
-    });
-    this.ehrService.getAf(ehrId).subscribe((answer:any) => {
-        console.log('AF: ' + answer.resultSet[0].value.magnitude)
-        this.spo2 = answer.resultSet[0].value;
-    });
-    this.ehrService.getPulse(ehrId).subscribe((answer:any) => {
-        console.log('pulse: ' + answer.resultSet[0].value.magnitude)
-        this.spo2 = answer.resultSet[0].value;
-    });
-    this.ehrService.getBt(ehrId).subscribe((answer:any) => {
-        console.log('BT: ' + answer.resultSet[0].value.magnitude)
-        this.spo2 = answer.resultSet[0].value;
-    });
-    this.ehrService.getTemp(ehrId).subscribe((answer:any) => {
-        console.log('Temp: ' + answer.resultSet[0].value.magnitude)
-        this.spo2 = answer.resultSet[0].value;
-    });
-    this.ehrService.getPain(ehrId).subscribe((answer:any) => {
-        console.log('Pain: ' + answer.resultSet[0].value.magnitude)
-        this.spo2 = answer.resultSet[0].value;
-    });
-    this.ehrService.getWeight(ehrId).subscribe((answer:any) => {
-        console.log('Weight: ' + answer.resultSet[0].value.magnitude)
-        this.spo2 = answer.resultSet[0].value;
-    });
-  }
 
   ngOnInit(): void {
     super.setView();
-    this.getPatientHealthInfo();
+    //this.getPatientHealthInfo();
   }
 }

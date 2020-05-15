@@ -2,11 +2,20 @@ import { Injectable } from '@angular/core';
 import {Person} from "../models/Person";
 import {Visit} from "../models/Visit";
 import {BehaviorSubject} from "rxjs";
+import {getNumberFromSocialString} from "../util/helpers";
+
+
+const visitKey = 'currentvisit';
+const pnrKey = 'currentpnr';
 
 @Injectable({
   providedIn: 'root'
 })
 
+/**
+ * Serves the currently selected patient (visit).
+ * Subscribe on visit source.
+ */
 export class PatientService {
 
   // Behaviour subject saves the last added object
@@ -15,18 +24,36 @@ export class PatientService {
   currentVisit = this.visitSource.asObservable();
   currentPnr = this.pnrSource.asObservable();
 
-  constructor() { }
+  constructor() {
+    if (sessionStorage.getItem(visitKey) !== 'undefined') {
+      // Unpack visit
+      const visitJson = JSON.parse(sessionStorage.getItem(visitKey));
+      const visitObj = new Visit(0, new Person(0, '', ''));
+      Object.assign(visitObj, visitJson);
+      this.visitSource.next(visitObj);
+    }
+
+    const pnr = sessionStorage.getItem(pnrKey);
+    if (pnr !== 'undefined' && pnr) {
+      this.changePnr(pnr);
+    }
+  }
 
   changeVisit(visit: Visit) {
     this.visitSource.next(visit);
+    if (visit) {
+      sessionStorage.setItem(visitKey, JSON.stringify(visit));
+    }
   }
 
   clearVisit() {
     this.visitSource.next(null);
+    sessionStorage.removeItem(visitKey)
   }
 
-  changePnr(socialId: number) {
-    this.pnrSource.next(socialId);
+  changePnr(socialId: string) {
+    this.pnrSource.next(getNumberFromSocialString(socialId));
+    sessionStorage.setItem(pnrKey, socialId);
   }
 
   clearnPnr() {
@@ -35,6 +62,6 @@ export class PatientService {
 
   clear() {
     this.clearnPnr();
-    this.clearVisit()
+    this.clearVisit();
   }
 }

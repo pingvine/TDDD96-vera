@@ -2,7 +2,9 @@
   <mat-grid-list cols="12" rowHeight="fit">
     <mat-grid-tile colspan="2">
       <div class="tile-container">
-        <app-visit-info-personal></app-visit-info-personal>
+        <app-visit-info-personal [age]="getAge()" [firstName]="getFirstName()"
+        [lastName]="getLastName()" [socialId]="getSocialId()"
+        [gender]="getGender()" ></app-visit-info-personal>
       </div>
     </mat-grid-tile>
 
@@ -20,7 +22,9 @@
 
     <mat-grid-tile colspan="3">
       <div class="tile-container">
-        <app-visit-body (onClickBody)="onClickBody()"></app-visit-body>
+        <app-visit-body (onClickBody)="onClickBody()"
+        [spo2] = "spo2" [af] = "af" [pulse] = "pulse" [bt] = "bt" [conscious] = "conscious" [temp] = "temp" [pain] = "pain" [weight] = "weight"
+        ></app-visit-body>
       </div>
     </mat-grid-tile>
 

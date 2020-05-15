@@ -1,13 +1,28 @@
 import { EventVera } from '../shared/models/EventVera';
 import { EventType } from '../shared/models/EventType';
 import { RoleType } from '../client/src/app/models/RoleType';
-import { EventModel, TestEventModel } from './modelsAndSchemas';
+import { EventModel, TestEventModel, CurrentIdModel } from './modelsAndSchemas';
 
 const mongoose = require('mongoose');
 
 
 const users = [];
 const idCounter = 0;
+
+export function getCurrentId(callback) {
+    const currentIdModel = new CurrentIdModel();
+    currentIdModel.find(function(err, res) {
+        if (err) {
+            console.log('Err: ' + err);
+        } else {
+            console.log('Res: ' + res);
+        }
+        res.currentId += 1;
+        currentIdModel.save(res);
+        callback(err, res.currentId);
+        console.log('Returned: ' + res.currentId + '\n')
+    });
+}
 
 /**
  *

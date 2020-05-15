@@ -36,6 +36,10 @@ export class InstanceManager {
         return this.visits.find(element => element.getId() === id);
     }
 
+    getVisitBySocialId(id: number) {
+      return this.visits.find((visit) => visit.getPerson().getId() === id);
+    }
+
     createVisit(person: Person) {
         const newPerson = new Visit(dummyId, person);
         this.visits.push(newPerson);
