@@ -77,9 +77,12 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
         'journal_vera2020/kroppsvikt/ospecificerad_händelse/vikt|magnitude': this.weight,
         'journal_vera2020/kroppsvikt/ospecificerad_händelse/vikt|unit': "kg"
     }
-    this.ehrService.getPnr(this.personalId).subscribe((answer: any) => {
-        //this.ehrService.postCompositionData(compositionData, answer.parties[0].additionalInfo.ehrId)
-        this.ehrService.postCompositionData(compositionData, this.visit.getEhrId());
+    console.log(this.visit.socialId);
+    
+    this.ehrService.getPnr(this.visit.socialId).subscribe((answer: any) => {
+        this.ehrService.postCompositionData(compositionData, answer.parties[0].additionalInfo.ehrId)
+        //this.ehrService.postCompositionData(compositionData, this.visit.getEhrId());
+
     });
 
 
