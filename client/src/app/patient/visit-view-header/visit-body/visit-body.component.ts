@@ -1,8 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
-
-
-
 @Component({
   selector: 'app-visit-body',
   templateUrl: './visit-body.component.html',
@@ -14,7 +11,7 @@ export class VisitBodyComponent implements OnInit {
 
   @Input() spo2: number;  // Blood saturation
   @Input() af: number;    // Airflow count per minute
-  @Input() pulse: number;
+  @Input() pulse: number; //Heartbeat per minute
   @Input() bt: number;    // Blood pressure
   @Input() conscious: string;   // Consciousness, GCS, RLS
   @Input() temp: number;  // Body temperature
