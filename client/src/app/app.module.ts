@@ -25,9 +25,9 @@ import { OverviewViewComponent } from './overview/overview-view.component';
 import { SummaryViewComponent } from './summary/summary-view.component';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
-import { NewPatientViewComponent } from './new-patient/new-patient-view.component';
+import { NewVisitViewComponent } from './new-visit/new-visit-view.component';
+import { AppHeaderComponent } from './app-header/app-header.component';
 import {MatInputModule} from '@angular/material/input';
-import {AppHeaderComponent } from './app-header/app-header.component';
 import { PatientStatusViewComponent } from './patient-status-view/patient-status-view.component';
 import {MatRadioModule} from "@angular/material/radio";
 import {MatExpansionModule} from "@angular/material/expansion";
@@ -46,6 +46,10 @@ import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical
 import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-info-personal/visit-info-personal.component';
 import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
+import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-reason.component';
 import { VisitSelectorComponent } from './overview/visit-selector/visit-selector.component';
 import { OverviewTableComponent } from './overview/overview-table/overview-table.component';
 import { AppComponent } from './app.component';
@@ -55,6 +59,7 @@ import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-sock
 import { LoginComponent } from './login/login.component';
 import { EhrService } from './ehr.service';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
+
 
 
 @NgModule({
@@ -67,7 +72,7 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
     SummaryViewComponent,
     SettingsViewComponent,
     TeamViewComponent,
-    NewPatientViewComponent,
+    NewVisitViewComponent,
     AppHeaderComponent,
     PatientStatusViewComponent,
     PatientStatusViewDialogComponent,
@@ -84,6 +89,8 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
     VisitInfoPersonalComponent,
     VisitBodyComponent,
     VisitEventsComponent,
+    NewVisitInformationComponent,
+    NewVisitReasonComponent,
     TestEventSocketComponent,
     TestNoticeSocketComponent,
     LoginComponent,
@@ -122,6 +129,9 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
     MatExpansionModule,
     FormsModule,
     MatTooltipModule,
+    MatStepperModule,
+    MatButtonToggleModule,
+    MatRadioModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatDialogModule,

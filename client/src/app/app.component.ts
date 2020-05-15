@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
         // eslint-disable-next-line max-len
         const pnr = getNumberFromSocialString(partyData.additionalInfo.socialId);
         const pat = this.im.createPerson(pnr, partyData.firstNames, partyData.lastNames);
+
         pat.setRoleType(RoleType.Patient);
         const vis = this.im.createVisit(pat);
         const healthManager = new HealthManager(partyData.additionalInfo.ehrId);
