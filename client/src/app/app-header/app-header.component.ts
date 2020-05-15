@@ -57,43 +57,26 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
   }
 
   removeNotice(nextNotice: any): void {
-    console.log('Ska ta bort notis');
-    if (nextNotice.preferredTimeMin!==undefined) {
-      console.log('Ska planera ny notis');
-
-      const preferredTimeMin = Number(nextNotice.preferredTimeMin);
+    if (nextNotice.notice.type === ActionType.Warning) {
+      let preferredTimeMin;
+      if (nextNotice.preferredTimeMin!==undefined)
+         preferredTimeMin = Number(nextNotice.preferredTimeMin);
+      else preferredTimeMin = 40; // TODO: Change to prio time according to RETTS
       console.log(preferredTimeMin);
-      const res = this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
-        ActionType.Warning, 'Titta till patient',
-        new Person(nextNotice.notice.personalId, nextNotice.notice.firstName, nextNotice.notice.lastName), preferredTimeMin);
-      console.log('Har planerat ny notis');
-      console.log(res);
-      // TODO: Send preferredTime to EHRScape
+      this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
+        nextNotice.notice.type, nextNotice.notice.title,
+        new Person(nextNotice.notice.personalId, nextNotice.notice.firstName, nextNotice.notice.lastName), preferredTimeMin * 60).subscribe(() => {
+      });
+      // TODO: Send preferredTime to overview-table
     }
     const index = this.notices.indexOf(nextNotice.notice);
-    // this.notices.splice(index, 1);
-  }
-
-
-  createNotice(gender: string, type: string, name: string,
-    personalId: number, age: number, team: string,
-    currentTime: string, title: string, sender: string, receivers: string[]): any {
-    const notice = {
-      gender, type, name, personalId, age, team, timeSent: currentTime, title,
-    };
-  }
-
-  sendNotice(senderTeam: string, notice: any, receivers: string[]): void {
-    const message = new Message(senderTeam, notice, receivers);
-
-    // this.eventService.sendMessage(message);
+    this.notices.splice(index, 1);
   }
 
   handleEditEvent(event: import('../../../../shared/models/EventVera').EventVera): void {
   }
 
   handleCareEvent(event: import('../../../../shared/models/EventVera').EventVera): void {
-    console.log('Ny notis')
     this.addNotice(event);
   }
 
