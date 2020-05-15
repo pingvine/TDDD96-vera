@@ -86,7 +86,7 @@ export class NewVisitInformationComponent implements OnInit {
     this.newVisit.emit(this.party);
   }
   updateId(id: string) {
-    this.party.additionalInfo.socialId += '-' + id.toString();
+    this.party.additionalInfo.socialId += id.toString();
     console.log(id.slice(3,3));
     if (Number(id.slice(3, 3)) % 2 == 0) {
 

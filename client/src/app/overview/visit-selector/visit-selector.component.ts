@@ -17,7 +17,7 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
   priority: string;
   name: string;
   age: number;
-  socialId: string;
+  personalId: string;
   team: string;
   sex: string;
   actions: Message[] = [
@@ -43,7 +43,7 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
     if (this.visit !== undefined) {
       this.name = this.visit.name;
       this.age = this.visit.age;
-      this.socialId = this.visit.socialId;
+      this.personalId = this.visit.socialId;
       this.priority = this.visit.prio;
       this.team = this.visit.team;
     }
@@ -77,7 +77,7 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
         'journal_vera2020/kroppsvikt/ospecificerad_händelse/vikt|magnitude': this.weight,
         'journal_vera2020/kroppsvikt/ospecificerad_händelse/vikt|unit': "kg"
     }
-    this.ehrService.getPnr(this.socialId).subscribe((answer: any) => {
+    this.ehrService.getPnr(this.personalId).subscribe((answer: any) => {
         this.ehrService.postCompositionData(compositionData, answer.parties[0].additionalInfo.ehrId)
     });
 
