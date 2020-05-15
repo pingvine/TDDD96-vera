@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {PatientService} from "../../services/patient.service";
 import {Visit} from "../../models/Visit";
-import {getAgeFromSocialIdNumber, getGenderFromSocialIdString, getNumberFromSocialString} from "../../util/helpers";
+import { getAgeFromSocialIdNumber, getGenderFromSocialIdString } from "../../util/helpers";
+import { EhrService } from '../../ehr.service';
 
 @Component({
   selector: 'app-visit-view-header',
@@ -11,10 +11,21 @@ import {getAgeFromSocialIdNumber, getGenderFromSocialIdString, getNumberFromSoci
 export class VisitViewHeaderComponent implements OnInit {
   @Input() currentVisit: Visit;
 
-  constructor() {
+  spo2: number;  //Oxygen saturation
+  af: number;    // Airflow count per minute
+  pulse: number; //Heartbeat per minute
+  bt: number;    // Blood pressure
+  conscious: string;   // Consciousness, GCS, RLS
+  temp: number;  // Body temperature
+  pain: number;  // Pain estimate // Todo validator
+  weight: number;
+  ehrId: string;
+
+  constructor(private ehrService: EhrService) {
   }
 
   ngOnInit(): void {
+      this.getPatientHealthInfo();
   }
 
   getAge() {
@@ -63,4 +74,35 @@ export class VisitViewHeaderComponent implements OnInit {
       return getGenderFromSocialIdString(this.currentVisit.getPerson().getId().toString()) === 'female' ? 'Kvinna' : 'Man';
     }
   }
+
+  //Retrieves health info connected to currentVisit from EHRScape.
+  private getPatientHealthInfo(): void {
+    this.ehrService.getPnr(this.getSocialId().toString()).subscribe((answer: any) =>{
+        this.ehrId = answer.parties[0].additionalInfo.ehrId;
+
+    this.ehrService.getSpo2(this.ehrId).subscribe((answer: any) => {
+        this.spo2 = answer.resultSet[0].value.numerator;
+    });
+    this.ehrService.getAf(this.ehrId).subscribe((answer:any) => {
+        this.af = answer.resultSet[0].value.magnitude;
+    });
+    this.ehrService.getPulse(this.ehrId).subscribe((answer:any) => {
+        this.pulse = answer.resultSet[0].value.magnitude;
+    });
+    this.ehrService.getBt(this.ehrId).subscribe((answer:any) => {
+        this.bt = answer.resultSet[0].value.magnitude;
+    });
+    this.ehrService.getTemp(this.ehrId).subscribe((answer:any) => {
+        this.temp = answer.resultSet[0].value.magnitude;
+    });
+    this.ehrService.getPain(this.ehrId).subscribe((answer:any) => {
+        this.pain = answer.resultSet[0].value.magnitude;
+    });
+    this.ehrService.getWeight(this.ehrId).subscribe((answer:any) => {
+        this.weight = answer.resultSet[0].value.magnitude;
+    });
+    });
+  }
+
+
 }

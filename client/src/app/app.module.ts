@@ -18,7 +18,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatListModule } from '@angular/material/list';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PatientViewComponent } from './patient/patient-view.component';
 import { OverviewViewComponent } from './overview/overview-view.component';
@@ -46,10 +45,12 @@ import { VisitTopicalComponent } from './patient/visit-view-header/visit-topical
 import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-info-personal/visit-info-personal.component';
 import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
 import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-reason.component';
+import {EhrService} from "./ehr.service";
 import { VisitSelectorComponent } from './overview/visit-selector/visit-selector.component';
 import { OverviewTableComponent } from './overview/overview-table/overview-table.component';
 import { AppComponent } from './app.component';
@@ -57,7 +58,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { TestEventSocketComponent } from './test-event-socket/test-event-socket.component';
 import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-socket.component';
 import { LoginComponent } from './login/login.component';
-import { EhrService } from './ehr.service';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 
 
@@ -135,7 +135,6 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatRadioModule
   ],
   providers: [EhrService],
   bootstrap: [AppComponent],
