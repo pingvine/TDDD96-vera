@@ -19,7 +19,6 @@ export class VisitViewHeaderComponent implements OnInit {
   temp: number;  // Body temperature
   pain: number;  // Pain estimate // Todo validator
   weight: number;
-  ehrId: string;
 
   constructor(private ehrService: EhrService) {
   }
@@ -77,32 +76,27 @@ export class VisitViewHeaderComponent implements OnInit {
 
   //Retrieves health info connected to currentVisit from EHRScape.
   private getPatientHealthInfo(): void {
-    this.ehrService.getPnr(this.getSocialId().toString()).subscribe((answer: any) =>{
-        this.ehrId = answer.parties[0].additionalInfo.ehrId;
-
-    this.ehrService.getSpo2(this.ehrId).subscribe((answer: any) => {
+    this.ehrService.getSpo2(this.currentVisit.getehrId()).subscribe((answer: any) => {
         this.spo2 = answer.resultSet[0].value.numerator;
     });
-    this.ehrService.getAf(this.ehrId).subscribe((answer:any) => {
+    this.ehrService.getAf(this.currentVisit.getehrId()).subscribe((answer:any) => {
         this.af = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getPulse(this.ehrId).subscribe((answer:any) => {
+    this.ehrService.getPulse(this.currentVisit.getehrId()).subscribe((answer:any) => {
         this.pulse = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getBt(this.ehrId).subscribe((answer:any) => {
+    this.ehrService.getBt(this.currentVisit.getehrId()).subscribe((answer:any) => {
         this.bt = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getTemp(this.ehrId).subscribe((answer:any) => {
+    this.ehrService.getTemp(this.currentVisit.getehrId()).subscribe((answer:any) => {
         this.temp = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getPain(this.ehrId).subscribe((answer:any) => {
+    this.ehrService.getPain(this.currentVisit.getehrId()).subscribe((answer:any) => {
         this.pain = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getWeight(this.ehrId).subscribe((answer:any) => {
+    this.ehrService.getWeight(this.currentVisit.getehrId()).subscribe((answer:any) => {
         this.weight = answer.resultSet[0].value.magnitude;
     });
-    });
   }
-
 
 }
