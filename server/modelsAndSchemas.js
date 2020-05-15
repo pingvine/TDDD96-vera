@@ -28,7 +28,9 @@ var TestSchema = new mongoose.Schema({
         }
     }
 });
-var CurrentId = new mongoose.Schema({});
+var CurrentIdSchema = new mongoose.Schema({
+    currentId: Number
+});
 exports.EventModel = mongoose.model('eventvera', EventVeraSchema);
 exports.TestEventModel = mongoose.model('testevent', TestSchema);
-exports.CurrentIdModel = mongoose.model('currentid', CurrentId);
+exports.CurrentIdModel = mongoose.model('currentid', CurrentIdSchema);

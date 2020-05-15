@@ -55,6 +55,7 @@ import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-sock
 import { LoginComponent } from './login/login.component';
 import { EhrService } from './ehr.service';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
+import { NoticeDialogComponent } from './notice/notice-dialog/notice-dialog.component';
 
 
 @NgModule({
@@ -88,6 +89,7 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
     TestNoticeSocketComponent,
     LoginComponent,
     SpinnerOverlayComponent,
+    NoticeDialogComponent,
   ],
   imports: [
     BrowserModule,
