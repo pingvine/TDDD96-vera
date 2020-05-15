@@ -4,6 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NewVisitInformationComponent } from './new-visit-information.component';
 import { NewVisitViewComponent } from '../new-visit-view.component';
 import {stringify} from 'querystring';
+import {RouterTestingModule} from "@angular/router/testing";
 
 
 describe('NewVisitInformationComponent', () => {
@@ -15,7 +16,7 @@ describe('NewVisitInformationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ NewVisitInformationComponent, NewVisitViewComponent ],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [EhrService]
     })
     .compileComponents();
