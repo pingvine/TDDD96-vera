@@ -53,8 +53,8 @@ export class PatientService {
     sessionStorage.removeItem(visitKey);
   }
 
-  changePnr(socialId: number) {
-    this.pnrSource.next(socialId);
+  changePnr(socialId: string) {
+    this.pnrSource.next(parseInt(socialId));
     sessionStorage.setItem(pnrKey, `${socialId}`);
   }
 
