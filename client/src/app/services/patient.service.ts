@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import {Person} from "../models/Person";
-import {Visit} from "../models/Visit";
-import {BehaviorSubject} from "rxjs";
-import {getNumberFromSocialString} from "../util/helpers";
+import { BehaviorSubject } from 'rxjs';
+import { Person } from '../models/Person';
+import { Visit } from '../models/Visit';
+import { getNumberFromSocialString } from '../util/helpers';
 
 
 const visitKey = 'currentvisit';
 const pnrKey = 'currentpnr';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 
 /**
@@ -17,11 +17,13 @@ const pnrKey = 'currentpnr';
  * Subscribe on visit source.
  */
 export class PatientService {
-
   // Behaviour subject saves the last added object
   private visitSource = new BehaviorSubject<Visit>(null);
+
   private pnrSource = new BehaviorSubject<number>(null);
+
   currentVisit = this.visitSource.asObservable();
+
   currentPnr = this.pnrSource.asObservable();
 
   constructor() {
@@ -48,12 +50,12 @@ export class PatientService {
 
   clearVisit() {
     this.visitSource.next(null);
-    sessionStorage.removeItem(visitKey)
+    sessionStorage.removeItem(visitKey);
   }
 
-  changePnr(socialId: string) {
-    this.pnrSource.next(getNumberFromSocialString(socialId));
-    sessionStorage.setItem(pnrKey, socialId);
+  changePnr(socialId: number) {
+    this.pnrSource.next(socialId);
+    sessionStorage.setItem(pnrKey, `${socialId}`);
   }
 
   clearnPnr() {
