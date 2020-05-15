@@ -1,0 +1,24 @@
+<div>
+  <mat-grid-list cols="6" [rowHeight]="1">
+
+<!--    Row one-->
+    <mat-grid-tile>Namn</mat-grid-tile>
+    <mat-grid-tile>PNR</mat-grid-tile>
+    <mat-grid-tile>Kön</mat-grid-tile>
+    <mat-grid-tile>ÅR</mat-grid-tile>
+    <mat-grid-tile>Sökorsak</mat-grid-tile>
+    <mat-grid-tile>ESS</mat-grid-tile>
+
+<!--    Row two-->
+    <mat-grid-tile>spO2</mat-grid-tile>
+    <mat-grid-tile rowspan="6" colspan="2">
+      <img [src]="'assets/img/human.png'">
+    </mat-grid-tile>
+    <mat-grid-tile>AF</mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="2">prio</mat-grid-tile>
+
+<!--    Row three-->
+
+
+  </mat-grid-list>
+</div>

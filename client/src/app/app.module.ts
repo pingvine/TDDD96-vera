@@ -59,6 +59,7 @@ import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-sock
 import { LoginComponent } from './login/login.component';
 import { EhrService } from './ehr.service';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
+import { NewVisitTriageComponent } from './new-visit/new-visit-triage/new-visit-triage.component';
 
 
 
@@ -95,6 +96,7 @@ import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.compo
     TestNoticeSocketComponent,
     LoginComponent,
     SpinnerOverlayComponent,
+    NewVisitTriageComponent,
   ],
   imports: [
     BrowserModule,
