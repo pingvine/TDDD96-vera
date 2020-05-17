@@ -8,6 +8,7 @@ import {LoginService} from "../services/login.service";
 import {User} from "../models/User";
 import {ActionType} from "../models/ActionType";
 import {Person} from "../models/Person";
+import {PrioTime} from "../models/PrioTime";
 
 
 @Component({
@@ -37,13 +38,18 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
   }
 
   addVisit(): void {
-    this.ehrService.createPerson(this.visit);
+    //this.ehrService.createPerson(this.visit);
     //  TODO check for valid response from ehr first
-    this.router.navigate(['overview']);
     this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
       ActionType.Information, 'Ny patient', new Person(Number(this.visit.additionalInfo.socialId),
         this.visit.firstNames, this.visit.lastNames), 0).subscribe(() => {
     });
+    this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
+      ActionType.Warning, 'Titta till patient', new Person(Number(this.visit.additionalInfo.socialId),
+        this.visit.firstNames, this.visit.lastNames), Number(PrioTime[this.visit.additionalInfo.prio.toUpperCase()]))
+      .subscribe(() => {
+    });
+    this.router.navigate(['overview']);
 
 
   }

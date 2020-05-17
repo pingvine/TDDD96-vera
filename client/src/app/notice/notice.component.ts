@@ -75,6 +75,7 @@ export class NoticeComponent implements OnInit, OnChanges {
     this.team = this.notice.team;
     this.timeSent = this.notice.timeSent;
     this.title = this.notice.title;
+    // TODO: Add prio of patient according to RETTS
   }
 
 }
