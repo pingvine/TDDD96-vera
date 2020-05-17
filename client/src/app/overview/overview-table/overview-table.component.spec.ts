@@ -16,6 +16,7 @@ import { By } from '@angular/platform-browser';
 import { OverviewTableComponent } from './overview-table.component';
 import {Visit} from "../../models/Visit";
 import {Person} from "../../models/Person";
+import {PrioTime} from "../../models/PrioTime";
 
 
 describe('OverviewTableComponent', () => {
@@ -93,10 +94,11 @@ describe('OverviewTableComponent', () => {
   it('should create a row from a visit', () => {
     const person = new Person(1234567890, 'firstname', 'lastname');
     const visit = new Visit(123, person);
-    const visitInfo = {Team: 'A', arrivalTime: '0000-00-00:12:12:12'};
+    const visitInfo = {Team: 'A', arrivalTime: '0000-00-00:12:12:12', prio: 'green', socialId: person.getId()};
     visit.setVisitInfo(visitInfo);
     const row = component.rowMaker(visit);
     expect(row.name).toEqual('firstname lastname');
     expect(row.socialId).toEqual(1234567890);
+    expect(row.checkupTime).toEqual(PrioTime.GREEN);
   });
 });
