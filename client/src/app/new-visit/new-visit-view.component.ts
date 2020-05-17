@@ -38,7 +38,7 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
   }
 
   addVisit(): void {
-    //this.ehrService.createPerson(this.visit);
+    this.ehrService.createPerson(this.visit);
     //  TODO check for valid response from ehr first
     this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
       ActionType.Information, 'Ny patient', new Person(Number(this.visit.additionalInfo.socialId),
