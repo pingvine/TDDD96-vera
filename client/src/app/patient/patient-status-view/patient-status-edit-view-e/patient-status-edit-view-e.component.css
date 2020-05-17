@@ -1,3 +1,7 @@
+.edit-view {
+  margin-top: 16px;
+}
+
 .mat-card-title {
   text-align: center;
   font-size: medium;
@@ -10,8 +14,8 @@
 }
 
 .mat-card-background {
-  max-width: fit-content;
-  background-color: transparent;
+  min-width: fit-content;
+  background-color: white;
   margin-bottom: 16px;
   border-radius: 8px;
   padding: 0px;
@@ -19,14 +23,6 @@
 
 .mat-checkbox {
   margin: 0 10px;
-}
-
-.mat-card-header {
-  background-color: #3F51B5;
-  color: white;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  margin-bottom: 16px;
 }
 
 .mat-expansion-panel {
@@ -43,4 +39,14 @@
 .mat-example-radio-group {
   display: flex;
   margin: 16px 0;
+}
+
+.add-button{
+  left: 350px;
+  background-color: rgb(141, 224, 185);
+  box-shadow: 3px 3px 3px rgb(143, 143, 143);
+}
+
+.body-image {
+  width: 100px;
 }

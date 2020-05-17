@@ -6,15 +6,15 @@ import {OverviewViewComponent} from './overview/overview-view.component';
 import {SummaryViewComponent} from './summary/summary-view.component';
 import {TeamViewComponent} from './team/team-view.component';
 import {SettingsViewComponent} from './settings/settings-view.component';
-import {NewPatientViewComponent} from './new-patient/new-patient-view.component';
+import {NewVisitViewComponent} from './new-visit/new-visit-view.component';
 import {TestEventSocketComponent} from "./test-event-socket/test-event-socket.component";
 import {LoginComponent} from "./login/login.component";
 
+
 const routes: Routes = [
-  {
-    path: 'patient/new',
-    component: NewPatientViewComponent,
-    pathMatch: 'full',
+  { path: 'patient/new',
+    component: NewVisitViewComponent,
+    pathMatch: 'full'
   },
   {
     path: 'settings',

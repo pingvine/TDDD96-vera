@@ -2,7 +2,7 @@
 <mat-card >
   <mat-grid-list cols="24" rowHeight="1.25:1">
     <mat-grid-tile colspan="2">
-      <button mat-raised-button color="primary">Ny patient</button>
+      <button mat-raised-button color="primary" routerLink="/patient/new">Ny patient</button>
     </mat-grid-tile>
 
     <mat-grid-tile colspan="4" rowspan="1">
@@ -139,7 +139,7 @@
       <!-- Personel in charge -->
       <ngx-datatable-column name="Anvs.Läk." prop="dr"  [sortable]="true" [width]="90"></ngx-datatable-column>
       <ngx-datatable-column name="Ansv.Ssk." prop="nurse"  [sortable]="true" [width]="90"></ngx-datatable-column>
-      <ngx-datatable-column name="Ansv.Usk." prop="nurse2" [sortable]="true" [width]="90"></ngx-datatable-column>
+      <ngx-datatable-column name="Ansv.Usk." prop="astNurse" [sortable]="true" [width]="90"></ngx-datatable-column>
       <!-- Misc. -->
       <ngx-datatable-column name="Kommentar"  [width]="100" [sortable]="false"></ngx-datatable-column>
       <ngx-datatable-column name="Ankomstsätt" prop="arrivalMethod" [width]="100" [sortable]="false"></ngx-datatable-column>
@@ -198,7 +198,7 @@
     <!-- Personel -->
     <ngx-datatable-column name="Anvs.Läk." prop="dr"  [sortable]="true" [width]="90"></ngx-datatable-column>
     <ngx-datatable-column name="Ansv.Ssk." prop="nurse"  [sortable]="true" [width]="90"></ngx-datatable-column>
-    <ngx-datatable-column name="Ansv.Usk." prop="nurse2" [sortable]="true" [width]="90"></ngx-datatable-column>
+    <ngx-datatable-column name="Ansv.Usk." prop="astNurse" [sortable]="true" [width]="90"></ngx-datatable-column>
 
     <ngx-datatable-column name="Team" prop="team" [width]="100" [sortable]="true"></ngx-datatable-column>
     <ngx-datatable-column name="Temp" [width]="100" [sortable]="false"></ngx-datatable-column>

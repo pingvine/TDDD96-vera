@@ -1,7 +1,3 @@
-<p *ngIf="responseOk">
-  {{response[0].Title}} {{response[0].Page}}
-</p>
-
 <mat-sidenav-container class="overview-content" hasBackdrop="true" >
   <mat-sidenav #visitorselector [opened]="visitorSelectorOpened" (openedChange)="setVisitorSelectorState($event)"  mode="over" position="end" style="width: fit-content">
     <app-visitselector [visit]="selectedVisitor" (closeVisitorSelector)="visitorselector.toggle()"></app-visitselector>

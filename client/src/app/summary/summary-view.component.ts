@@ -10,22 +10,12 @@ import {HeaderName} from '../header-name';
   providers: [RequestService]
 })
 export class SummaryViewComponent extends HeaderName implements OnInit {
-  url = 'http://localhost:4201/summary';
-  response = [];
-  constructor(private service: RequestService, viewNameService: ViewNameService) {
-    super(viewNameService, 'Sammanställning');
-  }
 
-  private getSummary(): void {
-    this.service.getData(this.url)
-      .subscribe(response => {
-      console.log(response);
-      this.response = response;
-    });
+  constructor(viewNameService: ViewNameService) {
+    super(viewNameService, 'Sammanställning');
   }
 
   ngOnInit(): void {
     super.setView();
-    this.getSummary();
   }
 }

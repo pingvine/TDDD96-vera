@@ -1,8 +1,7 @@
- 
+
 .gridListContainer{
-    height: 100%;
-    width: 100%;
-    position: fixed;
+    height: auto;
+    width: auto;
     padding: 24px;
 }
 
@@ -21,6 +20,15 @@ mat-grid-list{
     width: 250px;
     display: flex;
     flex-direction: column;
-    padding: 0px;
+    padding: 0;
 
 }
+
+
+mat-expansion-panel{
+    color: transparent;
+    width: 400px;
+    height: 200px;
+    top: 30px;
+}
+
