@@ -65,7 +65,8 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
       console.log(preferredTimeMin);
       this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
         nextNotice.notice.type, nextNotice.notice.title,
-        new Person(nextNotice.notice.personalId, nextNotice.notice.firstName, nextNotice.notice.lastName), preferredTimeMin * 60).subscribe(() => {
+        new Person(nextNotice.notice.personalId, nextNotice.notice.firstName, nextNotice.notice.lastName),
+        preferredTimeMin * 60).subscribe(() => {
       });
       // TODO: Send preferredTime to overview-table
     }
