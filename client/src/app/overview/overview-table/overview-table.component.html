@@ -10,7 +10,7 @@
     </mat-grid-tile>
 
     <mat-grid-tile colspan="3" id="search-field">
-      <mat-form-field appearance="fill" (click)="clickSearchBar($event)" >
+      <mat-form-field appearance="fill" (click)="clickSearchBar()" >
         <mat-icon matPrefix>search</mat-icon>
         <mat-label>Sök...</mat-label>
         <input matInput  [(ngModel)]="searchFilter" (keyup)="updateSearchFilter($event)"  />
@@ -47,7 +47,7 @@
       <mat-form-field appearance="fill">
         <mat-label>Usk.</mat-label>
         <mat-select [(ngModel)]="assistantNurseFilter" (ngModelChange)="filterWorkers()">
-          <mat-option [value]=""></mat-option>
+          <mat-option [value]="undefined"></mat-option>
           <mat-option *ngFor="let assistantNurse of assistantNurseList" [value]="assistantNurse">{{assistantNurse}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -63,7 +63,7 @@
 
 <div id="group"  *ngIf="!showAllTeams">
     <ngx-datatable
-    #myTable
+    #table
     class="bootstrap expandable fullscreen"
     [rows]="searchRows"
     [groupRowsBy]="'team'"
@@ -82,7 +82,7 @@
     (activate)="mouseActivity($event)"
     >
     <!-- Row Header Template -->
-    <ngx-datatable-group-header [rowHeight]="30"  #myGroupHeader  (toggle)="onDetailToggle($event)" >
+    <ngx-datatable-group-header [rowHeight]="30"  #myGroupHeader >
         <ng-template let-group="group" let-expanded="expanded" let-row="row" ngx-datatable-group-header-template>
           <div class="group-header" (click)="toggleExpandGroup(group)">
             <a
@@ -107,9 +107,9 @@
         </ng-template>
       </ngx-datatable-column>
 
-      <ngx-datatable-column  name="Personnummer(år)(kön)" prop="social" [width]="175" [frozenLeft]="" [sortable]="false">
+      <ngx-datatable-column  name="Personnummer år kön" prop="socialId" sortable="true" [width]="175" [frozenLeft]="">
         <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
-           <span> <strong >{{row.socialId}} </strong> ( <i [innerHTML]="row['age']"></i> )( <span *ngIf="row['gender'] === 'MALE'">&#9794;</span> <span *ngIf="row['gender'] === 'FEMALE'">&#9792;</span> )  </span>
+           <span> <strong >{{row.socialId.toString().slice(0,8)}}-{{row.socialId.toString().slice(8)}} </strong>  <i>{{row.age}} </i>  <span *ngIf="row['gender'] === 'MALE'">&#9794;</span> <span *ngIf="row['gender'] === 'FEMALE'">&#9792;</span>   </span>
         </ng-template>
       </ngx-datatable-column>
       <!-- Info -->
@@ -175,9 +175,9 @@
       </ng-template>
     </ngx-datatable-column>
 
-    <ngx-datatable-column  name="Personnummer(år)(kön)" prop="social" [width]="175" [frozenLeft]="" [sortable]="false">
+    <ngx-datatable-column  name="Personnummer år kön" prop="socialId" sortable="true" [width]="175" [frozenLeft]="">
       <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
-        <span> <strong >{{row.socialId}} </strong> ( <i [innerHTML]="row['age']"></i> )( <span *ngIf="row['gender'] === 'MALE'">&#9794;</span> <span *ngIf="row['gender'] === 'FEMALE'">&#9792;</span> )  </span>
+        <span> <strong >{{row.socialId.toString().slice(0,8)}}-{{row.socialId.toString().slice(8)}} </strong>  <i>{{row.age}} </i>  <span *ngIf="row['gender'] === 'MALE'">&#9794;</span> <span *ngIf="row['gender'] === 'FEMALE'">&#9792;</span>   </span>
       </ng-template>
     </ngx-datatable-column>
     <!-- Info -->

@@ -1,3 +1,4 @@
+import { readFileSync } from 'fs';
 import { EventVera } from '../shared/models/EventVera';
 import { RoleType } from '../client/src/app/models/RoleType';
 import {
@@ -6,11 +7,12 @@ import {
   storeEvent,
   userExists,
   getCareEventByTeam,
-  getCareEventByPatient, 
+  getCareEventByPatient,
   getAllEvents,
   getCurrentId,
 } from './dbHelper';
 import { EventType } from '../shared/models/EventType';
+
 
 const express = require('express');
 const path = require('path');
@@ -18,6 +20,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 const eventserver = require('./websockets/server');
 const testRouter = require('./routes/test');
 const indexRouter = require('./routes/index');
@@ -142,6 +145,11 @@ app.post('/user', (req, res) => {
     res.json({ status: 'OK' });
     console.log(users);
   }
+});
+
+app.get('/config', (req, res) => {
+  const raw = fs.readFileSync('overview-config.json');
+  res.json(JSON.parse(raw));
 });
 
 eventserver.runWebSocketServer();

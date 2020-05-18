@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+
 import { EventVera } from '../../../../shared/models/EventVera';
 import { User } from '../models/User';
 import { EventType } from '../../../../shared/models/EventType';
@@ -8,6 +9,8 @@ import { Person } from '../models/Person';
 import { RoleType } from '../models/RoleType';
 import { ActionType } from '../models/ActionType';
 import { CareEvent } from '../models/CareEvent';
+import {catchError} from "rxjs/operators";
+
 
 const baseUrl = 'http://localhost:4201';
 
@@ -71,5 +74,18 @@ export class ServerService {
     };
 
     return this.http.post(url, event, httpOptions);
+  }
+
+  /* Gets the config file for the overview-table from the server. */
+  getOverviewConfig(): Observable<any> {
+    const url = `${baseUrl}/config`;
+    return this.http
+      .get(url, httpOptions).pipe(
+        catchError((err:HttpErrorResponse) => {
+          console.error('There was an error getting overview-config');
+          return throwError(err.message);
+        }
+        )
+      );
   }
 }

@@ -49,7 +49,6 @@ import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-in
 import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
 import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-reason.component';
