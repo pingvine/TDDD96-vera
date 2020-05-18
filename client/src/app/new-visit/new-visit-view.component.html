@@ -13,7 +13,7 @@
           <app-new-visit-information (newVisit)="updateVisitor($event)"></app-new-visit-information>
           <mat-divider [inset]="true"></mat-divider>
           <app-new-visit-reason (search)="updateVisitorInformation($event)"></app-new-visit-reason>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext>Nästa</button>
           <button mat-raised-button (click)="addVisit()">Lägg till paitent</button>
         </mat-card-content>
       </mat-card>
@@ -28,8 +28,9 @@
       <mat-card>
         <mat-card-content>
           <app-new-visit-triage [visit]="visit"></app-new-visit-triage>
-          <button mat-button matStepperPrevious>Previous</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>Tillbaka</button>
+          <button mat-button matStepperNext>Nästa</button>
+          <button mat-raised-button (click)="addVisit()">Lägg till paitent</button>
         </mat-card-content>
       </mat-card>
     </mat-step>

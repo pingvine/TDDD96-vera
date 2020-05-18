@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 
 export class NewVisitViewComponent extends HeaderName implements OnInit {
 
-  visit: partyData;
+  visit = {} as partyData;
 
   constructor(viewNameService: ViewNameService,
               private ehrService : EhrService,

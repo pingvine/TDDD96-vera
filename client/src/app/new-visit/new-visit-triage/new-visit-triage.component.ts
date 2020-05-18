@@ -8,11 +8,35 @@ import {partyData} from "../../ehr.service";
 })
 export class NewVisitTriageComponent implements OnInit {
 
-  @Input() visit: partyData;
+  @Input() visit : partyData
+
+
   currentPrio: string;
   constructor() { }
 
   ngOnInit(): void {
+    this.visit = {
+      additionalInfo: {
+        active: true,
+        arrivalTime: '',
+        arrivalMethod: '',
+        socialId: '',
+        projekt: 'VERA2020',
+        search: '',
+        team: 'X',
+        ehrId: '',
+        prio: '',
+        age: '',
+        tystnadsplikt: false,
+        mottagning: '',
+        remittance: false,
+        idChecked: false,
+      },
+      firstNames: '',
+      lastNames: '',
+
+    }
+    console.log(this.visit);
   }
 
   updatePrio(prio: string) {
@@ -21,7 +45,7 @@ export class NewVisitTriageComponent implements OnInit {
   }
 
   updateTriage(data: string, value: any) {
-    if (data == 'spo2') {
-    }
+    //TODO form control for triage params use data as key to set specific value to corresponding field.
+
   }
 }
