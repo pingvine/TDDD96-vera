@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import * as accounts from './accounts-EHRScape.json'
+import * as accounts from './accounts-EHRScape.json';
+
+//const accounts = require('./accounts-EHRScape.json');
 
 //Interface for creating party data.
 export interface partyData {
@@ -216,7 +218,7 @@ export class EhrService {
 
     }
 
-    //Sends AQL query 
+    //Sends AQL query
     sendAQL(httpParamsAQL){
         const httpOptionsAQL = {
             headers: new HttpHeaders({
