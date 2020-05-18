@@ -25,11 +25,11 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
   }
 
   addVisit(): void {
-    this.ehrService.createPerson(this.visit);
-    //  TODO check for valid response from ehr first
-    this.router.navigate(['overview']);
-
-
+    if (this.visit.firstNames != '' && this.visit.lastNames != '' && this.visit.additionalInfo.socialId != '') {
+      this.ehrService.createPerson(this.visit);
+      //  TODO check for valid response from ehr first
+      this.router.navigate(['overview']);
+    }
   }
   updateVisitor(visit: partyData) {
     console.log('reciving: ' + visit.firstNames + ' ' + visit.lastNames)

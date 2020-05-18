@@ -1,3 +1,8 @@
+.mat-card {
+  background-color: #C5CAE9;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
 .container {
   height: 100%;
   width: 100%;

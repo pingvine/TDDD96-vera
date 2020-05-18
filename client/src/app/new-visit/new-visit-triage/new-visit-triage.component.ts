@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {partyData} from "../../ehr.service";
 
 @Component({
   selector: 'app-new-visit-triage',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewVisitTriageComponent implements OnInit {
 
+  @Input() visit: partyData;
+  currentPrio: string;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  updatePrio(prio: string) {
+    this.currentPrio = prio;
+
+  }
+
+  updateTriage(data: string, value: any) {
+    if (data == 'spo2') {
+    }
+  }
 }

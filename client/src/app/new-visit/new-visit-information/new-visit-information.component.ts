@@ -27,7 +27,7 @@ export class NewVisitInformationComponent implements OnInit {
       search: '',
       team: 'X',
       ehrId: '',
-      prio: 'red',
+      prio: '',
       age: '',
       tystnadsplikt: false,
       mottagning: '',
@@ -88,7 +88,6 @@ export class NewVisitInformationComponent implements OnInit {
     this.party.additionalInfo.socialId += id.toString();
     console.log(id.slice(3,3));
     if (Number(id.slice(3, 3)) % 2 == 0) {
-
       this.updateGender('FEMALE');
     } else {
       this.updateGender('MALE');
