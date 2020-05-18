@@ -37,7 +37,9 @@ export class NewVisitInformationComponent implements OnInit {
     },
     firstNames: '',
     lastNames: '',
-  }
+
+    }
+  constructor() { }
 
   calculateAge(date: Date) {
     const now = new Date(Date.now());
@@ -52,7 +54,6 @@ export class NewVisitInformationComponent implements OnInit {
   time: string;
   date: string;
 
-  constructor() { }
 
   ngOnInit(): void {
     this.dateNow = new Date(Date.now());

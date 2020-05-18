@@ -59,28 +59,28 @@
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>SpO2 på luft</mat-label>
-                <input matInput type="number">
+                <input matInput [(ngModel)] = "spo2">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>AF</mat-label>
-                <input matInput type="number">
+                <input matInput [(ngModel)] = "af">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Puls</mat-label>
-                <input matInput type="number">
+                <input matInput [(ngModel)] = "pulse">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
-                <mat-label>BF</mat-label>
-                <input matInput type="number">
+                <mat-label>BT</mat-label>
+                <input matInput [(ngModel)] = "bt">
               </mat-form-field>
             </mat-grid-tile>
 
@@ -94,21 +94,21 @@
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Temperatur</mat-label>
-                <input matInput type="number">
+                <input matInput [(ngModel)] = "temp">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Smärta</mat-label>
-                <input matInput type="number">
+                <input matInput [(ngModel)] = "pain">
               </mat-form-field>
             </mat-grid-tile>
 
             <mat-grid-tile>
               <mat-form-field>
                 <mat-label>Vikt</mat-label>
-                <input matInput type="number">
+                <input matInput [(ngModel)] = "weight">
               </mat-form-field>
             </mat-grid-tile>
 
@@ -126,7 +126,9 @@
             </mat-grid-tile>
 
             <mat-grid-tile>
-              <button mat-raised-button color="accent">Uppdatera</button>
+              <button (click) = updateCompositionData()
+                    mat-raised-button color="accent">Uppdatera
+              </button>
             </mat-grid-tile>
           </mat-grid-list>
       </mat-card-content>

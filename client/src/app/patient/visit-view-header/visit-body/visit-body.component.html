@@ -5,35 +5,35 @@
   <div class="col, vp-flex-container">
     <mat-form-field matTooltip="Blodsyrenivå">
       <mat-label>SpO2</mat-label>
-      <input disabled matInput [value]="spo2">
+      <input [hidden] = "!spo2" disabled matInput [value]="spo2">
     </mat-form-field>
     <mat-form-field matTooltip="Andningsfrekvens">
       <mat-label>AF</mat-label>
-      <input disabled matInput [value]="af">
+      <input [hidden] = "!af" disabled matInput [value]="af">
     </mat-form-field>
     <mat-form-field>
       <mat-label>Puls</mat-label>
-      <input disabled matInput [value]="pulse">
+      <input [hidden] = "!pulse" disabled matInput [value]="pulse">
     </mat-form-field>
     <mat-form-field matTooltip="Blodtryck">
       <mat-label>BT</mat-label>
-      <input disabled matInput [value]="bt">
+      <input [hidden] = "!bt" disabled matInput [value]="bt">
     </mat-form-field>
     <mat-form-field matTooltip="Glasgow Coma Scale (medvetandegrad)">
       <mat-label>GCS</mat-label>
-      <input disabled matInput [value]="conscious">
+      <input [hidden] = "!conscious" disabled matInput [value]="conscious">
     </mat-form-field>
     <mat-form-field matTooltip="Kroppstemperatur">
       <mat-label>Temp</mat-label>
-      <input disabled matInput [value]="temp">
+      <input [hidden] = "!temp" disabled matInput [value]="temp">
     </mat-form-field>
     <mat-form-field>
       <mat-label>Smärta</mat-label>
-      <input disabled matInput [value]="pain">
+      <input [hidden] = "!pain" disabled matInput [value]="pain">
     </mat-form-field>
     <mat-form-field>
       <mat-label>Vikt</mat-label>
-      <input disabled matInput [value]="weight">
+      <input [hidden] = "!weight" disabled matInput [value]="weight">
     </mat-form-field>
   </div>
 </div>
