@@ -93,7 +93,7 @@ describe('OverviewTableComponent', () => {
 
   it('should create a row from a visit', () => {
     const person = new Person(1234567890, 'firstname', 'lastname');
-    const visit = new Visit(123, person);
+    const visit = new Visit("23b3ad3d-7574-4fc3-a0c2-6e070714772a", person);
     const visitInfo = {Team: 'A', arrivalTime: '0000-00-00:12:12:12', prio: 'green', socialId: person.getId()};
     visit.setVisitInfo(visitInfo);
     const row = component.rowMaker(visit);

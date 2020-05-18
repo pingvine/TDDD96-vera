@@ -116,7 +116,7 @@ export class EhrService {
     return this.http.get(this.urlActive, this.httpOptions1);
   }
   /*Spara en composition i EHRScape*/
-    async postCompositionData(compositionData, ehrId){
+    async postCompositionData(compositionData, ehrId: string){
 
         const httpOptionsCompositionData = {
             headers: new HttpHeaders({
@@ -134,7 +134,7 @@ export class EhrService {
         });
 
     }
-    getSpo2(ehrId){
+    getSpo2(ehrId: string){
         var aqlSpo2 = "SELECT x/data[at0001]/events[at0002]/data[at0003]/items[at0006]/value as value, " +
                       "c/name/value as name " +
                       "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
@@ -145,7 +145,7 @@ export class EhrService {
         return this.sendAQL(httpParamsAQL);
     }
 
-    getAf(ehrId){
+    getAf(ehrId: string){
         var aqlAf = "SELECT x/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value as value," +
                          "c/name/value as name " +
                          "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
@@ -156,7 +156,7 @@ export class EhrService {
         return this.sendAQL(httpParamsAQL);
     }
 
-    getPulse(ehrId){
+    getPulse(ehrId: string){
         var aqlPuls = "SELECT x/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as value," +
                       "c/name/value as name " +
                       "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
@@ -165,7 +165,7 @@ export class EhrService {
         const httpParamsAQL = new HttpParams().set('aql', aqlPuls);
         return this.sendAQL(httpParamsAQL);
     }
-    getBt(ehrId){
+    getBt(ehrId: string){
         var aqlBlodtryck = "SELECT x/data[at0001]/events[at0006]/data[at0003]/items[at1006]/value as value," +
                            "c/name/value as name " +
                            "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
@@ -174,7 +174,7 @@ export class EhrService {
         const httpParamsAQL = new HttpParams().set('aql', aqlBlodtryck);
         return this.sendAQL(httpParamsAQL);
     }
-    getTemp(ehrId){
+    getTemp(ehrId: string){
         var aqlKroppstemperatur = "SELECT x/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as value," +
                                   "c/name/value as name " +
                                   "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
@@ -183,7 +183,7 @@ export class EhrService {
         const httpParamsAQL = new HttpParams().set('aql', aqlKroppstemperatur);
         return this.sendAQL(httpParamsAQL);
     }
-    getWeight(ehrId){
+    getWeight(ehrId: string){
         var aqlWeight = "SELECT x/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as value," +
                       "c/name/value as name " +
                       "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +
@@ -192,7 +192,7 @@ export class EhrService {
         const httpParamsAQL = new HttpParams().set('aql', aqlWeight);
         return this.sendAQL(httpParamsAQL);
     }
-    getPain(ehrId){
+    getPain(ehrId: string){
         var aqlAbbeyPainScal = "SELECT x/data[at0001]/events[at0002]/data[at0003]/items[at0029]/value as value," +
                                "c/name/value as name " +
                                "FROM EHR[ehr_id/value = '" + ehrId + "'] CONTAINS COMPOSITION c " +

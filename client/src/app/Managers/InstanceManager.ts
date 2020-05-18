@@ -32,16 +32,16 @@ export class InstanceManager {
         return this.visits;
     }
 
-    getVisitByID(id: number) {
-        return this.visits.find(element => element.getId() === id);
+    getVisitByID(ehrId: string) {
+        return this.visits.find(element => element.getehrId() === ehrId);
     }
 
     getVisitBySocialId(id: number) {
       return this.visits.find((visit) => visit.getPerson().getId() === id);
     }
 
-    createVisit(person: Person) {
-        const newPerson = new Visit(dummyId, person);
+    createVisit(ehrId: string , person: Person) {
+        const newPerson = new Visit(ehrId, person);
         this.visits.push(newPerson);
         return newPerson;
     }

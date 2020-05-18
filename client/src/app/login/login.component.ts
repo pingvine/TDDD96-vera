@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { RoleType } from '../models/RoleType';
 import { User } from '../models/User';
 import { Person } from '../models/Person';
@@ -10,7 +11,6 @@ import { UserType } from '../models/UserType';
 import { ServerService } from '../services/server.service';
 import { SpinnerOverlayComponent } from '../spinner-overlay/spinner-overlay.component';
 import { LoginService } from '../services/login.service';
-import {Router} from "@angular/router";
 
 interface Role {
   value: RoleType;
@@ -51,6 +51,22 @@ export class LoginComponent implements OnInit {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
+  createUser(id: number = 0) {
+    const fname = this.userName.value;
+    const lname = '';
+    const person = new Person(id, fname, lname);
+    const user = new User(id, person, UserType.Editor);
+    user.setRoleType(this.selectedRole);
+
+    this.serverService.createUser(user).subscribe((msg) => {
+      console.log('MESSAGE:');
+      console.log(msg);
+    });
+
+    this.loginService.changeUser(user);
+    this.router.navigate(['overview']);
+  }
+
   async logIn() {
     // Spinner overlay
     const dialogRef: MatDialogRef<SpinnerOverlayComponent> = this.dialog.open(SpinnerOverlayComponent,
@@ -63,23 +79,12 @@ export class LoginComponent implements OnInit {
     console.log(`Selected username:${this.userName.value}`);
 
     this.serverService.getId().subscribe((msg) => {
-      const { id } = msg;
-      const fname = this.userName.value;
-      const lname = '';
-      const person = new Person(id, fname, lname);
-      const user = new User(id, person, UserType.Editor);
-      user.setRoleType(this.selectedRole);
-
-      this.serverService.createUser(user).subscribe((msg) => {
-        console.log('MESSAGE:');
-        console.log(msg);
-      });
-
-      this.loginService.changeUser(user);
-      this.router.navigate(['overview']);
+      this.createUser(msg);
     },
     (error) => {
       console.log(`Error in login getId: ${error.message}`);
+      console.log('Creating user anyway with a dummy ID');
+      this.createUser();
       dialogRef.close();
     },
     () => {

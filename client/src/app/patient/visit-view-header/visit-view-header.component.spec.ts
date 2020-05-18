@@ -22,7 +22,7 @@ describe('VisitViewHeaderComponent', () => {
     fixture = TestBed.createComponent(VisitViewHeaderComponent);
     component = fixture.componentInstance;
     let newPerson = new Person(199705251234, "Peter", "Stefansson");
-    let newVisit = new Visit(199705251234, newPerson);
+    let newVisit = new Visit("23b3ad3d-7574-4fc3-a0c2-6e070714772a", newPerson);
     component.currentVisit = newVisit;
     fixture.detectChanges();
   });
