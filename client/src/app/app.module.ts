@@ -49,11 +49,11 @@ import { VisitInfoPersonalComponent } from './patient/visit-view-header/visit-in
 import { VisitBodyComponent } from './patient/visit-view-header/visit-body/visit-body.component';
 import { VisitEventsComponent } from './patient/visit-view-header/visit-events/visit-events.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { NewVisitInformationComponent } from './new-visit/new-visit-information/new-visit-information.component';
 import { NewVisitReasonComponent } from './new-visit/new-visit-reason/new-visit-reason.component';
-import {EhrService} from "./ehr.service";
+import { EhrService } from "./ehr.service";
 import { VisitSelectorComponent } from './overview/visit-selector/visit-selector.component';
 import { OverviewTableComponent } from './overview/overview-table/overview-table.component';
 import { AppComponent } from './app.component';
@@ -62,7 +62,8 @@ import { TestEventSocketComponent } from './test-event-socket/test-event-socket.
 import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-socket.component';
 import { LoginComponent } from './login/login.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import { NoticeDialogComponent } from './notice/notice-dialog/notice-dialog.component';
+import { MatDialogModule } from "@angular/material/dialog";
 
 
 
@@ -103,6 +104,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     TestNoticeSocketComponent,
     LoginComponent,
     SpinnerOverlayComponent,
+    NoticeDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -28,6 +28,11 @@ export class ServerService {
     return this.http.get(url, httpOptions);
   }
 
+  getCareEvents(): Observable<any> {
+    const url = `${baseUrl}/events/careevent`;
+    return this.http.get(url, httpOptions);
+  }
+
   getId() : Observable<any> {
     const url = `${baseUrl}/id`;
     return this.http.post(url, '', httpOptions);
@@ -56,10 +61,10 @@ export class ServerService {
   }
 
   createCareEvent(senderId: string, senderPerson: Person, receivers: RoleType[],
-    team: number, action: ActionType, comment: string): Observable<any> {
+    team: number, action: ActionType, comment: string, patient: Person, delaySec: number): Observable<any> {
     const url = `${baseUrl}/event`;
-    const careEvent = new CareEvent(senderPerson, receivers, team, action, comment, new Person(199001010133, 'Manual Patient', ''));
-    careEvent.setCreationTime(new Date(Date.now() + 1000 * 5)); // 5 sek
+    const careEvent = new CareEvent(senderPerson, receivers, team, action, comment, patient);
+    careEvent.setCreationTime(new Date(Date.now() + 1000 * delaySec)); // delay sec
     const data = {
       careEvent,
     };

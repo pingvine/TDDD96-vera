@@ -1,0 +1,42 @@
+h1 {
+  background: #303F9F;
+  color: white;
+  padding: 8px;
+}
+
+::ng-deep .mat-dialog-container {
+  padding: 0 !important;
+  padding-bottom: 16px !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  max-width: 350px;
+}
+
+.content-container {
+  padding: 0 8px 8px;
+}
+
+.question {
+  display: flex;
+}
+
+.personal-info {
+  font-weight: bold;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.buttons {
+  margin: auto;
+}
+
+.cancel {
+  background: #bdbdbd;
+  font-size: 16px;
+}
+
+.ok {
+  background: #009688;
+  color: white;
+  font-size: 16px;
+}

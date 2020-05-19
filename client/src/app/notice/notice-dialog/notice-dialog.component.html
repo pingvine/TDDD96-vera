@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>Bekräfta</h1>
+<div mat-dialog-content>
+  <div class="content-container">
+    <div class="question">
+      Har
+      <div class="personal-info">
+        {{personalInfo}}
+      </div>
+       tittats till?
+    </div>
+    <div class="instructions">
+      Behövs det en avvikande tid för patienten? <br> Ange då en specifik tid nedan
+      <br>
+      <mat-form-field>
+        <mat-label>Avvikande tid</mat-label>
+        <input matInput [(ngModel)]="preferredTimeMin">
+      </mat-form-field>
+      <br>
+      Om fältet lämnas tomt anges normal tid <br> "OK" verkställer tiden för nästa titt
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <div class="buttons">
+    <button mat-button (click)="onNoClick()" class="cancel">Avbryt</button>
+    <button mat-button [mat-dialog-close]="preferredTimeMin" class="ok">OK</button>
+  </div>
+</div>
