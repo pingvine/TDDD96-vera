@@ -12,6 +12,9 @@ export class HeaderName implements OnDestroy {
     this.viewName = viewName;
   }
 
+  /**
+   *
+   */
   setView() {
     this.viewNameService.changeView(this.viewName);
   }

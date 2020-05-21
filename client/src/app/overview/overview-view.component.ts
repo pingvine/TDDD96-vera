@@ -1,7 +1,6 @@
 import {
   AfterViewInit, Component, OnInit, ViewChild,
 } from '@angular/core';
-import { RequestService } from '../request.service';
 import { DummyGet } from '../models/get.dummy.model';
 import { ViewNameService } from '../view-name.service';
 import { HeaderName } from '../header-name';
@@ -12,8 +11,7 @@ import {InstanceManager} from "../Managers/InstanceManager";
 @Component({
   selector: 'app-overview',
   templateUrl: './overview-view.component.html',
-  styleUrls: ['./overview-view.component.css'],
-  providers: [RequestService],
+  styleUrls: ['./overview-view.component.css']
 })
 export class OverviewViewComponent extends HeaderName implements OnInit, AfterViewInit {
   @ViewChild('table') overviewTable: any;
