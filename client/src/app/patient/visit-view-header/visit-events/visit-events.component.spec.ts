@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { VisitEventsComponent } from './visit-events.component';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('VisitEventsComponent', () => {
   let component: VisitEventsComponent;

@@ -1,14 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {ViewNameService} from '../view-name.service';
-import {HeaderName} from '../header-name';
-import {EhrService, partyData} from '../ehr.service';
-import {Router} from "@angular/router";
-import {ServerService} from "../services/server.service";
-import {LoginService} from "../services/login.service";
-import {User} from "../models/User";
-import {ActionType} from "../models/ActionType";
-import {Person} from "../models/Person";
-import {PrioTime} from "../models/PrioTime";
+import {
+  Component, OnInit,
+} from '@angular/core';
+import { ViewNameService } from '../view-name.service';
+import { HeaderName } from '../header-name';
+import {
+  EhrService, partyData,
+} from '../ehr.service';
+import { Router } from "@angular/router";
+import { ServerService } from "../services/server.service";
+import { LoginService } from "../services/login.service";
+import { User } from "../models/User";
+import { ActionType } from "../models/ActionType";
+import { Person } from "../models/Person";
+import { PriorityTime } from "../models/PriorityTime";
 
 
 @Component({
@@ -46,7 +50,7 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
     });
     this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
       ActionType.Warning, 'Titta till patient', new Person(Number(this.visit.additionalInfo.socialId),
-        this.visit.firstNames, this.visit.lastNames), Number(PrioTime[this.visit.additionalInfo.prio.toUpperCase()]))
+        this.visit.firstNames, this.visit.lastNames), Number(PriorityTime[this.visit.additionalInfo.prio.toUpperCase()]))
       .subscribe(() => {
     });
     this.router.navigate(['overview']);

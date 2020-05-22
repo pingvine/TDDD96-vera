@@ -1,22 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatOptionModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
-import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { OverviewTableComponent } from './overview-table.component';
-import {Visit} from "../../models/Visit";
-import {Person} from "../../models/Person";
-import {PrioTime} from "../../models/PrioTime";
+import { Visit } from "../../models/Visit";
+import { Person } from "../../models/Person";
+import { PriorityTime } from "../../models/PriorityTime";
 
 
 describe('OverviewTableComponent', () => {
@@ -99,6 +97,6 @@ describe('OverviewTableComponent', () => {
     const row = component.rowMaker(visit);
     expect(row.name).toEqual('firstname lastname');
     expect(row.socialId).toEqual(1234567890);
-    expect(row.checkupTime).toEqual(PrioTime.GREEN);
+    expect(row.checkupTime).toEqual(PriorityTime.GREEN);
   });
 });

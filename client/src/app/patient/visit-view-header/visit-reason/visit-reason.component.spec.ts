@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { VisitReasonComponent } from './visit-reason.component';
 
 describe('VisitReasonComponent', () => {

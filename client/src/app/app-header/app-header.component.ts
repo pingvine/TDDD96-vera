@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, OnInit,
+} from '@angular/core';
 import { ViewNameService } from '../view-name.service';
 import { EventSocketService } from '../services/event-socket.service';
 import { EventVeraListener } from '../interfaces/event-vera-listener';
 import { ActionType } from '../models/ActionType';
-import { getAgeFromSocialIdString, getGenderFromSocialIdString } from '../util/helpers';
+import {
+  getAgeFromSocialIdString, getGenderFromSocialIdString
+} from '../util/helpers';
 import { ServerService } from '../services/server.service';
 import { LoginService } from '../services/login.service';
 import { User } from '../models/User';

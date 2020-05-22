@@ -1,5 +1,6 @@
-import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {Observable} from "rxjs";
+import {
+  Component, OnInit, Input,
+} from '@angular/core';
 
 @Component({
   selector: 'app-patient-view-card-footer',

@@ -1,4 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {
+  Component, EventEmitter, Input, OnInit, Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-patient-status-summary',

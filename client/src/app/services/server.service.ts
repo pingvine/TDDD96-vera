@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient, HttpHeaders,
+} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { EventVera } from '../../../../shared/models/EventVera';
 import { User } from '../models/User';
 import { EventType } from '../../../../shared/models/EventType';
 import { Person } from '../models/Person';

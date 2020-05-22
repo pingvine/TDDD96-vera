@@ -1,8 +1,12 @@
 import {
   Component, EventEmitter, OnInit, Output,
 } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import {
+  FormControl, Validators,
+} from '@angular/forms';
+import {
+  MatDialog, MatDialogRef,
+} from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { RoleType } from '../models/RoleType';
 import { User } from '../models/User';

@@ -1,12 +1,9 @@
 import {
   AfterViewInit, Component, OnInit, ViewChild,
 } from '@angular/core';
-import { DummyGet } from '../models/get.dummy.model';
 import { ViewNameService } from '../view-name.service';
 import { HeaderName } from '../header-name';
-import { OverviewTableComponent } from './overview-table/overview-table.component';
-import {PatientService} from "../services/patient.service";
-import {InstanceManager} from "../Managers/InstanceManager";
+import { PatientService } from "../services/patient.service";
 
 @Component({
   selector: 'app-overview',
