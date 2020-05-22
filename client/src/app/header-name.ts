@@ -8,12 +8,14 @@ export class HeaderName implements OnDestroy {
   subscription: Subscription;
 
   constructor(protected viewNameService: ViewNameService, viewName: string) {
-    this.subscription = this.viewNameService.view$.subscribe(view => this.viewName = view);
+    this.subscription = this.viewNameService.view$.subscribe((view) => {
+      this.viewName = view;
+    });
     this.viewName = viewName;
   }
 
   /**
-   *
+   * Set the current view name to the child´s view name
    */
   setView() {
     this.viewNameService.changeView(this.viewName);

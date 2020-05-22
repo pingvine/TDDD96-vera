@@ -76,6 +76,10 @@ export class NoticeComponent implements OnInit, OnChanges {
   ngOnInit(): void {
   }
 
+  /**
+   * Update information for notice upon received data
+   * @param changes SimpleChanges
+   */
   ngOnChanges(changes: SimpleChanges): void {
     this.gender = this.notice.gender;
     this.type = this.notice.type;
