@@ -3,7 +3,7 @@ import { CareEvent } from './CareEvent';
 import { HealthManager } from '../Managers/HealthManager';
 
 export class Visit {
-    private id: number;
+    private ehrId: string;
 
     private person: Person;
 
@@ -15,16 +15,16 @@ export class Visit {
 
     private visitInfo;
 
-    constructor(id: number, person: Person) {
-      this.id = id;
+    constructor(id: string, person: Person) {
+      this.ehrId = id;
       this.person = person;
       this.hosts = [];
       this.timeLine = [];
       this.healthManager = undefined;
     }
 
-    getId() {
-      return this.id;
+    getehrId() {
+      return this.ehrId;
     }
 
     getPerson() {
