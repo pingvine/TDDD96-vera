@@ -10,6 +10,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 var eventserver = require('./websockets/server');
 var testRouter = require('./routes/test');
 var indexRouter = require('./routes/index');
@@ -122,6 +123,10 @@ app.post('/user', function (req, res) {
         res.json({ status: 'OK' });
         console.log(users);
     }
+});
+app.get('/config', function (req, res) {
+    var raw = fs.readFileSync('overview-config.json');
+    res.json(JSON.parse(raw));
 });
 eventserver.runWebSocketServer();
 dbHelper_1.initDb();
