@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import * as accounts from './accounts-EHRScape.json';
 
-//const accounts = require('./accounts-EHRScape.json');
-
 //Interface for creating party data.
 export interface partyData {
     additionalInfo: {
@@ -81,6 +79,7 @@ export class EhrService {
 
 
   constructor(private http: HttpClient) { }
+
 
   /* Hämtar party-data från givet personnumemer, bör endast hämta ett party */
   getPnr(pnr: string) {
