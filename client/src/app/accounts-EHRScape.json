@@ -1,0 +1,4 @@
+{
+    "readAccountCredentials" : "lio.se1:lio.se123",
+    "writeReadCredentials" : "lio.se2:ehr4lio.se2"
+}

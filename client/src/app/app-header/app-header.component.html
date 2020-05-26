@@ -1,20 +1,29 @@
+<div class="name-container">
   <div class="current-view">
-  {{currentView}}
+    {{currentView}}
   </div>
-  <button mat-raised-button matBadge="{{notices.length}}" [matBadgeHidden]="notices.length === 0"  matBadgeColor="primary"
-         [matMenuTriggerFor]="beforeMenu" class="notice-menu-button">
-    <mat-icon class="notice-icon">notifications_none</mat-icon>
-  </button>
-  <mat-menu #beforeMenu="matMenu" xPosition="before" class="notice-menu">
-    <button mat-raised-button color="primary" (click)="clearNotices()">Rensa</button>
-    <div class="notice-card">
-      <app-notice [notice]="notice" (noticeSelector)="removeNotice($event)"
-                  *ngFor="let notice of notices"></app-notice>
+  <div class="current-view" *ngIf="currentView!=='Enhetsöversikt'">
+    <button mat-button routerLink="overview">
+      Tillbaka till enhetsöversikten
+    </button>
+  </div>
+</div>
+<button mat-raised-button matBadge="{{notices.length}}" [matBadgeHidden]="notices.length === 0"  matBadgeColor="primary"
+       [matMenuTriggerFor]="beforeMenu" class="notice-menu-button">
+  <mat-icon class="notice-icon">
+    notifications_none
+  </mat-icon>
+</button>
+<mat-menu #beforeMenu="matMenu" xPosition="before" class="notice-menu">
+  <button mat-raised-button color="primary" (click)="clearNotices()">Rensa</button>
+  <div class="notice-card">
+    <app-notice [notice]="notice" (noticeSelector)="removeNotice($event)"
+                *ngFor="let notice of notices"></app-notice>
+  </div>
+  <div *ngIf="notices.length===0" class="empty-notice-list">
+      Här var det tomt
     </div>
-    <div *ngIf="notices.length===0" class="empty-notice-list">
-        Här var det tomt
-      </div>
-  </mat-menu>
+</mat-menu>
 
 
 
