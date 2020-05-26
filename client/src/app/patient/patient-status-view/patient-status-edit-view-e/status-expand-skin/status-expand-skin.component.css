@@ -1,0 +1,5 @@
+.mat-expansion-panel {
+  border: none;
+  max-width: fit-content;
+  margin-bottom: 16px;
+}

@@ -1,6 +1,7 @@
 import {
   Component, EventEmitter, OnInit, ViewChild, Output,
 } from '@angular/core';
+import {PrioTime} from "../../models/PrioTime";
 
 interface TableRow {
   prio: string
@@ -34,7 +35,7 @@ export class OverviewTableComponent implements OnInit {
 
   groups = [];
 
-  teams = [{ name: 'A', check: false }, { name: 'X', check: false }, { name: 'U', check: false }];
+  teams = [{ name: 'A', check: false }, { name: 'B', check: false }, { name: 'X', check: false }];
 
   searchRows = [];
 
@@ -83,7 +84,7 @@ export class OverviewTableComponent implements OnInit {
     row.name = `${visit.person.getFirstName()} ${visit.person.getLastName()}`;
     row.activites = '';
     row.arrivalMethod = visit.visitInfo.arrivalMethod;
-    row.arrivalTime = visit.visitInfo.arrivalTime.slice(14, 19);
+    row.arrivalTime = visit.visitInfo.arrivalTime.slice(11, 16);
     row.dr = visit.visitInfo.dr;
     row.search = visit.visitInfo.search;
     row.astNurse = visit.visitInfo.astNurse;
@@ -91,7 +92,8 @@ export class OverviewTableComponent implements OnInit {
     row.prio = visit.visitInfo.prio;
     row.age = visit.visitInfo.age;
     row.gender = visit.visitInfo.gender;
-    row.socialId = visit.person.getId();
+    row.socialId = visit.visitInfo.socialId;
+    row.checkupTime = Number(PrioTime[visit.visitInfo.prio.toUpperCase()]);
     return row;
   }
 

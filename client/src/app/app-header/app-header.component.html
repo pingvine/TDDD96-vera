@@ -8,7 +8,7 @@
   <mat-menu #beforeMenu="matMenu" xPosition="before" class="notice-menu">
     <button mat-raised-button color="primary" (click)="clearNotices()">Rensa</button>
     <div class="notice-card">
-      <app-notice [notice]="notice" (deleteNoticeSelector)="removeNotice($event)"
+      <app-notice [notice]="notice" (noticeSelector)="removeNotice($event)"
                   *ngFor="let notice of notices"></app-notice>
     </div>
     <div *ngIf="notices.length===0" class="empty-notice-list">

@@ -23,3 +23,12 @@ mat-grid-list{
     padding: 0;
 
 }
+
+
+mat-expansion-panel{
+    color: transparent;
+    width: 400px;
+    height: 200px;
+    top: 30px;
+}
+

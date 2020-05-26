@@ -12,7 +12,7 @@ describe('NewVisitComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ NewVisitViewComponent ],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [EhrService]
     })
       .compileComponents();
