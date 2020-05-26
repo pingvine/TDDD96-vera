@@ -45,8 +45,27 @@ export class AppComponent implements OnInit {
   // This is a duplicate, didn't know where to put it for now
 
   ngOnInit(): void {
+    this.updateVisits();
+    // this.ehrService.createPerson('Anna', '987654-3210');
+  }
+
+  ngAfterViewInint() {
+    // this.currentComponent.test();
+  }
+
+  onActivate(refComponent) {
+    this.currentComponent = refComponent;
+    if (refComponent.viewName === 'Enhetsöversikt') {
+      setTimeout((_) => {
+        refComponent.overviewTable.loadVisits(this.im.getVisits());
+        console.log('Patients loaded');
+      });
+    }
+  }
+
+  updateVisits() {
     this.ehrService.getActivePatients('MOTTAGNING').subscribe((resp: any) => {
-      resp.parties.forEach((partyData) => {
+      resp.parties.forEach((partyData:any) => {
         // eslint-disable-next-line max-len
         const pnr = getNumberFromSocialString(partyData.additionalInfo.socialId);
         const pat = this.im.createPerson(pnr, partyData.firstNames, partyData.lastNames);
@@ -58,19 +77,6 @@ export class AppComponent implements OnInit {
         partyData.additionalInfo.gender = partyData.gender;
         vis.setVisitInfo(partyData.additionalInfo);
       });
-    });
-    // this.ehrService.createPerson('Anna', '987654-3210');
-  }
-
-  ngAfterViewInint() {
-    // this.currentComponent.test();
-  }
-
-  onActivate(refComponent) {
-    this.currentComponent = refComponent;
-    setTimeout((_) => {
-      refComponent.overviewTable.loadVisits(this.im.getVisits());
-      console.log('Patients loaded');
     });
   }
 }

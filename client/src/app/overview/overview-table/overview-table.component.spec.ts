@@ -14,7 +14,8 @@ import { By } from '@angular/platform-browser';
 import { OverviewTableComponent } from './overview-table.component';
 import { Visit } from "../../models/Visit";
 import { Person } from "../../models/Person";
-import { PriorityTime } from "../../models/PriorityTime";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { PrioTime } from "../../models/PrioTime";
 
 
 describe('OverviewTableComponent', () => {
@@ -28,7 +29,7 @@ describe('OverviewTableComponent', () => {
       imports: [
         NgxDatatableModule, FormsModule, MatCardModule, MatGridListModule,
         MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatButtonModule,
-        MatInputModule, BrowserAnimationsModule, MatOptionModule,
+        MatInputModule, BrowserAnimationsModule, MatOptionModule, HttpClientTestingModule,
       ],
     })
       .compileComponents();
@@ -39,13 +40,13 @@ describe('OverviewTableComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     component.searchRows = [{
-      prio: 'yellow', social: '010101-7890', team: 'B', name: 'Dany', gender: 'male', age: 31, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '01:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
+      prio: 'yellow', socialId: '010101-7890', team: 'B', name: 'Dany', gender: 'male', age: 31, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '01:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
     },
       {
-        prio: 'green', social: '123456-7890', team: 'C', name: 'Molly', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
+        prio: 'green', socialId: '123456-7890', team: 'C', name: 'Molly', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
       },
       {
-        prio: 'blue', social: '123456-7890', team: 'B', name: 'Chany', gender: 'male', age: 34, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '03:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
+        prio: 'blue', socialId: '123456-7890', team: 'B', name: 'Chany', gender: 'male', age: 34, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '03:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
       },
     ];
   });
@@ -86,7 +87,7 @@ describe('OverviewTableComponent', () => {
     component.clearFilters('all');
     expect(component.showAllTeams).toBeFalse();
     expect(component.searchFilter).toEqual('');
-    expect(component.drFilter).toEqual('');
+    expect(component.drFilter).toEqual(undefined);
   });
 
   it('should create a row from a visit', () => {

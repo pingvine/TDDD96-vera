@@ -83,8 +83,6 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
 
     this.ehrService.getPnr(this.visit.socialId).subscribe((answer: any) => {
         this.ehrService.postCompositionData(compositionData, answer.parties[0].additionalInfo.ehrId)
-        //this.ehrService.postCompositionData(compositionData, this.visit.getEhrId());
-
     });
 
 
