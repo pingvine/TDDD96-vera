@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Person } from '../models/Person';
 import { Visit } from '../models/Visit';
-import { getNumberFromSocialString } from '../util/helpers';
 
 
 const visitKey = 'currentvisit';

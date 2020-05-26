@@ -1,5 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {
+  Component, Inject, OnInit,
+} from '@angular/core';
+import {
+  MAT_DIALOG_DATA, MatDialogRef,
+} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-notice-dialog',
@@ -13,7 +17,10 @@ export class NoticeDialogComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<NoticeDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public personalInfo: string) { }
 
-  onNoClick(): void {
+  /**
+   * Close dialog when cancel is clicked
+   */
+  onCancelClick(): void {
     this.dialogRef.close();
   }
 

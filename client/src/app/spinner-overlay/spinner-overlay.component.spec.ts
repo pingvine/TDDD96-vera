@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SpinnerOverlayComponent } from './spinner-overlay.component';
 
 describe('SpinnerOverlayComponent', () => {

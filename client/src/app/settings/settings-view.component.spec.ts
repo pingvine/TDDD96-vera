@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SettingsViewComponent } from './settings-view.component';
 
 describe('SettingsViewComponent', () => {

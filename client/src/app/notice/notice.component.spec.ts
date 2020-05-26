@@ -1,9 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePipePipe } from '../date-pipe.pipe';
-
 import { NoticeComponent } from './notice.component';
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
-import {Overlay} from "@angular/cdk/overlay";
+import { MatDialogModule } from "@angular/material/dialog";
 
 describe('NoticeComponent', () => {
   let component: NoticeComponent;

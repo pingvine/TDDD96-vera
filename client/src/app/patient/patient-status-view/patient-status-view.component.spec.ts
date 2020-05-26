@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { PatientStatusViewComponent } from './patient-status-view.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { PatientStatusViewComponent } from './patient-status-view.component';
 
 describe('PatientStatusViewComponent', () => {
   let component: PatientStatusViewComponent;

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {
+  HttpClient, HttpHeaders, HttpParams,
+} from '@angular/common/http';
 import * as accounts from './accounts-EHRScape.json';
 
 //Interface for creating party data.

@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import {
+  Component, OnInit, Input,
+} from '@angular/core';
 
 @Component({
   selector: 'app-patient-view-card-content',
@@ -6,7 +8,7 @@ import { Component, OnInit, Input, Output } from '@angular/core';
   styleUrls: ['./patient-view-card-content.component.css']
 })
 export class PatientViewCardContentComponent implements OnInit {
-  @Input() summaryData: string; 
+  @Input() summaryData: string;
 
 
   constructor() { }

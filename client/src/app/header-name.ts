@@ -1,6 +1,6 @@
-import {Subscription} from 'rxjs';
-import {ViewNameService} from './view-name.service';
-import {OnDestroy} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { OnDestroy } from '@angular/core';
+import { ViewNameService } from './view-name.service';
 
 
 export class HeaderName implements OnDestroy {
@@ -8,10 +8,15 @@ export class HeaderName implements OnDestroy {
   subscription: Subscription;
 
   constructor(protected viewNameService: ViewNameService, viewName: string) {
-    this.subscription = this.viewNameService.view$.subscribe(view => this.viewName = view);
+    this.subscription = this.viewNameService.view$.subscribe((view) => {
+      this.viewName = view;
+    });
     this.viewName = viewName;
   }
 
+  /**
+   * Set the current view name to the child´s view name
+   */
   setView() {
     this.viewNameService.changeView(this.viewName);
   }

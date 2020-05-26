@@ -1,5 +1,7 @@
-import {Component, Input, OnInit, SimpleChanges, OnChanges, Output, EventEmitter} from '@angular/core';
-import { EhrService} from '../../ehr.service';
+import {
+  Component, Input, OnInit, SimpleChanges, OnChanges, Output, EventEmitter,
+} from '@angular/core';
+import { EhrService } from '../../ehr.service';
 
 export interface Message {
   date: Date;
