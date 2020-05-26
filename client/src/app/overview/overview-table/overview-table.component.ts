@@ -2,7 +2,7 @@ import {
   Component, EventEmitter, OnInit, ViewChild, Output,
 } from '@angular/core';
 import { ServerService } from '../../services/server.service';
-import { PrioTime } from "../../models/PrioTime";
+import { PriorityTime } from "../../models/PriorityTime";
 
 
 interface TableRow {

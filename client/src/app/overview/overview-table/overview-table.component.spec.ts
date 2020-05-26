@@ -15,7 +15,7 @@ import { OverviewTableComponent } from './overview-table.component';
 import { Visit } from "../../models/Visit";
 import { Person } from "../../models/Person";
 import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { PrioTime } from "../../models/PrioTime";
+import { PriorityTime } from "../../models/PriorityTime";
 
 
 describe('OverviewTableComponent', () => {
