@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
         const pat = this.im.createPerson(pnr, partyData.firstNames, partyData.lastNames);
 
         pat.setRoleType(RoleType.Patient);
-        const vis = this.im.createVisit(pat);
+        const vis = this.im.createVisit(partyData.additionalInfo.ehrId, pat);
         const healthManager = new HealthManager(partyData.additionalInfo.ehrId);
         vis.setHealthManager(healthManager);
         partyData.additionalInfo.gender = partyData.gender;

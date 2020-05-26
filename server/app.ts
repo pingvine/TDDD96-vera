@@ -113,8 +113,9 @@ app.get('/teams', (req, res) => {
 
 app.post('/event', (req, res) => {
   if (req.body.eventType === EventType.CareEvent) {
-    storeEvent(req.body);
+    // storeEvent(req.body);
   }
+  console.log('Got event');
   const obj = req.body;
   const event: EventVera = new EventVera(obj.senderId, obj.eventType, obj.data);
   eventserver.handleEvent(event);

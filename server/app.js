@@ -94,8 +94,9 @@ app.get('/teams', function (req, res) {
 });
 app.post('/event', function (req, res) {
     if (req.body.eventType === EventType_1.EventType.CareEvent) {
-        dbHelper_1.storeEvent(req.body);
+        // storeEvent(req.body);
     }
+    console.log('Got event');
     var obj = req.body;
     var event = new EventVera_1.EventVera(obj.senderId, obj.eventType, obj.data);
     eventserver.handleEvent(event);
