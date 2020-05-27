@@ -1,6 +1,4 @@
-import {
-  Component, OnInit,
-} from '@angular/core';
+import {Component, OnInit,} from '@angular/core';
 
 @Component({
   selector: 'app-patient-status-view-dialog',
@@ -10,6 +8,7 @@ import {
 export class PatientStatusViewDialogComponent implements OnInit {
   header_title = "Statusbedömning";
   comment = "";
+
   /*constructor(public dialogRef: MatDialogRef<PatientStatusViewDialogComponent>) {
   }*/
 
@@ -30,22 +29,21 @@ export class PatientStatusViewDialogComponent implements OnInit {
     this.comment = html;
   }
 
-  convertToHtmlList(dict){
+  convertToHtmlList(dict) {
     let html = '';
-    if(dict.active === '1'){
+    if (dict.active === '1') {
       html += '<ul><li><h2>' + dict.name + '</h2></li>';
-      if(dict.skin !== undefined){
+      if (dict.skin !== undefined) {
         html += '<ul><li>Anmärkning på hud</li>';
         html += '<ul><li>' + dict.skin.type + ': ' + dict.skin.comment + '</li>';
         html += '</ul></ul>';
       }
-      if(dict.sfi !== '') {
+      if (dict.sfi !== '') {
         html += '<ul><li>Sfinktertonus</li>';
         html += '<ul><li>' + dict.sfi + ': ' + dict.comment + '</li></ul></ul>';
       }
       html += '</ul>';
-    }
-    else if(dict.active === '2') {
+    } else if (dict.active === '2') {
       html += '<ul><li><h2>' + dict.name + '</h2></li>';
       html += '<ul><li>Ingen anmärkning</li>';
     }

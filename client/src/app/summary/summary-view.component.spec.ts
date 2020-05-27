@@ -1,5 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SummaryViewComponent } from './summary-view.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {SummaryViewComponent} from './summary-view.component';
 
 describe('SummaryViewComponent', () => {
   let component: SummaryViewComponent;
@@ -7,9 +7,9 @@ describe('SummaryViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SummaryViewComponent ]
+      declarations: [SummaryViewComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

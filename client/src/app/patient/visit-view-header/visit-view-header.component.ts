@@ -1,11 +1,7 @@
-import {
-  Component, Input, OnInit,
-} from '@angular/core';
-import { Visit } from "../../models/Visit";
-import {
-  getAgeFromSocialIdNumber, getGenderFromSocialIdString,
-} from "../../util/helpers";
-import { EhrService } from '../../ehr.service';
+import {Component, Input, OnInit,} from '@angular/core';
+import {Visit} from "../../models/Visit";
+import {getAgeFromSocialIdNumber, getGenderFromSocialIdString,} from "../../util/helpers";
+import {EhrService} from '../../ehr.service';
 
 @Component({
   selector: 'app-visit-view-header',
@@ -28,7 +24,7 @@ export class VisitViewHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.getPatientHealthInfo();
+    this.getPatientHealthInfo();
   }
 
   getAge() {
@@ -81,25 +77,25 @@ export class VisitViewHeaderComponent implements OnInit {
   //Retrieves health info connected to currentVisit from EHRScape.
   private getPatientHealthInfo(): void {
     this.ehrService.getSpo2(this.currentVisit.getehrId()).subscribe((answer: any) => {
-        this.spo2 = answer.resultSet[0].value.numerator;
+      this.spo2 = answer.resultSet[0].value.numerator;
     });
-    this.ehrService.getAf(this.currentVisit.getehrId()).subscribe((answer:any) => {
-        this.af = answer.resultSet[0].value.magnitude;
+    this.ehrService.getAf(this.currentVisit.getehrId()).subscribe((answer: any) => {
+      this.af = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getPulse(this.currentVisit.getehrId()).subscribe((answer:any) => {
-        this.pulse = answer.resultSet[0].value.magnitude;
+    this.ehrService.getPulse(this.currentVisit.getehrId()).subscribe((answer: any) => {
+      this.pulse = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getBt(this.currentVisit.getehrId()).subscribe((answer:any) => {
-        this.bt = answer.resultSet[0].value.magnitude;
+    this.ehrService.getBt(this.currentVisit.getehrId()).subscribe((answer: any) => {
+      this.bt = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getTemp(this.currentVisit.getehrId()).subscribe((answer:any) => {
-        this.temp = answer.resultSet[0].value.magnitude;
+    this.ehrService.getTemp(this.currentVisit.getehrId()).subscribe((answer: any) => {
+      this.temp = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getPain(this.currentVisit.getehrId()).subscribe((answer:any) => {
-        this.pain = answer.resultSet[0].value.magnitude;
+    this.ehrService.getPain(this.currentVisit.getehrId()).subscribe((answer: any) => {
+      this.pain = answer.resultSet[0].value.magnitude;
     });
-    this.ehrService.getWeight(this.currentVisit.getehrId()).subscribe((answer:any) => {
-        this.weight = answer.resultSet[0].value.magnitude;
+    this.ehrService.getWeight(this.currentVisit.getehrId()).subscribe((answer: any) => {
+      this.weight = answer.resultSet[0].value.magnitude;
     });
   }
 

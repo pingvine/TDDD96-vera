@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, Input,
-} from '@angular/core';
+import {Component, Input, OnInit,} from '@angular/core';
 
 @Component({
   selector: 'app-patient-view-card-content',
@@ -11,7 +9,8 @@ export class PatientViewCardContentComponent implements OnInit {
   @Input() summaryData: string;
 
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

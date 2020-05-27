@@ -46,9 +46,9 @@
 
     <mat-step>
       <ng-template matStepLabel>
-      <mat-card [ngClass]="matHorizontalStepper.selectedIndex === 3 ?  'stepper-header-selected' :'stepper-header'">
-        Dokumentation
-      </mat-card>
+        <mat-card [ngClass]="matHorizontalStepper.selectedIndex === 3 ?  'stepper-header-selected' :'stepper-header'">
+          Dokumentation
+        </mat-card>
       </ng-template>
       <button mat-button matStepperPrevious>Previous</button>
     </mat-step>
@@ -59,7 +59,7 @@
         <mat-card [ngClass]="matHorizontalStepper.selectedIndex === 4 ?  'stepper-header-selected' :'stepper-header' ">
           Ordinationer
         </mat-card>
-        </ng-template>
+      </ng-template>
       <button mat-button matStepperPrevious>Previous</button>
     </mat-step>
   </mat-horizontal-stepper>

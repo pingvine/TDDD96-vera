@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TestNoticeSocketComponent } from './test-notice-socket.component';
+import {TestNoticeSocketComponent} from './test-notice-socket.component';
 
 describe('TestNoticeSocketComponent', () => {
   let component: TestNoticeSocketComponent;
@@ -8,9 +8,9 @@ describe('TestNoticeSocketComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestNoticeSocketComponent ]
+      declarations: [TestNoticeSocketComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

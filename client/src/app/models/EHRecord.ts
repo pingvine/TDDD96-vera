@@ -1,1 +1,2 @@
-export class EHRecord {}
+export class EHRecord {
+}

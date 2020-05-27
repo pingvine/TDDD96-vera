@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, Input,
-} from '@angular/core';
+import {Component, Input, OnInit,} from '@angular/core';
 
 @Component({
   selector: 'app-patient-view-card-footer',
@@ -10,7 +8,8 @@ import {
 export class PatientViewCardFooterComponent implements OnInit {
   @Input() activeUsers: string[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

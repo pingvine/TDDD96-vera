@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,8 @@ export class ViewNameService {
 
   view$ = this.view.asObservable();
 
-  constructor() { }
+  constructor() {
+  }
 
   /**
    * Change the name of the view to the new view name

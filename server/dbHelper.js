@@ -5,7 +5,8 @@ var mongoose = require('mongoose');
 var users = [];
 var idCounter = 0;
 function getCurrentId(callback) {
-    modelsAndSchemas_1.CurrentIdModel.updateOne({}, { $inc: { currentId: 1 } }, function (err, res) { });
+    modelsAndSchemas_1.CurrentIdModel.updateOne({}, { $inc: { currentId: 1 } }, function (err, res) {
+    });
     modelsAndSchemas_1.CurrentIdModel.find(function (err, id) {
         callback(err, id[0].currentId);
     });

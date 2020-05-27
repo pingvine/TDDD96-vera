@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EventSocketService} from "../services/event-socket.service";
 import {EventType} from "../../../../shared/models/EventType";
 
@@ -10,7 +10,8 @@ import {EventType} from "../../../../shared/models/EventType";
 export class TestNoticeSocketComponent implements OnInit {
   senderId: string
 
-  constructor(private eventService: EventSocketService) { }
+  constructor(private eventService: EventSocketService) {
+  }
 
   ngOnInit(): void {
     this.eventService.connect();
@@ -19,7 +20,7 @@ export class TestNoticeSocketComponent implements OnInit {
 
   sendNotice() {
     const currentDate = new Date(Date.now());
-    const currentTime = `${currentDate.getDate()}/${currentDate.getMonth()+1} ${currentDate.getHours()}:${currentDate.getMinutes()}`;
+    const currentTime = `${currentDate.getDate()}/${currentDate.getMonth() + 1} ${currentDate.getHours()}:${currentDate.getMinutes()}`;
     const data = {
       gender: 'male',
       type: 'important',
@@ -41,8 +42,6 @@ export class TestNoticeSocketComponent implements OnInit {
 
     this.eventService.sendMessage(event);
   }
-
-
 
 
 }

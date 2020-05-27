@@ -1,6 +1,4 @@
-import {
-  Component, EventEmitter, Input, OnInit, Output,
-} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output,} from '@angular/core';
 
 @Component({
   selector: 'app-patient-status-summary',
@@ -13,7 +11,8 @@ export class PatientStatusSummaryComponent implements OnInit {
 
   header_title = "Sammanfattning";
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

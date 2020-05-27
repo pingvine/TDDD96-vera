@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { VisitSelectorComponent } from './visit-selector.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {VisitSelectorComponent} from './visit-selector.component';
 
 describe('VisitSelectorComponent', () => {
   let component: VisitSelectorComponent;
@@ -8,12 +8,12 @@ describe('VisitSelectorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-    imports: [
-          HttpClientTestingModule,
-    ],
-    declarations: [ VisitSelectorComponent ]
+      imports: [
+        HttpClientTestingModule,
+      ],
+      declarations: [VisitSelectorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

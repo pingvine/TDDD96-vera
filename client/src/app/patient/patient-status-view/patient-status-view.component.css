@@ -1,34 +1,34 @@
 
-.gridListContainer{
-    height: auto;
-    width: auto;
-    padding: 24px;
+.gridListContainer {
+  height: auto;
+  width: auto;
+  padding: 24px;
 }
 
-mat-grid-list{
-    max-width: 100%;
-    height: 100%;
+mat-grid-list {
+  max-width: 100%;
+  height: 100%;
 }
 
-.tileContent{
-    height: 100%;
-    width: 100%;
+.tileContent {
+  height: 100%;
+  width: 100%;
 }
 
-.patientBlock{
-    height: 200px;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
+.patientBlock {
+  height: 200px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 
 }
 
 
-mat-expansion-panel{
-    color: transparent;
-    width: 400px;
-    height: 200px;
-    top: 30px;
+mat-expansion-panel {
+  color: transparent;
+  width: 400px;
+  height: 200px;
+  top: 30px;
 }
 

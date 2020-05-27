@@ -8,11 +8,13 @@ import {partyData} from "../../ehr.service";
 })
 export class NewVisitTriageComponent implements OnInit {
 
-  @Input() visit : partyData
+  @Input() visit: partyData
 
 
   currentPrio: string;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.visit = {

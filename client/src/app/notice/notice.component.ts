@@ -1,10 +1,8 @@
-import {
-  Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,
-} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ActionType } from '../models/ActionType';
-import { NoticeDialogComponent } from './notice-dialog/notice-dialog.component';
-import { Notice } from '../app-header/app-header.component';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {ActionType} from '../models/ActionType';
+import {NoticeDialogComponent} from './notice-dialog/notice-dialog.component';
+import {Notice} from '../app-header/app-header.component';
 
 @Component({
   selector: 'app-notice',
@@ -70,7 +68,7 @@ export class NoticeComponent implements OnInit, OnChanges {
    * Send the selected notice to parent
    */
   emitNotice(): void {
-    this.noticeSelector.emit({ notice: this.notice, preferredTimeMin: this.preferredTimeMin });
+    this.noticeSelector.emit({notice: this.notice, preferredTimeMin: this.preferredTimeMin});
   }
 
   ngOnInit(): void {

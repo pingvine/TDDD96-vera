@@ -1,6 +1,4 @@
-import {
-  Component, EventEmitter, Input, OnInit, Output,
-} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output,} from '@angular/core';
 
 @Component({
   selector: 'app-visit-reason',
@@ -12,10 +10,12 @@ export class VisitReasonComponent implements OnInit {
   @Input() reason = '';
   @Output() reasonChange: EventEmitter<string> = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
+
   onReasonChange(event: string) {
     this.reasonChange.emit(event);
   }

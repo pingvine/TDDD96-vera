@@ -1,8 +1,9 @@
-<mat-sidenav-container class="overview-content" hasBackdrop="true" >
-  <mat-sidenav #visitorselector [opened]="visitorSelectorOpened" (openedChange)="setVisitorSelectorState($event)"  mode="over" position="end" style="width: fit-content">
+<mat-sidenav-container class="overview-content" hasBackdrop="true">
+  <mat-sidenav #visitorselector [opened]="visitorSelectorOpened" (openedChange)="setVisitorSelectorState($event)"
+               mode="over" position="end" style="width: fit-content">
     <app-visitselector [visit]="selectedVisitor" (closeVisitorSelector)="visitorselector.toggle()"></app-visitselector>
   </mat-sidenav>
   <mat-sidenav-content>
-      <app-overview-table #table (visitor)="selectVisitor($event)"></app-overview-table>
+    <app-overview-table #table (visitor)="selectVisitor($event)"></app-overview-table>
   </mat-sidenav-content>
 </mat-sidenav-container>

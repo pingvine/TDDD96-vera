@@ -1,5 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { OverviewViewComponent } from './overview-view.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {OverviewViewComponent} from './overview-view.component';
 
 describe('OverviewViewComponent', () => {
   let component: OverviewViewComponent;
@@ -7,9 +7,9 @@ describe('OverviewViewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ OverviewViewComponent ]
+      declarations: [OverviewViewComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

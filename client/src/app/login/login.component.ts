@@ -1,20 +1,14 @@
-import {
-  Component, EventEmitter, OnInit, Output,
-} from '@angular/core';
-import {
-  FormControl, Validators,
-} from '@angular/forms';
-import {
-  MatDialog, MatDialogRef,
-} from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { RoleType } from '../models/RoleType';
-import { User } from '../models/User';
-import { Person } from '../models/Person';
-import { UserType } from '../models/UserType';
-import { ServerService } from '../services/server.service';
-import { SpinnerOverlayComponent } from '../spinner-overlay/spinner-overlay.component';
-import { LoginService } from '../services/login.service';
+import {Component, EventEmitter, OnInit, Output,} from '@angular/core';
+import {FormControl, Validators,} from '@angular/forms';
+import {MatDialog, MatDialogRef,} from '@angular/material/dialog';
+import {Router} from '@angular/router';
+import {RoleType} from '../models/RoleType';
+import {User} from '../models/User';
+import {Person} from '../models/Person';
+import {UserType} from '../models/UserType';
+import {ServerService} from '../services/server.service';
+import {SpinnerOverlayComponent} from '../spinner-overlay/spinner-overlay.component';
+import {LoginService} from '../services/login.service';
 
 interface Role {
   value: RoleType;
@@ -29,10 +23,10 @@ interface Role {
 })
 export class LoginComponent implements OnInit {
   roles: Role[] = [
-    { value: RoleType.AssistingNurse, viewValue: 'USK' },
-    { value: RoleType.Nurse, viewValue: 'SSK' },
-    { value: RoleType.Doctor, viewValue: 'LÄK' },
-    { value: RoleType.Administrator, viewValue: 'Admin' },
+    {value: RoleType.AssistingNurse, viewValue: 'USK'},
+    {value: RoleType.Nurse, viewValue: 'SSK'},
+    {value: RoleType.Doctor, viewValue: 'LÄK'},
+    {value: RoleType.Administrator, viewValue: 'Admin'},
   ]
 
   @Output() logInClick = new EventEmitter<any>();
@@ -46,7 +40,8 @@ export class LoginComponent implements OnInit {
   constructor(private serverService: ServerService,
               private loginService: LoginService,
               private dialog: MatDialog,
-              private router: Router) { }
+              private router: Router) {
+  }
 
   ngOnInit(): void {
   }
@@ -83,17 +78,17 @@ export class LoginComponent implements OnInit {
     console.log(`Selected username:${this.userName.value}`);
 
     this.serverService.getId().subscribe((msg) => {
-      this.createUser(msg);
-    },
-    (error) => {
-      console.log(`Error in login getId: ${error.message}`);
-      console.log('Creating user anyway with a dummy ID');
-      this.createUser();
-      dialogRef.close();
-    },
-    () => {
-      dialogRef.close();
-    });
+        this.createUser(msg);
+      },
+      (error) => {
+        console.log(`Error in login getId: ${error.message}`);
+        console.log('Creating user anyway with a dummy ID');
+        this.createUser();
+        dialogRef.close();
+      },
+      () => {
+        dialogRef.close();
+      });
   }
 
   getUsernameErrorMessage() {

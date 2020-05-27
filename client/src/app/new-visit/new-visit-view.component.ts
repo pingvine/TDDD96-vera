@@ -1,18 +1,14 @@
-import {
-  Component, OnInit,
-} from '@angular/core';
-import { ViewNameService } from '../view-name.service';
-import { HeaderName } from '../header-name';
-import {
-  EhrService, partyData,
-} from '../ehr.service';
-import { Router } from "@angular/router";
-import { ServerService } from "../services/server.service";
-import { LoginService } from "../services/login.service";
-import { User } from "../models/User";
-import { ActionType } from "../models/ActionType";
-import { Person } from "../models/Person";
-import { PriorityTime } from "../models/PriorityTime";
+import {Component, OnInit,} from '@angular/core';
+import {ViewNameService} from '../view-name.service';
+import {HeaderName} from '../header-name';
+import {EhrService, partyData,} from '../ehr.service';
+import {Router} from "@angular/router";
+import {ServerService} from "../services/server.service";
+import {LoginService} from "../services/login.service";
+import {User} from "../models/User";
+import {ActionType} from "../models/ActionType";
+import {Person} from "../models/Person";
+import {PriorityTime} from "../models/PriorityTime";
 
 
 @Component({
@@ -28,7 +24,7 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
 
   constructor(viewNameService: ViewNameService,
               // eslint-disable-next-line no-unused-vars
-              private ehrService : EhrService,
+              private ehrService: EhrService,
               private router: Router,
               private server: ServerService,
               private loginService: LoginService) {
@@ -64,7 +60,7 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
     this.visit = visit;
   }
 
-  updateVisitorInformation(information: {key, value}) {
+  updateVisitorInformation(information: { key, value }) {
     this.visit.additionalInfo[information.key] = information.value;
     console.log(this.visit.additionalInfo.search);
   }

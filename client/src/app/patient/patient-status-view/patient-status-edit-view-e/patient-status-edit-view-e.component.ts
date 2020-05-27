@@ -1,6 +1,4 @@
-import {
-  Component, EventEmitter, OnInit, Output,
-} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output,} from '@angular/core';
 
 @Component({
   selector: 'app-patient-status-edit-view-e',
@@ -34,7 +32,8 @@ export class PatientStatusEditViewEComponent implements OnInit {
 
   skin = undefined;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -60,7 +59,7 @@ export class PatientStatusEditViewEComponent implements OnInit {
     this.commentChange.emit(summary);
   }
 
-  setSkinValue(event){
+  setSkinValue(event) {
     this.skin = event;
     this.updateSummary();
   }

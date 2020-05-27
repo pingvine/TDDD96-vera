@@ -1,14 +1,12 @@
-import {
-  Component, OnInit,
-} from '@angular/core';
-import { InstanceManager } from './Managers/InstanceManager';
-import { EhrService } from './ehr.service';
-import { RoleType } from './models/RoleType';
-import { HealthManager } from './Managers/HealthManager';
-import { LoginService } from './services/login.service';
-import { User } from './models/User';
-import { PatientService } from './services/patient.service';
-import { getNumberFromSocialString } from './util/helpers';
+import {Component, OnInit,} from '@angular/core';
+import {InstanceManager} from './Managers/InstanceManager';
+import {EhrService} from './ehr.service';
+import {RoleType} from './models/RoleType';
+import {HealthManager} from './Managers/HealthManager';
+import {LoginService} from './services/login.service';
+import {User} from './models/User';
+import {PatientService} from './services/patient.service';
+import {getNumberFromSocialString} from './util/helpers';
 
 @Component({
   selector: 'app-root',
@@ -20,8 +18,8 @@ export class AppComponent implements OnInit {
 
   currentUser: User;
 
-  views = [{ name: 'Enhetsöversikt', url: '/overview' },
-    { name: 'Inställningar', url: '/settings' }];
+  views = [{name: 'Enhetsöversikt', url: '/overview'},
+    {name: 'Inställningar', url: '/settings'}];
 
   title = 'VERA 20';
 
@@ -65,7 +63,7 @@ export class AppComponent implements OnInit {
 
   updateVisits() {
     this.ehrService.getActivePatients('MOTTAGNING').subscribe((resp: any) => {
-      resp.parties.forEach((partyData:any) => {
+      resp.parties.forEach((partyData: any) => {
         // eslint-disable-next-line max-len
         const pnr = getNumberFromSocialString(partyData.additionalInfo.socialId);
         const pat = this.im.createPerson(pnr, partyData.firstNames, partyData.lastNames);

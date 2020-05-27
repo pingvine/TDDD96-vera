@@ -1,5 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { PatientStatusSummaryHeaderComponent } from './patient-status-summary-header.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {PatientStatusSummaryHeaderComponent} from './patient-status-summary-header.component';
 
 describe('PatientStatusSummaryHeaderComponent', () => {
   let component: PatientStatusSummaryHeaderComponent;
@@ -7,9 +7,9 @@ describe('PatientStatusSummaryHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PatientStatusSummaryHeaderComponent ]
+      declarations: [PatientStatusSummaryHeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

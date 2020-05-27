@@ -8,8 +8,8 @@
     </button>
   </div>
 </div>
-<button mat-raised-button matBadge="{{notices.length}}" [matBadgeHidden]="notices.length === 0"  matBadgeColor="primary"
-       [matMenuTriggerFor]="beforeMenu" class="notice-menu-button">
+<button mat-raised-button matBadge="{{notices.length}}" [matBadgeHidden]="notices.length === 0" matBadgeColor="primary"
+        [matMenuTriggerFor]="beforeMenu" class="notice-menu-button">
   <mat-icon class="notice-icon">
     notifications_none
   </mat-icon>
@@ -21,8 +21,8 @@
                 *ngFor="let notice of notices"></app-notice>
   </div>
   <div *ngIf="notices.length===0" class="empty-notice-list">
-      Här var det tomt
-    </div>
+    Här var det tomt
+  </div>
 </mat-menu>
 
 

@@ -1,11 +1,7 @@
-import {
-  Injectable, OnInit,
-} from '@angular/core';
-import {
-  webSocket, WebSocketSubject,
-} from 'rxjs/webSocket';
-import { Observable, Subject } from 'rxjs';
-import { EventVera } from '../../../../shared/models/EventVera';
+import {Injectable, OnInit,} from '@angular/core';
+import {webSocket, WebSocketSubject,} from 'rxjs/webSocket';
+import {Observable, Subject} from 'rxjs';
+import {EventVera} from '../../../../shared/models/EventVera';
 
 
 const wsUrl = 'ws://localhost:80';
@@ -18,7 +14,8 @@ export class EventSocketService implements OnInit {
 
   private messages: Subject<EventVera> = new Subject<EventVera>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.connect();
@@ -28,17 +25,18 @@ export class EventSocketService implements OnInit {
     if (!this.webSocket || this.webSocket.closed) {
       this.webSocket = this.getNewWebSocket();
       return this.webSocket.subscribe((msg) => {
-        console.log(`CLIENT WEBSOCKET: Received msg: ${msg}`);
-        this.messages.next(msg);
-      },
-      (error) => {
-        console.log(`CLIENT WEBSOCKET: Error msg: ${error.message}`);
-      },
-      () => {
-        // Completed
-        console.log('CLIENT WEBSOCKET: Completed.');
-      });
-    } {
+          console.log(`CLIENT WEBSOCKET: Received msg: ${msg}`);
+          this.messages.next(msg);
+        },
+        (error) => {
+          console.log(`CLIENT WEBSOCKET: Error msg: ${error.message}`);
+        },
+        () => {
+          // Completed
+          console.log('CLIENT WEBSOCKET: Completed.');
+        });
+    }
+    {
 
     }
   }

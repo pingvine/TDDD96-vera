@@ -1,4 +1,3 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -29,4 +28,4 @@ $client-theme: mat-light-theme($client-primary, $client-accent, $client-warn);
 @import '~@swimlane/ngx-datatable/themes/material';
 @import '~@swimlane/ngx-datatable/themes/bootstrap';
 @import '~@swimlane/ngx-datatable/assets/icons.css';
- 
+

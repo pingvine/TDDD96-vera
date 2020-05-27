@@ -1,4 +1,4 @@
-import { DatePipePipe } from './date-pipe.pipe';
+import {DatePipePipe} from './date-pipe.pipe';
 
 describe('DatePipePipe', () => {
   const dayMs = 1000 * 3600 * 24;

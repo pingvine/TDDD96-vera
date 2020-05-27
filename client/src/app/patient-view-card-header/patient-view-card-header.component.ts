@@ -1,6 +1,4 @@
-import {
-  Component, OnInit, Input, Output, EventEmitter,
-} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output,} from '@angular/core';
 
 @Component({
   selector: 'app-patient-view-card-header',
@@ -13,13 +11,14 @@ export class PatientViewCardHeaderComponent implements OnInit {
   @Input() time: number;
   @Output() onClickFullScreen = new EventEmitter();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
 
-  onClick(){
+  onClick() {
     this.onClickFullScreen.emit();
   }
 

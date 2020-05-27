@@ -1,45 +1,64 @@
 a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
   font-size: 12px;
-    a:visited { text-decoration: none; color:red; }
-    a:hover { text-decoration: none; color:blue; }
-    a:focus { text-decoration: none; color:yellow; }
-    a:hover, a:active { text-decoration: none; color:black }
+
+  a:visited {
+    text-decoration: none;
+    color: red;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: blue;
+  }
+
+  a:focus {
+    text-decoration: none;
+    color: yellow;
+  }
+
+  a:hover, a:active {
+    text-decoration: none;
+    color: black
+  }
 }
 
-mat-card{
+mat-card {
   margin-bottom: 10px;
-  background-color:#f2f2f2;
+  background-color: #f2f2f2;
 }
 
-mat-grid-tile{
+mat-grid-tile {
   border: 0px solid #000000;
-  mat-grid-list{
+
+  mat-grid-list {
     width: 100%;
     height: 100%;
   }
-  button{
+
+  button {
     width: 100%;
     height: 100%;
     border-radius: 8px;
   }
 }
 
-mat-form-field{
+mat-form-field {
   height: 100%;
   width: 100%;
 }
 
-.checkboxes{
+.checkboxes {
   font-size: 18px;
-  span{
+
+  span {
     padding: 5px 5px;
   }
 
 }
 
-.prio-box{
+.prio-box {
   color: transparent;
   border-radius: 8px;
   font-size: 22px;
@@ -56,101 +75,109 @@ b {
 }
 
 
-::ng-deep .datatable-body-row{
-    &:hover{
-        background-color: black;
-    }
+::ng-deep .datatable-body-row {
+  &:hover {
+    background-color: black;
+  }
 }
 
-::ng-deep .datatable-row-group{
-    .datatable-row-left{
-        visibility: hidden;
-    }
+::ng-deep .datatable-row-group {
+  .datatable-row-left {
+    visibility: hidden;
+  }
 }
 
-.group-header{
-    box-shadow: 0px -5px 10px 1px #cccccc;
-    background-color:  #f2f2f2f2;
-    margin-bottom: 0px;
-    padding-left: 5px;
-    margin-top: 16px;
-    margin-left: 3px;
-    font-size: 12px;
-    border-radius: 10px;
-  b{
+.group-header {
+  box-shadow: 0px -5px 10px 1px #cccccc;
+  background-color: #f2f2f2f2;
+  margin-bottom: 0px;
+  padding-left: 5px;
+  margin-top: 16px;
+  margin-left: 3px;
+  font-size: 12px;
+  border-radius: 10px;
+
+  b {
     font-size: 10px;
   }
 }
 
-::ng-deep .datatable-body-cell-label{
-    line-height: 0;
-    margin: 1px 1px;
+::ng-deep .datatable-body-cell-label {
+  line-height: 0;
+  margin: 1px 1px;
 }
 
-::ng-deep .datatable-body-cell{
-    margin: 0 0;
-    padding: 12px 12px 12px 12px !important;
-    user-select: none;
-  &:nth-child(1n){
-        background-color: #f2f2f2f2;
-    }
-    &:nth-child(3n){
-        background-color: #e9e9e9e9;
-    }
-  &:hover{
+::ng-deep .datatable-body-cell {
+  margin: 0 0;
+  padding: 12px 12px 12px 12px !important;
+  user-select: none;
+
+  &:nth-child(1n) {
+    background-color: #f2f2f2f2;
+  }
+
+  &:nth-child(3n) {
+    background-color: #e9e9e9e9;
+  }
+
+  &:hover {
     user-select: all;
   }
 }
 
 
-::ng-deep .datatable-row-wrapper{
+::ng-deep .datatable-row-wrapper {
   //box-shadow: 0px 1px 15px 6px #aaaaaa;
   width: 100% !important;
   //display: inherit !important;
 }
 
 ::ng-deep .ngx-datatable .datatable-body {
-    height: 710px !important;
-    width: 100% !important;
-    //overflow-y: scroll;
-    //overflow-x: scroll;
-    background-color: #f2f2f2;
+  height: 710px !important;
+  width: 100% !important;
+  //overflow-y: scroll;
+  //overflow-x: scroll;
+  background-color: #f2f2f2;
 
 }
 
 ::ng-deep .datatable-row-center {
-    background-color: white;
+  background-color: white;
 
-    &:hover{
-        background-color: white;
-    }
+  &:hover {
+    background-color: white;
+  }
 }
 
 ::ng-deep .ngx-datatable {
-    .datatable-header {
-      user-select: none;
-      .datatable-header-cell {
-        margin: 0 1.5px 0px 0px;
-        border-radius: 5px;
-        border-color: black;
-        border-width: 1px;
-        justify-content: center;
-        &:nth-child(1n){
-            background-color: #f2f2f2f2;
-        }
-        &:nth-child(3n){
-            background-color: #e9e9e9e9;
-        }
+  .datatable-header {
+    user-select: none;
+
+    .datatable-header-cell {
+      margin: 0 1.5px 0px 0px;
+      border-radius: 5px;
+      border-color: black;
+      border-width: 1px;
+      justify-content: center;
+
+      &:nth-child(1n) {
+        background-color: #f2f2f2f2;
+      }
+
+      &:nth-child(3n) {
+        background-color: #e9e9e9e9;
       }
     }
   }
+}
 
-.mat-toolbar{
+.mat-toolbar {
   padding-right: 0 !important;
   margin: 5px 0px 15px 5px;
   width: 95%;
 }
-.mat-toolbar-row{
+
+.mat-toolbar-row {
   padding-right: 0 !important;
   margin: 5px 0px 15px 5px;
   width: 95%;

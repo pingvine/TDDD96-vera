@@ -1,6 +1,4 @@
-import {
-  Component, Input, OnInit,
-} from '@angular/core';
+import {Component, Input, OnInit,} from '@angular/core';
 
 @Component({
   selector: 'app-info-card',
@@ -11,7 +9,8 @@ export class InfoCardComponent implements OnInit {
   @Input() info: string;
   @Input() icon: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

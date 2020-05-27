@@ -20,7 +20,8 @@
     <mat-form-field appearance="outline">
       <mat-label>Mottagning</mat-label>
       <mat-select>
-        <mat-option *ngFor="let department of departments" [value]="department" (onSelectionChange)="updateDepartment(department)">{{department}}
+        <mat-option *ngFor="let department of departments" [value]="department"
+                    (onSelectionChange)="updateDepartment(department)">{{department}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -56,7 +57,7 @@
       <mat-label>Förnamn</mat-label>
       <input matInput
              type="text"
-             (focusout)="updateFirstName($event.target.value)" >
+             (focusout)="updateFirstName($event.target.value)">
     </mat-form-field>
   </mat-grid-tile>
 
@@ -65,7 +66,7 @@
       <mat-label>Efternamn</mat-label>
       <input matInput
              type="text"
-             (focusout)="updateLastName($event.target.value)" >
+             (focusout)="updateLastName($event.target.value)">
     </mat-form-field>
   </mat-grid-tile>
 
@@ -82,7 +83,7 @@
     <mat-form-field appearance="outline">
       <mat-label>Sista 4 eller unikt id</mat-label>
       <input matInput type="text"
-      (focusout)="updateId($event.target.value)">
+             (focusout)="updateId($event.target.value)">
     </mat-form-field>
   </mat-grid-tile>
 
@@ -113,7 +114,8 @@
       <mat-label>Telefonnummer</mat-label>
 
       <input matInput type="tel" (focusout)="updatePhone($event.target.value)">
-    </mat-form-field></mat-grid-tile>
+    </mat-form-field>
+  </mat-grid-tile>
 
   <mat-grid-tile colspan="2">
     <mat-form-field appearance="outline">
@@ -161,4 +163,4 @@
 
   <mat-grid-tile colspan="1"></mat-grid-tile>
 
- </mat-grid-list>
+</mat-grid-list>

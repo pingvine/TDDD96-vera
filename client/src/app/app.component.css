@@ -51,7 +51,7 @@
 
 .active-view {
   color: #009688;
-  background: rgba(0,0,0,0.04);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .view-sidenav-list-item:hover {
@@ -61,6 +61,7 @@
 .view-sidenav-list-item {
   font-size: 24px;
 }
+
 .mat-sidenav-container {
   height: 100%;
 }

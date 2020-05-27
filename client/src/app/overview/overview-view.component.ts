@@ -1,9 +1,7 @@
-import {
-  AfterViewInit, Component, OnInit, ViewChild,
-} from '@angular/core';
-import { ViewNameService } from '../view-name.service';
-import { HeaderName } from '../header-name';
-import { PatientService } from "../services/patient.service";
+import {AfterViewInit, Component, OnInit, ViewChild,} from '@angular/core';
+import {ViewNameService} from '../view-name.service';
+import {HeaderName} from '../header-name';
+import {PatientService} from "../services/patient.service";
 
 @Component({
   selector: 'app-overview',

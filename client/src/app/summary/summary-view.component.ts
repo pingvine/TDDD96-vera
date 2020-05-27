@@ -1,8 +1,6 @@
-import {
-  Component, OnInit,
-} from '@angular/core';
-import { ViewNameService } from '../view-name.service';
-import { HeaderName } from '../header-name';
+import {Component, OnInit,} from '@angular/core';
+import {ViewNameService} from '../view-name.service';
+import {HeaderName} from '../header-name';
 
 @Component({
   selector: 'app-summary-view',

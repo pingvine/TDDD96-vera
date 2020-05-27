@@ -1,8 +1,6 @@
-import {
-  Component, EventEmitter, Input, OnInit, Output,
-} from '@angular/core';
-import { Message } from '../../../overview/visit-selector/visit-selector.component';
-import { ServerService } from "../../../services/server.service";
+import {Component, EventEmitter, Input, OnInit, Output,} from '@angular/core';
+import {Message} from '../../../overview/visit-selector/visit-selector.component';
+import {ServerService} from "../../../services/server.service";
 
 @Component({
   selector: 'app-visit-events',

@@ -10,7 +10,8 @@ var clients = [];
 var events = [];
 // Separate list for broadcasting to clients
 var broadcast = [];
-var server = http.createServer(function (request, response) { });
+var server = http.createServer(function (request, response) {
+});
 server.listen(webSocketsServerPort, function () {
     console.log(new Date() + " Server is listening on port " + webSocketsServerPort);
 });

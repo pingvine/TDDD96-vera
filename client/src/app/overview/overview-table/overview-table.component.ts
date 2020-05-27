@@ -1,8 +1,6 @@
-import {
-  Component, EventEmitter, OnInit, ViewChild, Output,
-} from '@angular/core';
-import { ServerService } from '../../services/server.service';
-import { PriorityTime } from "../../models/PriorityTime";
+import {Component, EventEmitter, OnInit, Output, ViewChild,} from '@angular/core';
+import {ServerService} from '../../services/server.service';
+import {PriorityTime} from "../../models/PriorityTime";
 
 
 interface TableRow {
@@ -12,14 +10,14 @@ interface TableRow {
   checkupTime: number
   arrivalTime: number
   age: number
-  arrivalMethod:string
+  arrivalMethod: string
   team: string
-  dr:string
-  nurse:string
-  astNurse:string
-  gender:string
-  search:string
-  activites:string
+  dr: string
+  nurse: string
+  astNurse: string
+  gender: string
+  search: string
+  activites: string
 }
 
 @Component({
@@ -69,25 +67,25 @@ export class OverviewTableComponent implements OnInit {
 
   sortCounter: number = 0;
 
-  constructor(private serverService:ServerService) {
+  constructor(private serverService: ServerService) {
   }
 
   /* Puts all loaded visits as the rows to show and gets overview-config.json
      from the server via the server service. */
   ngOnInit(): void {
     this.searchRows = this.allRows;
-    const resp = this.serverService.getOverviewConfig().subscribe((ans:any) => {
+    const resp = this.serverService.getOverviewConfig().subscribe((ans: any) => {
       this.assistantNurseList = ans.staff.astNurse;
       this.nurseList = ans.staff.nurse;
       this.drList = ans.staff.dr;
       ans.team.forEach((team) => {
-        this.teams.push({ name: team, check: false });
+        this.teams.push({name: team, check: false});
       });
     }, (error) => {
       this.drList = ['Rekeeb'];
       this.nurseList = ['Ola'];
       this.assistantNurseList = ['Martin', 'Anna'];
-      this.teams = [{ name: 'A', check: false }, { name: 'B', check: false }, { name: 'X', check: false }];
+      this.teams = [{name: 'A', check: false}, {name: 'B', check: false}, {name: 'X', check: false}];
     });
   }
 

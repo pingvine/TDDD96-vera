@@ -1,16 +1,14 @@
-import {
-  Component, OnInit,
-} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { PatientStatusViewDialogComponent } from "./patient-status-view-dialog/patient-status-view-dialog.component";
-import { LoginService } from "../../services/login.service";
-import { ServerService } from "../../services/server.service";
-import { User } from "../../models/User";
-import { EventVeraListener } from "../../interfaces/event-vera-listener";
-import { EventVera } from "../../../../../shared/models/EventVera";
-import { EventType } from "../../../../../shared/models/EventType";
-import { EditEventData } from "../../../../../shared/models/EditEventData";
-import { EventSocketService } from "../../services/event-socket.service";
+import {Component, OnInit,} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {PatientStatusViewDialogComponent} from "./patient-status-view-dialog/patient-status-view-dialog.component";
+import {LoginService} from "../../services/login.service";
+import {ServerService} from "../../services/server.service";
+import {User} from "../../models/User";
+import {EventVeraListener} from "../../interfaces/event-vera-listener";
+import {EventVera} from "../../../../../shared/models/EventVera";
+import {EventType} from "../../../../../shared/models/EventType";
+import {EditEventData} from "../../../../../shared/models/EditEventData";
+import {EventSocketService} from "../../services/event-socket.service";
 
 @Component({
   selector: 'app-patient-status-view',
@@ -41,6 +39,7 @@ export class PatientStatusViewComponent extends EventVeraListener implements OnI
       })
     })
   }
+
   openDialog(): void {
     // TODO get the patient id for unique field
     this.serverService.createEditEvent('status-pat-e', true, this.localUser.getFirstName()).subscribe(() => {
@@ -57,7 +56,7 @@ export class PatientStatusViewComponent extends EventVeraListener implements OnI
     });
 
     this.panelOpenState = true;
-    }
+  }
 
   handleCareEvent(event: EventVera): void {
   }

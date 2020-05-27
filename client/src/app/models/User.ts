@@ -1,23 +1,23 @@
-import { Person } from './Person';
-import { UserType } from './UserType';
+import {Person} from './Person';
+import {UserType} from './UserType';
 
 export class User extends Person {
-    private userType: UserType;
+  private userType: UserType;
 
-    constructor(id: number, person: Person, userType: UserType) {
-      super(id, person.getFirstName(), person.getLastName());
-      this.userType = userType;
-    }
+  constructor(id: number, person: Person, userType: UserType) {
+    super(id, person.getFirstName(), person.getLastName());
+    this.userType = userType;
+  }
 
-    getFullName() {
-      return `${this.getFirstName()} ${this.getLastName()}`;
-    }
+  getFullName() {
+    return `${this.getFirstName()} ${this.getLastName()}`;
+  }
 
-    getUserType() {
-      return this.userType;
-    }
+  getUserType() {
+    return this.userType;
+  }
 
-    setUserType(type: UserType) {
-      this.userType = type;
-    }
+  setUserType(type: UserType) {
+    this.userType = type;
+  }
 }

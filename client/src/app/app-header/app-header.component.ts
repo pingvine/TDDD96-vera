@@ -1,17 +1,13 @@
-import {
-  Component, OnInit,
-} from '@angular/core';
-import { ViewNameService } from '../view-name.service';
-import { EventSocketService } from '../services/event-socket.service';
-import { EventVeraListener } from '../interfaces/event-vera-listener';
-import { ActionType } from '../models/ActionType';
-import {
-  getAgeFromSocialIdString, getGenderFromSocialIdString
-} from '../util/helpers';
-import { ServerService } from '../services/server.service';
-import { LoginService } from '../services/login.service';
-import { User } from '../models/User';
-import { Person } from '../models/Person';
+import {Component, OnInit,} from '@angular/core';
+import {ViewNameService} from '../view-name.service';
+import {EventSocketService} from '../services/event-socket.service';
+import {EventVeraListener} from '../interfaces/event-vera-listener';
+import {ActionType} from '../models/ActionType';
+import {getAgeFromSocialIdString, getGenderFromSocialIdString} from '../util/helpers';
+import {ServerService} from '../services/server.service';
+import {LoginService} from '../services/login.service';
+import {User} from '../models/User';
+import {Person} from '../models/Person';
 
 export interface Notice {
   gender: string,
@@ -35,7 +31,15 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
   currentView: string;
 
   notices = [{
-    gender: 'male', type: ActionType.Warning, firstName: 'Johan', lastName: 'Berglund', socialId: 199000000134, age: 62, team: 0, timeSent: new Date(), title: 'Titta till patient',
+    gender: 'male',
+    type: ActionType.Warning,
+    firstName: 'Johan',
+    lastName: 'Berglund',
+    socialId: 199000000134,
+    age: 62,
+    team: 0,
+    timeSent: new Date(),
+    title: 'Titta till patient',
   }] as Notice[];
 
   user: User;
@@ -55,7 +59,7 @@ export class AppHeaderComponent extends EventVeraListener implements OnInit {
    */
   addNotice(event: any): void {
     // Unpack the event to fit the notice format
-    const { careEvent } = event.data;
+    const {careEvent} = event.data;
     const gender = getGenderFromSocialIdString(careEvent.patient.socialId.toString());
     const age = getAgeFromSocialIdString(careEvent.patient.socialId.toString());
     const notice = {

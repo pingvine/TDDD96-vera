@@ -1,10 +1,8 @@
-import {
-  Component, OnInit,
-} from '@angular/core';
-import { ViewNameService } from '../view-name.service';
-import { HeaderName } from '../header-name';
-import { Visit } from "../models/Visit";
-import { PatientService } from "../services/patient.service";
+import {Component, OnInit,} from '@angular/core';
+import {ViewNameService} from '../view-name.service';
+import {HeaderName} from '../header-name';
+import {Visit} from "../models/Visit";
+import {PatientService} from "../services/patient.service";
 
 
 @Component({
@@ -19,10 +17,10 @@ export class PatientViewComponent extends HeaderName implements OnInit {
   currentVisit: Visit;
 
   constructor(viewNameService: ViewNameService, private patientService: PatientService) {
-      super(viewNameService, 'Patientvy');
-      this.patientService.currentVisit.subscribe((visit) => {
-        this.currentVisit = visit;
-      })
+    super(viewNameService, 'Patientvy');
+    this.patientService.currentVisit.subscribe((visit) => {
+      this.currentVisit = visit;
+    })
   }
 
   ngOnInit(): void {

@@ -1,21 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatOptionModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
-import { By } from '@angular/platform-browser';
-import { OverviewTableComponent } from './overview-table.component';
-import { Visit } from "../../models/Visit";
-import { Person } from "../../models/Person";
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { PriorityTime } from "../../models/PriorityTime";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {NgxDatatableModule} from '@swimlane/ngx-datatable';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatOptionModule} from '@angular/material/core';
+import {FormsModule} from '@angular/forms';
+import {By} from '@angular/platform-browser';
+import {OverviewTableComponent} from './overview-table.component';
+import {Visit} from "../../models/Visit";
+import {Person} from "../../models/Person";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {PriorityTime} from "../../models/PriorityTime";
 
 
 describe('OverviewTableComponent', () => {
@@ -40,13 +40,52 @@ describe('OverviewTableComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     component.searchRows = [{
-      prio: 'yellow', socialId: '010101-7890', team: 'B', name: 'Dany', gender: 'male', age: 31, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '01:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
+      prio: 'yellow',
+      socialId: '010101-7890',
+      team: 'B',
+      name: 'Dany',
+      gender: 'male',
+      age: 31,
+      dr: 'Rakeeb',
+      nurse: 'Anna',
+      nurse2: 'erik',
+      arrival: '01:00',
+      search: 'buksm 178',
+      activity: 'button',
+      time: '10 min',
+      arrival_method: 'ambulance',
     },
       {
-        prio: 'green', socialId: '123456-7890', team: 'C', name: 'Molly', gender: 'female', age: 22, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '02:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
+        prio: 'green',
+        socialId: '123456-7890',
+        team: 'C',
+        name: 'Molly',
+        gender: 'female',
+        age: 22,
+        dr: 'Rakeeb',
+        nurse: 'Anna',
+        nurse2: 'erik',
+        arrival: '02:00',
+        search: 'buksm 178',
+        activity: 'button',
+        time: '10 min',
+        arrival_method: 'ambulance',
       },
       {
-        prio: 'blue', socialId: '123456-7890', team: 'B', name: 'Chany', gender: 'male', age: 34, dr: 'Rakeeb', nurse: 'Anna', nurse2: 'erik', arrival: '03:00', search: 'buksm 178', activity: 'button', time: '10 min', arrival_method: 'ambulance',
+        prio: 'blue',
+        socialId: '123456-7890',
+        team: 'B',
+        name: 'Chany',
+        gender: 'male',
+        age: 34,
+        dr: 'Rakeeb',
+        nurse: 'Anna',
+        nurse2: 'erik',
+        arrival: '03:00',
+        search: 'buksm 178',
+        activity: 'button',
+        time: '10 min',
+        arrival_method: 'ambulance',
       },
     ];
   });
@@ -56,15 +95,15 @@ describe('OverviewTableComponent', () => {
   });
 
   it('sorting function should return correct number list', () => {
-    const list = [{ key: 2 }, { key: 3 }, { key: 4 }, { key: 5 }, { key: 1 }];
-    expect(component.sortProperties(list, 'key', false)).toEqual([{ key: 1 }, { key: 2 }, { key: 3 }, { key: 4 }, { key: 5 }]);
-    expect(component.sortProperties(list, 'key', true)).toEqual([{ key: 5 }, { key: 4 }, { key: 3 }, { key: 2 }, { key: 1 }]);
+    const list = [{key: 2}, {key: 3}, {key: 4}, {key: 5}, {key: 1}];
+    expect(component.sortProperties(list, 'key', false)).toEqual([{key: 1}, {key: 2}, {key: 3}, {key: 4}, {key: 5}]);
+    expect(component.sortProperties(list, 'key', true)).toEqual([{key: 5}, {key: 4}, {key: 3}, {key: 2}, {key: 1}]);
   });
 
   it('sorting function should return correct alphabetic list', () => {
-    const list = [{ key: 'aab' }, { key: 'aba' }, { key: 'aaa' }, { key: 'bba' }, { key: 'bbb' }];
-    expect(component.sortProperties(list, 'key', false)).toEqual([{ key: 'aaa' }, { key: 'aab' }, { key: 'aba' }, { key: 'bba' }, { key: 'bbb' }]);
-    expect(component.sortProperties(list, 'key', true)).toEqual([{ key: 'bbb' }, { key: 'bba' }, { key: 'aba' }, { key: 'aab' }, { key: 'aaa' }]);
+    const list = [{key: 'aab'}, {key: 'aba'}, {key: 'aaa'}, {key: 'bba'}, {key: 'bbb'}];
+    expect(component.sortProperties(list, 'key', false)).toEqual([{key: 'aaa'}, {key: 'aab'}, {key: 'aba'}, {key: 'bba'}, {key: 'bbb'}]);
+    expect(component.sortProperties(list, 'key', true)).toEqual([{key: 'bbb'}, {key: 'bba'}, {key: 'aba'}, {key: 'aab'}, {key: 'aaa'}]);
   });
 
   it('should show the correct table', () => {

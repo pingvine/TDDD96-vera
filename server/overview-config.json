@@ -1,8 +1,24 @@
 {
-  "team": ["A","B","X"],
+  "team": [
+    "A",
+    "B",
+    "X"
+  ],
   "staff": {
-    "dr": ["Rakeeb","David", "Anna"],
-    "nurse": ["Jenny", "Liya", "Anders"],
-    "astNurse": ["Kevin", "Johan", "Elsa"]
+    "dr": [
+      "Rakeeb",
+      "David",
+      "Anna"
+    ],
+    "nurse": [
+      "Jenny",
+      "Liya",
+      "Anders"
+    ],
+    "astNurse": [
+      "Kevin",
+      "Johan",
+      "Elsa"
+    ]
   }
 }

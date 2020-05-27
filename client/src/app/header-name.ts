@@ -1,6 +1,6 @@
-import { Subscription } from 'rxjs';
-import { OnDestroy } from '@angular/core';
-import { ViewNameService } from './view-name.service';
+import {Subscription} from 'rxjs';
+import {OnDestroy} from '@angular/core';
+import {ViewNameService} from './view-name.service';
 
 
 export class HeaderName implements OnDestroy {

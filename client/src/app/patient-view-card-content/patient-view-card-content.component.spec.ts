@@ -1,5 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { PatientViewCardContentComponent } from './patient-view-card-content.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {PatientViewCardContentComponent} from './patient-view-card-content.component';
 
 describe('PatientViewCardContentComponent', () => {
   let component: PatientViewCardContentComponent;
@@ -7,9 +7,9 @@ describe('PatientViewCardContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PatientViewCardContentComponent ]
+      declarations: [PatientViewCardContentComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
