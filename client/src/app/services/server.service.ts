@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient, HttpHeaders, HttpErrorResponse,
+} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-
 import { EventVera } from '../../../../shared/models/EventVera';
 import { User } from '../models/User';
 import { EventType } from '../../../../shared/models/EventType';

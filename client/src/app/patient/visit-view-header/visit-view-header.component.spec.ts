@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule} from "@angular/common/http/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { VisitViewHeaderComponent } from './visit-view-header.component';
 import { Person } from "../../models/Person"
 import { Visit } from "../../models/Visit"

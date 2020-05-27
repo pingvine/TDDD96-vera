@@ -1,6 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Visit} from "../../models/Visit";
-import { getAgeFromSocialIdNumber, getGenderFromSocialIdString } from "../../util/helpers";
+import {
+  Component, Input, OnInit,
+} from '@angular/core';
+import { Visit } from "../../models/Visit";
+import {
+  getAgeFromSocialIdNumber, getGenderFromSocialIdString,
+} from "../../util/helpers";
 import { EhrService } from '../../ehr.service';
 
 @Component({

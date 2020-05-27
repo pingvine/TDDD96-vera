@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PatientStatusSummaryHeaderComponent } from './patient-status-summary-header.component';
 
 describe('PatientStatusSummaryHeaderComponent', () => {

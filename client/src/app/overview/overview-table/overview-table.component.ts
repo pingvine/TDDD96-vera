@@ -2,7 +2,8 @@ import {
   Component, EventEmitter, OnInit, ViewChild, Output,
 } from '@angular/core';
 import { ServerService } from '../../services/server.service';
-import {PrioTime} from "../../models/PrioTime";
+import { PriorityTime } from "../../models/PriorityTime";
+
 
 interface TableRow {
   prio: string
@@ -116,7 +117,7 @@ export class OverviewTableComponent implements OnInit {
     row.age = visit.visitInfo.age;
     row.gender = visit.visitInfo.gender;
     row.socialId = visit.visitInfo.socialId;
-    row.checkupTime = Number(PrioTime[visit.visitInfo.prio.toUpperCase()]);
+    row.checkupTime = Number(PriorityTime[visit.visitInfo.prio.toUpperCase()]);
     return row;
   }
 

@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {
+  Routes, RouterModule,
+} from '@angular/router';
 import { PatientViewComponent } from './patient/patient-view.component';
 import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-socket.component';
-import {OverviewViewComponent} from './overview/overview-view.component';
-import {SummaryViewComponent} from './summary/summary-view.component';
-import {TeamViewComponent} from './team/team-view.component';
-import {SettingsViewComponent} from './settings/settings-view.component';
-import {NewVisitViewComponent} from './new-visit/new-visit-view.component';
-import {TestEventSocketComponent} from "./test-event-socket/test-event-socket.component";
-import {LoginComponent} from "./login/login.component";
+import { OverviewViewComponent } from './overview/overview-view.component';
+import { SummaryViewComponent } from './summary/summary-view.component';
+import { TeamViewComponent } from './team/team-view.component';
+import { SettingsViewComponent } from './settings/settings-view.component';
+import { NewVisitViewComponent } from './new-visit/new-visit-view.component';
+import { TestEventSocketComponent } from "./test-event-socket/test-event-socket.component";
+import { LoginComponent } from "./login/login.component";
 
 
 const routes: Routes = [

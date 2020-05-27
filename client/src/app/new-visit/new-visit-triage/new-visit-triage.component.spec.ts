@@ -1,19 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { SummaryViewComponent } from './summary-view.component';
 
-describe('SummaryViewComponent', () => {
-  let component: SummaryViewComponent;
-  let fixture: ComponentFixture<SummaryViewComponent>;
+import { NewVisitTriageComponent } from './new-visit-triage.component';
+
+describe('NewVisitTriageComponent', () => {
+  let component: NewVisitTriageComponent;
+  let fixture: ComponentFixture<NewVisitTriageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SummaryViewComponent ]
+      declarations: [ NewVisitTriageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SummaryViewComponent);
+    fixture = TestBed.createComponent(NewVisitTriageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
