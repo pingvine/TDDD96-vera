@@ -1,8 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { MatMenuModule } from "@angular/material/menu";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { AppHeaderComponent } from './app-header.component';
-import { MatMenuModule} from "@angular/material/menu";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('AppHeaderComponent', () => {
   let component: AppHeaderComponent;

@@ -1,6 +1,8 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
-import {Priority} from '../../../models/Priority';
-import {PriorityText} from '../../../models/PriorityText';
+import {
+  Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,
+} from '@angular/core';
+import { Priority } from '../../../models/Priority';
+import { PriorityText } from '../../../models/PriorityText';
 
 @Component({
   selector: 'app-visit-info-personal',

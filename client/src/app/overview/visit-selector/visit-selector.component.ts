@@ -1,5 +1,7 @@
-import {Component, Input, OnInit, SimpleChanges, OnChanges, Output, EventEmitter} from '@angular/core';
-import { EhrService} from '../../ehr.service';
+import {
+  Component, Input, OnInit, SimpleChanges, OnChanges, Output, EventEmitter,
+} from '@angular/core';
+import { EhrService } from '../../ehr.service';
 
 export interface Message {
   date: Date;
@@ -78,11 +80,9 @@ export class VisitSelectorComponent implements OnInit, OnChanges {
         'journal_vera2020/kroppsvikt/ospecificerad_händelse/vikt|unit': "kg"
     }
     console.log(this.visit.socialId);
-    
+
     this.ehrService.getPnr(this.visit.socialId).subscribe((answer: any) => {
         this.ehrService.postCompositionData(compositionData, answer.parties[0].additionalInfo.ehrId)
-        //this.ehrService.postCompositionData(compositionData, this.visit.getEhrId());
-
     });
 
 

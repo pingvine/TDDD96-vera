@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter, Input, OnInit, Output,
+  Component, EventEmitter, OnInit, Output,
 } from '@angular/core';
 
 @Component({

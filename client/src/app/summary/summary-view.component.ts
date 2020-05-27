@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { RequestService } from '../request.service';
+import {
+  Component, OnInit,
+} from '@angular/core';
 import { ViewNameService } from '../view-name.service';
-import {HeaderName} from '../header-name';
+import { HeaderName } from '../header-name';
 
 @Component({
   selector: 'app-summary-view',
   templateUrl: './summary-view.component.html',
-  styleUrls: ['./summary-view.component.css'],
-  providers: [RequestService]
+  styleUrls: ['./summary-view.component.css']
 })
 export class SummaryViewComponent extends HeaderName implements OnInit {
 

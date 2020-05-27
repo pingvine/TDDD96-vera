@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PatientViewCardFooterComponent } from './patient-view-card-footer.component';
 
 describe('PatientViewCardFooterComponent', () => {

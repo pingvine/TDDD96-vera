@@ -1,4 +1,3 @@
-import { OnInit } from '@angular/core';
 import { EventSocketService } from '../services/event-socket.service';
 import { EventType } from '../../../../shared/models/EventType';
 import { EventVera } from '../../../../shared/models/EventVera';

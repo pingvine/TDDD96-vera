@@ -1,4 +1,6 @@
-import {Component, EventEmitter, OnChanges, OnInit, Output} from '@angular/core';
+import {
+  Component, EventEmitter, OnInit, Output,
+} from '@angular/core';
 import { partyData } from '../../ehr.service';
 
 @Component({

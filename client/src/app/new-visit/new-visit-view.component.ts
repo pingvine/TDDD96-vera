@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {
+  Component, OnInit,
+} from '@angular/core';
 import { ViewNameService } from '../view-name.service';
 import { HeaderName } from '../header-name';
-import { EhrService, partyData } from '../ehr.service';
-import { ServerService } from '../services/server.service';
-import { LoginService } from '../services/login.service';
-import { User } from '../models/User';
-import { ActionType } from '../models/ActionType';
-import { Person } from '../models/Person';
-import { PrioTime } from '../models/PrioTime';
+import {
+  EhrService, partyData,
+} from '../ehr.service';
+import { Router } from "@angular/router";
+import { ServerService } from "../services/server.service";
+import { LoginService } from "../services/login.service";
+import { User } from "../models/User";
+import { ActionType } from "../models/ActionType";
+import { Person } from "../models/Person";
+import { PriorityTime } from "../models/PriorityTime";
 
 
 @Component({

@@ -1,4 +1,6 @@
-import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
+import {
+  BrowserModule, DomSanitizer,
+} from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -6,30 +8,35 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
+import {
+  MatIconModule, MatIconRegistry,
+} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { MatError, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import {
+  FormsModule, ReactiveFormsModule,
+} from '@angular/forms';
+import { MatRadioModule } from "@angular/material/radio";
+import { MatExpansionModule } from "@angular/material/expansion";
+import { MatDialogModule } from "@angular/material/dialog";
 import { PatientViewComponent } from './patient/patient-view.component';
 import { OverviewViewComponent } from './overview/overview-view.component';
 import { SummaryViewComponent } from './summary/summary-view.component';
 import { SettingsViewComponent } from './settings/settings-view.component';
 import { TeamViewComponent } from './team/team-view.component';
 import { NewVisitViewComponent } from './new-visit/new-visit-view.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatInputModule} from '@angular/material/input';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import { PatientStatusViewComponent } from './patient/patient-status-view/patient-status-view.component';
-import {MatRadioModule} from "@angular/material/radio";
-import {MatExpansionModule} from "@angular/material/expansion";
 import { PatientStatusViewDialogComponent } from './patient/patient-status-view/patient-status-view-dialog/patient-status-view-dialog.component';
 import { PatientStatusSummaryComponent } from './patient/patient-status-view/patient-status-summary/patient-status-summary.component';
 import { PatientStatusSummaryHeaderComponent } from './patient/patient-status-view/patient-status-summary-header/patient-status-summary-header.component';
@@ -64,7 +71,6 @@ import { LoginComponent } from './login/login.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
 import { NewVisitTriageComponent } from './new-visit/new-visit-triage/new-visit-triage.component';
 import { NoticeDialogComponent } from './notice/notice-dialog/notice-dialog.component';
-import { MatDialogModule } from "@angular/material/dialog";
 
 
 

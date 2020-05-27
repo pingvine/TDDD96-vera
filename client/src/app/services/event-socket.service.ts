@@ -1,5 +1,9 @@
-import { Injectable, OnInit } from '@angular/core';
-import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import {
+  Injectable, OnInit,
+} from '@angular/core';
+import {
+  webSocket, WebSocketSubject,
+} from 'rxjs/webSocket';
 import { Observable, Subject } from 'rxjs';
 import { EventVera } from '../../../../shared/models/EventVera';
 

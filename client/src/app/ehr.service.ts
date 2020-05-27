@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import {
+  HttpClient, HttpHeaders, HttpParams,
+} from '@angular/common/http';
+import * as accounts from './accounts-EHRScape.json';
 
 //Interface for creating party data.
 export interface partyData {
@@ -40,17 +43,18 @@ export interface partyData {
   providedIn: 'root',
 })
 export class EhrService {
-  httpOptions1 = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Basic ${btoa('lio.se1:lio.se123')}`,
-    }),
-  };
+    httpOptions1 = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            Authorization: `Basic ${btoa(accounts.readAccountCredentials)}`,
+        }),
+    };
+
 
   httpOptions2 = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Basic ${btoa('lio.se2:ehr4lio.se2')}`,
+      Authorization: `Basic ${btoa(accounts.writeReadCredentials)}`,
     }),
 
   };
@@ -77,6 +81,7 @@ export class EhrService {
 
 
   constructor(private http: HttpClient) { }
+
 
   /* Hämtar party-data från givet personnumemer, bör endast hämta ett party */
   getPnr(pnr: string) {
@@ -121,7 +126,7 @@ export class EhrService {
         const httpOptionsCompositionData = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
-                'Authorization' : 'Basic ' + btoa('lio.se2:ehr4lio.se2')
+                'Authorization' : 'Basic ' + btoa(accounts.writeReadCredentials)
             }),
             params: new HttpParams()
                 .set('ehrId', ehrId.toString())
@@ -134,6 +139,7 @@ export class EhrService {
         });
 
     }
+    //AQL query for the latest SpO2 value
     getSpo2(ehrId: string){
         var aqlSpo2 = "SELECT x/data[at0001]/events[at0002]/data[at0003]/items[at0006]/value as value, " +
                       "c/name/value as name " +
@@ -145,6 +151,7 @@ export class EhrService {
         return this.sendAQL(httpParamsAQL);
     }
 
+    //AQL query for the latest AF value
     getAf(ehrId: string){
         var aqlAf = "SELECT x/data[at0001]/events[at0002]/data[at0003]/items[at0004]/value as value," +
                          "c/name/value as name " +
@@ -156,6 +163,7 @@ export class EhrService {
         return this.sendAQL(httpParamsAQL);
     }
 
+    //AQL query for the latest Pulse value
     getPulse(ehrId: string){
         var aqlPuls = "SELECT x/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as value," +
                       "c/name/value as name " +
@@ -165,6 +173,8 @@ export class EhrService {
         const httpParamsAQL = new HttpParams().set('aql', aqlPuls);
         return this.sendAQL(httpParamsAQL);
     }
+
+    //AQL query for the latest BT value
     getBt(ehrId: string){
         var aqlBlodtryck = "SELECT x/data[at0001]/events[at0006]/data[at0003]/items[at1006]/value as value," +
                            "c/name/value as name " +
@@ -174,6 +184,8 @@ export class EhrService {
         const httpParamsAQL = new HttpParams().set('aql', aqlBlodtryck);
         return this.sendAQL(httpParamsAQL);
     }
+
+    //AQL query for the latest Temp value
     getTemp(ehrId: string){
         var aqlKroppstemperatur = "SELECT x/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as value," +
                                   "c/name/value as name " +
@@ -183,6 +195,8 @@ export class EhrService {
         const httpParamsAQL = new HttpParams().set('aql', aqlKroppstemperatur);
         return this.sendAQL(httpParamsAQL);
     }
+
+    //AQL query for the latest Weight value
     getWeight(ehrId: string){
         var aqlWeight = "SELECT x/data[at0002]/events[at0003]/data[at0001]/items[at0004]/value as value," +
                       "c/name/value as name " +
@@ -192,6 +206,8 @@ export class EhrService {
         const httpParamsAQL = new HttpParams().set('aql', aqlWeight);
         return this.sendAQL(httpParamsAQL);
     }
+
+    //AQL query for the latest Pain value
     getPain(ehrId: string){
         var aqlAbbeyPainScal = "SELECT x/data[at0001]/events[at0002]/data[at0003]/items[at0029]/value as value," +
                                "c/name/value as name " +
@@ -203,12 +219,12 @@ export class EhrService {
 
     }
 
-
+    //Sends AQL query
     sendAQL(httpParamsAQL){
         const httpOptionsAQL = {
             headers: new HttpHeaders({
             'Content-Type': 'application/json',
-            'Authorization' : 'Basic ' + btoa('lio.se2:ehr4lio.se2')
+            'Authorization' : 'Basic ' + btoa(accounts.writeReadCredentials)
             }),
             params: httpParamsAQL
             }
