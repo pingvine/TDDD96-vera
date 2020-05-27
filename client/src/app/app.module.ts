@@ -69,7 +69,9 @@ import { TestEventSocketComponent } from './test-event-socket/test-event-socket.
 import { TestNoticeSocketComponent } from './test-notice-socket/test-notice-socket.component';
 import { LoginComponent } from './login/login.component';
 import { SpinnerOverlayComponent } from './spinner-overlay/spinner-overlay.component';
+import { NewVisitTriageComponent } from './new-visit/new-visit-triage/new-visit-triage.component';
 import { NoticeDialogComponent } from './notice/notice-dialog/notice-dialog.component';
+
 
 
 
@@ -110,6 +112,7 @@ import { NoticeDialogComponent } from './notice/notice-dialog/notice-dialog.comp
     TestNoticeSocketComponent,
     LoginComponent,
     SpinnerOverlayComponent,
+    NewVisitTriageComponent,
     NoticeDialogComponent,
   ],
   imports: [
@@ -153,6 +156,6 @@ import { NoticeDialogComponent } from './notice/notice-dialog/notice-dialog.comp
 })
 export class AppModule {
   constructor(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
-    matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')); //
+    matIconRegistry.addSvgIconSet(domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg'));
   }
 }

@@ -19,6 +19,7 @@ export class NewVisitInformationComponent implements OnInit {
   ];
 
   @Output() newVisit = new EventEmitter<partyData>();
+
   party : partyData = {
     additionalInfo: {
       active: true,
@@ -29,7 +30,7 @@ export class NewVisitInformationComponent implements OnInit {
       search: 'Buksmärta',
       team: 'A',
       ehrId: '',
-      prio: 'red',
+      prio: '',
       age: '',
       tystnadsplikt: false,
       mottagning: '',
@@ -91,10 +92,11 @@ export class NewVisitInformationComponent implements OnInit {
     this.newVisit.emit(this.party);
   }
   updateId(id: string) {
-    this.party.additionalInfo.socialId += id.toString();
-    console.log(id.slice(3,3));
-    if (Number(id.slice(3, 3)) % 2 == 0) {
-
+    if (this.party.additionalInfo.socialId.length >= 8) {
+      this.party.additionalInfo.socialId = this.party.additionalInfo.socialId.slice(0,8);
+    }
+    this.party.additionalInfo.socialId += id;
+    if (Number(id.slice(2, 3)) % 2 == 0) {
       this.updateGender('FEMALE');
     } else {
       this.updateGender('MALE');

@@ -18,16 +18,16 @@ import { PriorityTime } from "../models/PriorityTime";
 @Component({
   selector: 'app-new-visit',
   templateUrl: './new-visit-view.component.html',
-  styleUrls: ['./new-visit-view.component.css']
+  styleUrls: ['./new-visit-view.component.css'],
 })
 
 export class NewVisitViewComponent extends HeaderName implements OnInit {
-
-  visit: partyData;
+  visit = {} as partyData;
 
   user: User;
 
   constructor(viewNameService: ViewNameService,
+              // eslint-disable-next-line no-unused-vars
               private ehrService : EhrService,
               private router: Router,
               private server: ServerService,
@@ -37,33 +37,35 @@ export class NewVisitViewComponent extends HeaderName implements OnInit {
       this.user = user;
     });
   }
+
   ngOnInit(): void {
     super.setView();
   }
 
   addVisit(): void {
-    this.ehrService.createPerson(this.visit);
-    //  TODO check for valid response from ehr first
-    this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
-      ActionType.Information, 'Ny patient', new Person(Number(this.visit.additionalInfo.socialId),
-        this.visit.firstNames, this.visit.lastNames), 0).subscribe(() => {
-    });
-    this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
-      ActionType.Warning, 'Titta till patient', new Person(Number(this.visit.additionalInfo.socialId),
-        this.visit.firstNames, this.visit.lastNames), Number(PriorityTime[this.visit.additionalInfo.prio.toUpperCase()]))
-      .subscribe(() => {
-    });
-    this.router.navigate(['overview']);
-
-
+    if (this.visit.firstNames !== '' && this.visit.lastNames !== '' && this.visit.additionalInfo.socialId !== '') {
+      this.ehrService.createPerson(this.visit);
+      //  TODO check for valid response from ehr first
+      this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
+        ActionType.Information, 'Ny patient', new Person(Number(this.visit.additionalInfo.socialId),
+          this.visit.firstNames, this.visit.lastNames), 0).subscribe(() => {
+      });
+      this.server.createCareEvent(this.user.getFirstName(), this.user, [this.user.getRoleType()], 0,
+        ActionType.Warning, 'Titta till patient', new Person(Number(this.visit.additionalInfo.socialId),
+          this.visit.firstNames, this.visit.lastNames), Number(PriorityTime[this.visit.additionalInfo.prio.toUpperCase()]))
+        .subscribe(() => {
+        });
+      this.router.navigate(['overview']);
+    }
   }
+
   updateVisitor(visit: partyData) {
-    console.log('reciving: ' + visit.firstNames + ' ' + visit.lastNames)
+    console.log(`reciving: ${visit.firstNames} ${visit.lastNames}`);
     this.visit = visit;
   }
+
   updateVisitorInformation(information: {key, value}) {
     this.visit.additionalInfo[information.key] = information.value;
-    console.log(this.visit.additionalInfo.search)
+    console.log(this.visit.additionalInfo.search);
   }
-
 }

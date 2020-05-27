@@ -1,0 +1,19 @@
+.mat-grid-tile {
+  /*border: solid 2px red;*/
+}
+.red-visit {
+  background-color: red;
+}
+.orange-visit {
+  background-color: orange;
+}
+.yellow-visit {
+  background-color: yellow;
+}
+.green-visit {
+  background-color: lightgreen;
+}
+.blue-visit {
+  background-color: lightskyblue;
+}
+
