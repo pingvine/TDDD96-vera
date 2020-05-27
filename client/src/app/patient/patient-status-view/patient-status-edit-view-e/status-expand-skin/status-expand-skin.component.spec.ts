@@ -1,6 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { StatusExpandSkinComponent } from './status-expand-skin.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {StatusExpandSkinComponent} from './status-expand-skin.component';
 
 describe('StatusExpandSkinComponent', () => {
   let component: StatusExpandSkinComponent;
@@ -8,9 +7,9 @@ describe('StatusExpandSkinComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StatusExpandSkinComponent ]
+      declarations: [StatusExpandSkinComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

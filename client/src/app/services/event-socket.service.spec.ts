@@ -1,6 +1,5 @@
-import { TestBed } from '@angular/core/testing';
-
-import { EventSocketService } from './event-socket.service';
+import {TestBed} from '@angular/core/testing';
+import {EventSocketService} from './event-socket.service';
 
 describe('EventSocketService', () => {
   let service: EventSocketService;

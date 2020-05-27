@@ -1,72 +1,72 @@
-import { Person } from './Person';
-import { CareEvent } from './CareEvent';
-import { HealthManager } from '../Managers/HealthManager';
+import {Person} from './Person';
+import {CareEvent} from './CareEvent';
+import {HealthManager} from '../Managers/HealthManager';
 
 export class Visit {
-    private id: number;
+  private ehrId: string;
 
-    private person: Person;
+  private person: Person;
 
-    private hosts: Person[];
+  private hosts: Person[];
 
-    private timeLine: CareEvent[];
+  private timeLine: CareEvent[];
 
-    private healthManager: HealthManager;
+  private healthManager: HealthManager;
 
-    private visitInfo;
+  private visitInfo;
 
-    constructor(id: number, person: Person) {
-      this.id = id;
-      this.person = person;
-      this.hosts = [];
-      this.timeLine = [];
-      this.healthManager = undefined;
+  constructor(id: string, person: Person) {
+    this.ehrId = id;
+    this.person = person;
+    this.hosts = [];
+    this.timeLine = [];
+    this.healthManager = undefined;
+  }
+
+  getehrId() {
+    return this.ehrId;
+  }
+
+  getPerson() {
+    return this.person;
+  }
+
+  getHosts() {
+    return this.hosts;
+  }
+
+  addHosts(person: Person) {
+    this.hosts.push(person);
+  }
+
+  removeHost(person: Person) {
+    const index = this.hosts.indexOf(person, 0);
+    if (index > -1) {
+      this.hosts.splice(index, 1);
     }
+  }
 
-    getId() {
-      return this.id;
-    }
+  getTimeLine() {
+    return this.timeLine;
+  }
 
-    getPerson() {
-      return this.person;
-    }
+  addToTimeLine(careEvent: CareEvent) {
+    this.timeLine.push(careEvent);
+  }
 
-    getHosts() {
-      return this.hosts;
-    }
+  getHealthManager() {
+    return this.healthManager;
+  }
 
-    addHosts(person: Person) {
-      this.hosts.push(person);
-    }
+  setHealthManager(healthManager: HealthManager) {
+    this.healthManager = healthManager;
+  }
 
-    removeHost(person: Person) {
-      const index = this.hosts.indexOf(person, 0);
-      if (index > -1) {
-        this.hosts.splice(index, 1);
-      }
-    }
+  getVisitInfo() {
+    return this.visitInfo;
+  }
 
-    getTimeLine() {
-      return this.timeLine;
-    }
-
-    addToTimeLine(careEvent: CareEvent) {
-      this.timeLine.push(careEvent);
-    }
-
-    getHealthManager() {
-      return this.healthManager;
-    }
-
-    setHealthManager(healthManager: HealthManager) {
-      this.healthManager = healthManager;
-    }
-
-    getVisitInfo() {
-      return this.visitInfo;
-    }
-
-    setVisitInfo(visitInfo) {
-      this.visitInfo = visitInfo;
-    }
+  setVisitInfo(visitInfo) {
+    this.visitInfo = visitInfo;
+  }
 }

@@ -1,40 +1,41 @@
-import { Person } from './Person';
-import { Visit } from './Visit';
+import {Person} from './Person';
+import {Visit} from './Visit';
 
-export class Team{
-    private id: number;
-    private prefix: string;
-    private visits: Visit[];
-    private members: Person[];
+export class Team {
+  private id: number;
+  private prefix: string;
+  private visits: Visit[];
+  private members: Person[];
 
-    constructor(id: number, members: Person[]) {
-        this.id = id;
-        this.members = members;
-    }
-    getId(){
-        return this.id;
-    }
+  constructor(id: number, members: Person[]) {
+    this.id = id;
+    this.members = members;
+  }
 
-    getPrefix(){
-        return this.prefix;
-    }
+  getId() {
+    return this.id;
+  }
 
-    getVisits(){
-        return this.visits
-    }
+  getPrefix() {
+    return this.prefix;
+  }
 
-    addVisit(visit: Visit){
-        this.visits.push(visit);
-    }
+  getVisits() {
+    return this.visits
+  }
 
-    removeVisit(visit: Visit){
-        const index = this.visits.indexOf(visit, 0)
-        if (index > -1){
-            this.visits.splice(index, 1)
-        }
-    }
+  addVisit(visit: Visit) {
+    this.visits.push(visit);
+  }
 
-    getMembers(){
-        return this.members;
+  removeVisit(visit: Visit) {
+    const index = this.visits.indexOf(visit, 0)
+    if (index > -1) {
+      this.visits.splice(index, 1)
     }
+  }
+
+  getMembers() {
+    return this.members;
+  }
 }

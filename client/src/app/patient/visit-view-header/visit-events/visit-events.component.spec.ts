@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { VisitEventsComponent } from './visit-events.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {VisitEventsComponent} from './visit-events.component';
 
 describe('VisitEventsComponent', () => {
   let component: VisitEventsComponent;
@@ -8,9 +8,10 @@ describe('VisitEventsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VisitEventsComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [VisitEventsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

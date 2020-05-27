@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject,Input, Output} from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {Component, OnInit,} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
 import {PatientStatusViewDialogComponent} from "./patient-status-view-dialog/patient-status-view-dialog.component";
 import {LoginService} from "../../services/login.service";
 import {ServerService} from "../../services/server.service";
@@ -39,6 +39,7 @@ export class PatientStatusViewComponent extends EventVeraListener implements OnI
       })
     })
   }
+
   openDialog(): void {
     // TODO get the patient id for unique field
     this.serverService.createEditEvent('status-pat-e', true, this.localUser.getFirstName()).subscribe(() => {
@@ -55,7 +56,7 @@ export class PatientStatusViewComponent extends EventVeraListener implements OnI
     });
 
     this.panelOpenState = true;
-    }
+  }
 
   handleCareEvent(event: EventVera): void {
   }

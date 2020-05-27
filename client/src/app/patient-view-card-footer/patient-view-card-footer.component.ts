@@ -1,5 +1,4 @@
-import {Component, OnInit, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {Observable} from "rxjs";
+import {Component, Input, OnInit,} from '@angular/core';
 
 @Component({
   selector: 'app-patient-view-card-footer',
@@ -9,7 +8,8 @@ import {Observable} from "rxjs";
 export class PatientViewCardFooterComponent implements OnInit {
   @Input() activeUsers: string[];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

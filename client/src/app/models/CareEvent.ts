@@ -1,6 +1,6 @@
-import { ActionType } from './ActionType';
-import { Person } from './Person';
-import { RoleType } from './RoleType';
+import {ActionType} from './ActionType';
+import {Person} from './Person';
+import {RoleType} from './RoleType';
 
 interface Receivers {
   roleTypes: RoleType[];
@@ -8,76 +8,76 @@ interface Receivers {
 }
 
 export class CareEvent {
-    private touched: Date
+  private touched: Date
 
-    private creatorId: number
+  private creatorId: number
 
-    private receivers: Receivers
+  private receivers: Receivers
 
-    private completed: [Date, string]
+  private completed: [Date, string]
 
-    private actionType: ActionType
+  private actionType: ActionType
 
-    private creationTime: Date
+  private creationTime: Date
 
-    private comment: string
+  private comment: string
 
-    private patient: Person;
+  private patient: Person;
 
-    constructor(creator: Person, receivers: RoleType[], team: number, action: ActionType, comment: string, patient?: Person) {
-      this.touched = new Date();
-      this.creatorId = creator.getId();
-      this.receivers = { roleTypes: receivers, team };
-      this.completed = undefined;
-      this.actionType = action;
-      this.creationTime = new Date();
-      this.comment = comment;
-      this.patient = patient;
-    }
+  constructor(creator: Person, receivers: RoleType[], team: number, action: ActionType, comment: string, patient?: Person) {
+    this.touched = new Date();
+    this.creatorId = creator.getId();
+    this.receivers = {roleTypes: receivers, team};
+    this.completed = undefined;
+    this.actionType = action;
+    this.creationTime = new Date();
+    this.comment = comment;
+    this.patient = patient;
+  }
 
-    setPatient(person: Person) {
-      this.patient = person;
-    }
+  setPatient(person: Person) {
+    this.patient = person;
+  }
 
-    setCreationTime(date: Date) {
-      this.creationTime = date;
-    }
+  setCreationTime(date: Date) {
+    this.creationTime = date;
+  }
 
-    getPatient(): Person {
-      return this.patient;
-    }
+  getPatient(): Person {
+    return this.patient;
+  }
 
-    touch() {
-      this.touched = new Date();
-    }
+  touch() {
+    this.touched = new Date();
+  }
 
-    getCreatorId() {
-      return this.creatorId;
-    }
+  getCreatorId() {
+    return this.creatorId;
+  }
 
-    getReceiverId() {
-      return this.receivers;
-    }
+  getReceiverId() {
+    return this.receivers;
+  }
 
-    markAsCompleted(markedBy: string) {
-      this.completed = [new Date(), markedBy];
-    }
+  markAsCompleted(markedBy: string) {
+    this.completed = [new Date(), markedBy];
+  }
 
-    getActionType() {
-      return this.actionType;
-    }
+  getActionType() {
+    return this.actionType;
+  }
 
-    getCreationTime() {
-      return this.creationTime;
-    }
+  getCreationTime() {
+    return this.creationTime;
+  }
 
-    getComment() {
-      return this.comment;
-    }
+  getComment() {
+    return this.comment;
+  }
 
-    appendComment(comment: string) {
-      const lineBreak = '\n';
-      this.comment = this.comment.concat(lineBreak);
-      this.comment = this.comment.concat(comment.toString());
-    }
+  appendComment(comment: string) {
+    const lineBreak = '\n';
+    this.comment = this.comment.concat(lineBreak);
+    this.comment = this.comment.concat(comment.toString());
+  }
 }

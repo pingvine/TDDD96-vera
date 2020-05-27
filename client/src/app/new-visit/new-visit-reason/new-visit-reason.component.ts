@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output,} from '@angular/core';
 
 @Component({
   selector: 'app-new-visit-reason',
@@ -8,11 +8,13 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 export class NewVisitReasonComponent implements OnInit {
 
-  @Output() search = new EventEmitter<{ }>();
+  @Output() search = new EventEmitter<{}>();
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   updateReason(reason: any): void {
     console.log(reason.target.value);
@@ -24,6 +26,7 @@ export class NewVisitReasonComponent implements OnInit {
     console.log(ess.target.value);
     this.search.emit({'ess': ess});
   }
+
   updateInformation(information: any): void {
     console.log(information.target.value);
     this.search.emit({'information': information});

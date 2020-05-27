@@ -1,7 +1,5 @@
-import { EventVera } from '../shared/models/EventVera';
-import { EventType } from '../shared/models/EventType';
-import { RoleType } from '../client/src/app/models/RoleType';
-import { EventModel, TestEventModel, CurrentIdModel } from './modelsAndSchemas';
+import {RoleType} from '../client/src/app/models/RoleType';
+import {CurrentIdModel, EventModel, TestEventModel} from './modelsAndSchemas';
 
 const mongoose = require('mongoose');
 
@@ -10,7 +8,8 @@ const users = [];
 const idCounter = 0;
 
 export function getCurrentId(callback) {
-    CurrentIdModel.updateOne({}, {$inc: { currentId: 1}}, (err, res) => {})
+    CurrentIdModel.updateOne({}, {$inc: {currentId: 1}}, (err, res) => {
+    })
     CurrentIdModel.find((err, id) => {
         callback(err, id[0].currentId);
     })
@@ -21,39 +20,39 @@ export function getCurrentId(callback) {
  * @param event JSON EventVera object
  */
 export function storeEvent(event) {
-  const eventModel = new EventModel(event);
-  // eventModel.save((err, val) => {
-  // });
-  const cevt = event.data.careEvent;
-  const testEventModel = new TestEventModel({
-    senderId: event.senderId,
-    eventType: event.eventType,
-    data: {
-      careEvent: {
-        touched: cevt.touched,
-        creatorId: cevt.creatorId,
-        receivers: {
-          roleTypes: cevt.receivers.roleTypes,
-          team: cevt.receivers.team,
+    const eventModel = new EventModel(event);
+    // eventModel.save((err, val) => {
+    // });
+    const cevt = event.data.careEvent;
+    const testEventModel = new TestEventModel({
+        senderId: event.senderId,
+        eventType: event.eventType,
+        data: {
+            careEvent: {
+                touched: cevt.touched,
+                creatorId: cevt.creatorId,
+                receivers: {
+                    roleTypes: cevt.receivers.roleTypes,
+                    team: cevt.receivers.team,
+                },
+                creationTime: cevt.creationTime,
+                comment: cevt.comment,
+                patient: {
+                    socialId: cevt.patient.socialId,
+                    firstName: cevt.patient.firstName,
+                    lastName: cevt.patient.lastName,
+                    roleType: cevt.patient.roleType,
+                },
+            },
         },
-        creationTime: cevt.creationTime,
-        comment: cevt.comment,
-        patient: {
-          socialId: cevt.patient.socialId,
-          firstName: cevt.patient.firstName,
-          lastName: cevt.patient.lastName,
-          roleType: cevt.patient.roleType,
-        },
-      },
-    },
-  });
+    });
 
-  testEventModel.save((err, val) => {
-    // console.log('Saved test:');
-    // console.log(val);
-    // console.log('Error');
-    // console.log(err);
-  });
+    testEventModel.save((err, val) => {
+        // console.log('Saved test:');
+        // console.log(val);
+        // console.log('Error');
+        // console.log(err);
+    });
 }
 
 export function removeEvent(anything: any) {
@@ -61,76 +60,76 @@ export function removeEvent(anything: any) {
 }
 
 export function getCareEventByRoleType(roleType: RoleType, callback) {
-  console.log('GET BY ROLETYPE');
-  return TestEventModel.find({ 'data.careEvent.receivers.roleTypes': { $in: [roleType] } }).exec((err, val) => {
-    let events = []
+    console.log('GET BY ROLETYPE');
+    return TestEventModel.find({'data.careEvent.receivers.roleTypes': {$in: [roleType]}}).exec((err, val) => {
+        let events = []
 
-    val.forEach((event) => {
-      // Do something with each event
-      events.push(event);
-    })
-    callback(err, events);
-  });
+        val.forEach((event) => {
+            // Do something with each event
+            events.push(event);
+        })
+        callback(err, events);
+    });
 
 }
 
 export function getCareEventByTeam(team: number, callback) {
-  TestEventModel.find({ 'data.careEvent.receivers.team': { $in: team } }).exec((err, val) => {
-    let events = []
+    TestEventModel.find({'data.careEvent.receivers.team': {$in: team}}).exec((err, val) => {
+        let events = []
 
-    val.forEach((event) => {
-      // Do something with each event
-      events.push(event);
-    })
-    callback(err, events);
-  });
+        val.forEach((event) => {
+            // Do something with each event
+            events.push(event);
+        })
+        callback(err, events);
+    });
 }
 
 export function getCareEventByPatient(socialId: number, callback) {
-  TestEventModel.find({ 'data.careEvent.patient.socialId': { $in: socialId } }).exec((err, val) => {
-    let events = []
+    TestEventModel.find({'data.careEvent.patient.socialId': {$in: socialId}}).exec((err, val) => {
+        let events = []
 
-    val.forEach((event) => {
-      // Do something with each event
-      events.push(event);
-    })
-    callback(err, events);
-  });
+        val.forEach((event) => {
+            // Do something with each event
+            events.push(event);
+        })
+        callback(err, events);
+    });
 }
 
 export function getAllEvents(callback) {
-  TestEventModel.find({}, (err, val) => {
-    let events = []
+    TestEventModel.find({}, (err, val) => {
+        let events = []
 
-    val.forEach((event) => {
-      // Do something with each event
-      events.push(event);
+        val.forEach((event) => {
+            // Do something with each event
+            events.push(event);
+        })
+        callback(err, events);
     })
-    callback(err, events);
-  })
 
 }
 
 export function userExists(socialId, userss) {
-  // Doesn't work atm
-  console.log(`socialid ${socialId}`);
-  userss.forEach((user) => {
-    console.log(`SocialId comp: ${user.socialId}`);
-    if (socialId === user.socialId) {
-      return true;
-    }
-  });
-  return false;
+    // Doesn't work atm
+    console.log(`socialid ${socialId}`);
+    userss.forEach((user) => {
+        console.log(`SocialId comp: ${user.socialId}`);
+        if (socialId === user.socialId) {
+            return true;
+        }
+    });
+    return false;
 }
 
 export function initDb() {
-  mongoose.connect('mongodb://localhost/coronavirus', { useNewUrlParser: true, useUnifiedTopology: true });
+    mongoose.connect('mongodb://localhost/coronavirus', {useNewUrlParser: true, useUnifiedTopology: true});
 
-  const db = mongoose.connection;
-  db.on('error', console.error.bind(console, 'connection error:'));
-  db.once('open', () => {
-    console.log('Connected to MongoDB!');
-  });
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'));
+    db.once('open', () => {
+        console.log('Connected to MongoDB!');
+    });
 }
 
 

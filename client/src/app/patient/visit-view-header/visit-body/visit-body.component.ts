@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output,} from '@angular/core';
 
 @Component({
   selector: 'app-visit-body',
@@ -18,7 +18,8 @@ export class VisitBodyComponent implements OnInit {
   @Input() pain: number;  // Pain estimate // Todo validator
   @Input() weight: number;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

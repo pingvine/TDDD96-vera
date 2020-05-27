@@ -1,5 +1,5 @@
 <div class="notice-container">
-  <mat-card class="background" (click)="deleteNotice()">
+  <mat-card class="background" (click)="selectNotice()">
     <mat-card-content>
       <mat-grid-list cols="8" rowHeight="fit">
         <mat-grid-tile rowspan="3">
@@ -46,7 +46,7 @@
         </mat-grid-tile>
         <mat-grid-tile colspan="2">
           <div class="notice-text">
-            {{name}} {{personalId}}
+            {{firstName}} {{lastName}} {{socialId}}
           </div>
         </mat-grid-tile>
 

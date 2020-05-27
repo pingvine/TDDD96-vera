@@ -4,7 +4,9 @@
 
     <mat-grid-list cols="6" rowHeight="1:.5">
       <mat-grid-tile rowspan="2">
-        <button mat-icon-button><mat-icon>more_vert</mat-icon></button>
+        <button mat-icon-button>
+          <mat-icon>more_vert</mat-icon>
+        </button>
       </mat-grid-tile>
 
       <mat-grid-tile rowspan="2" colspan="2">
@@ -18,7 +20,7 @@
       </mat-grid-tile>
 
       <mat-grid-tile rowspan="2">
-          <mat-icon [style.color]="priority">accessibility</mat-icon>
+        <mat-icon [style.color]="priority">accessibility</mat-icon>
       </mat-grid-tile>
 
       <mat-grid-tile rowspan="2">
@@ -28,7 +30,9 @@
       </mat-grid-tile>
 
       <mat-grid-tile rowspan="2">
-        <button mat-icon-button (click)="closeSideNav()"><mat-icon>clear</mat-icon></button>
+        <button mat-icon-button (click)="closeSideNav()">
+          <mat-icon>clear</mat-icon>
+        </button>
       </mat-grid-tile>
 
       <mat-grid-tile></mat-grid-tile>
@@ -47,110 +51,114 @@
 
     </mat-grid-list>
 
-  <mat-card>
-    <mat-card-title>Triage</mat-card-title>
+    <mat-card>
+      <mat-card-title>Triage</mat-card-title>
       <mat-card-content>
 
-          <mat-grid-list cols="3" rowHeight="1:0.5">
-            <mat-grid-tile rowspan="6">
-              <mat-icon style="font-size: xx-large">accessibility</mat-icon>
-            </mat-grid-tile>
+        <mat-grid-list cols="3" rowHeight="1:0.5">
+          <mat-grid-tile rowspan="6">
+            <mat-icon style="font-size: xx-large">accessibility</mat-icon>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <mat-form-field>
-                <mat-label>SpO2 på luft</mat-label>
-                <input matInput [(ngModel)] = "spo2">
-              </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>SpO2 på luft</mat-label>
+              <input matInput [(ngModel)]="spo2">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <mat-form-field>
-                <mat-label>AF</mat-label>
-                <input matInput [(ngModel)] = "af">
-              </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>AF</mat-label>
+              <input matInput [(ngModel)]="af">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <mat-form-field>
-                <mat-label>Puls</mat-label>
-                <input matInput [(ngModel)] = "pulse">
-              </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>Puls</mat-label>
+              <input matInput [(ngModel)]="pulse">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <mat-form-field>
-                <mat-label>BT</mat-label>
-                <input matInput [(ngModel)] = "bt">
-              </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>BT</mat-label>
+              <input matInput [(ngModel)]="bt">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <mat-form-field>
-                <mat-label>RLS</mat-label>
-                <input matInput type="number">
-              </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>RLS</mat-label>
+              <input matInput type="number">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <mat-form-field>
-                <mat-label>Temperatur</mat-label>
-                <input matInput [(ngModel)] = "temp">
-              </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>Temperatur</mat-label>
+              <input matInput [(ngModel)]="temp">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <mat-form-field>
-                <mat-label>Smärta</mat-label>
-                <input matInput [(ngModel)] = "pain">
-              </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>Smärta</mat-label>
+              <input matInput [(ngModel)]="pain">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <mat-form-field>
-                <mat-label>Vikt</mat-label>
-                <input matInput [(ngModel)] = "weight">
-              </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-form-field>
+              <mat-label>Vikt</mat-label>
+              <input matInput [(ngModel)]="weight">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <mat-grid-tile colspan="2">
-              <mat-form-field style="width: 100%">
-                <mat-label>Central kapillär återfyllnad</mat-label>
-                <input matInput type="number">
-              </mat-form-field>
-            </mat-grid-tile>
+          <mat-grid-tile colspan="2">
+            <mat-form-field style="width: 100%">
+              <mat-label>Central kapillär återfyllnad</mat-label>
+              <input matInput type="number">
+            </mat-form-field>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <button mat-icon-button><mat-icon>arrow_left</mat-icon></button>
-              <button mat-raised-button color="accent">Ny Prio</button>
-              <button mat-icon-button style><mat-icon>arrow_right</mat-icon></button>
-            </mat-grid-tile>
+          <mat-grid-tile>
+            <button mat-icon-button>
+              <mat-icon>arrow_left</mat-icon>
+            </button>
+            <button mat-raised-button color="accent">Ny Prio</button>
+            <button mat-icon-button style>
+              <mat-icon>arrow_right</mat-icon>
+            </button>
+          </mat-grid-tile>
 
-            <mat-grid-tile>
-              <button (click) = updateCompositionData()
+          <mat-grid-tile>
+            <button (click)=updateCompositionData()
                     mat-raised-button color="accent">Uppdatera
-              </button>
-            </mat-grid-tile>
-          </mat-grid-list>
+            </button>
+          </mat-grid-tile>
+        </mat-grid-list>
       </mat-card-content>
-  </mat-card>
+    </mat-card>
 
-  <mat-card>
-    <mat-card-title>Händelser</mat-card-title>
-    <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let action of actions">
-          <app-event [date]="action.date" [info]="action.info" [user]="action.user"></app-event>
-        </mat-list-item>
+    <mat-card>
+      <mat-card-title>Händelser</mat-card-title>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let action of actions">
+            <app-event [date]="action.date" [info]="action.info" [user]="action.user"></app-event>
+          </mat-list-item>
 
-      </mat-list>
-    </mat-card-content>
-  </mat-card>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
 
-  <mat-card>
-    <mat-card-title>Dokumentation</mat-card-title>
-    <mat-card-content>
-    </mat-card-content>
-  </mat-card>
+    <mat-card>
+      <mat-card-title>Dokumentation</mat-card-title>
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
 
   </mat-card-content>
 </mat-card>

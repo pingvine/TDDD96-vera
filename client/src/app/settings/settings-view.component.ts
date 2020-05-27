@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ViewNameService } from '../view-name.service';
+import {Component, OnInit,} from '@angular/core';
+import {ViewNameService} from '../view-name.service';
 import {HeaderName} from '../header-name';
 
 @Component({

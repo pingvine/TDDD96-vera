@@ -1,26 +1,40 @@
-<div class="mat-app-background" *ngIf="currentUser.getFirstName()">
-  <button mat-button (click)="sidenav.toggle()" class="mat-app-menu-button">
-    <mat-icon *ngIf="sidenav.opened" class="mat-app-menu">menu_opened</mat-icon>
-    <mat-icon *ngIf="!sidenav.opened" class="mat-app-menu">menu</mat-icon>
-  </button>
-  <app-header></app-header>
-
+<div class="header-bar">
+  <div class="mat-app-background" *ngIf="currentUser.getFirstName()">
+    <div class="mat-app-menu-button">
+      <div class="mat-app-menu" *ngIf="sidenav.opened">
+        <button mat-button (click)="sidenav.toggle()" class="menu-button">
+          <mat-icon class="mat-app-menu-icon">
+            menu_opened
+          </mat-icon>
+        </button>
+      </div>
+      <div class="mat-app-menu" *ngIf="!sidenav.opened">
+        <button mat-button (click)="sidenav.toggle()" class="menu-button">
+          <mat-icon class="mat-app-menu-icon">
+            menu
+          </mat-icon>
+        </button>
+      </div>
+    </div>
+    <app-header></app-header>
+  </div>
 </div>
+<div class="content">
+  <mat-sidenav-container hasBackdrop="true">
+    <mat-sidenav #sidenav mode="over" class="view-sidenav">
+      <mat-nav-list>
+        <!--Add extra anchor-element with 0 height to avoid top element always being marked -->
+        <a mat-list-item routerLink="/" style="height: 0;"></a>
+        <a mat-list-item (click)="sidenav.toggle()" routerLink="{{view.url}}" routerLinkActive="active-view"
+           role="navigation" *ngFor="let view of views"
+           class="view-sidenav-list-item">
+          {{ view.name }}
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
 
-<mat-sidenav-container hasBackdrop="true">
-  <mat-sidenav #sidenav mode="over" class="view-sidenav"  >
-    <mat-nav-list >
-      <!--Add extra anchor-element with 0 height to avoid top element always being marked -->
-      <a mat-list-item routerLink="/" style="height: 0;"></a>
-      <a mat-list-item (click)="sidenav.toggle()" routerLink="{{view.url}}" routerLinkActive="active-view" role="navigation" *ngFor="let view of views"
-         class="view-sidenav-list-item">
-        {{ view.name }}
-      </a>
-    </mat-nav-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content >
-    <router-outlet (activate)="onActivate($event)"></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
+    <mat-sidenav-content>
+      <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

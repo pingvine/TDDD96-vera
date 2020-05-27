@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges,} from '@angular/core';
 import {Priority} from '../../../models/Priority';
 import {PriorityText} from '../../../models/PriorityText';
 
@@ -20,7 +20,9 @@ export class VisitInfoPersonalComponent implements OnInit, OnChanges {
   @Output() prioChange: EventEmitter<number> = new EventEmitter();
   priorityColor = '';
   priorityText = '';
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
     this.priorityColor = Priority[this.priority];

@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { DatePipePipe } from '../date-pipe.pipe';
-
-import { NoticeComponent } from './notice.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {DatePipePipe} from '../date-pipe.pipe';
+import {NoticeComponent} from './notice.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 describe('NoticeComponent', () => {
   let component: NoticeComponent;
@@ -9,9 +9,10 @@ describe('NoticeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NoticeComponent, DatePipePipe ]
+      imports: [MatDialogModule],
+      declarations: [NoticeComponent, DatePipePipe]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

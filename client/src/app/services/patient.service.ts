@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Person } from '../models/Person';
-import { Visit } from '../models/Visit';
-import { getNumberFromSocialString } from '../util/helpers';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
+import {Person} from '../models/Person';
+import {Visit} from '../models/Visit';
 
 
 const visitKey = 'currentvisit';
@@ -30,7 +29,7 @@ export class PatientService {
     if (sessionStorage.getItem(visitKey) !== 'undefined') {
       // Unpack visit
       const visitJson = JSON.parse(sessionStorage.getItem(visitKey));
-      const visitObj = new Visit(0, new Person(0, '', ''));
+      const visitObj = new Visit('', new Person(0, '', ''));
       Object.assign(visitObj, visitJson);
       this.visitSource.next(visitObj);
     }

@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { EventSocketService } from '../services/event-socket.service';
-import { EventType } from '../../../../shared/models/EventType';
-import { EditEventData } from '../../../../shared/models/EditEventData';
-import { EventVera } from '../../../../shared/models/EventVera';
-import { ServerService } from '../services/server.service';
-import { EventVeraListener } from '../interfaces/event-vera-listener';
-import { User } from '../models/User';
-import { LoginService } from '../services/login.service';
-import { ActionType } from '../models/ActionType';
+import {Component, OnInit} from '@angular/core';
+import {EventSocketService} from '../services/event-socket.service';
+import {EventType} from '../../../../shared/models/EventType';
+import {EditEventData} from '../../../../shared/models/EditEventData';
+import {EventVera} from '../../../../shared/models/EventVera';
+import {ServerService} from '../services/server.service';
+import {EventVeraListener} from '../interfaces/event-vera-listener';
+import {User} from '../models/User';
+import {LoginService} from '../services/login.service';
 
 
 export class TestMessage {
@@ -15,6 +14,7 @@ export class TestMessage {
 
   data: string;
 }
+
 @Component({
   selector: 'app-test-event-socket',
   templateUrl: './test-event-socket.component.html',
@@ -88,10 +88,10 @@ export class TestEventSocketComponent extends EventVeraListener implements OnIni
   sendCareEvent() {
     console.log("USER:");
     console.log(this.currentUser)
-    this.serverService.createCareEvent(this.senderId, this.currentUser,
-      [this.currentUser.getRoleType()], 0, ActionType.Information,
-      'I manually added this').subscribe((msg) => {
-        console.log(msg);
-    });
+    //this.serverService.createCareEvent(this.senderId, this.currentUser,
+    // [this.currentUser.getRoleType()], 0, ActionType.Information,
+    //'I manually added this').subscribe((msg) => {
+    //   console.log(msg);
+    //});
   }
 }

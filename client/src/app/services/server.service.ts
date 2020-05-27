@@ -1,13 +1,14 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { EventVera } from '../../../../shared/models/EventVera';
-import { User } from '../models/User';
-import { EventType } from '../../../../shared/models/EventType';
-import { Person } from '../models/Person';
-import { RoleType } from '../models/RoleType';
-import { ActionType } from '../models/ActionType';
-import { CareEvent } from '../models/CareEvent';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse, HttpHeaders,} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {User} from '../models/User';
+import {EventType} from '../../../../shared/models/EventType';
+import {Person} from '../models/Person';
+import {RoleType} from '../models/RoleType';
+import {ActionType} from '../models/ActionType';
+import {CareEvent} from '../models/CareEvent';
+import {catchError} from "rxjs/operators";
+
 
 const baseUrl = 'http://localhost:4201';
 
@@ -21,14 +22,20 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class ServerService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getEditEvents(): Observable<any> {
     const url = `${baseUrl}/events/editevent`;
     return this.http.get(url, httpOptions);
   }
 
-  getId() : Observable<any> {
+  getCareEvents(): Observable<any> {
+    const url = `${baseUrl}/events/careevent`;
+    return this.http.get(url, httpOptions);
+  }
+
+  getId(): Observable<any> {
     const url = `${baseUrl}/id`;
     return this.http.post(url, '', httpOptions);
   }
@@ -56,10 +63,10 @@ export class ServerService {
   }
 
   createCareEvent(senderId: string, senderPerson: Person, receivers: RoleType[],
-    team: number, action: ActionType, comment: string): Observable<any> {
+                  team: number, action: ActionType, comment: string, patient: Person, delaySec: number): Observable<any> {
     const url = `${baseUrl}/event`;
-    const careEvent = new CareEvent(senderPerson, receivers, team, action, comment, new Person(199001010133, 'Manual Patient', ''));
-    careEvent.setCreationTime(new Date(Date.now() + 1000 * 5)); // 5 sek
+    const careEvent = new CareEvent(senderPerson, receivers, team, action, comment, patient);
+    careEvent.setCreationTime(new Date(Date.now() + 1000 * delaySec)); // delay sec
     const data = {
       careEvent,
     };
@@ -71,5 +78,18 @@ export class ServerService {
     };
 
     return this.http.post(url, event, httpOptions);
+  }
+
+  /* Gets the config file for the overview-table from the server. */
+  getOverviewConfig(): Observable<any> {
+    const url = `${baseUrl}/config`;
+    return this.http
+      .get(url, httpOptions).pipe(
+        catchError((err: HttpErrorResponse) => {
+            console.error('There was an error getting overview-config');
+            return throwError(err.message);
+          }
+        )
+      );
   }
 }

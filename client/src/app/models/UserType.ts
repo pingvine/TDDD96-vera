@@ -1,4 +1,4 @@
-export enum UserType{
-    Viewer = 1,
-    Editor = 2,
+export enum UserType {
+  Viewer = 1,
+  Editor = 2,
 }

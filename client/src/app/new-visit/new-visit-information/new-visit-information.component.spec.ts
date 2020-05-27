@@ -1,9 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {EhrService, partyData} from '../../ehr.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { NewVisitInformationComponent } from './new-visit-information.component';
-import { NewVisitViewComponent } from '../new-visit-view.component';
-import {stringify} from 'querystring';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {EhrService} from '../../ehr.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {NewVisitInformationComponent} from './new-visit-information.component';
+import {NewVisitViewComponent} from '../new-visit-view.component';
 import {RouterTestingModule} from "@angular/router/testing";
 
 
@@ -15,11 +14,11 @@ describe('NewVisitInformationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewVisitInformationComponent, NewVisitViewComponent ],
+      declarations: [NewVisitInformationComponent, NewVisitViewComponent],
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [EhrService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

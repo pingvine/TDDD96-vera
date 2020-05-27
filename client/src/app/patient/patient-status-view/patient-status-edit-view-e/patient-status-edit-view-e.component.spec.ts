@@ -1,6 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PatientStatusEditViewEComponent } from './patient-status-edit-view-e.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {PatientStatusEditViewEComponent} from './patient-status-edit-view-e.component';
 
 describe('PatientStatusEditViewEComponent', () => {
   let component: PatientStatusEditViewEComponent;
@@ -8,9 +7,9 @@ describe('PatientStatusEditViewEComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PatientStatusEditViewEComponent ]
+      declarations: [PatientStatusEditViewEComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

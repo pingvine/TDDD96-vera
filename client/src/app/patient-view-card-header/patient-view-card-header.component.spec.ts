@@ -1,6 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { PatientViewCardHeaderComponent } from './patient-view-card-header.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {PatientViewCardHeaderComponent} from './patient-view-card-header.component';
 
 describe('PatientViewCardHeaderComponent', () => {
   let component: PatientViewCardHeaderComponent;
@@ -8,9 +7,9 @@ describe('PatientViewCardHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PatientViewCardHeaderComponent ]
+      declarations: [PatientViewCardHeaderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

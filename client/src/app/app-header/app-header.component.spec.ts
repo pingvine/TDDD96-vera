@@ -1,7 +1,7 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { AppHeaderComponent } from './app-header.component';
-import { MatMenuModule} from "@angular/material/menu";
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {MatMenuModule} from "@angular/material/menu";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {AppHeaderComponent} from './app-header.component';
 
 describe('AppHeaderComponent', () => {
   let component: AppHeaderComponent;
@@ -9,10 +9,10 @@ describe('AppHeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppHeaderComponent ],
-      imports: [ MatMenuModule ]
+      declarations: [AppHeaderComponent],
+      imports: [MatMenuModule, HttpClientTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

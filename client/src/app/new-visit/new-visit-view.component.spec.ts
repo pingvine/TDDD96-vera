@@ -1,5 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NewVisitViewComponent } from './new-visit-view.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {NewVisitViewComponent} from './new-visit-view.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {EhrService} from '../ehr.service';
 import {RouterTestingModule} from "@angular/router/testing";
@@ -11,7 +11,7 @@ describe('NewVisitComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewVisitViewComponent ],
+      declarations: [NewVisitViewComponent],
       imports: [HttpClientTestingModule, RouterTestingModule],
       providers: [EhrService]
     })

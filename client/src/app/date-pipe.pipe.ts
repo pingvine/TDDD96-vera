@@ -1,5 +1,5 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import { DatePipe, registerLocaleData } from '@angular/common';
+import {Pipe, PipeTransform,} from '@angular/core';
+import {DatePipe, registerLocaleData,} from '@angular/common';
 import localeSv from '@angular/common/locales/sv';
 
 registerLocaleData(localeSv, 'sv-se');

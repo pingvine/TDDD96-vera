@@ -1,0 +1,105 @@
+<div>
+  <mat-grid-list cols="6" rowHeight="1:.25">
+
+    <!--    Row one-->
+    <mat-grid-tile>Namn: {{visit.firstNames}}  {{visit.lastNames}}</mat-grid-tile>
+    <mat-grid-tile>Personnummer/id: {{visit.additionalInfo.socialId}}</mat-grid-tile>
+    <mat-grid-tile>Kön: {{visit.gender}}</mat-grid-tile>
+    <mat-grid-tile>Ålder: {{visit.additionalInfo.age}}</mat-grid-tile>
+    <mat-grid-tile>Sökorsak: {{visit.additionalInfo.search}}</mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+
+    <!--    Row two-->
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>spO2</mat-label>
+        <input matInput type="number" (focusout)="updateTriage('spo2',$event.target.value )">
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile rowspan="6" colspan="2">
+      <div>
+        <img [src]="'assets/img/human.png'">
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>AF</mat-label>
+        <input matInput type="number" (focusout)="updateTriage('AF',$event.target.value )">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2">
+      <mat-button-toggle-group #matgroup (change)="updatePrio($event.value)">
+        <mat-button-toggle value="red" class="red-visit">Röd</mat-button-toggle>
+        <mat-button-toggle value="orange" class="orange-visit">Orange</mat-button-toggle>
+        <mat-button-toggle value="yellow" class="yellow-visit">Gul</mat-button-toggle>
+        <mat-button-toggle value="lightgreen" class="green-visit">Grön</mat-button-toggle>
+        <mat-button-toggle value="lightskyblue" class="blue-visit">Blå</mat-button-toggle>
+      </mat-button-toggle-group>
+
+
+    </mat-grid-tile>
+
+    <!--    Row three-->
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Puls</mat-label>
+        <input matInput type="number" (focusout)="updateTriage('AF',$event.target.value )">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Blodtryck</mat-label>
+        <input matInput type="number" (focusout)="updateTriage('BF',$event.target.value )">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2">
+      <mat-card [style.background-color]="currentPrio">Prio</mat-card>
+    </mat-grid-tile>
+
+    <!--    Row four-->
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>RLS</mat-label>
+        <input matInput type="number" (focusout)="updateTriage('RLS',$event.target.value )">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Temperatur</mat-label>
+        <input matInput type="number" (focusout)="updateTriage('TEMP',$event.target.value )">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2"></mat-grid-tile>
+    <!--    Row five-->
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Smärta</mat-label>
+        <input matInput type="number" (focusout)="updateTriage('SMÄRTA',$event.target.value )">
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Vikt</mat-label>
+        <input matInput type="number" (focusout)="updateTriage('WEIGTH',$event.target.value )">
+      </mat-form-field>
+
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2"></mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Central Kapillär återfyllnad</mat-label>
+        <input matInput type="text" (focusout)="updateTriage('CPÅ',$event.target.value )">
+      </mat-form-field>
+    </mat-grid-tile>
+
+
+  </mat-grid-list>
+</div>
