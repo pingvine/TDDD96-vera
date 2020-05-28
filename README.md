@@ -10,6 +10,8 @@ Install the required modules by typing `npm install` in the directories /server 
 
 We recommend running WebStorm Professional IDE with the included .eslintrc.json (AirBnB code standard) for code style.
 
+The client is 'heavy' and is able to work with patients by itself through openEHR, but it is recommended to run both the server and client in order to get notifications and other functionality that includes work with the database.
+
 This project was generated with version Angular 9.0.5.
 
 ## Development front end server
