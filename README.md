@@ -1,5 +1,15 @@
 # Vera 20
 
+To run VERA you must install (assuming a Windows environment)
+
+* MongoDB (4.2.6 2008R2Plus)
+* NodeJS (12.8.0)
+* Angular (9.0.5)
+
+Install the required modules by typing `npm install` in the directories /server and /client.
+
+We recommend running WebStorm Professional IDE with the included .eslintrc.json (AirBnB code standard) for code style.
+
 This project was generated with version Angular 9.0.5.
 
 ## Development front end server
@@ -8,7 +18,7 @@ Navigate to ./client and run `ng serve` to start the dev server. The server will
 
 ## Development back end server
 
-Navigate to ./server and run `npm start` to start the dev server. The server will be hosting at `http://localhost:4201/test`. If the server is working correctly, the json test data will show.
+Navigate to ./server and run `npm start` to start the dev server. The server will be hosting at `http://localhost:4201/`. If the server is working correctly, the json test data will show.
 
 ## Database 
 
