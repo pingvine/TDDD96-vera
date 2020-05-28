@@ -1,5 +1,7 @@
 # Vera 20
 
+TODO: Add links to documents, present the project members; a new header that includes the technical details; project information
+
 To run VERA you must install (assuming a Windows environment)
 
 * MongoDB (4.2.6 2008R2Plus)
